@@ -1,0 +1,32 @@
+# 法宝图标提示词列表 (可直接复制使用)
+# 格式: [文件名]|[提示词]
+
+qingzhu_sword.png|Chinese Qingzhu Sword, magical flying sword, glowing emerald green energy, wood element, cultivation artifact, bamboo texture blade, game icon style, 64x64, transparent background, top-down view
+
+ziying_sword.png|Chinese Ziying Sword, magical flying sword, glowing golden-purple energy, metal element, legendary cultivation artifact, ornate hilt, game icon style, 64x64, transparent background, top-down view
+
+xuanyuan_sword.png|Chinese Xuanyuan Sword, divine sword, glowing brilliant golden energy, legendary artifact, ancient Chinese runes, holy light aura, game icon style, 64x64, transparent background, top-down view
+
+qixiu_sword.png|Chinese Qixiu Sword, magical flying sword, glowing rainbow seven-colored energy, seven elements cultivation artifact, prismatic light, game icon style, 64x64, transparent background, top-down view
+
+tiandun_mirror.png|Chinese Tiandun Mirror, magical mirror, glowing silver-white energy, reflection artifact, ancient Chinese bronze mirror design, mystical glow, game icon style, 64x64, transparent background, top-down view
+
+jiutian_ruler.png|Chinese Jiutian Yuanyang Ruler, magical ruler, glowing brilliant golden energy, solar power, cultivation measuring artifact, ancient Chinese design, game icon style, 64x64, transparent background, top-down view
+
+taiyi_smoke_net.png|Chinese Taiyi Five Smoke Net, magical artifact, glowing five-colored cloud energy, ethereal mist, cultivation trapping tool, rainbow smoke wisps, game icon style, 64x64, transparent background, top-down view
+
+xuandu_ruler.png|Chinese Xuandu Ruler, magical ruler, glowing dark iron energy, metal element, cultivation artifact, black metal texture, game icon style, 64x64, transparent background, top-down view
+
+lihe_jade.png|Chinese Lihe Five Cloud Jade Tablet, magical jade, glowing five-colored jade energy, cultivation artifact, ancient Chinese jade tablet, mystical patterns, game icon style, 64x64, transparent background, top-down view
+
+banruo_blade.png|Chinese Banruo Blade, magical Buddhist sword, glowing golden Buddhist light, holy energy, cultivation artifact, lotus pattern, peaceful aura, game icon style, 64x64, transparent background, top-down view
+
+tianmo_sword.png|Chinese Tianmo Zhuxian Sword, demonic sword, glowing dark red-black energy, evil power, cultivation artifact, skull motif, sinister aura, game icon style, 64x64, transparent background, top-down view
+
+blood_blade.png|Chinese Xue Ren Blood Blade, magical sword, glowing crimson blood-red energy, dark power, cultivation artifact, dripping blood effect, game icon style, 64x64, transparent background, top-down view
+
+qingsuo_sword.png|Chinese Qingsuo Sword, magical flying sword, glowing cyan-blue energy, water element, cultivation artifact, elegant blade design, game icon style, 64x64, transparent background, top-down view
+
+nanming_fire_sword.png|Chinese Nanming Lihuo Sword, magical fire sword, glowing intense flame energy, fire element, cultivation artifact, burning blade, phoenix motif, game icon style, 64x64, transparent background, top-down view
+
+tianchan_leaf.png|Chinese Tianchan Spirit Leaf, magical leaf artifact, glowing emerald green energy, wood element, cultivation artifact, cicada wing texture, nature power, game icon style, 64x64, transparent background, top-down view

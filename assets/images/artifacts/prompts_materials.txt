@@ -1,0 +1,72 @@
+# 材料图标提示词列表 (可直接复制使用)
+# 格式: [文件名]|[提示词]
+
+## 矿石类 (ores/)
+
+xuantie_ore.png|Chinese Xuantie Ore, magical ore, glowing dark iron energy, cultivation material, rough crystal shape, game icon style, 64x64, transparent background, top-down view
+
+chitong_ore.png|Chinese Chitong Ore, magical ore, glowing red-copper energy, cultivation material, rough crystal shape, game icon style, 64x64, transparent background, top-down view
+
+xingchen_iron.png|Chinese Xingchen Iron, magical ore, glowing starlight energy, cultivation material, rough crystal shape, game icon style, 64x64, transparent background, top-down view
+
+leiji_wood.png|Chinese Leiji Wood, magical wood, glowing lightning energy, cultivation material, charred texture, game icon style, 64x64, transparent background, top-down view
+
+hanbing_jade.png|Chinese Hanbing Jade, magical jade, glowing ice-blue energy, cultivation material, crystal shape, game icon style, 64x64, transparent background, top-down view
+
+lieyang_stone.png|Chinese Lieyang Stone, magical stone, glowing fire energy, cultivation material, rough crystal shape, game icon style, 64x64, transparent background, top-down view
+
+wuxing_gold.png|Chinese Wuxing Gold, magical metal, glowing five-element energy, cultivation material, ingot shape, game icon style, 64x64, transparent background, top-down view
+
+longlin_ore.png|Chinese Longlin Ore, magical ore, glowing dragon scale energy, cultivation material, scale texture, game icon style, 64x64, transparent background, top-down view
+
+fengxue_crystal.png|Chinese Fengxue Crystal, magical crystal, glowing phoenix blood energy, cultivation material, crystal shape, game icon style, 64x64, transparent background, top-down view
+
+taiyi_gold.png|Chinese Taiyi Gold, magical metal, glowing pure white energy, cultivation material, ingot shape, game icon style, 64x64, transparent background, top-down view
+
+## 药材类 (herbs/)
+
+ginseng.png|Chinese Millennium Ginseng, magical herb, glowing earth energy, cultivation material, root shape, game icon style, 64x64, transparent background, top-down view
+
+lingzhi.png|Chinese Lingzhi Herb, magical herb, glowing purple-red energy, cultivation material, mushroom shape, game icon style, 64x64, transparent background, top-down view
+
+qixin_begonia.png|Chinese Qixin Begonia, magical flower, glowing pink energy, cultivation material, seven petals, game icon style, 64x64, transparent background, top-down view
+
+jiuye_lingzhi.png|Chinese Jiuye Lingzhi, magical mushroom, glowing golden energy, cultivation material, nine-leaf shape, game icon style, 64x64, transparent background, top-down view
+
+snow_lotus.png|Chinese Snow Lotus, magical flower, glowing pure white energy, cultivation material, lotus shape, game icon style, 64x64, transparent background, top-down view
+
+zhu_fruit.png|Chinese Zhu Fruit, magical fruit, glowing crimson energy, cultivation material, round fruit shape, game icon style, 64x64, transparent background, top-down view
+
+longxu_grass.png|Chinese Longxu Grass, magical herb, glowing cyan energy, cultivation material, grass blade shape, game icon style, 64x64, transparent background, top-down view
+
+bodhi_seed.png|Chinese Bodhi Seed, magical seed, glowing pale yellow energy, cultivation material, seed shape, game icon style, 64x64, transparent background, top-down view
+
+xianmao_root.png|Chinese Xianmao Root, magical root, glowing brown-yellow energy, cultivation material, root shape, game icon style, 64x64, transparent background, top-down view
+
+tianshan_lotus.png|Chinese Tianshan Snow Lotus, magical flower, glowing ice-white energy, cultivation material, lotus shape, game icon style, 64x64, transparent background, top-down view
+
+## 妖丹类 (cores/)
+
+wolf_core.png|Chinese Wolf Demon Core, magical core, glowing gray energy, cultivation material, beast orb, game icon style, 64x64, transparent background, top-down view
+
+snake_core.png|Chinese Snake Demon Core, magical core, glowing green energy, cultivation material, beast orb, game icon style, 64x64, transparent background, top-down view
+
+tiger_core.png|Chinese Tiger Demon Core, magical core, glowing orange energy, cultivation material, beast orb, game icon style, 64x64, transparent background, top-down view
+
+eagle_core.png|Chinese Eagle Demon Core, magical core, glowing golden energy, cultivation material, beast orb, game icon style, 64x64, transparent background, top-down view
+
+dragon_core.png|Chinese Flood Dragon Core, magical core, glowing deep blue energy, cultivation material, beast orb, game icon style, 64x64, transparent background, top-down view
+
+phoenix_core.png|Chinese Phoenix Demon Core, magical core, glowing fire-red energy, cultivation material, beast orb, game icon style, 64x64, transparent background, top-down view
+
+## 灵材类 (spirits/)
+
+spirit_wood.png|Chinese Spirit Wood Heart, magical wood, glowing green energy, cultivation material, wood piece, game icon style, 64x64, transparent background, top-down view
+
+immortal_dew.png|Chinese Immortal Dew, magical liquid, glowing crystal energy, cultivation material, water drop, game icon style, 64x64, transparent background, top-down view
+
+chaos_stone.png|Chinese Chaos Stone, magical stone, glowing chaotic energy, cultivation material, rough stone, game icon style, 64x64, transparent background, top-down view
+
+star_sand.png|Chinese Star Sand, magical sand, glowing starlight energy, cultivation material, sand pile, game icon style, 64x64, transparent background, top-down view
+
+earth_fire.png|Chinese Earth Core Fire, magical flame, glowing intense red energy, cultivation material, flame shape, game icon style, 64x64, transparent background, top-down view

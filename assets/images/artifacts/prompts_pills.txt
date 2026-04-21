@@ -1,0 +1,30 @@
+# 丹药图标提示词列表 (可直接复制使用)
+# 格式: [文件名]|[提示词]
+
+healing_pill.png|Chinese Healing Pill, magical pill, glowing red energy, healing aura, cultivation medicine, round pill shape, game icon style, 64x64, transparent background, top-down view
+
+energy_pill.png|Chinese Recovery Pill, magical pill, glowing blue energy, recovery aura, cultivation medicine, round pill shape, game icon style, 64x64, transparent background, top-down view
+
+foundation_pill.png|Chinese Foundation Pill, magical pill, glowing golden energy, foundation aura, cultivation medicine, round pill shape, game icon style, 64x64, transparent background, top-down view
+
+golden_pill.png|Chinese Golden Core, magical pill, glowing brilliant gold energy, immortal core, cultivation medicine, round pill shape, game icon style, 64x64, transparent background, top-down view
+
+tribulation_pill.png|Chinese Tribulation Pill, magical pill, glowing purple energy, lightning aura, cultivation medicine, round pill shape, game icon style, 64x64, transparent background, top-down view
+
+vitality_pill.png|Chinese Vitality Pill, magical pill, glowing green energy, vitality aura, cultivation medicine, round pill shape, game icon style, 64x64, transparent background, top-down view
+
+sustenance_pill.png|Chinese Sustenance Pill, magical pill, glowing brown energy, sustenance aura, cultivation medicine, round pill shape, game icon style, 64x64, transparent background, top-down view
+
+detox_pill.png|Chinese Detox Pill, magical pill, glowing white energy, purification aura, cultivation medicine, round pill shape, game icon style, 64x64, transparent background, top-down view
+
+heart_pill.png|Chinese Heart Protection Pill, magical pill, glowing pink energy, protection aura, cultivation medicine, round pill shape, game icon style, 64x64, transparent background, top-down view
+
+focus_pill.png|Chinese Focus Pill, magical pill, glowing silver energy, focus aura, cultivation medicine, round pill shape, game icon style, 64x64, transparent background, top-down view
+
+strength_pill.png|Chinese Strength Pill, magical pill, glowing orange energy, strength aura, cultivation medicine, round pill shape, game icon style, 64x64, transparent background, top-down view
+
+wisdom_pill.png|Chinese Wisdom Pill, magical pill, glowing cyan energy, wisdom aura, cultivation medicine, round pill shape, game icon style, 64x64, transparent background, top-down view
+
+creation_pill.png|Chinese Creation Pill, magical pill, glowing rainbow energy, creation aura, cultivation medicine, round pill shape, game icon style, 64x64, transparent background, top-down view
+
+supreme_golden_pill.png|Chinese Nine-Turn Golden Core, supreme magical pill, glowing nine-colored golden energy, supreme immortal pill, cultivation medicine, round pill shape, game icon style, 64x64, transparent background, top-down view
