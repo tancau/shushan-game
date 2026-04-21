@@ -36,6 +36,17 @@ except ImportError:
     ActionType = None
     KarmaType = None
 
+# 好友系统
+try:
+    from game.friend import FriendManager, Friend, FriendRequest, FriendshipLevel, Gift, GiftType
+except ImportError:
+    FriendManager = None
+    Friend = None
+    FriendRequest = None
+    FriendshipLevel = None
+    Gift = None
+    GiftType = None
+
 
 class Player:
     """玩家类 - 修仙者"""
@@ -97,6 +108,9 @@ class Player:
         
         # 道心系统
         self.dao_heart: Optional[DaoHeart] = DaoHeart() if DaoHeart else None
+        
+        # 好友系统
+        self.friend_manager: Optional[FriendManager] = FriendManager(self.name) if FriendManager else None
         
         # 其他
         self.karma = 0  # 功德/业力（兼容旧版本）
@@ -721,6 +735,146 @@ class Player:
             return {"methods": []}
         return self.dao_heart.can_reduce_sin()
     
+    # ==================== 好友系统 ====================
+    
+    def init_friend_manager(self):
+        """初始化好友管理器"""
+        if FriendManager:
+            self.friend_manager = FriendManager(self.name)
+    
+    def add_friend(self, friend_id: str, name: str, realm: str = "练气期", 
+                   sect: Optional[str] = None) -> dict:
+        """添加好友"""
+        if not self.friend_manager:
+            return {"success": False, "message": "好友系统未初始化"}
+        return self.friend_manager.add_friend(friend_id, name, realm, sect)
+    
+    def remove_friend(self, friend_id: str) -> dict:
+        """删除好友"""
+        if not self.friend_manager:
+            return {"success": False, "message": "好友系统未初始化"}
+        return self.friend_manager.remove_friend(friend_id)
+    
+    def get_friend_list(self) -> List[Friend]:
+        """获取好友列表"""
+        if not self.friend_manager:
+            return []
+        return self.friend_manager.get_all_friends()
+    
+    def get_friend(self, friend_id: str) -> Optional[Friend]:
+        """获取好友信息"""
+        if not self.friend_manager:
+            return None
+        return self.friend_manager.get_friend(friend_id)
+    
+    def send_gift_to_friend(self, friend_id: str, gift_id: str, quantity: int = 1) -> dict:
+        """赠送礼物给好友"""
+        if not self.friend_manager:
+            return {"success": False, "message": "好友系统未初始化"}
+        
+        # 获取礼物信息
+        gifts = self.friend_manager.get_available_gifts()
+        gift = None
+        for g in gifts:
+            if g.gift_id == gift_id:
+                gift = g
+                gift.quantity = quantity
+                break
+        
+        if not gift:
+            return {"success": False, "message": "未知的礼物类型"}
+        
+        result = self.friend_manager.send_gift(friend_id, gift, self.spirit_stones)
+        
+        if result.get("success"):
+            total_cost = gift.value * quantity
+            self.spirit_stones -= total_cost
+        
+        return result
+    
+    def challenge_friend(self, friend_id: str) -> dict:
+        """与好友切磋"""
+        if not self.friend_manager:
+            return {"success": False, "message": "好友系统未初始化"}
+        
+        # 计算玩家战力
+        player_power = (
+            self.stats.get("攻击", 10) * 10 +
+            self.stats.get("防御", 5) * 5 +
+            self.stats.get("速度", 5) * 3 +
+            self.current_hp
+        )
+        
+        return self.friend_manager.challenge_friend(friend_id, player_power)
+    
+    def get_friend_messages(self, friend_id: str, limit: int = 50) -> List[dict]:
+        """获取好友聊天记录"""
+        if not self.friend_manager:
+            return []
+        messages = self.friend_manager.get_chat_history(friend_id, limit)
+        return [m.to_dict() for m in messages]
+    
+    def send_friend_message(self, friend_id: str, content: str) -> dict:
+        """发送消息给好友"""
+        if not self.friend_manager:
+            return {"success": False, "message": "好友系统未初始化"}
+        return self.friend_manager.send_message(friend_id, content)
+    
+    def get_unread_friend_messages(self) -> int:
+        """获取未读好友消息数量"""
+        if not self.friend_manager:
+            return 0
+        return self.friend_manager.get_unread_count()
+    
+    def accept_friend_request(self, request_id: str) -> dict:
+        """接受好友申请"""
+        if not self.friend_manager:
+            return {"success": False, "message": "好友系统未初始化"}
+        return self.friend_manager.accept_friend_request(request_id)
+    
+    def reject_friend_request(self, request_id: str) -> dict:
+        """拒绝好友申请"""
+        if not self.friend_manager:
+            return {"success": False, "message": "好友系统未初始化"}
+        return self.friend_manager.reject_friend_request(request_id)
+    
+    def get_pending_friend_requests(self) -> List[dict]:
+        """获取待处理的好友申请"""
+        if not self.friend_manager:
+            return []
+        requests = self.friend_manager.get_pending_requests()
+        return [r.to_dict() for r in requests]
+    
+    def get_friend_rankings(self, ranking_type: str = "cultivation") -> List[dict]:
+        """获取好友排行榜"""
+        if not self.friend_manager:
+            return []
+        return self.friend_manager.get_friend_rankings(ranking_type)
+    
+    def daily_friend_interaction(self, friend_id: str) -> dict:
+        """每日好友互动"""
+        if not self.friend_manager:
+            return {"success": False, "message": "好友系统未初始化"}
+        
+        result = self.friend_manager.daily_interaction(friend_id)
+        
+        if result.get("success"):
+            self.spirit_stones += result.get("spirit_stones", 0)
+        
+        return result
+    
+    def get_friend_summary(self) -> str:
+        """获取好友概要"""
+        if not self.friend_manager:
+            return "好友系统未初始化"
+        return self.friend_manager.get_friend_summary()
+    
+    def get_friend_favorability_rewards(self, friend_id: str) -> dict:
+        """获取好友好感度奖励"""
+        if not self.friend_manager:
+            return {"available": False, "message": "好友系统未初始化"}
+        return self.friend_manager.get_favorability_rewards(friend_id)
+    
     # ==================== 其他系统 ====================
     
     def add_artifact(self, artifact: dict):
@@ -784,7 +938,9 @@ class Player:
             "battles_total": self.battles_total,
             "battles_won": self.battles_won,
             # 道心系统
-            "dao_heart": self.dao_heart.to_dict() if self.dao_heart else None
+            "dao_heart": self.dao_heart.to_dict() if self.dao_heart else None,
+            # 好友系统
+            "friend_manager": self.friend_manager.to_dict() if self.friend_manager else None
         }
     
     @classmethod
@@ -856,6 +1012,13 @@ class Player:
             player.dao_heart.merit = max(0, data.get("karma", 0))
             player.dao_heart.sin = max(0, -data.get("karma", 0))
             player.dao_heart._update_dao_heart_type()
+        
+        # 好友系统（兼容旧存档）
+        if FriendManager and "friend_manager" in data and data["friend_manager"]:
+            player.friend_manager = FriendManager.from_dict(data["friend_manager"])
+            player.friend_manager.player_id = player.name  # 更新玩家ID
+        elif FriendManager:
+            player.friend_manager = FriendManager(player.name)
         
         return player
     

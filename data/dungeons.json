@@ -1,0 +1,1203 @@
+{
+  "description": "蜀山剑侠传 - 秘境副本数据库",
+  "version": "1.0.0",
+  
+  "副本类型说明": {
+    "普通": "日常挑战，难度适中，奖励稳定",
+    "精英": "每周挑战，难度较高，稀有奖励",
+    "传说": "极高难度，传说级奖励，需要团队配合"
+  },
+  
+  "dungeons": {
+    "cloud_mist_cave": {
+      "dungeon_id": "cloud_mist_cave",
+      "name": "云雾洞天",
+      "dungeon_type": "普通",
+      "description": "终年云雾缭绕的洞府，传说曾有仙人居住。洞中灵气充沛，适合初入修行的弟子历练。",
+      "lore": "据传此洞府是上古仙人清虚真人所开辟，洞中留有清虚真人的修炼心得。仙人飞升后，此处便成为一处秘境，常有妖兽出没，却也蕴含机缘。",
+      "location": "蜀山后山",
+      "required_realm": "练气期",
+      "required_item": null,
+      "cooldown_hours": 12,
+      "max_attempts_daily": 5,
+      "recommended_power": 100,
+      "floors": [
+        {
+          "floor_number": 1,
+          "name": "云雾入口",
+          "description": "洞口处云雾弥漫，能见度极低。",
+          "enemies": [
+            {"name": "迷雾妖狐", "realm": "练气期", "hp": 80, "attack": 8, "defense": 3, "element": "水"},
+            {"name": "迷雾妖狐", "realm": "练气期", "hp": 80, "attack": 8, "defense": 3, "element": "水"}
+          ],
+          "boss": {
+            "name": "雾中老妖",
+            "realm": "练气期",
+            "hp": 150,
+            "attack": 12,
+            "defense": 5,
+            "element": "水",
+            "skills": ["雾隐", "幻影斩"],
+            "special_ability": "雾中恢复",
+            "lore": "百年老狐修炼成妖，善于在雾中隐藏身形。"
+          },
+          "reward": {
+            "spirit_stones": 50,
+            "cultivation": 100,
+            "exp": 50
+          },
+          "special_rules": []
+        },
+        {
+          "floor_number": 2,
+          "name": "清虚遗迹",
+          "description": "仙人曾在此打坐修炼，残留的灵力形成了独特的修炼环境。",
+          "enemies": [
+            {"name": "灵气傀儡", "realm": "练气期", "hp": 100, "attack": 10, "defense": 8, "element": "土"},
+            {"name": "灵气傀儡", "realm": "练气期", "hp": 100, "attack": 10, "defense": 8, "element": "土"}
+          ],
+          "boss": {
+            "name": "残魂守卫",
+            "realm": "练气期",
+            "hp": 200,
+            "attack": 15,
+            "defense": 10,
+            "element": "土",
+            "skills": ["石柱冲击", "地刺"],
+            "special_ability": "护主之心",
+            "lore": "清虚真人留下的守护残魂，守护着主人的遗物。"
+          },
+          "reward": {
+            "spirit_stones": 80,
+            "cultivation": 150,
+            "materials": {"灵参": 1, "玄铁": 2},
+            "exp": 80
+          },
+          "special_rules": ["灵气充沛：修炼速度+20%"]
+        },
+        {
+          "floor_number": 3,
+          "name": "仙人洞府",
+          "description": "清虚真人的主洞府，藏有仙人遗留的宝藏。",
+          "enemies": [
+            {"name": "洞府守卫", "realm": "筑基期", "hp": 150, "attack": 15, "defense": 10, "element": "金"}
+          ],
+          "boss": {
+            "name": "清虚残魂",
+            "realm": "筑基期",
+            "hp": 300,
+            "attack": 25,
+            "defense": 15,
+            "element": "无",
+            "skills": ["清虚剑意", "云雾迷踪", "仙人指路"],
+            "special_ability": "传承考验",
+            "lore": "清虚真人留下的残魂，考验后来者是否有资格继承他的衣钵。"
+          },
+          "reward": {
+            "spirit_stones": 150,
+            "cultivation": 300,
+            "skills": ["清虚心法"],
+            "materials": {"精金": 1},
+            "exp": 150
+          },
+          "special_rules": ["传承考验：胜利后可能获得功法传承"]
+        }
+      ],
+      "first_clear_reward": {
+        "spirit_stones": 500,
+        "cultivation": 1000,
+        "skills": ["清虚步"],
+        "materials": {"千年灵芝": 1}
+      },
+      "daily_reward": {
+        "spirit_stones": 100,
+        "cultivation": 200
+      }
+    },
+    
+    "emerald_bamboo_grove": {
+      "dungeon_id": "emerald_bamboo_grove",
+      "name": "翠竹林",
+      "dungeon_type": "普通",
+      "description": "一片灵气盎然的竹林，竹子常年翠绿，蕴含木系灵力。这里是采集灵药的好去处。",
+      "lore": "翠竹林原是木灵仙子道场，仙子飞升后竹林自成一界。林中竹叶可入药，竹笋是美味灵食，更有机会遇到木灵精怪。",
+      "location": "峨眉山西麓",
+      "required_realm": "练气期",
+      "required_item": null,
+      "cooldown_hours": 12,
+      "max_attempts_daily": 5,
+      "recommended_power": 120,
+      "floors": [
+        {
+          "floor_number": 1,
+          "name": "竹林外围",
+          "description": "外围的竹林相对安全，但也要小心竹蛇。",
+          "enemies": [
+            {"name": "青竹蛇", "realm": "练气期", "hp": 60, "attack": 12, "defense": 3, "element": "木"},
+            {"name": "青竹蛇", "realm": "练气期", "hp": 60, "attack": 12, "defense": 3, "element": "木"},
+            {"name": "竹林蜂", "realm": "练气期", "hp": 40, "attack": 8, "defense": 2, "element": "木"}
+          ],
+          "boss": null,
+          "reward": {
+            "spirit_stones": 40,
+            "cultivation": 80,
+            "materials": {"七心海棠": 2},
+            "exp": 40
+          },
+          "special_rules": ["木系恢复：每回合恢复少量生命"]
+        },
+        {
+          "floor_number": 2,
+          "name": "灵药园",
+          "description": "竹林深处的灵药园，木灵仙子曾在此种植灵药。",
+          "enemies": [
+            {"name": "木灵傀儡", "realm": "练气期", "hp": 120, "attack": 10, "defense": 15, "element": "木"},
+            {"name": "荆棘妖", "realm": "练气期", "hp": 90, "attack": 14, "defense": 5, "element": "木"}
+          ],
+          "boss": {
+            "name": "青竹尊者",
+            "realm": "练气期",
+            "hp": 180,
+            "attack": 14,
+            "defense": 12,
+            "element": "木",
+            "skills": ["竹叶飞刀", "缠绕藤蔓", "治愈光环"],
+            "special_ability": "翠竹重生",
+            "lore": "吸收木灵仙子遗留灵力而生的竹林守护者。"
+          },
+          "reward": {
+            "spirit_stones": 70,
+            "cultivation": 130,
+            "materials": {"灵参": 2, "朱果": 1},
+            "exp": 70
+          },
+          "special_rules": ["药园守护：采集灵药可能触发守护者"]
+        },
+        {
+          "floor_number": 3,
+          "name": "木灵仙府",
+          "description": "木灵仙子的居所，蕴含丰富的木系灵力和灵药。",
+          "enemies": [],
+          "boss": {
+            "name": "木灵仙子残魂",
+            "realm": "筑基期",
+            "hp": 350,
+            "attack": 22,
+            "defense": 18,
+            "element": "木",
+            "skills": ["生命汲取", "荆棘之墙", "治愈之光", "木灵之怒"],
+            "special_ability": "生生不息",
+            "lore": "木灵仙子留下的残魂，守护着她的传承和灵药园。"
+          },
+          "reward": {
+            "spirit_stones": 120,
+            "cultivation": 250,
+            "materials": {"千年灵芝": 1, "天心莲": 1},
+            "exp": 120
+          },
+          "special_rules": ["生命领域：木系敌人生命+30%"]
+        }
+      ],
+      "first_clear_reward": {
+        "spirit_stones": 400,
+        "cultivation": 800,
+        "skills": ["木灵心法"],
+        "materials": {"天心莲": 2}
+      },
+      "daily_reward": {
+        "spirit_stones": 80,
+        "cultivation": 150
+      }
+    },
+    
+    "sword_tomb": {
+      "dungeon_id": "sword_tomb",
+      "name": "剑冢",
+      "dungeon_type": "精英",
+      "description": "上古剑修埋剑之地，无数断剑插在剑冢之中。剑意凛然，是剑修朝圣的圣地。",
+      "lore": "剑冢形成于上古剑修大战之后，无数剑修在此陨落，他们的佩剑插在此处，形成了一片剑林。剑冢中蕴含着强大的剑意，对剑修有极大的帮助，但也有被剑意反噬的风险。",
+      "location": "昆仑山深处",
+      "required_realm": "筑基期",
+      "required_item": "剑冢令",
+      "cooldown_hours": 48,
+      "max_attempts_daily": 2,
+      "recommended_power": 500,
+      "floors": [
+        {
+          "floor_number": 1,
+          "name": "断剑林",
+          "description": "无数断剑插在地上，剑气纵横。",
+          "enemies": [
+            {"name": "剑气灵体", "realm": "筑基期", "hp": 200, "attack": 30, "defense": 15, "element": "金"},
+            {"name": "剑气灵体", "realm": "筑基期", "hp": 200, "attack": 30, "defense": 15, "element": "金"}
+          ],
+          "boss": {
+            "name": "断剑之灵",
+            "realm": "筑基期",
+            "hp": 400,
+            "attack": 35,
+            "defense": 20,
+            "element": "金",
+            "skills": ["剑气斩", "万剑归宗", "破甲一击"],
+            "special_ability": "剑意压制",
+            "lore": "无数断剑怨念凝聚而成的灵体，守护着剑冢入口。"
+          },
+          "reward": {
+            "spirit_stones": 200,
+            "cultivation": 400,
+            "materials": {"精金": 3, "星辰砂": 1},
+            "exp": 200
+          },
+          "special_rules": ["剑气压制：非剑修受到的伤害+20%"]
+        },
+        {
+          "floor_number": 2,
+          "name": "剑意谷",
+          "description": "剑意最浓之处，空气中都弥漫着锋利的剑意。",
+          "enemies": [
+            {"name": "残剑守护者", "realm": "筑基期", "hp": 250, "attack": 35, "defense": 20, "element": "金"},
+            {"name": "剑魂", "realm": "筑基期", "hp": 180, "attack": 40, "defense": 10, "element": "金"}
+          ],
+          "boss": {
+            "name": "剑意之主",
+            "realm": "筑基期",
+            "hp": 600,
+            "attack": 45,
+            "defense": 25,
+            "element": "金",
+            "skills": ["剑意爆发", "无我剑道", "万剑焚天", "剑心通明"],
+            "special_ability": "剑意共鸣",
+            "lore": "上古大剑修陨落后，其剑意凝聚而成的存在，是剑修追求剑道的终极考验。"
+          },
+          "reward": {
+            "spirit_stones": 350,
+            "cultivation": 700,
+            "materials": {"星辰砂": 2, "天雷石": 1},
+            "exp": 350
+          },
+          "special_rules": ["剑意修炼：剑修在此修炼效率+50%"]
+        },
+        {
+          "floor_number": 3,
+          "name": "神剑冢",
+          "description": "埋葬传说中神剑的禁地。",
+          "enemies": [
+            {"name": "神剑残灵", "realm": "金丹期", "hp": 400, "attack": 50, "defense": 30, "element": "金"}
+          ],
+          "boss": {
+            "name": "绝世剑魂",
+            "realm": "金丹期",
+            "hp": 1000,
+            "attack": 70,
+            "defense": 40,
+            "element": "金",
+            "skills": ["绝剑式", "天剑", "剑开天门", "万剑朝宗", "剑心无痕"],
+            "special_ability": "剑道传承",
+            "lore": "上古剑圣陨落前的最后一剑所化，蕴含剑圣毕生剑道感悟。"
+          },
+          "reward": {
+            "spirit_stones": 600,
+            "cultivation": 1200,
+            "skills": ["剑心通明"],
+            "materials": {"太乙精金": 1, "星辰砂": 3},
+            "exp": 600
+          },
+          "special_rules": ["神剑试炼：胜利后有概率获得神剑碎片"]
+        }
+      ],
+      "first_clear_reward": {
+        "spirit_stones": 2000,
+        "cultivation": 4000,
+        "skills": ["剑意凝形"],
+        "materials": {"太乙精金": 2, "千年雷击木": 1}
+      },
+      "daily_reward": {
+        "spirit_stones": 500,
+        "cultivation": 1000
+      }
+    },
+    
+    "dragon_palace_ruins": {
+      "dungeon_id": "dragon_palace_ruins",
+      "name": "龙宫遗址",
+      "dungeon_type": "精英",
+      "description": "上古龙宫沉没后的遗迹，蕴含龙族宝藏和强大水系灵物。",
+      "lore": "上古时期，东海龙王因触犯天条被贬，龙宫随之沉入海底。千年后，龙宫遗迹重现人间，其中蕴含着龙族的宝藏和强大的水系法宝。但龙宫守卫依然存在，守护着主人的遗物。",
+      "location": "东海深渊",
+      "required_realm": "筑基期",
+      "required_item": "避水珠",
+      "cooldown_hours": 48,
+      "max_attempts_daily": 2,
+      "recommended_power": 600,
+      "floors": [
+        {
+          "floor_number": 1,
+          "name": "海底入口",
+          "description": "龙宫的正门，巨大的石柱上刻满龙纹。",
+          "enemies": [
+            {"name": "虾兵", "realm": "筑基期", "hp": 180, "attack": 25, "defense": 20, "element": "水"},
+            {"name": "蟹将", "realm": "筑基期", "hp": 250, "attack": 30, "defense": 35, "element": "水"},
+            {"name": "虾兵", "realm": "筑基期", "hp": 180, "attack": 25, "defense": 20, "element": "水"}
+          ],
+          "boss": {
+            "name": "巡海夜叉",
+            "realm": "筑基期",
+            "hp": 450,
+            "attack": 40,
+            "defense": 30,
+            "element": "水",
+            "skills": ["水龙波", "三叉戟斩", "海浪冲击"],
+            "special_ability": "水战优势",
+            "lore": "龙宫的巡逻队长，千年未离开岗位。"
+          },
+          "reward": {
+            "spirit_stones": 180,
+            "cultivation": 350,
+            "materials": {"碧水珠": 3, "蛟龙胆": 1},
+            "exp": 180
+          },
+          "special_rules": ["水压压制：火系伤害-30%"]
+        },
+        {
+          "floor_number": 2,
+          "name": "龙宫宝库",
+          "description": "龙族收藏宝物的地方，金碧辉煌。",
+          "enemies": [
+            {"name": "龟丞相", "realm": "筑基期", "hp": 400, "attack": 20, "defense": 50, "element": "水"},
+            {"name": "水族将军", "realm": "筑基期", "hp": 300, "attack": 35, "defense": 25, "element": "水"}
+          ],
+          "boss": {
+            "name": "龙宫守护者",
+            "realm": "金丹期",
+            "hp": 700,
+            "attack": 55,
+            "defense": 40,
+            "element": "水",
+            "skills": ["龙威", "龙鳞护体", "龙息", "龙族秘术"],
+            "special_ability": "龙族血脉",
+            "lore": "龙王的贴身护卫，拥有部分龙族血脉，千年不灭。"
+          },
+          "reward": {
+            "spirit_stones": 400,
+            "cultivation": 800,
+            "materials": {"龙鳞": 2, "蛟龙胆": 2},
+            "exp": 400
+          },
+          "special_rules": ["宝库机关：有概率触发宝库守护"]
+        },
+        {
+          "floor_number": 3,
+          "name": "龙王宝殿",
+          "description": "龙王上朝的地方，龙椅依然金光闪闪。",
+          "enemies": [],
+          "boss": {
+            "name": "龙王残魂",
+            "realm": "金丹期",
+            "hp": 1500,
+            "attack": 80,
+            "defense": 60,
+            "element": "水",
+            "skills": ["龙皇之怒", "海啸", "水龙吟", "龙王真身", "龙族神通"],
+            "special_ability": "龙皇之威",
+            "lore": "东海龙王的残魂，虽只剩残魂，依然拥有龙族的骄傲和力量。"
+          },
+          "reward": {
+            "spirit_stones": 800,
+            "cultivation": 1500,
+            "skills": ["龙族秘术"],
+            "materials": {"龙珠": 1, "龙鳞": 3, "蛟龙胆": 3},
+            "exp": 800
+          },
+          "special_rules": ["龙威压制：所有属性降低20%"]
+        }
+      ],
+      "first_clear_reward": {
+        "spirit_stones": 3000,
+        "cultivation": 6000,
+        "skills": ["水龙诀"],
+        "materials": {"龙珠": 1, "玄冰魄": 2}
+      },
+      "daily_reward": {
+        "spirit_stones": 600,
+        "cultivation": 1200
+      }
+    },
+    
+    "ancient_immortal_palace": {
+      "dungeon_id": "ancient_immortal_palace",
+      "name": "上古仙府",
+      "dungeon_type": "精英",
+      "description": "上古仙人留下的仙府，蕴含仙人传承和无上法宝。",
+      "lore": "此仙府乃上古仙人玄元真人所建，真人飞升后，仙府被他的弟子封印。千年后，封印松动，仙府重现人间。仙府中藏有真人的毕生心血，但也布置了重重机关和强大的守护者。",
+      "location": "昆仑虚",
+      "required_realm": "金丹期",
+      "required_item": "仙府令",
+      "cooldown_hours": 72,
+      "max_attempts_daily": 1,
+      "recommended_power": 1500,
+      "floors": [
+        {
+          "floor_number": 1,
+          "name": "仙府外围",
+          "description": "仙府的入口区域，布置了简易的防御阵法。",
+          "enemies": [
+            {"name": "仙鹤守卫", "realm": "金丹期", "hp": 500, "attack": 60, "defense": 40, "element": "木"},
+            {"name": "仙鹿守护", "realm": "金丹期", "hp": 450, "attack": 55, "defense": 35, "element": "木"}
+          ],
+          "boss": {
+            "name": "外殿守护神",
+            "realm": "金丹期",
+            "hp": 800,
+            "attack": 70,
+            "defense": 50,
+            "element": "土",
+            "skills": ["石柱天降", "土墙防御", "地震波"],
+            "special_ability": "守护之盾",
+            "lore": "真人亲手炼制的守护傀儡，千年不腐。"
+          },
+          "reward": {
+            "spirit_stones": 500,
+            "cultivation": 1000,
+            "materials": {"五行石": 2, "精金": 3},
+            "exp": 500
+          },
+          "special_rules": ["仙家禁制：法力消耗+20%"]
+        },
+        {
+          "floor_number": 2,
+          "name": "炼丹房",
+          "description": "真人炼丹的地方，蕴含珍贵的丹药和炼丹心得。",
+          "enemies": [
+            {"name": "丹火灵体", "realm": "金丹期", "hp": 400, "attack": 80, "defense": 20, "element": "火"},
+            {"name": "丹毒兽", "realm": "金丹期", "hp": 350, "attack": 70, "defense": 30, "element": "木"}
+          ],
+          "boss": {
+            "name": "丹灵真人",
+            "realm": "金丹期",
+            "hp": 1000,
+            "attack": 65,
+            "defense": 45,
+            "element": "火",
+            "skills": ["炼丹术", "丹火焚天", "药力爆发", "丹药辅助"],
+            "special_ability": "炼丹精通",
+            "lore": "玄元真人的炼丹助手，由丹火凝聚而生。"
+          },
+          "reward": {
+            "spirit_stones": 700,
+            "cultivation": 1400,
+            "materials": {"千年灵芝": 2, "天心莲": 2, "龙血草": 1},
+            "exp": 700
+          },
+          "special_rules": ["丹火弥漫：持续受到火系伤害"]
+        },
+        {
+          "floor_number": 3,
+          "name": "藏经阁",
+          "description": "真人收藏功法秘籍的地方，蕴含无数珍贵功法。",
+          "enemies": [
+            {"name": "经书精灵", "realm": "金丹期", "hp": 300, "attack": 50, "defense": 50, "element": "无"}
+          ],
+          "boss": {
+            "name": "藏书守护者",
+            "realm": "金丹期",
+            "hp": 1200,
+            "attack": 60,
+            "defense": 60,
+            "element": "无",
+            "skills": ["知识洪流", "禁咒", "秘法回廊", "万法归一"],
+            "special_ability": "知识就是力量",
+            "lore": "真人以自身知识凝聚而成的守护者，通晓真人所知的所有功法。"
+          },
+          "reward": {
+            "spirit_stones": 900,
+            "cultivation": 1800,
+            "materials": {"千年灵芝": 3},
+            "exp": 900
+          },
+          "special_rules": ["功法压制：所有功法效果-20%"]
+        },
+        {
+          "floor_number": 4,
+          "name": "主殿",
+          "description": "仙府的核心区域，真人的真正传承所在。",
+          "enemies": [],
+          "boss": {
+            "name": "玄元真人残魂",
+            "realm": "元婴期",
+            "hp": 2500,
+            "attack": 120,
+            "defense": 100,
+            "element": "无",
+            "skills": ["玄元剑法", "仙人指路", "天地玄黄", "乾坤大挪移", "无上仙法", "羽化飞升"],
+            "special_ability": "仙人传承",
+            "lore": "玄元真人留下的残魂，寻找有资质的弟子继承他的衣钵。"
+          },
+          "reward": {
+            "spirit_stones": 1500,
+            "cultivation": 3000,
+            "skills": ["玄元心经"],
+            "materials": {"九转还魂草": 1, "太乙精金": 2},
+            "exp": 1500
+          },
+          "special_rules": ["仙人威压：所有属性降低30%"]
+        }
+      ],
+      "first_clear_reward": {
+        "spirit_stones": 8000,
+        "cultivation": 16000,
+        "skills": ["玄元真经"],
+        "materials": {"九转还魂草": 2, "混沌石": 1}
+      },
+      "daily_reward": {
+        "spirit_stones": 1500,
+        "cultivation": 3000
+      }
+    },
+    
+    "demon_realm_rift": {
+      "dungeon_id": "demon_realm_rift",
+      "name": "魔界裂缝",
+      "dungeon_type": "精英",
+      "description": "连接魔界的空间裂缝，魔气弥漫，是魔修的圣地。",
+      "lore": "上古神魔大战时，魔界与人界的界限被打破，形成了这道裂缝。千年过去，裂缝并未愈合，反而成为魔修修炼的圣地。裂缝中的魔气可以大幅提升修炼速度，但也有被魔气侵蚀心智的风险。",
+      "location": "西域魔地",
+      "required_realm": "金丹期",
+      "required_item": "辟魔符",
+      "cooldown_hours": 72,
+      "max_attempts_daily": 1,
+      "recommended_power": 2000,
+      "floors": [
+        {
+          "floor_number": 1,
+          "name": "裂缝入口",
+          "description": "空间裂缝的边缘，魔气最淡薄的地方。",
+          "enemies": [
+            {"name": "魔化妖兽", "realm": "金丹期", "hp": 600, "attack": 80, "defense": 50, "element": "火"},
+            {"name": "魔气灵体", "realm": "金丹期", "hp": 500, "attack": 70, "defense": 40, "element": "火"}
+          ],
+          "boss": {
+            "name": "魔将·噬魂",
+            "realm": "金丹期",
+            "hp": 1000,
+            "attack": 90,
+            "defense": 60,
+            "element": "火",
+            "skills": ["噬魂术", "魔焰焚天", "魔化变身"],
+            "special_ability": "魔气侵蚀",
+            "lore": "从魔界渗透过来的魔将，负责守护裂缝入口。"
+          },
+          "reward": {
+            "spirit_stones": 600,
+            "cultivation": 1200,
+            "materials": {"火山晶": 3, "妖王晶": 1},
+            "exp": 600
+          },
+          "special_rules": ["魔气侵蚀：每回合损失少量生命和真元"]
+        },
+        {
+          "floor_number": 2,
+          "name": "魔域荒原",
+          "description": "真正的魔界领土，魔气浓郁。",
+          "enemies": [
+            {"name": "魔族战士", "realm": "金丹期", "hp": 700, "attack": 85, "defense": 55, "element": "火"},
+            {"name": "魔族法师", "realm": "金丹期", "hp": 500, "attack": 100, "defense": 30, "element": "火"}
+          ],
+          "boss": {
+            "name": "魔王分身",
+            "realm": "元婴期",
+            "hp": 1800,
+            "attack": 110,
+            "defense": 80,
+            "element": "火",
+            "skills": ["魔王之怒", "魔域降临", "魔血沸腾", "暗黑天幕"],
+            "special_ability": "魔王威压",
+            "lore": "魔界大魔王的一具分身，实力强大无比。"
+          },
+          "reward": {
+            "spirit_stones": 1000,
+            "cultivation": 2000,
+            "materials": {"凤髓": 1, "妖王晶": 2},
+            "exp": 1000
+          },
+          "special_rules": ["魔域压制：正道功法效果-30%"]
+        },
+        {
+          "floor_number": 3,
+          "name": "魔王宫殿",
+          "description": "魔界裂缝的核心，魔王本体的驻扎地。",
+          "enemies": [],
+          "boss": {
+            "name": "深渊魔王",
+            "realm": "元婴期",
+            "hp": 3500,
+            "attack": 150,
+            "defense": 120,
+            "element": "火",
+            "skills": ["深渊凝视", "魔王降临", "魔界之门", "灭世魔焰", "深渊吞噬", "魔王真身"],
+            "special_ability": "深渊之力",
+            "lore": "魔界的统治者，实力堪比仙人的存在。这具投影只是他万分之一的实力。"
+          },
+          "reward": {
+            "spirit_stones": 2000,
+            "cultivation": 4000,
+            "skills": ["魔王诀"],
+            "materials": {"凤凰羽": 1, "妖王晶": 3},
+            "exp": 2000
+          },
+          "special_rules": ["魔王领域：所有属性降低40%"]
+        }
+      ],
+      "first_clear_reward": {
+        "spirit_stones": 10000,
+        "cultivation": 20000,
+        "skills": ["魔王传承"],
+        "materials": {"凤凰羽": 2, "混沌石": 1}
+      },
+      "daily_reward": {
+        "spirit_stones": 2000,
+        "cultivation": 4000
+      }
+    },
+    
+    "primordial_spirit_mine": {
+      "dungeon_id": "primordial_spirit_mine",
+      "name": "洪荒灵矿",
+      "dungeon_type": "普通",
+      "description": "上古洪荒时期形成的灵矿，蕴含各种稀有矿石。",
+      "lore": "洪荒灵矿形成于天地初开之时，蕴含着最纯净的天地灵气。矿中出产的矿石是炼制上等法宝的绝佳材料，但矿中也有守护灵矿的妖兽。",
+      "location": "天山深处",
+      "required_realm": "筑基期",
+      "required_item": null,
+      "cooldown_hours": 24,
+      "max_attempts_daily": 3,
+      "recommended_power": 400,
+      "floors": [
+        {
+          "floor_number": 1,
+          "name": "矿脉入口",
+          "description": "灵矿的外层，矿石品质一般。",
+          "enemies": [
+            {"name": "矿洞妖鼠", "realm": "筑基期", "hp": 150, "attack": 20, "defense": 15, "element": "土"},
+            {"name": "矿洞妖鼠", "realm": "筑基期", "hp": 150, "attack": 20, "defense": 15, "element": "土"}
+          ],
+          "boss": {
+            "name": "石甲兽",
+            "realm": "筑基期",
+            "hp": 350,
+            "attack": 28,
+            "defense": 35,
+            "element": "土",
+            "skills": ["石甲护体", "岩石冲击"],
+            "special_ability": "坚硬外壳",
+            "lore": "以矿石为食的妖兽，全身覆盖坚硬的石甲。"
+          },
+          "reward": {
+            "spirit_stones": 120,
+            "cultivation": 250,
+            "materials": {"玄铁": 5, "精金": 1},
+            "exp": 120
+          },
+          "special_rules": []
+        },
+        {
+          "floor_number": 2,
+          "name": "灵矿深处",
+          "description": "矿脉的核心区域，出产稀有矿石。",
+          "enemies": [
+            {"name": "矿石守护者", "realm": "筑基期", "hp": 280, "attack": 35, "defense": 40, "element": "土"}
+          ],
+          "boss": {
+            "name": "矿脉之灵",
+            "realm": "金丹期",
+            "hp": 600,
+            "attack": 50,
+            "defense": 60,
+            "element": "土",
+            "skills": ["地脉之力", "矿石风暴", "土元素召唤"],
+            "special_ability": "矿脉共鸣",
+            "lore": "灵矿孕育而生的精灵，守护着矿脉的核心。"
+          },
+          "reward": {
+            "spirit_stones": 300,
+            "cultivation": 600,
+            "materials": {"星辰砂": 2, "五行石": 1, "天雷石": 1},
+            "exp": 300
+          },
+          "special_rules": ["矿脉祝福：采矿效率+50%"]
+        }
+      ],
+      "first_clear_reward": {
+        "spirit_stones": 800,
+        "cultivation": 1600,
+        "materials": {"五行石": 2, "星辰砂": 3}
+      },
+      "daily_reward": {
+        "spirit_stones": 200,
+        "cultivation": 400
+      }
+    },
+    
+    "thunder_domain": {
+      "dungeon_id": "thunder_domain",
+      "name": "雷域",
+      "dungeon_type": "精英",
+      "description": "常年雷电交加的神秘领域，蕴含强大的雷霆之力。",
+      "lore": "雷域是上古雷神陨落之地，他的神力形成了这片永恒雷电的领域。雷域中的雷霆之力可以淬炼修士的肉身和法宝，但一不小心也会被雷霆化为灰烬。",
+      "location": "九霄之上",
+      "required_realm": "金丹期",
+      "required_item": "避雷符",
+      "cooldown_hours": 48,
+      "max_attempts_daily": 2,
+      "recommended_power": 1200,
+      "floors": [
+        {
+          "floor_number": 1,
+          "name": "雷霆外围",
+          "description": "雷域的外围，雷电相对稀疏。",
+          "enemies": [
+            {"name": "雷灵", "realm": "金丹期", "hp": 400, "attack": 70, "defense": 30, "element": "金"},
+            {"name": "雷兽", "realm": "金丹期", "hp": 350, "attack": 65, "defense": 35, "element": "金"}
+          ],
+          "boss": {
+            "name": "雷霆统领",
+            "realm": "金丹期",
+            "hp": 700,
+            "attack": 80,
+            "defense": 50,
+            "element": "金",
+            "skills": ["雷霆一击", "闪电链", "雷暴"],
+            "special_ability": "雷霆护体",
+            "lore": "雷域外围的守护者，由雷霆凝聚而成。"
+          },
+          "reward": {
+            "spirit_stones": 400,
+            "cultivation": 800,
+            "materials": {"天雷石": 2, "火山晶": 2},
+            "exp": 400
+          },
+          "special_rules": ["雷霆淬体：受到伤害但获得防御加成"]
+        },
+        {
+          "floor_number": 2,
+          "name": "雷神遗迹",
+          "description": "雷神陨落之地，雷霆之力最强。",
+          "enemies": [
+            {"name": "雷神守卫", "realm": "元婴期", "hp": 800, "attack": 100, "defense": 70, "element": "金"}
+          ],
+          "boss": {
+            "name": "雷神残魂",
+            "realm": "元婴期",
+            "hp": 2000,
+            "attack": 130,
+            "defense": 90,
+            "element": "金",
+            "skills": ["神雷天降", "万雷轰顶", "雷神之怒", "雷霆审判"],
+            "special_ability": "神雷之力",
+            "lore": "上古雷神留下的残魂，守护着他的神器和传承。"
+          },
+          "reward": {
+            "spirit_stones": 1000,
+            "cultivation": 2000,
+            "skills": ["雷霆心法"],
+            "materials": {"千年雷击木": 1, "天雷石": 3},
+            "exp": 1000
+          },
+          "special_rules": ["神雷领域：金系伤害+50%"]
+        }
+      ],
+      "first_clear_reward": {
+        "spirit_stones": 4000,
+        "cultivation": 8000,
+        "skills": ["雷神诀"],
+        "materials": {"千年雷击木": 2, "太乙精金": 1}
+      },
+      "daily_reward": {
+        "spirit_stones": 800,
+        "cultivation": 1600
+      }
+    },
+    
+    "fengshen_relics": {
+      "dungeon_id": "fengshen_relics",
+      "name": "封神遗迹",
+      "dungeon_type": "传说",
+      "description": "封神大战的遗迹，众神陨落之地，蕴含无上机缘。",
+      "lore": "上古封神大战，天地变色，众神陨落。战场化为遗迹，封存着无数神器和仙人的传承。但遗迹中的危险也极其可怕，只有最强大的修士才敢踏入此地。",
+      "location": "未知空间",
+      "required_realm": "元婴期",
+      "required_item": "封神令",
+      "cooldown_hours": 168,
+      "max_attempts_daily": 1,
+      "recommended_power": 5000,
+      "floors": [
+        {
+          "floor_number": 1,
+          "name": "战场边缘",
+          "description": "封神战场的边缘，残留着大战的痕迹。",
+          "enemies": [
+            {"name": "战魂", "realm": "元婴期", "hp": 1000, "attack": 120, "defense": 80, "element": "金"},
+            {"name": "战魂", "realm": "元婴期", "hp": 1000, "attack": 120, "defense": 80, "element": "金"}
+          ],
+          "boss": {
+            "name": "上古战将残魂",
+            "realm": "化神期",
+            "hp": 2500,
+            "attack": 180,
+            "defense": 150,
+            "element": "金",
+            "skills": ["战神斩", "百战不殆", "战场统御"],
+            "special_ability": "战意沸腾",
+            "lore": "封神大战中陨落的上古战将，千年战意不灭。"
+          },
+          "reward": {
+            "spirit_stones": 2000,
+            "cultivation": 4000,
+            "materials": {"太乙精金": 2, "妖王晶": 3},
+            "exp": 2000
+          },
+          "special_rules": ["战场威压：所有属性-20%"]
+        },
+        {
+          "floor_number": 2,
+          "name": "神仙陨落之地",
+          "description": "众多神仙陨落的区域，灵气与神力交织。",
+          "enemies": [
+            {"name": "仙人残魂", "realm": "化神期", "hp": 1500, "attack": 150, "defense": 100, "element": "无"}
+          ],
+          "boss": {
+            "name": "金仙残魂",
+            "realm": "化神期",
+            "hp": 4000,
+            "attack": 200,
+            "defense": 180,
+            "element": "无",
+            "skills": ["金仙之威", "仙术·乾坤", "神通·降世", "仙人指路"],
+            "special_ability": "仙人神通",
+            "lore": "金仙级别的仙人陨落后留下的残魂，实力恐怖。"
+          },
+          "reward": {
+            "spirit_stones": 4000,
+            "cultivation": 8000,
+            "skills": ["仙人秘术"],
+            "materials": {"九转还魂草": 2, "混沌石": 1},
+            "exp": 4000
+          },
+          "special_rules": ["仙威压制：修为消耗+50%"]
+        },
+        {
+          "floor_number": 3,
+          "name": "封神台",
+          "description": "封神大战的核心，姜子牙封神之地。",
+          "enemies": [],
+          "boss": {
+            "name": "封神守护者",
+            "realm": "渡劫期",
+            "hp": 10000,
+            "attack": 400,
+            "defense": 350,
+            "element": "无",
+            "skills": ["封神榜", "神罚", "天命难违", "众神降临", "封神一击", "天道审判"],
+            "special_ability": "天道之力",
+            "lore": "守护封神榜的终极存在，实力堪比天仙。只有最强大的修士才能战胜它。"
+          },
+          "reward": {
+            "spirit_stones": 10000,
+            "cultivation": 20000,
+            "skills": ["封神诀"],
+            "materials": {"混沌石": 2, "龙珠": 1, "凤髓": 1},
+            "exp": 10000
+          },
+          "special_rules": ["天道压制：所有属性-50%", "封神领域：封印部分技能"]
+        }
+      ],
+      "first_clear_reward": {
+        "spirit_stones": 50000,
+        "cultivation": 100000,
+        "skills": ["封神传承"],
+        "materials": {"混沌石": 3, "龙珠": 1, "凤髓": 1, "麒麟血": 1}
+      },
+      "daily_reward": {
+        "spirit_stones": 5000,
+        "cultivation": 10000
+      }
+    },
+    
+    "heavenly_realm": {
+      "dungeon_id": "heavenly_realm",
+      "name": "天外天",
+      "dungeon_type": "传说",
+      "description": "超越凡界的神秘领域，蕴含天地本源之力。",
+      "lore": "天外天是传说中的仙境，凡人无法触及。传说中，只有渡劫成功的仙人才能进入。但有一处裂缝，让修士有机会一窥这神秘领域的奥秘。天外天中蕴含着天地初开时的本源之力，是所有修士梦寐以求的终极试炼。",
+      "location": "九天之外",
+      "required_realm": "化神期",
+      "required_item": "天道令",
+      "cooldown_hours": 168,
+      "max_attempts_daily": 1,
+      "recommended_power": 8000,
+      "floors": [
+        {
+          "floor_number": 1,
+          "name": "天门",
+          "description": "通往天外天的大门，由天兵守护。",
+          "enemies": [
+            {"name": "天兵", "realm": "化神期", "hp": 2000, "attack": 200, "defense": 150, "element": "金"},
+            {"name": "天将", "realm": "化神期", "hp": 3000, "attack": 250, "defense": 200, "element": "金"}
+          ],
+          "boss": {
+            "name": "天门守将",
+            "realm": "渡劫期",
+            "hp": 5000,
+            "attack": 300,
+            "defense": 250,
+            "element": "金",
+            "skills": ["天兵天将", "天剑", "神罚"],
+            "special_ability": "天威",
+            "lore": "守护天门的仙人，万年不离开岗位。"
+          },
+          "reward": {
+            "spirit_stones": 3000,
+            "cultivation": 6000,
+            "materials": {"太乙精金": 3, "千年雷击木": 1},
+            "exp": 3000
+          },
+          "special_rules": ["天威压制：所有属性-30%"]
+        },
+        {
+          "floor_number": 2,
+          "name": "仙界外围",
+          "description": "仙界的边缘地带，蕴含纯净的仙气。",
+          "enemies": [
+            {"name": "仙鹤", "realm": "渡劫期", "hp": 2500, "attack": 220, "defense": 180, "element": "木"},
+            {"name": "仙鹿", "realm": "渡劫期", "hp": 2200, "attack": 200, "defense": 170, "element": "木"}
+          ],
+          "boss": {
+            "name": "仙人守卫",
+            "realm": "渡劫期",
+            "hp": 8000,
+            "attack": 350,
+            "defense": 300,
+            "element": "无",
+            "skills": ["仙术", "神通", "天仙下凡", "仙家法宝"],
+            "special_ability": "仙气护体",
+            "lore": "真正的仙人，守护着仙界的秩序。"
+          },
+          "reward": {
+            "spirit_stones": 6000,
+            "cultivation": 12000,
+            "skills": ["仙家心法"],
+            "materials": {"九转还魂草": 3, "天心莲": 3},
+            "exp": 6000
+          },
+          "special_rules": ["仙气弥漫：恢复速度+100%"]
+        },
+        {
+          "floor_number": 3,
+          "name": "天道之境",
+          "description": "天外天的核心，蕴含天地本源。",
+          "enemies": [],
+          "boss": {
+            "name": "天道化身",
+            "realm": "渡劫期",
+            "hp": 20000,
+            "attack": 500,
+            "defense": 400,
+            "element": "无",
+            "skills": ["天道", "混沌初开", "天地玄黄", "宇宙洪荒", "造化之力", "万法归一", "天道轮回"],
+            "special_ability": "天道意志",
+            "lore": "天道的化身，代表着天地运行的法则。战胜它，意味着触摸到了天道的一角。"
+          },
+          "reward": {
+            "spirit_stones": 20000,
+            "cultivation": 40000,
+            "skills": ["天道真经"],
+            "materials": {"混沌石": 3, "龙珠": 2, "凤髓": 2, "麒麟血": 2},
+            "exp": 20000
+          },
+          "special_rules": ["天道威压：所有属性-50%", "本源之力：无法使用普通技能"]
+        }
+      ],
+      "first_clear_reward": {
+        "spirit_stones": 100000,
+        "cultivation": 200000,
+        "skills": ["天道传承"],
+        "materials": {"混沌石": 5, "龙珠": 2, "凤髓": 2, "麒麟血": 2, "千年雷击木": 2}
+      },
+      "daily_reward": {
+        "spirit_stones": 10000,
+        "cultivation": 20000
+      }
+    },
+    
+    "blood_river_sect": {
+      "dungeon_id": "blood_river_sect",
+      "name": "血河教总坛",
+      "dungeon_type": "精英",
+      "description": "血河教的总坛所在地，邪气冲天。",
+      "lore": "血河教是西域最大的邪派，以血河大法著称。教主血河老祖是化神期的邪修，手段残忍。血河教总坛中蕴含血河教的传承和无数血炼法宝，但也充满了邪恶的血阵和陷阱。",
+      "location": "西域血魔山",
+      "required_realm": "金丹期",
+      "required_item": "血河令",
+      "cooldown_hours": 72,
+      "max_attempts_daily": 1,
+      "recommended_power": 1800,
+      "floors": [
+        {
+          "floor_number": 1,
+          "name": "血河外围",
+          "description": "血河教的外围区域，布置了血阵。",
+          "enemies": [
+            {"name": "血河教徒", "realm": "金丹期", "hp": 500, "attack": 60, "defense": 40, "element": "火"},
+            {"name": "血河教徒", "realm": "金丹期", "hp": 500, "attack": 60, "defense": 40, "element": "火"}
+          ],
+          "boss": {
+            "name": "血河护法",
+            "realm": "金丹期",
+            "hp": 900,
+            "attack": 80,
+            "defense": 55,
+            "element": "火",
+            "skills": ["血河剑法", "血祭", "血阵"],
+            "special_ability": "血气恢复",
+            "lore": "血河教的护法长老，修炼血河大法多年。"
+          },
+          "reward": {
+            "spirit_stones": 350,
+            "cultivation": 700,
+            "materials": {"火山晶": 3, "妖兽内丹": 2},
+            "exp": 350
+          },
+          "special_rules": ["血阵压制：持续受到伤害"]
+        },
+        {
+          "floor_number": 2,
+          "name": "血魔殿",
+          "description": "血河教的核心区域，血河老祖的居所。",
+          "enemies": [
+            {"name": "血魔", "realm": "元婴期", "hp": 800, "attack": 100, "defense": 60, "element": "火"}
+          ],
+          "boss": {
+            "name": "血河老祖",
+            "realm": "化神期",
+            "hp": 3000,
+            "attack": 140,
+            "defense": 100,
+            "element": "火",
+            "skills": ["血河大法", "血海滔天", "血魔真身", "万血归宗", "血祭苍穹"],
+            "special_ability": "血魔不死",
+            "lore": "血河教的教主，修炼血河大法至化神期，是正道的大敌。"
+          },
+          "reward": {
+            "spirit_stones": 1500,
+            "cultivation": 3000,
+            "skills": ["血河心法"],
+            "materials": {"凤髓": 1, "妖王晶": 3},
+            "exp": 1500
+          },
+          "special_rules": ["血魔领域：火系伤害+50%，正道伤害-30%"]
+        }
+      ],
+      "first_clear_reward": {
+        "spirit_stones": 6000,
+        "cultivation": 12000,
+        "skills": ["血河真经"],
+        "materials": {"凤凰羽": 1, "混沌石": 1}
+      },
+      "daily_reward": {
+        "spirit_stones": 1200,
+        "cultivation": 2400
+      }
+    },
+    
+    "ice_palace": {
+      "dungeon_id": "ice_palace",
+      "name": "冰魄仙宫",
+      "dungeon_type": "精英",
+      "description": "极北之地的冰封仙宫，蕴含冰系至宝。",
+      "lore": "冰魄仙宫是上古冰仙留下的洞府，常年被冰雪覆盖。仙宫中蕴含着冰系至宝和冰仙的传承，但冰寒之气足以冻杀任何敢于闯入的修士。",
+      "location": "极北冰原",
+      "required_realm": "金丹期",
+      "required_item": "暖玉符",
+      "cooldown_hours": 48,
+      "max_attempts_daily": 2,
+      "recommended_power": 1100,
+      "floors": [
+        {
+          "floor_number": 1,
+          "name": "冰宫入口",
+          "description": "冰魄仙宫的入口，冰寒刺骨。",
+          "enemies": [
+            {"name": "冰精", "realm": "金丹期", "hp": 400, "attack": 55, "defense": 45, "element": "水"},
+            {"name": "雪妖", "realm": "金丹期", "hp": 380, "attack": 50, "defense": 40, "element": "水"}
+          ],
+          "boss": {
+            "name": "冰宫守卫",
+            "realm": "金丹期",
+            "hp": 700,
+            "attack": 70,
+            "defense": 60,
+            "element": "水",
+            "skills": ["冰刃", "寒冰护甲", "冰封"],
+            "special_ability": "冰霜之心",
+            "lore": "冰仙亲手炼制的守卫傀儡，千年不化。"
+          },
+          "reward": {
+            "spirit_stones": 350,
+            "cultivation": 700,
+            "materials": {"玄冰魄": 2, "寒铁矿": 3},
+            "exp": 350
+          },
+          "special_rules": ["冰寒之气：行动速度降低"]
+        },
+        {
+          "floor_number": 2,
+          "name": "冰仙传承地",
+          "description": "冰仙留下传承的禁地。",
+          "enemies": [
+            {"name": "冰龙", "realm": "元婴期", "hp": 1000, "attack": 100, "defense": 80, "element": "水"}
+          ],
+          "boss": {
+            "name": "冰魄仙子残魂",
+            "realm": "元婴期",
+            "hp": 2000,
+            "attack": 120,
+            "defense": 100,
+            "element": "水",
+            "skills": ["冰魄神光", "冰雪世界", "绝对零度", "冰仙传承"],
+            "special_ability": "冰魄之心",
+            "lore": "冰魄仙子留下的残魂，寻找有资质的弟子。"
+          },
+          "reward": {
+            "spirit_stones": 800,
+            "cultivation": 1600,
+            "skills": ["冰魄心法"],
+            "materials": {"玄冰魄": 3, "天山雪魄": 2},
+            "exp": 800
+          },
+          "special_rules": ["冰仙领域：水系伤害+50%"]
+        }
+      ],
+      "first_clear_reward": {
+        "spirit_stones": 3000,
+        "cultivation": 6000,
+        "skills": ["冰魄真经"],
+        "materials": {"玄冰魄": 3, "天山雪魄": 3, "千年灵芝": 2}
+      },
+      "daily_reward": {
+        "spirit_stones": 600,
+        "cultivation": 1200
+      }
+    }
+  },
+  
+  "进入道具说明": {
+    "剑冢令": "进入剑冢的令牌，可在昆仑派兑换",
+    "避水珠": "进入龙宫遗址的必备道具，可在商店购买",
+    "仙府令": "上古仙府的钥匙，需完成特定任务获得",
+    "辟魔符": "抵抗魔气侵蚀的护符，可在佛门兑换",
+    "避雷符": "进入雷域的护身符，可在天雷宗兑换",
+    "封神令": "极为稀有的令牌，只有渡劫成功的修士才能获得",
+    "天道令": "传说中的令牌，只有触摸天道之人才能获得",
+    "血河令": "血河教内部令牌，需要潜入血河教获取",
+    "暖玉符": "抵抗冰寒的护符，可在火系门派兑换"
+  }
+}

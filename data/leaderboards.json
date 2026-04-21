@@ -1,0 +1,42 @@
+{
+  "leaderboards": {
+    "战力榜": {
+      "leaderboard_type": "战力榜",
+      "max_entries": 100,
+      "entries": {},
+      "last_reset": null,
+      "last_weekly_reset": null
+    },
+    "修为榜": {
+      "leaderboard_type": "修为榜",
+      "max_entries": 100,
+      "entries": {},
+      "last_reset": null,
+      "last_weekly_reset": null
+    },
+    "境界榜": {
+      "leaderboard_type": "境界榜",
+      "max_entries": 100,
+      "entries": {},
+      "last_reset": null,
+      "last_weekly_reset": null
+    },
+    "财富榜": {
+      "leaderboard_type": "财富榜",
+      "max_entries": 100,
+      "entries": {},
+      "last_reset": null,
+      "last_weekly_reset": null
+    },
+    "成就榜": {
+      "leaderboard_type": "成就榜",
+      "max_entries": 100,
+      "entries": {},
+      "last_reset": null,
+      "last_weekly_reset": null
+    }
+  },
+  "claimed_daily_rewards": {},
+  "claimed_weekly_rewards": {},
+  "awarded_titles": {}
+}

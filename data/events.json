@@ -1,0 +1,954 @@
+{
+  "events": [
+    {
+      "event_id": "daily_sign_in",
+      "name": "每日签到",
+      "description": "每日签到领取奖励，连续签到可获得更多奖励！",
+      "event_type": "日常",
+      "start_time": "2026-01-01T00:00:00",
+      "end_time": "2099-12-31T23:59:59",
+      "status": "进行中",
+      "tasks": [],
+      "rewards": [],
+      "rank_rewards": [],
+      "point_exchanges": [],
+      "prerequisites": [],
+      "icon": "📅",
+      "banner": "每日签到，修为倍增！"
+    },
+    {
+      "event_id": "daily_cultivation",
+      "name": "限时修炼",
+      "description": "每日在特定时段修炼可获得双倍修为！\n时间：每日12:00-14:00, 20:00-22:00",
+      "event_type": "日常",
+      "start_time": "2026-01-01T00:00:00",
+      "end_time": "2099-12-31T23:59:59",
+      "status": "进行中",
+      "tasks": [
+        {
+          "task_id": "cultivation_1",
+          "task_type": "修炼",
+          "target": "打坐",
+          "required": 10,
+          "description": "完成10次打坐修炼",
+          "reward": {
+            "cultivation": 500,
+            "spirit_stones": 200,
+            "points": 50
+          }
+        },
+        {
+          "task_id": "cultivation_2",
+          "task_type": "突破",
+          "target": "任意境界",
+          "required": 1,
+          "description": "完成1次境界突破",
+          "reward": {
+            "cultivation": 1000,
+            "spirit_stones": 500,
+            "points": 100
+          }
+        }
+      ],
+      "rewards": [
+        {
+          "cultivation": 2000,
+          "spirit_stones": 1000,
+          "karma": 20,
+          "points": 200
+        }
+      ],
+      "rank_rewards": [],
+      "point_exchanges": [],
+      "prerequisites": [],
+      "icon": "🧘",
+      "banner": "天地灵气充盈，正是修炼好时机！"
+    },
+    {
+      "event_id": "daily_demon_slaying",
+      "name": "斩妖除魔",
+      "description": "每日斩杀妖魔，守护蜀山安宁，可获得丰厚奖励！",
+      "event_type": "日常",
+      "start_time": "2026-01-01T00:00:00",
+      "end_time": "2099-12-31T23:59:59",
+      "status": "进行中",
+      "tasks": [
+        {
+          "task_id": "slay_monsters",
+          "task_type": "击杀",
+          "target": "妖魔",
+          "required": 20,
+          "description": "击杀20只妖魔",
+          "reward": {
+            "cultivation": 300,
+            "spirit_stones": 150,
+            "points": 30
+          }
+        },
+        {
+          "task_id": "slay_elite",
+          "task_type": "击杀",
+          "target": "精英妖魔",
+          "required": 3,
+          "description": "击杀3只精英妖魔",
+          "reward": {
+            "cultivation": 500,
+            "spirit_stones": 300,
+            "points": 60
+          }
+        },
+        {
+          "task_id": "slay_boss",
+          "task_type": "击杀",
+          "target": "妖王",
+          "required": 1,
+          "description": "击杀1只妖王",
+          "reward": {
+            "cultivation": 1000,
+            "spirit_stones": 500,
+            "karma": 10,
+            "points": 100
+          }
+        }
+      ],
+      "rewards": [
+        {
+          "cultivation": 1500,
+          "spirit_stones": 800,
+          "karma": 30,
+          "points": 150
+        }
+      ],
+      "rank_rewards": [],
+      "point_exchanges": [
+        {
+          "exchange_id": "exchange_material",
+          "name": "妖魔内丹",
+          "description": "可用于炼制法宝",
+          "points_cost": 100,
+          "reward": {
+            "materials": {
+              "妖魔内丹": 5
+            }
+          },
+          "limit": 10
+        }
+      ],
+      "prerequisites": [],
+      "icon": "⚔️",
+      "banner": "斩妖除魔，为民除害！"
+    },
+    {
+      "event_id": "weekly_sect_competition",
+      "name": "门派大比",
+      "description": "每周门派内部切磋，展现你的实力！\n排名靠前者可获得珍贵奖励。",
+      "event_type": "周常",
+      "start_time": "2026-01-01T00:00:00",
+      "end_time": "2099-12-31T23:59:59",
+      "status": "进行中",
+      "tasks": [
+        {
+          "task_id": "participate",
+          "task_type": "战斗",
+          "target": "切磋",
+          "required": 5,
+          "description": "参与5场切磋",
+          "reward": {
+            "cultivation": 500,
+            "spirit_stones": 300,
+            "points": 50
+          }
+        },
+        {
+          "task_id": "win_matches",
+          "task_type": "战斗",
+          "target": "切磋胜利",
+          "required": 3,
+          "description": "赢得3场切磋",
+          "reward": {
+            "cultivation": 800,
+            "spirit_stones": 500,
+            "points": 80
+          }
+        }
+      ],
+      "rewards": [],
+      "rank_rewards": [
+        {
+          "min_rank": 1,
+          "max_rank": 1,
+          "reward": {
+            "cultivation": 5000,
+            "spirit_stones": 3000,
+            "karma": 100,
+            "artifacts": ["门派法宝·青云剑"],
+            "titles": ["门派首席"]
+          },
+          "title": "门派首席"
+        },
+        {
+          "min_rank": 2,
+          "max_rank": 3,
+          "reward": {
+            "cultivation": 3000,
+            "spirit_stones": 2000,
+            "karma": 50,
+            "artifacts": ["门派法宝·玄光尺"]
+          },
+          "title": "门派精英"
+        },
+        {
+          "min_rank": 4,
+          "max_rank": 10,
+          "reward": {
+            "cultivation": 2000,
+            "spirit_stones": 1000,
+            "karma": 30,
+            "materials": {
+              "玄铁": 5,
+              "灵石矿": 10
+            }
+          },
+          "title": "门派弟子"
+        }
+      ],
+      "point_exchanges": [],
+      "prerequisites": ["加入门派"],
+      "icon": "🏆",
+      "banner": "门派大比，谁是第一？"
+    },
+    {
+      "event_id": "weekly_secret_realm",
+      "name": "秘境探索",
+      "description": "每周开放的秘境，内藏珍稀宝物与强大妖兽。\n组队探索，收获更多！",
+      "event_type": "周常",
+      "start_time": "2026-01-01T00:00:00",
+      "end_time": "2099-12-31T23:59:59",
+      "status": "进行中",
+      "tasks": [
+        {
+          "task_id": "explore_rooms",
+          "task_type": "探索",
+          "target": "秘境房间",
+          "required": 10,
+          "description": "探索10个秘境房间",
+          "reward": {
+            "cultivation": 600,
+            "spirit_stones": 400,
+            "points": 60
+          }
+        },
+        {
+          "task_id": "collect_treasures",
+          "task_type": "收集",
+          "target": "秘境宝箱",
+          "required": 5,
+          "description": "开启5个秘境宝箱",
+          "reward": {
+            "spirit_stones": 1000,
+            "points": 100,
+            "materials": {
+              "天雷石": 2
+            }
+          }
+        },
+        {
+          "task_id": "defeat_guardian",
+          "task_type": "击杀",
+          "target": "秘境守护者",
+          "required": 1,
+          "description": "击败秘境守护者",
+          "reward": {
+            "cultivation": 2000,
+            "spirit_stones": 1000,
+            "karma": 20,
+            "points": 200
+          }
+        }
+      ],
+      "rewards": [
+        {
+          "cultivation": 3000,
+          "spirit_stones": 2000,
+          "karma": 50,
+          "points": 300
+        }
+      ],
+      "rank_rewards": [],
+      "point_exchanges": [
+        {
+          "exchange_id": "exchange_skill",
+          "name": "秘境功法残页",
+          "description": "集齐可兑换稀有功法",
+          "points_cost": 500,
+          "reward": {
+            "materials": {
+              "功法残页": 10
+            }
+          },
+          "limit": 3
+        },
+        {
+          "exchange_id": "exchange_artifact",
+          "name": "秘境法宝碎片",
+          "description": "集齐可合成秘境法宝",
+          "points_cost": 800,
+          "reward": {
+            "materials": {
+              "法宝碎片": 5
+            }
+          },
+          "limit": 2
+        }
+      ],
+      "prerequisites": ["境界达到筑基期"],
+      "icon": "🏯",
+      "banner": "秘境之中，机缘与危险并存！"
+    },
+    {
+      "event_id": "festival_spring",
+      "name": "春节红包",
+      "description": "新春佳节，蜀山派派发红包福利！\n登录即送，还有更多活动等你参与！",
+      "event_type": "节日",
+      "start_time": "2026-01-29T00:00:00",
+      "end_time": "2026-02-14T23:59:59",
+      "status": "即将开始",
+      "tasks": [
+        {
+          "task_id": "spring_login",
+          "task_type": "签到",
+          "target": "登录",
+          "required": 7,
+          "description": "春节期间累计登录7天",
+          "reward": {
+            "cultivation": 2000,
+            "spirit_stones": 1500,
+            "points": 100
+          }
+        },
+        {
+          "task_id": "spring_greeting",
+          "task_type": "对话",
+          "target": "掌门",
+          "required": 1,
+          "description": "向掌门拜年",
+          "reward": {
+            "spirit_stones": 888,
+            "karma": 88,
+            "points": 50
+          }
+        },
+        {
+          "task_id": "spring_fireworks",
+          "task_type": "消耗",
+          "target": "烟花爆竹",
+          "required": 10,
+          "description": "燃放10次烟花爆竹",
+          "reward": {
+            "cultivation": 500,
+            "spirit_stones": 500,
+            "points": 30
+          }
+        }
+      ],
+      "rewards": [
+        {
+          "cultivation": 5000,
+          "spirit_stones": 3000,
+          "karma": 100,
+          "artifacts": ["新春法宝·福禄剑"],
+          "points": 500
+        }
+      ],
+      "rank_rewards": [],
+      "point_exchanges": [
+        {
+          "exchange_id": "spring_costume",
+          "name": "新春时装",
+          "description": "限定新春外观",
+          "points_cost": 300,
+          "reward": {
+            "materials": {
+              "新春时装券": 1
+            }
+          },
+          "limit": 1
+        },
+        {
+          "exchange_id": "spring_pet",
+          "name": "年兽宠物蛋",
+          "description": "可孵化年兽坐骑",
+          "points_cost": 500,
+          "reward": {
+            "materials": {
+              "年兽宠物蛋": 1
+            }
+          },
+          "limit": 1
+        }
+      ],
+      "prerequisites": [],
+      "icon": "🧧",
+      "banner": "恭贺新春，万事如意！"
+    },
+    {
+      "event_id": "festival_mid_autumn",
+      "name": "中秋赏月",
+      "description": "中秋佳节，月圆人团圆。\n赏月品茗，共度佳节！",
+      "event_type": "节日",
+      "start_time": "2026-09-13T00:00:00",
+      "end_time": "2026-09-21T23:59:59",
+      "status": "即将开始",
+      "tasks": [
+        {
+          "task_id": "moon_cake",
+          "task_type": "收集",
+          "target": "月饼",
+          "required": 5,
+          "description": "收集5个月饼",
+          "reward": {
+            "cultivation": 800,
+            "spirit_stones": 500,
+            "points": 50
+          }
+        },
+        {
+          "task_id": "moon_gazing",
+          "task_type": "修炼",
+          "target": "赏月修炼",
+          "required": 3,
+          "description": "在月光下修炼3次",
+          "reward": {
+            "cultivation": 1500,
+            "spirit_stones": 800,
+            "karma": 20,
+            "points": 100
+          }
+        },
+        {
+          "task_id": "lantern_riddle",
+          "task_type": "对话",
+          "target": "灯谜",
+          "required": 10,
+          "description": "猜对10个灯谜",
+          "reward": {
+            "cultivation": 1000,
+            "spirit_stones": 1000,
+            "points": 80
+          }
+        }
+      ],
+      "rewards": [
+        {
+          "cultivation": 4000,
+          "spirit_stones": 2500,
+          "karma": 80,
+          "artifacts": ["中秋法宝·月光宝盒"],
+          "points": 400
+        }
+      ],
+      "rank_rewards": [],
+      "point_exchanges": [
+        {
+          "exchange_id": "moon_rabbit",
+          "name": "玉兔坐骑",
+          "description": "可爱玉兔坐骑",
+          "points_cost": 400,
+          "reward": {
+            "materials": {
+              "玉兔坐骑令": 1
+            }
+          },
+          "limit": 1
+        }
+      ],
+      "prerequisites": [],
+      "icon": "🌕",
+      "banner": "但愿人长久，千里共婵娟！"
+    },
+    {
+      "event_id": "special_server_launch",
+      "name": "开服庆典",
+      "description": "新服开启，豪礼相送！\n七日登录好礼拿不停！",
+      "event_type": "特殊",
+      "start_time": "2026-04-22T00:00:00",
+      "end_time": "2026-05-31T23:59:59",
+      "status": "进行中",
+      "tasks": [
+        {
+          "task_id": "launch_login1",
+          "task_type": "签到",
+          "target": "第1天登录",
+          "required": 1,
+          "description": "开服第1天登录",
+          "reward": {
+            "spirit_stones": 500,
+            "materials": {
+              "开服礼包": 1
+            },
+            "points": 50
+          }
+        },
+        {
+          "task_id": "launch_login3",
+          "task_type": "签到",
+          "target": "累计登录3天",
+          "required": 3,
+          "description": "开服累计登录3天",
+          "reward": {
+            "cultivation": 1000,
+            "spirit_stones": 1000,
+            "points": 100
+          }
+        },
+        {
+          "task_id": "launch_login7",
+          "task_type": "签到",
+          "target": "累计登录7天",
+          "required": 7,
+          "description": "开服累计登录7天",
+          "reward": {
+            "cultivation": 3000,
+            "spirit_stones": 3000,
+            "artifacts": ["开服法宝·青龙偃月刀"],
+            "points": 200
+          }
+        },
+        {
+          "task_id": "launch_quest",
+          "task_type": "探索",
+          "target": "主线任务",
+          "required": 10,
+          "description": "完成10个主线任务",
+          "reward": {
+            "cultivation": 2000,
+            "spirit_stones": 1500,
+            "points": 150
+          }
+        }
+      ],
+      "rewards": [
+        {
+          "cultivation": 5000,
+          "spirit_stones": 5000,
+          "karma": 100,
+          "artifacts": ["开服限定·仙剑令"],
+          "titles": ["开服先驱"],
+          "points": 500
+        }
+      ],
+      "rank_rewards": [
+        {
+          "min_rank": 1,
+          "max_rank": 1,
+          "reward": {
+            "cultivation": 10000,
+            "spirit_stones": 10000,
+            "karma": 300,
+            "artifacts": ["开服限定·神剑"],
+            "titles": ["开服第一人"]
+          },
+          "title": "开服第一人"
+        },
+        {
+          "min_rank": 2,
+          "max_rank": 10,
+          "reward": {
+            "cultivation": 5000,
+            "spirit_stones": 5000,
+            "karma": 150,
+            "artifacts": ["开服限定·仙剑"]
+          }
+        },
+        {
+          "min_rank": 11,
+          "max_rank": 100,
+          "reward": {
+            "cultivation": 2000,
+            "spirit_stones": 2000,
+            "karma": 50,
+            "materials": {
+              "玄铁": 10
+            }
+          }
+        }
+      ],
+      "point_exchanges": [
+        {
+          "exchange_id": "launch_skin",
+          "name": "开服限定时装",
+          "description": "绝版时装，错过不再",
+          "points_cost": 300,
+          "reward": {
+            "materials": {
+              "开服时装券": 1
+            }
+          },
+          "limit": 1
+        },
+        {
+          "exchange_id": "launch_material",
+          "name": "炼器材料包",
+          "description": "包含多种稀有炼器材料",
+          "points_cost": 200,
+          "reward": {
+            "materials": {
+              "玄铁": 20,
+              "天雷石": 5,
+              "灵石矿": 30
+            }
+          },
+          "limit": 5
+        }
+      ],
+      "prerequisites": [],
+      "icon": "🎉",
+      "banner": "新服开启，豪礼不停！"
+    },
+    {
+      "event_id": "special_anniversary",
+      "name": "周年庆典",
+      "description": "蜀山剑侠传周年庆！\n感恩回馈，福利多多！",
+      "event_type": "特殊",
+      "start_time": "2027-04-22T00:00:00",
+      "end_time": "2027-05-07T23:59:59",
+      "status": "即将开始",
+      "tasks": [
+        {
+          "task_id": "anni_login",
+          "task_type": "签到",
+          "target": "周年登录",
+          "required": 14,
+          "description": "周年庆期间累计登录14天",
+          "reward": {
+            "cultivation": 10000,
+            "spirit_stones": 8000,
+            "points": 500
+          }
+        },
+        {
+          "task_id": "anni_share",
+          "task_type": "社交",
+          "target": "分享",
+          "required": 3,
+          "description": "分享游戏3次",
+          "reward": {
+            "spirit_stones": 1000,
+            "points": 100
+          }
+        },
+        {
+          "task_id": "anni_spend",
+          "task_type": "消耗",
+          "target": "灵石",
+          "required": 10000,
+          "description": "累计消耗10000灵石",
+          "reward": {
+            "cultivation": 5000,
+            "karma": 100,
+            "points": 300
+          }
+        }
+      ],
+      "rewards": [
+        {
+          "cultivation": 20000,
+          "spirit_stones": 15000,
+          "karma": 500,
+          "artifacts": ["周年限定·剑神令"],
+          "titles": ["周年玩家"],
+          "points": 1000
+        }
+      ],
+      "rank_rewards": [
+        {
+          "min_rank": 1,
+          "max_rank": 1,
+          "reward": {
+            "cultivation": 50000,
+            "spirit_stones": 30000,
+            "karma": 1000,
+            "artifacts": ["周年限定·神剑·天问"],
+            "titles": ["蜀山剑神"]
+          },
+          "title": "蜀山剑神"
+        },
+        {
+          "min_rank": 2,
+          "max_rank": 10,
+          "reward": {
+            "cultivation": 30000,
+            "spirit_stones": 20000,
+            "karma": 500,
+            "artifacts": ["周年限定·仙剑·问天"]
+          }
+        },
+        {
+          "min_rank": 11,
+          "max_rank": 50,
+          "reward": {
+            "cultivation": 15000,
+            "spirit_stones": 10000,
+            "karma": 200,
+            "artifacts": ["周年限定·灵剑"]
+          }
+        }
+      ],
+      "point_exchanges": [
+        {
+          "exchange_id": "anni_wing",
+          "name": "周年限定翅膀",
+          "description": "绝版翅膀外观",
+          "points_cost": 800,
+          "reward": {
+            "materials": {
+              "周年翅膀券": 1
+            }
+          },
+          "limit": 1
+        },
+        {
+          "exchange_id": "anni_frame",
+          "name": "周年限定头像框",
+          "description": "闪亮头像框",
+          "points_cost": 300,
+          "reward": {
+            "materials": {
+              "周年头像框": 1
+            }
+          },
+          "limit": 1
+        }
+      ],
+      "prerequisites": [],
+      "icon": "🎂",
+      "banner": "感恩有你，一路同行！"
+    },
+    {
+      "event_id": "daily_resource_gathering",
+      "name": "资源收集",
+      "description": "每日收集资源，为门派做贡献！",
+      "event_type": "日常",
+      "start_time": "2026-01-01T00:00:00",
+      "end_time": "2099-12-31T23:59:59",
+      "status": "进行中",
+      "tasks": [
+        {
+          "task_id": "gather_herbs",
+          "task_type": "收集",
+          "target": "灵草",
+          "required": 10,
+          "description": "收集10株灵草",
+          "reward": {
+            "cultivation": 200,
+            "spirit_stones": 150,
+            "points": 25
+          }
+        },
+        {
+          "task_id": "gather_ore",
+          "task_type": "收集",
+          "target": "矿石",
+          "required": 5,
+          "description": "收集5块矿石",
+          "reward": {
+            "cultivation": 300,
+            "spirit_stones": 200,
+            "points": 35
+          }
+        },
+        {
+          "task_id": "craft_item",
+          "task_type": "修炼",
+          "target": "炼制",
+          "required": 3,
+          "description": "炼制3件物品",
+          "reward": {
+            "cultivation": 400,
+            "spirit_stones": 300,
+            "points": 50
+          }
+        }
+      ],
+      "rewards": [
+        {
+          "cultivation": 1000,
+          "spirit_stones": 600,
+          "karma": 15,
+          "points": 100
+        }
+      ],
+      "rank_rewards": [],
+      "point_exchanges": [
+        {
+          "exchange_id": "resource_box",
+          "name": "资源宝箱",
+          "description": "包含随机资源",
+          "points_cost": 80,
+          "reward": {
+            "materials": {
+              "资源宝箱": 1
+            }
+          },
+          "limit": 5
+        }
+      ],
+      "prerequisites": [],
+      "icon": "⛏️",
+      "banner": "收集资源，修炼必备！"
+    },
+    {
+      "event_id": "weekly_treasure_hunt",
+      "name": "藏宝图探索",
+      "description": "每周使用藏宝图寻找宝藏，探索未知之地！",
+      "event_type": "周常",
+      "start_time": "2026-01-01T00:00:00",
+      "end_time": "2099-12-31T23:59:59",
+      "status": "进行中",
+      "tasks": [
+        {
+          "task_id": "use_map",
+          "task_type": "消耗",
+          "target": "藏宝图",
+          "required": 3,
+          "description": "使用3张藏宝图",
+          "reward": {
+            "cultivation": 800,
+            "spirit_stones": 500,
+            "points": 80
+          }
+        },
+        {
+          "task_id": "find_treasure",
+          "task_type": "收集",
+          "target": "宝箱",
+          "required": 5,
+          "description": "找到5个宝箱",
+          "reward": {
+            "spirit_stones": 1500,
+            "points": 150,
+            "materials": {
+              "随机法宝碎片": 3
+            }
+          }
+        },
+        {
+          "task_id": "explore_area",
+          "task_type": "探索",
+          "target": "未知区域",
+          "required": 3,
+          "description": "探索3个未知区域",
+          "reward": {
+            "cultivation": 1000,
+            "spirit_stones": 800,
+            "karma": 20,
+            "points": 100
+          }
+        }
+      ],
+      "rewards": [
+        {
+          "cultivation": 2500,
+          "spirit_stones": 2000,
+          "karma": 40,
+          "points": 300
+        }
+      ],
+      "rank_rewards": [],
+      "point_exchanges": [
+        {
+          "exchange_id": "treasure_key",
+          "name": "金钥匙",
+          "description": "开启高级宝箱",
+          "points_cost": 150,
+          "reward": {
+            "materials": {
+              "金钥匙": 1
+            }
+          },
+          "limit": 3
+        }
+      ],
+      "prerequisites": [],
+      "icon": "🗺️",
+      "banner": "宝藏就在前方，勇敢探索！"
+    },
+    {
+      "event_id": "festival_lantern",
+      "name": "元宵灯会",
+      "description": "元宵佳节，蜀山灯会热闹非凡！\n猜灯谜，赏花灯，乐不停！",
+      "event_type": "节日",
+      "start_time": "2026-02-22T00:00:00",
+      "end_time": "2026-02-28T23:59:59",
+      "status": "即将开始",
+      "tasks": [
+        {
+          "task_id": "lantern_riddle",
+          "task_type": "对话",
+          "target": "灯谜",
+          "required": 20,
+          "description": "猜对20个灯谜",
+          "reward": {
+            "cultivation": 1500,
+            "spirit_stones": 1000,
+            "points": 150
+          }
+        },
+        {
+          "task_id": "make_lantern",
+          "task_type": "修炼",
+          "target": "制作花灯",
+          "required": 5,
+          "description": "制作5个花灯",
+          "reward": {
+            "spirit_stones": 800,
+            "points": 80,
+            "materials": {
+              "花灯": 5
+            }
+          }
+        },
+        {
+          "task_id": "eat_yuanxiao",
+          "task_type": "收集",
+          "target": "元宵",
+          "required": 10,
+          "description": "品尝10份元宵",
+          "reward": {
+            "cultivation": 1000,
+            "spirit_stones": 500,
+            "karma": 30,
+            "points": 100
+          }
+        }
+      ],
+      "rewards": [
+        {
+          "cultivation": 3500,
+          "spirit_stones": 2500,
+          "karma": 80,
+          "artifacts": ["元宵法宝·孔明灯"],
+          "points": 400
+        }
+      ],
+      "rank_rewards": [],
+      "point_exchanges": [
+        {
+          "exchange_id": "lantern_pet",
+          "name": "花灯宠物",
+          "description": "可爱花灯宠物",
+          "points_cost": 350,
+          "reward": {
+            "materials": {
+              "花灯宠物蛋": 1
+            }
+          },
+          "limit": 1
+        }
+      ],
+      "prerequisites": [],
+      "icon": "🏮",
+      "banner": "灯火辉煌，元宵快乐！"
+    }
+  ]
+}
