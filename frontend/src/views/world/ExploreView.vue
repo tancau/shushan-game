@@ -122,7 +122,7 @@ async function handleExplore() {
 
   setTimeout(() => {
     const events: ExploreResult['eventType'][] = ['resource', 'encounter', 'treasure', 'nothing']
-    const eventType = events[Math.floor(Math.random() * events.length)]
+    const eventType = events[Math.floor(Math.random() * events.length)]!
 
     const results: Record<string, ExploreResult> = {
       resource: {
@@ -150,13 +150,13 @@ async function handleExplore() {
       },
     }
 
-    exploreResult.value = results[eventType]
+    exploreResult.value = results[eventType]!
 
     exploreHistory.value.unshift({
       time: new Date().toLocaleTimeString(),
-      event: eventTitles[eventType],
-      result: exploreResult.value.rewards ? '有收获' : '无收获',
-      type: exploreResult.value.rewards ? 'success' : 'normal',
+      event: eventTitles[eventType]!,
+      result: exploreResult.value!.rewards ? '有收获' : '无收获',
+      type: exploreResult.value!.rewards ? 'success' : 'normal',
     })
 
     if (exploreHistory.value.length > 10) {

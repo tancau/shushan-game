@@ -54,6 +54,7 @@ export interface Artifact {
   maxLevel: number
   description: string
   quality: Quality
+  equipped?: boolean  // 是否已装备
 }
 
 export type ArtifactType = '飞剑' | '防御' | '攻击' | '辅助' | '特殊'
@@ -73,4 +74,5 @@ export interface LearnedSkill {
   level: number
   maxLevel: number
   description: string
+  effect?: string  // 功法效果描述
 }

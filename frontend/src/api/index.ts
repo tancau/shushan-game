@@ -1,4 +1,5 @@
 import axios, { AxiosError } from 'axios'
+import type { AxiosResponse } from 'axios'
 import type { ApiResponse, ApiError } from '@/types'
 
 const apiClient = axios.create({
@@ -20,9 +21,11 @@ apiClient.interceptors.request.use(
   (error) => Promise.reject(error),
 )
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 apiClient.interceptors.response.use(
-  (response) => {
-    return response.data as ApiResponse
+  (response: AxiosResponse<any, any>) => {
+    // API 直接返回数据，不需要包裹在 data 中
+    return response.data
   },
   (error: AxiosError<ApiError>) => {
     const message = error.response?.data?.message || '网络请求失败'
