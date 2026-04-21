@@ -1,0 +1,974 @@
+{
+  "achievements": [
+    {
+      "achievement_id": "cultivation_1",
+      "name": "初入仙门",
+      "description": "踏入修真之路，成为练气期修士",
+      "category": "修炼",
+      "rarity": "普通",
+      "conditions": [
+        {"condition_type": "realm_reach", "target": "", "required": 1, "description": "达到练气期"}
+      ],
+      "rewards": {"achievement_points": 10, "spirit_stones": 100, "cultivation": 50, "title": null, "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "cultivation_2",
+      "name": "筑基成功",
+      "description": "铸就道基，突破至筑基期",
+      "category": "修炼",
+      "rarity": "普通",
+      "conditions": [
+        {"condition_type": "realm_reach", "target": "", "required": 2, "description": "达到筑基期"}
+      ],
+      "rewards": {"achievement_points": 20, "spirit_stones": 500, "cultivation": 200, "title": "筑基修士", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["cultivation_1"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "cultivation_3",
+      "name": "金丹大成",
+      "description": "凝聚金丹，法力大增",
+      "category": "修炼",
+      "rarity": "稀有",
+      "conditions": [
+        {"condition_type": "realm_reach", "target": "", "required": 3, "description": "达到金丹期"}
+      ],
+      "rewards": {"achievement_points": 50, "spirit_stones": 2000, "cultivation": 1000, "title": "金丹真人", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["cultivation_2"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "cultivation_4",
+      "name": "元婴出窍",
+      "description": "元婴成形，神识外放",
+      "category": "修炼",
+      "rarity": "史诗",
+      "conditions": [
+        {"condition_type": "realm_reach", "target": "", "required": 4, "description": "达到元婴期"}
+      ],
+      "rewards": {"achievement_points": 100, "spirit_stones": 10000, "cultivation": 5000, "title": "元婴老祖", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["cultivation_3"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "cultivation_5",
+      "name": "化神之境",
+      "description": "元神化形，法宝炼化",
+      "category": "修炼",
+      "rarity": "史诗",
+      "conditions": [
+        {"condition_type": "realm_reach", "target": "", "required": 5, "description": "达到化神期"}
+      ],
+      "rewards": {"achievement_points": 150, "spirit_stones": 50000, "cultivation": 20000, "title": "化神真君", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["cultivation_4"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "cultivation_6",
+      "name": "合体归一",
+      "description": "身神合一，准备飞升",
+      "category": "修炼",
+      "rarity": "传说",
+      "conditions": [
+        {"condition_type": "realm_reach", "target": "", "required": 6, "description": "达到合体期"}
+      ],
+      "rewards": {"achievement_points": 200, "spirit_stones": 200000, "cultivation": 100000, "title": "合体大能", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["cultivation_5"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "cultivation_7",
+      "name": "渡劫飞升",
+      "description": "渡过天劫，飞升成仙",
+      "category": "修炼",
+      "rarity": "传说",
+      "conditions": [
+        {"condition_type": "realm_reach", "target": "", "required": 7, "description": "达到渡劫期"}
+      ],
+      "rewards": {"achievement_points": 500, "spirit_stones": 1000000, "cultivation": 500000, "title": "渡劫仙尊", "artifacts": ["仙剑"], "skills": [], "stat_bonuses": {"攻击": 0.5, "生命": 0.5}},
+      "prerequisites": ["cultivation_6"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "cultivation_8",
+      "name": "苦修百年",
+      "description": "累计修为达到100万",
+      "category": "修炼",
+      "rarity": "稀有",
+      "conditions": [
+        {"condition_type": "cultivation_reach", "target": "", "required": 1000000, "description": "累计修为达到100万"}
+      ],
+      "rewards": {"achievement_points": 30, "spirit_stones": 1000, "cultivation": 0, "title": null, "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "cultivation_9",
+      "name": "道心坚定",
+      "description": "累计修为达到1亿",
+      "category": "修炼",
+      "rarity": "史诗",
+      "conditions": [
+        {"condition_type": "cultivation_reach", "target": "", "required": 100000000, "description": "累计修为达到1亿"}
+      ],
+      "rewards": {"achievement_points": 80, "spirit_stones": 10000, "cultivation": 0, "title": "修道之人", "artifacts": [], "skills": [], "stat_bonuses": {"悟性": 0.1}},
+      "prerequisites": ["cultivation_8"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "cultivation_10",
+      "name": "万法归宗",
+      "description": "学会10种功法",
+      "category": "修炼",
+      "rarity": "稀有",
+      "conditions": [
+        {"condition_type": "skill_count", "target": "", "required": 10, "description": "学会10种功法"}
+      ],
+      "rewards": {"achievement_points": 40, "spirit_stones": 3000, "cultivation": 1500, "title": null, "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "combat_1",
+      "name": "首战告捷",
+      "description": "完成第一场战斗",
+      "category": "战斗",
+      "rarity": "普通",
+      "conditions": [
+        {"condition_type": "kill_count", "target": "any", "required": 1, "description": "击杀1个敌人"}
+      ],
+      "rewards": {"achievement_points": 10, "spirit_stones": 50, "cultivation": 20, "title": null, "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "combat_2",
+      "name": "初露锋芒",
+      "description": "累计击杀100个敌人",
+      "category": "战斗",
+      "rarity": "普通",
+      "conditions": [
+        {"condition_type": "kill_count", "target": "any", "required": 100, "description": "累计击杀100个敌人"}
+      ],
+      "rewards": {"achievement_points": 20, "spirit_stones": 200, "cultivation": 100, "title": null, "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["combat_1"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "combat_3",
+      "name": "斩妖除魔",
+      "description": "累计击杀500个敌人",
+      "category": "战斗",
+      "rarity": "稀有",
+      "conditions": [
+        {"condition_type": "kill_count", "target": "any", "required": 500, "description": "累计击杀500个敌人"}
+      ],
+      "rewards": {"achievement_points": 50, "spirit_stones": 1000, "cultivation": 500, "title": "除魔卫道", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["combat_2"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "combat_4",
+      "name": "百战百胜",
+      "description": "累计击杀1000个敌人",
+      "category": "战斗",
+      "rarity": "稀有",
+      "conditions": [
+        {"condition_type": "kill_count", "target": "any", "required": 1000, "description": "累计击杀1000个敌人"}
+      ],
+      "rewards": {"achievement_points": 80, "spirit_stones": 3000, "cultivation": 1500, "title": "百战勇士", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["combat_3"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "combat_5",
+      "name": "威震八方",
+      "description": "累计击杀5000个敌人",
+      "category": "战斗",
+      "rarity": "史诗",
+      "conditions": [
+        {"condition_type": "kill_count", "target": "any", "required": 5000, "description": "累计击杀5000个敌人"}
+      ],
+      "rewards": {"achievement_points": 120, "spirit_stones": 10000, "cultivation": 5000, "title": "威震天下", "artifacts": [], "skills": [], "stat_bonuses": {"攻击": 0.1}},
+      "prerequisites": ["combat_4"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "combat_6",
+      "name": "剑道至尊",
+      "description": "累计击杀10000个敌人",
+      "category": "战斗",
+      "rarity": "传说",
+      "conditions": [
+        {"condition_type": "kill_count", "target": "any", "required": 10000, "description": "累计击杀10000个敌人"}
+      ],
+      "rewards": {"achievement_points": 200, "spirit_stones": 50000, "cultivation": 20000, "title": "剑道至尊", "artifacts": ["神剑碎片"], "skills": [], "stat_bonuses": {"攻击": 0.2, "速度": 0.1}},
+      "prerequisites": ["combat_5"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "combat_7",
+      "name": "妖魔克星",
+      "description": "击杀100只妖魔",
+      "category": "战斗",
+      "rarity": "稀有",
+      "conditions": [
+        {"condition_type": "kill_count", "target": "妖魔", "required": 100, "description": "击杀100只妖魔"}
+      ],
+      "rewards": {"achievement_points": 40, "spirit_stones": 500, "cultivation": 300, "title": null, "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "combat_8",
+      "name": "正道先锋",
+      "description": "击杀100只邪修",
+      "category": "战斗",
+      "rarity": "稀有",
+      "conditions": [
+        {"condition_type": "kill_count", "target": "邪修", "required": 100, "description": "击杀100只邪修"}
+      ],
+      "rewards": {"achievement_points": 40, "spirit_stones": 500, "cultivation": 300, "title": null, "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "exploration_1",
+      "name": "初出茅庐",
+      "description": "离开新手村，探索外面的世界",
+      "category": "探索",
+      "rarity": "普通",
+      "conditions": [
+        {"condition_type": "explore", "target": "峨眉山脚", "required": 1, "description": "探索峨眉山脚"}
+      ],
+      "rewards": {"achievement_points": 10, "spirit_stones": 100, "cultivation": 50, "title": null, "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "exploration_2",
+      "name": "踏遍神州",
+      "description": "探索10个不同地点",
+      "category": "探索",
+      "rarity": "稀有",
+      "conditions": [
+        {"condition_type": "explore", "target": "multiple", "required": 10, "description": "探索10个不同地点"}
+      ],
+      "rewards": {"achievement_points": 30, "spirit_stones": 500, "cultivation": 200, "title": "云游四方", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["exploration_1"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "exploration_3",
+      "name": "秘境探索者",
+      "description": "探索20个不同地点",
+      "category": "探索",
+      "rarity": "史诗",
+      "conditions": [
+        {"condition_type": "explore", "target": "multiple", "required": 20, "description": "探索20个不同地点"}
+      ],
+      "rewards": {"achievement_points": 60, "spirit_stones": 2000, "cultivation": 1000, "title": "秘境探索者", "artifacts": [], "skills": [], "stat_bonuses": {"幸运": 0.05}},
+      "prerequisites": ["exploration_2"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "exploration_4",
+      "name": "寻访名山",
+      "description": "探访峨眉、青城、昆仑三大名山",
+      "category": "探索",
+      "rarity": "稀有",
+      "conditions": [
+        {"condition_type": "explore", "target": "峨眉山", "required": 1, "description": "探访峨眉山"},
+        {"condition_type": "explore", "target": "青城山", "required": 1, "description": "探访青城山"},
+        {"condition_type": "explore", "target": "昆仑山", "required": 1, "description": "探访昆仑山"}
+      ],
+      "rewards": {"achievement_points": 50, "spirit_stones": 1500, "cultivation": 800, "title": null, "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "exploration_5",
+      "name": "深入禁地",
+      "description": "探索危险禁地",
+      "category": "探索",
+      "rarity": "史诗",
+      "conditions": [
+        {"condition_type": "explore", "target": "血河禁地", "required": 1, "description": "探索血河禁地"}
+      ],
+      "rewards": {"achievement_points": 80, "spirit_stones": 3000, "cultivation": 1500, "title": "禁地勇者", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": true
+    },
+    {
+      "achievement_id": "collection_1",
+      "name": "法宝初得",
+      "description": "获得第一件法宝",
+      "category": "收集",
+      "rarity": "普通",
+      "conditions": [
+        {"condition_type": "artifact_count", "target": "", "required": 1, "description": "拥有1件法宝"}
+      ],
+      "rewards": {"achievement_points": 10, "spirit_stones": 100, "cultivation": 50, "title": null, "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "collection_2",
+      "name": "法宝收藏家",
+      "description": "收集5件法宝",
+      "category": "收集",
+      "rarity": "稀有",
+      "conditions": [
+        {"condition_type": "artifact_count", "target": "", "required": 5, "description": "拥有5件法宝"}
+      ],
+      "rewards": {"achievement_points": 40, "spirit_stones": 1000, "cultivation": 500, "title": "法宝收藏家", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["collection_1"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "collection_3",
+      "name": "法宝大师",
+      "description": "收集10件法宝",
+      "category": "收集",
+      "rarity": "史诗",
+      "conditions": [
+        {"condition_type": "artifact_count", "target": "", "required": 10, "description": "拥有10件法宝"}
+      ],
+      "rewards": {"achievement_points": 80, "spirit_stones": 3000, "cultivation": 1500, "title": "法宝大师", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["collection_2"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "collection_4",
+      "name": "法宝至尊",
+      "description": "收集20件法宝",
+      "category": "收集",
+      "rarity": "传说",
+      "conditions": [
+        {"condition_type": "artifact_count", "target": "", "required": 20, "description": "拥有20件法宝"}
+      ],
+      "rewards": {"achievement_points": 150, "spirit_stones": 10000, "cultivation": 5000, "title": "法宝至尊", "artifacts": ["至尊法宝匣"], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["collection_3"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "collection_5",
+      "name": "功法大师",
+      "description": "学会20种功法",
+      "category": "收集",
+      "rarity": "史诗",
+      "conditions": [
+        {"condition_type": "skill_count", "target": "", "required": 20, "description": "学会20种功法"}
+      ],
+      "rewards": {"achievement_points": 80, "spirit_stones": 5000, "cultivation": 2000, "title": "功法大师", "artifacts": [], "skills": [], "stat_bonuses": {"悟性": 0.1}},
+      "prerequisites": ["cultivation_10"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "collection_6",
+      "name": "灵石富翁",
+      "description": "累计获得10000灵石",
+      "category": "收集",
+      "rarity": "稀有",
+      "conditions": [
+        {"condition_type": "spirit_stones_reach", "target": "", "required": 10000, "description": "累计获得10000灵石"}
+      ],
+      "rewards": {"achievement_points": 30, "spirit_stones": 1000, "cultivation": 500, "title": null, "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "collection_7",
+      "name": "富甲一方",
+      "description": "累计获得100000灵石",
+      "category": "收集",
+      "rarity": "史诗",
+      "conditions": [
+        {"condition_type": "spirit_stones_reach", "target": "", "required": 100000, "description": "累计获得100000灵石"}
+      ],
+      "rewards": {"achievement_points": 60, "spirit_stones": 5000, "cultivation": 2000, "title": "富甲一方", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["collection_6"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "social_1",
+      "name": "门派弟子",
+      "description": "加入一个门派",
+      "category": "社交",
+      "rarity": "普通",
+      "conditions": [
+        {"condition_type": "sect_join", "target": "any", "required": 1, "description": "加入门派"}
+      ],
+      "rewards": {"achievement_points": 15, "spirit_stones": 200, "cultivation": 100, "title": null, "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "social_2",
+      "name": "峨眉弟子",
+      "description": "加入峨眉派",
+      "category": "社交",
+      "rarity": "普通",
+      "conditions": [
+        {"condition_type": "sect_join", "target": "峨眉派", "required": 1, "description": "加入峨眉派"}
+      ],
+      "rewards": {"achievement_points": 20, "spirit_stones": 300, "cultivation": 150, "title": "峨眉弟子", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "social_3",
+      "name": "青城弟子",
+      "description": "加入青城派",
+      "category": "社交",
+      "rarity": "普通",
+      "conditions": [
+        {"condition_type": "sect_join", "target": "青城派", "required": 1, "description": "加入青城派"}
+      ],
+      "rewards": {"achievement_points": 20, "spirit_stones": 300, "cultivation": 150, "title": "青城弟子", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "social_4",
+      "name": "昆仑弟子",
+      "description": "加入昆仑派",
+      "category": "社交",
+      "rarity": "普通",
+      "conditions": [
+        {"condition_type": "sect_join", "target": "昆仑派", "required": 1, "description": "加入昆仑派"}
+      ],
+      "rewards": {"achievement_points": 20, "spirit_stones": 300, "cultivation": 150, "title": "昆仑弟子", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "social_5",
+      "name": "血河弟子",
+      "description": "加入血河教",
+      "category": "社交",
+      "rarity": "稀有",
+      "conditions": [
+        {"condition_type": "sect_join", "target": "血河教", "required": 1, "description": "加入血河教"}
+      ],
+      "rewards": {"achievement_points": 30, "spirit_stones": 500, "cultivation": 300, "title": "血河弟子", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "social_6",
+      "name": "任务达人",
+      "description": "完成10个任务",
+      "category": "社交",
+      "rarity": "普通",
+      "conditions": [
+        {"condition_type": "quest_complete", "target": "", "required": 10, "description": "完成10个任务"}
+      ],
+      "rewards": {"achievement_points": 20, "spirit_stones": 300, "cultivation": 150, "title": null, "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "social_7",
+      "name": "任务专家",
+      "description": "完成50个任务",
+      "category": "社交",
+      "rarity": "稀有",
+      "conditions": [
+        {"condition_type": "quest_complete", "target": "", "required": 50, "description": "完成50个任务"}
+      ],
+      "rewards": {"achievement_points": 50, "spirit_stones": 1500, "cultivation": 800, "title": "任务专家", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["social_6"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "social_8",
+      "name": "任务大师",
+      "description": "完成100个任务",
+      "category": "社交",
+      "rarity": "史诗",
+      "conditions": [
+        {"condition_type": "quest_complete", "target": "", "required": 100, "description": "完成100个任务"}
+      ],
+      "rewards": {"achievement_points": 100, "spirit_stones": 5000, "cultivation": 2500, "title": "任务大师", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["social_7"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "social_9",
+      "name": "正道之师",
+      "description": "功德值达到1000",
+      "category": "社交",
+      "rarity": "史诗",
+      "conditions": [
+        {"condition_type": "karma_reach", "target": "", "required": 1000, "description": "功德值达到1000"}
+      ],
+      "rewards": {"achievement_points": 80, "spirit_stones": 3000, "cultivation": 1500, "title": "正道之师", "artifacts": [], "skills": [], "stat_bonuses": {"生命": 0.1}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "social_10",
+      "name": "魔道至尊",
+      "description": "业力值达到-1000",
+      "category": "社交",
+      "rarity": "史诗",
+      "conditions": [
+        {"condition_type": "karma_reach", "target": "", "required": -1000, "description": "业力值达到-1000"}
+      ],
+      "rewards": {"achievement_points": 80, "spirit_stones": 3000, "cultivation": 1500, "title": "魔道至尊", "artifacts": [], "skills": [], "stat_bonuses": {"攻击": 0.1}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "special_1",
+      "name": "天选之人",
+      "description": "完成所有修炼成就",
+      "category": "特殊",
+      "rarity": "传说",
+      "conditions": [
+        {"condition_type": "realm_reach", "target": "", "required": 7, "description": "达到渡劫期"}
+      ],
+      "rewards": {"achievement_points": 300, "spirit_stones": 500000, "cultivation": 200000, "title": "天选之人", "artifacts": ["天命剑"], "skills": [], "stat_bonuses": {"攻击": 0.3, "生命": 0.3, "速度": 0.2}},
+      "prerequisites": ["cultivation_7"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "special_2",
+      "name": "逆天改命",
+      "description": "功德值达到5000",
+      "category": "特殊",
+      "rarity": "传说",
+      "conditions": [
+        {"condition_type": "karma_reach", "target": "", "required": 5000, "description": "功德值达到5000"}
+      ],
+      "rewards": {"achievement_points": 200, "spirit_stones": 100000, "cultivation": 50000, "title": "逆天改命", "artifacts": [], "skills": [], "stat_bonuses": {"生命": 0.2, "防御": 0.2}},
+      "prerequisites": ["social_9"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "special_3",
+      "name": "魔威滔天",
+      "description": "业力值达到-5000",
+      "category": "特殊",
+      "rarity": "传说",
+      "conditions": [
+        {"condition_type": "karma_reach", "target": "", "required": -5000, "description": "业力值达到-5000"}
+      ],
+      "rewards": {"achievement_points": 200, "spirit_stones": 100000, "cultivation": 50000, "title": "魔威滔天", "artifacts": ["魔道至宝"], "skills": [], "stat_bonuses": {"攻击": 0.3, "速度": 0.2}},
+      "prerequisites": ["social_10"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "special_4",
+      "name": "成就收集者",
+      "description": "完成20个成就",
+      "category": "特殊",
+      "rarity": "稀有",
+      "conditions": [
+        {"condition_type": "achievement_count", "target": "", "required": 20, "description": "完成20个成就"}
+      ],
+      "rewards": {"achievement_points": 50, "spirit_stones": 2000, "cultivation": 1000, "title": null, "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "special_5",
+      "name": "成就大师",
+      "description": "完成40个成就",
+      "category": "特殊",
+      "rarity": "史诗",
+      "conditions": [
+        {"condition_type": "achievement_count", "target": "", "required": 40, "description": "完成40个成就"}
+      ],
+      "rewards": {"achievement_points": 100, "spirit_stones": 8000, "cultivation": 4000, "title": "成就大师", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["special_4"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "special_6",
+      "name": "完美主义",
+      "description": "完成50个成就",
+      "category": "特殊",
+      "rarity": "传说",
+      "conditions": [
+        {"condition_type": "achievement_count", "target": "", "required": 50, "description": "完成50个成就"}
+      ],
+      "rewards": {"achievement_points": 200, "spirit_stones": 20000, "cultivation": 10000, "title": "完美主义", "artifacts": ["完美徽章"], "skills": [], "stat_bonuses": {"幸运": 0.1}},
+      "prerequisites": ["special_5"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "special_7",
+      "name": "逍遥散仙",
+      "description": "不加入任何门派达到金丹期",
+      "category": "特殊",
+      "rarity": "史诗",
+      "conditions": [
+        {"condition_type": "realm_reach", "target": "", "required": 3, "description": "达到金丹期"},
+        {"condition_type": "sect_join", "target": "none", "required": 0, "description": "不加入门派"}
+      ],
+      "rewards": {"achievement_points": 100, "spirit_stones": 5000, "cultivation": 2500, "title": "逍遥散仙", "artifacts": [], "skills": [], "stat_bonuses": {"幸运": 0.05}},
+      "prerequisites": [],
+      "hidden": true
+    },
+    {
+      "achievement_id": "special_8",
+      "name": "修真狂人",
+      "description": "累计游戏时长达到1000分钟",
+      "category": "特殊",
+      "rarity": "稀有",
+      "conditions": [
+        {"condition_type": "play_time", "target": "", "required": 1000, "description": "游戏时长1000分钟"}
+      ],
+      "rewards": {"achievement_points": 50, "spirit_stones": 2000, "cultivation": 1000, "title": null, "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": [],
+      "hidden": false
+    },
+    {
+      "achievement_id": "special_9",
+      "name": "虔诚修行",
+      "description": "累计游戏时长达到10000分钟",
+      "category": "特殊",
+      "rarity": "史诗",
+      "conditions": [
+        {"condition_type": "play_time", "target": "", "required": 10000, "description": "游戏时长10000分钟"}
+      ],
+      "rewards": {"achievement_points": 100, "spirit_stones": 8000, "cultivation": 4000, "title": "虔诚修行", "artifacts": [], "skills": [], "stat_bonuses": {}},
+      "prerequisites": ["special_8"],
+      "hidden": false
+    },
+    {
+      "achievement_id": "special_10",
+      "name": "传奇诞生",
+      "description": "累计游戏时长达到100000分钟",
+      "category": "特殊",
+      "rarity": "传说",
+      "conditions": [
+        {"condition_type": "play_time", "target": "", "required": 100000, "description": "游戏时长100000分钟"}
+      ],
+      "rewards": {"achievement_points": 300, "spirit_stones": 50000, "cultivation": 25000, "title": "传奇诞生", "artifacts": ["传奇印记"], "skills": [], "stat_bonuses": {"生命": 0.1, "攻击": 0.1, "防御": 0.1}},
+      "prerequisites": ["special_9"],
+      "hidden": false
+    }
+  ],
+  "titles": [
+    {
+      "title_id": "title_1",
+      "name": "筑基修士",
+      "description": "成功筑基，踏上正途",
+      "source": "cultivation_2",
+      "stat_bonuses": {"生命": 50, "真元": 50},
+      "special_effects": [],
+      "rarity": "普通"
+    },
+    {
+      "title_id": "title_2",
+      "name": "金丹真人",
+      "description": "金丹大成，法力无边",
+      "source": "cultivation_3",
+      "stat_bonuses": {"生命": 100, "真元": 100, "攻击": 10},
+      "special_effects": [],
+      "rarity": "稀有"
+    },
+    {
+      "title_id": "title_3",
+      "name": "元婴老祖",
+      "description": "元婴出窍，神识万里",
+      "source": "cultivation_4",
+      "stat_bonuses": {"生命": 200, "真元": 200, "攻击": 20, "防御": 10},
+      "special_effects": ["神识范围+50%"],
+      "rarity": "史诗"
+    },
+    {
+      "title_id": "title_4",
+      "name": "化神真君",
+      "description": "化神境界，法宝通灵",
+      "source": "cultivation_5",
+      "stat_bonuses": {"生命": 300, "真元": 300, "攻击": 30, "防御": 20},
+      "special_effects": ["法宝契合度+20%"],
+      "rarity": "史诗"
+    },
+    {
+      "title_id": "title_5",
+      "name": "合体大能",
+      "description": "合体归一，准备飞升",
+      "source": "cultivation_6",
+      "stat_bonuses": {"生命": 500, "真元": 500, "攻击": 50, "防御": 30},
+      "special_effects": ["渡劫成功率+10%"],
+      "rarity": "传说"
+    },
+    {
+      "title_id": "title_6",
+      "name": "渡劫仙尊",
+      "description": "渡劫成功，飞升在即",
+      "source": "cultivation_7",
+      "stat_bonuses": {"生命": 1000, "真元": 1000, "攻击": 100, "防御": 50},
+      "special_effects": ["飞升成功率+20%", "仙威压制"],
+      "rarity": "传说"
+    },
+    {
+      "title_id": "title_7",
+      "name": "除魔卫道",
+      "description": "斩妖除魔，保护苍生",
+      "source": "combat_3",
+      "stat_bonuses": {"攻击": 15},
+      "special_effects": ["对妖魔伤害+10%"],
+      "rarity": "稀有"
+    },
+    {
+      "title_id": "title_8",
+      "name": "百战勇士",
+      "description": "历经百战，越战越勇",
+      "source": "combat_4",
+      "stat_bonuses": {"生命": 100, "攻击": 20},
+      "special_effects": ["战斗恢复+5%"],
+      "rarity": "稀有"
+    },
+    {
+      "title_id": "title_9",
+      "name": "威震天下",
+      "description": "威名远播，震慑四方",
+      "source": "combat_5",
+      "stat_bonuses": {"生命": 200, "攻击": 40, "防御": 20},
+      "special_effects": ["威压效果"],
+      "rarity": "史诗"
+    },
+    {
+      "title_id": "title_10",
+      "name": "剑道至尊",
+      "description": "剑道巅峰，天下无敌",
+      "source": "combat_6",
+      "stat_bonuses": {"生命": 500, "攻击": 100, "速度": 50},
+      "special_effects": ["剑气外放", "飞剑伤害+30%"],
+      "rarity": "传说"
+    },
+    {
+      "title_id": "title_11",
+      "name": "云游四方",
+      "description": "走遍神州大地",
+      "source": "exploration_2",
+      "stat_bonuses": {"速度": 10},
+      "special_effects": ["移动速度+10%"],
+      "rarity": "稀有"
+    },
+    {
+      "title_id": "title_12",
+      "name": "秘境探索者",
+      "description": "探索众多秘境",
+      "source": "exploration_3",
+      "stat_bonuses": {"速度": 20, "幸运": 0.05},
+      "special_effects": ["奇遇概率+10%"],
+      "rarity": "史诗"
+    },
+    {
+      "title_id": "title_13",
+      "name": "法宝收藏家",
+      "description": "收藏众多法宝",
+      "source": "collection_2",
+      "stat_bonuses": {"生命": 50},
+      "special_effects": ["法宝背包+5格"],
+      "rarity": "稀有"
+    },
+    {
+      "title_id": "title_14",
+      "name": "法宝大师",
+      "description": "精通法宝之道",
+      "source": "collection_3",
+      "stat_bonuses": {"生命": 100, "攻击": 15},
+      "special_effects": ["法宝契合度+15%"],
+      "rarity": "史诗"
+    },
+    {
+      "title_id": "title_15",
+      "name": "法宝至尊",
+      "description": "法宝界的至尊",
+      "source": "collection_4",
+      "stat_bonuses": {"生命": 200, "攻击": 30, "防御": 20},
+      "special_effects": ["法宝契合度+30%", "法宝伤害+20%"],
+      "rarity": "传说"
+    },
+    {
+      "title_id": "title_16",
+      "name": "峨眉弟子",
+      "description": "峨眉派门下弟子",
+      "source": "social_2",
+      "stat_bonuses": {"攻击": 10},
+      "special_effects": ["飞剑威力+10%"],
+      "rarity": "普通"
+    },
+    {
+      "title_id": "title_17",
+      "name": "青城弟子",
+      "description": "青城派门下弟子",
+      "source": "social_3",
+      "stat_bonuses": {"防御": 10},
+      "special_effects": ["剑术防御+10%"],
+      "rarity": "普通"
+    },
+    {
+      "title_id": "title_18",
+      "name": "昆仑弟子",
+      "description": "昆仑派门下弟子",
+      "source": "social_4",
+      "stat_bonuses": {"真元": 20},
+      "special_effects": ["炼器成功率+5%"],
+      "rarity": "普通"
+    },
+    {
+      "title_id": "title_19",
+      "name": "血河弟子",
+      "description": "血河教门下弟子",
+      "source": "social_5",
+      "stat_bonuses": {"攻击": 20, "生命": -20},
+      "special_effects": ["修炼速度+20%", "渡劫难度增加"],
+      "rarity": "稀有"
+    },
+    {
+      "title_id": "title_20",
+      "name": "任务专家",
+      "description": "任务达人",
+      "source": "social_7",
+      "stat_bonuses": {"生命": 50, "真元": 50},
+      "special_effects": ["任务奖励+10%"],
+      "rarity": "稀有"
+    },
+    {
+      "title_id": "title_21",
+      "name": "任务大师",
+      "description": "任务界的权威",
+      "source": "social_8",
+      "stat_bonuses": {"生命": 100, "真元": 100, "攻击": 10},
+      "special_effects": ["任务奖励+20%"],
+      "rarity": "史诗"
+    },
+    {
+      "title_id": "title_22",
+      "name": "正道之师",
+      "description": "正道领袖",
+      "source": "social_9",
+      "stat_bonuses": {"生命": 200, "防御": 30},
+      "special_effects": ["正道声望+50%", "对邪道伤害+15%"],
+      "rarity": "史诗"
+    },
+    {
+      "title_id": "title_23",
+      "name": "魔道至尊",
+      "description": "魔道领袖",
+      "source": "social_10",
+      "stat_bonuses": {"攻击": 40, "速度": 20},
+      "special_effects": ["魔道声望+50%", "对正道伤害+15%"],
+      "rarity": "史诗"
+    },
+    {
+      "title_id": "title_24",
+      "name": "天选之人",
+      "description": "天命所归",
+      "source": "special_1",
+      "stat_bonuses": {"生命": 500, "真元": 500, "攻击": 80, "防御": 40, "速度": 30},
+      "special_effects": ["所有属性+5%", "天命加护"],
+      "rarity": "传说"
+    },
+    {
+      "title_id": "title_25",
+      "name": "逆天改命",
+      "description": "逆天而行，改命成功",
+      "source": "special_2",
+      "stat_bonuses": {"生命": 300, "防御": 50},
+      "special_effects": ["渡劫成功率+30%", "天劫威力-20%"],
+      "rarity": "传说"
+    },
+    {
+      "title_id": "title_26",
+      "name": "魔威滔天",
+      "description": "魔威无穷，震慑天下",
+      "source": "special_3",
+      "stat_bonuses": {"攻击": 100, "速度": 40},
+      "special_effects": ["魔气护体", "对正道伤害+25%"],
+      "rarity": "传说"
+    },
+    {
+      "title_id": "title_27",
+      "name": "成就大师",
+      "description": "成就收集大师",
+      "source": "special_5",
+      "stat_bonuses": {"生命": 100, "攻击": 20, "防御": 10},
+      "special_effects": ["成就点数获取+20%"],
+      "rarity": "史诗"
+    },
+    {
+      "title_id": "title_28",
+      "name": "完美主义",
+      "description": "追求完美",
+      "source": "special_6",
+      "stat_bonuses": {"生命": 200, "攻击": 40, "防御": 20, "速度": 10},
+      "special_effects": ["所有奖励+10%"],
+      "rarity": "传说"
+    },
+    {
+      "title_id": "title_29",
+      "name": "逍遥散仙",
+      "description": "不受束缚的自由修士",
+      "source": "special_7",
+      "stat_bonuses": {"速度": 30, "幸运": 0.1},
+      "special_effects": ["奇遇概率+20%", "自由行动"],
+      "rarity": "史诗"
+    },
+    {
+      "title_id": "title_30",
+      "name": "虔诚修行",
+      "description": "坚持不懈的修行者",
+      "source": "special_9",
+      "stat_bonuses": {"生命": 100, "真元": 100, "悟性": 0.05},
+      "special_effects": ["修炼效率+15%"],
+      "rarity": "史诗"
+    },
+    {
+      "title_id": "title_31",
+      "name": "传奇诞生",
+      "description": "传奇人物",
+      "source": "special_10",
+      "stat_bonuses": {"生命": 300, "真元": 300, "攻击": 50, "防御": 30},
+      "special_effects": ["传奇光环", "所有属性+3%"],
+      "rarity": "传说"
+    },
+    {
+      "title_id": "title_32",
+      "name": "功法大师",
+      "description": "精通众多功法",
+      "source": "collection_5",
+      "stat_bonuses": {"真元": 150, "悟性": 0.1},
+      "special_effects": ["功法领悟速度+20%"],
+      "rarity": "史诗"
+    },
+    {
+      "title_id": "title_33",
+      "name": "富甲一方",
+      "description": "灵石富翁",
+      "source": "collection_7",
+      "stat_bonuses": {"生命": 50},
+      "special_effects": ["商店折扣10%"],
+      "rarity": "史诗"
+    },
+    {
+      "title_id": "title_34",
+      "name": "禁地勇者",
+      "description": "勇闯禁地",
+      "source": "exploration_5",
+      "stat_bonuses": {"生命": 150, "攻击": 25},
+      "special_effects": ["禁地探索奖励+20%"],
+      "rarity": "史诗"
+    },
+    {
+      "title_id": "title_35",
+      "name": "修道之人",
+      "description": "一心向道",
+      "source": "cultivation_9",
+      "stat_bonuses": {"悟性": 0.1},
+      "special_effects": ["修炼速度+10%"],
+      "rarity": "史诗"
+    }
+  ]
+}

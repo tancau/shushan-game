@@ -22,6 +22,7 @@ from game.quest import QuestManager
 from game.crafting import CraftingManager, Inventory
 from game.formation import FormationManager
 from game.encounter import EncounterManager
+from game.achievement import AchievementManager
 
 app = Flask(__name__)
 CORS(app)
@@ -32,7 +33,11 @@ games = {}
 def get_game(player_id):
     """获取或创建游戏实例"""
     if player_id not in games:
-        games[player_id] = Player.load() or Player(player_id)
+        player = Player.load() or Player(player_id)
+        # 初始化成就系统
+        if hasattr(player, 'init_achievement_manager'):
+            player.init_achievement_manager()
+        games[player_id] = player
     return games[player_id]
 
 # HTML 模板 - 完整界面
@@ -761,6 +766,110 @@ def api_travel():
         'success': False,
         'message': '无效的位置'
     })
+
+# ==================== 成就系统 API ====================
+
+@app.route('/api/achievements')
+def api_achievements():
+    """获取成就列表"""
+    player = get_game('tancau')
+    
+    if not player.achievement_manager:
+        return jsonify({
+            'success': False,
+            'message': '成就系统未初始化'
+        })
+    
+    category = request.args.get('category')
+    achievements = player.achievement_manager.get_display_achievements(player, category)
+    
+    return jsonify({
+        'success': True,
+        'achievements': achievements,
+        'summary': player.achievement_manager.get_progress_summary(player)
+    })
+
+@app.route('/api/achievements/check')
+def api_achievements_check():
+    """检查成就进度"""
+    player = get_game('tancau')
+    
+    if not player.achievement_manager:
+        return jsonify({
+            'success': False,
+            'message': '成就系统未初始化'
+        })
+    
+    newly_completed = player.check_achievements()
+    player.save()
+    
+    return jsonify({
+        'success': True,
+        'newly_completed': newly_completed,
+        'message': f'完成 {len(newly_completed)} 个新成就！' if newly_completed else '检查完成'
+    })
+
+@app.route('/api/achievements/<achievement_id>/claim', methods=['POST'])
+def api_achievement_claim(achievement_id):
+    """领取成就奖励"""
+    player = get_game('tancau')
+    
+    result = player.claim_achievement_reward(achievement_id)
+    if result.get('success'):
+        player.save()
+    
+    return jsonify(result)
+
+@app.route('/api/achievements/summary')
+def api_achievements_summary():
+    """获取成就概要"""
+    player = get_game('tancau')
+    
+    if not player.achievement_manager:
+        return jsonify({
+            'success': False,
+            'message': '成就系统未初始化'
+        })
+    
+    return jsonify({
+        'success': True,
+        'summary': player.achievement_manager.get_progress_summary(player),
+        'recent': player.achievement_manager.get_recent_achievements(5),
+        'unclaimed': player.get_unclaimed_achievements()
+    })
+
+@app.route('/api/titles')
+def api_titles():
+    """获取称号列表"""
+    player = get_game('tancau')
+    
+    return jsonify({
+        'success': True,
+        'titles': player.get_unlocked_titles(),
+        'current_title': player.get_current_title()
+    })
+
+@app.route('/api/titles/<title_id>/equip', methods=['POST'])
+def api_title_equip(title_id):
+    """装备称号"""
+    player = get_game('tancau')
+    
+    result = player.set_title(title_id)
+    if result.get('success'):
+        player.save()
+    
+    return jsonify(result)
+
+@app.route('/api/titles/remove', methods=['POST'])
+def api_title_remove():
+    """取消称号"""
+    player = get_game('tancau')
+    
+    result = player.remove_title()
+    if result.get('success'):
+        player.save()
+    
+    return jsonify(result)
 
 if __name__ == '__main__':
     app.run(debug=True)

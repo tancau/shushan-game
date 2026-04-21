@@ -19,6 +19,23 @@ except ImportError:
     QuestStatus = None
     ObjectiveType = None
 
+# 成就系统类型提示（避免循环导入）
+try:
+    from game.achievement import AchievementManager, Achievement, Title
+except ImportError:
+    AchievementManager = None
+    Achievement = None
+    Title = None
+
+# 道心系统
+try:
+    from game.dao_heart import DaoHeart, DaoHeartType, ActionType, KarmaType
+except ImportError:
+    DaoHeart = None
+    DaoHeartType = None
+    ActionType = None
+    KarmaType = None
+
 
 class Player:
     """玩家类 - 修仙者"""
@@ -60,11 +77,29 @@ class Player:
         self.quest_kills: Dict[str, int] = {}  # 任务击杀计数
         self.quest_collections: Dict[str, int] = {}  # 任务收集计数
         
+        # 成就系统
+        self.achievement_manager: Optional[AchievementManager] = None  # 成就管理器
+        self.completed_achievements: List[str] = []  # 已完成的成就ID
+        self.claimed_achievements: List[str] = []  # 已领取的成就ID
+        self.unlocked_titles: List[str] = []  # 已解锁的称号ID
+        self.current_title_id: Optional[str] = None  # 当前称号ID
+        self.total_achievement_points: int = 0  # 成就点数
+        
+        # 探索记录
+        self.explored_locations: List[str] = []  # 已探索的地点
+        
+        # 战斗统计
+        self.battles_total: int = 0  # 总战斗次数
+        self.battles_won: int = 0  # 胜利次数
+        
         # 位置
         self.location = "峨眉山脚"
         
+        # 道心系统
+        self.dao_heart: Optional[DaoHeart] = DaoHeart() if DaoHeart else None
+        
         # 其他
-        self.karma = 0  # 功德/业力
+        self.karma = 0  # 功德/业力（兼容旧版本）
         self.play_time = 0  # 游戏时长（分钟）
         self.created_at = datetime.now().isoformat()
     
@@ -434,6 +469,123 @@ class Player:
         if self.quest_manager and ObjectiveType:
             self.quest_manager.update_objective(ObjectiveType.CULTIVATE, method, 1)
     
+    # ==================== 成就系统 ====================
+    
+    def init_achievement_manager(self, data_path: str = "data/achievements.json"):
+        """初始化成就管理器"""
+        if AchievementManager:
+            self.achievement_manager = AchievementManager(data_path)
+            # 加载玩家成就状态
+            self.achievement_manager.load_state({
+                "completed_achievements": self.completed_achievements,
+                "claimed_achievements": self.claimed_achievements,
+                "unlocked_titles": self.unlocked_titles,
+                "current_title": self.current_title_id,
+                "total_achievement_points": self.total_achievement_points
+            })
+    
+    def check_achievements(self) -> List[dict]:
+        """检查成就进度"""
+        if not self.achievement_manager:
+            return []
+        return self.achievement_manager.check_achievements(self)
+    
+    def claim_achievement_reward(self, achievement_id: str) -> dict:
+        """领取成就奖励"""
+        if not self.achievement_manager:
+            return {"success": False, "message": "成就系统未初始化"}
+        return self.achievement_manager.claim_reward(achievement_id, self)
+    
+    def get_achievement_summary(self) -> str:
+        """获取成就概要"""
+        if not self.achievement_manager:
+            return "成就系统未初始化"
+        return self.achievement_manager.get_achievement_summary_text(self)
+    
+    def get_completed_achievements(self) -> List[dict]:
+        """获取已完成的成就列表"""
+        if not self.achievement_manager:
+            return []
+        achievements = self.achievement_manager.get_completed_achievements()
+        return [
+            {
+                "id": ach.achievement_id,
+                "name": ach.name,
+                "description": ach.description,
+                "rarity": ach.rarity.value,
+                "completed_at": ach.completed_at
+            }
+            for ach in achievements
+        ]
+    
+    def get_unclaimed_achievements(self) -> List[dict]:
+        """获取待领取的成就"""
+        if not self.achievement_manager:
+            return []
+        achievements = self.achievement_manager.get_unclaimed_achievements()
+        return [
+            {
+                "id": ach.achievement_id,
+                "name": ach.name,
+                "rarity": ach.rarity.value
+            }
+            for ach in achievements
+        ]
+    
+    def set_title(self, title_id: str) -> dict:
+        """设置当前称号"""
+        if not self.achievement_manager:
+            return {"success": False, "message": "成就系统未初始化"}
+        result = self.achievement_manager.set_title(title_id)
+        if result.get("success"):
+            self.current_title_id = title_id
+        return result
+    
+    def remove_title(self) -> dict:
+        """取消当前称号"""
+        if not self.achievement_manager:
+            return {"success": False, "message": "成就系统未初始化"}
+        result = self.achievement_manager.remove_title()
+        if result.get("success"):
+            self.current_title_id = None
+        return result
+    
+    def get_current_title(self) -> Optional[dict]:
+        """获取当前称号"""
+        if not self.achievement_manager:
+            return None
+        title = self.achievement_manager.get_current_title()
+        if title:
+            return {
+                "id": title.title_id,
+                "name": title.name,
+                "description": title.description,
+                "bonuses": title.get_bonus_text()
+            }
+        return None
+    
+    def get_unlocked_titles(self) -> List[dict]:
+        """获取已解锁的称号列表"""
+        if not self.achievement_manager:
+            return []
+        titles = self.achievement_manager.get_unlocked_titles()
+        return [
+            {
+                "id": title.title_id,
+                "name": title.name,
+                "description": title.description,
+                "bonuses": title.get_bonus_text(),
+                "rarity": title.rarity.value
+            }
+            for title in titles
+        ]
+    
+    def get_title_bonuses(self) -> Dict[str, float]:
+        """获取当前称号的属性加成"""
+        if not self.achievement_manager:
+            return {}
+        return self.achievement_manager.get_title_bonuses()
+    
     def check_quest_completion(self) -> List[dict]:
         """检查任务完成状态"""
         if not self.quest_manager:
@@ -479,6 +631,95 @@ class Player:
             "progress": quest.get_progress(),
             "status": quest.status.value
         }
+    
+    # ==================== 道心系统 ====================
+    
+    def get_dao_heart_info(self) -> dict:
+        """获取道心信息"""
+        if not self.dao_heart:
+            return {"available": False}
+        return {
+            "available": True,
+            **self.dao_heart.get_dao_heart_info()
+        }
+    
+    def add_karma_action(self, action_type: ActionType, description: str = "") -> dict:
+        """添加因果行为"""
+        if not self.dao_heart or not ActionType:
+            return {"success": False, "message": "道心系统未初始化"}
+        
+        result = self.dao_heart.add_karma(action_type, description)
+        
+        # 更新兼容性 karma 值
+        self.karma = self.dao_heart.merit - self.dao_heart.sin
+        
+        return result
+    
+    def get_dao_heart_bonuses(self) -> Dict[str, float]:
+        """获取道心系统加成"""
+        if not self.dao_heart:
+            return {}
+        return self.dao_heart.get_merit_bonuses()
+    
+    def get_dao_heart_penalties(self) -> List[dict]:
+        """获取道心系统惩罚"""
+        if not self.dao_heart:
+            return []
+        return self.dao_heart.get_active_penalties()
+    
+    def get_npc_relation_modifier(self, npc_faction: str) -> int:
+        """获取NPC好感度修正"""
+        if not self.dao_heart:
+            return 0
+        return self.dao_heart.get_npc_relation_modifier(npc_faction)
+    
+    def get_encounter_modifier(self) -> float:
+        """获取奇遇概率修正"""
+        if not self.dao_heart:
+            return 0.0
+        return self.dao_heart.get_encounter_modifier()
+    
+    def get_tribulation_modifier(self) -> dict:
+        """获取渡劫修正"""
+        if not self.dao_heart:
+            return {"success_rate": 0, "difficulty": 0, "heart_demon_strength": 0}
+        return self.dao_heart.get_tribulation_modifier()
+    
+    def get_combat_modifier(self, enemy_type: str) -> dict:
+        """获取战斗修正"""
+        if not self.dao_heart:
+            return {"damage_bonus": 0, "defense_bonus": 0}
+        return self.dao_heart.get_combat_modifier(enemy_type)
+    
+    def get_merit_shop_items(self) -> List[dict]:
+        """获取功德商店物品"""
+        if not self.dao_heart:
+            return []
+        return self.dao_heart.get_merit_shop()
+    
+    def purchase_merit_item(self, item_name: str) -> dict:
+        """购买功德物品"""
+        if not self.dao_heart:
+            return {"success": False, "message": "道心系统未初始化"}
+        
+        success, message = self.dao_heart.purchase_merit_item(item_name)
+        return {"success": success, "message": message}
+    
+    def reduce_sin(self, amount: int, reason: str = "") -> bool:
+        """消除业力"""
+        if not self.dao_heart:
+            return False
+        
+        result = self.dao_heart.reduce_sin(amount, reason)
+        if result:
+            self.karma = self.dao_heart.merit - self.dao_heart.sin
+        return result
+    
+    def get_sin_reduction_methods(self) -> dict:
+        """获取消业方式"""
+        if not self.dao_heart:
+            return {"methods": []}
+        return self.dao_heart.can_reduce_sin()
     
     # ==================== 其他系统 ====================
     
@@ -530,7 +771,20 @@ class Player:
             "active_quests": self.active_quests,
             "completed_quests": self.completed_quests,
             "quest_kills": self.quest_kills,
-            "quest_collections": self.quest_collections
+            "quest_collections": self.quest_collections,
+            # 成就系统
+            "completed_achievements": self.completed_achievements,
+            "claimed_achievements": self.claimed_achievements,
+            "unlocked_titles": self.unlocked_titles,
+            "current_title_id": self.current_title_id,
+            "total_achievement_points": self.total_achievement_points,
+            # 探索记录
+            "explored_locations": self.explored_locations,
+            # 战斗统计
+            "battles_total": self.battles_total,
+            "battles_won": self.battles_won,
+            # 道心系统
+            "dao_heart": self.dao_heart.to_dict() if self.dao_heart else None
         }
     
     @classmethod
@@ -579,6 +833,30 @@ class Player:
         player.quest_kills = data.get("quest_kills", {})
         player.quest_collections = data.get("quest_collections", {})
         
+        # 成就系统（兼容旧存档）
+        player.completed_achievements = data.get("completed_achievements", [])
+        player.claimed_achievements = data.get("claimed_achievements", [])
+        player.unlocked_titles = data.get("unlocked_titles", [])
+        player.current_title_id = data.get("current_title_id")
+        player.total_achievement_points = data.get("total_achievement_points", 0)
+        
+        # 探索记录（兼容旧存档）
+        player.explored_locations = data.get("explored_locations", [])
+        
+        # 战斗统计（兼容旧存档）
+        player.battles_total = data.get("battles_total", 0)
+        player.battles_won = data.get("battles_won", 0)
+        
+        # 道心系统（兼容旧存档）
+        if DaoHeart and "dao_heart" in data and data["dao_heart"]:
+            player.dao_heart = DaoHeart.from_dict(data["dao_heart"])
+        elif DaoHeart:
+            # 旧版本兼容：用 karma 初始化
+            player.dao_heart = DaoHeart()
+            player.dao_heart.merit = max(0, data.get("karma", 0))
+            player.dao_heart.sin = max(0, -data.get("karma", 0))
+            player.dao_heart._update_dao_heart_type()
+        
         return player
     
     def save(self, slot: int = 1):
@@ -611,6 +889,11 @@ class Player:
             if main_skill:
                 main_skill_name = f"{main_skill.name} Lv.{self.learned_skills.get(self.main_skill_id, 1)}"
         
+        # 道心信息
+        dao_heart_str = ""
+        if self.dao_heart:
+            dao_heart_str = f"\n道心：{self.dao_heart.dao_heart_type.value}（功德:{self.dao_heart.merit} 业力:{self.dao_heart.sin}）"
+        
         return f"""
 【{self.name}】
 境界：{self.realm}
@@ -623,7 +906,7 @@ class Player:
 位置：{self.location}
 法宝：{len(self.artifacts)} 件
 功法：{len(self.learned_skills)} 种
-任务：{len(self.active_quests)} 进行中 / {len(self.completed_quests)} 已完成
+任务：{len(self.active_quests)} 进行中 / {len(self.completed_quests)} 已完成{dao_heart_str}
         """.strip()
     
     def get_skill_info(self) -> str:

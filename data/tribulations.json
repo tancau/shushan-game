@@ -1,0 +1,957 @@
+{
+  "tribulations": {
+    "foundation_thunder_minor": {
+      "name": "筑基小天雷劫",
+      "stage": "筑基劫",
+      "tier": "小天劫",
+      "tribulation_type": "雷劫",
+      "description": "筑基期修士首次面对的天劫，九道天雷洗礼肉身，若能渡过则脱胎换骨，根基稳固。",
+      "waves": [
+        {
+          "wave_number": 1,
+          "wave_type": "雷劫",
+          "damage": 50,
+          "rounds": 3,
+          "special_effect": "麻痹",
+          "description": "前三道引雷，试探修士根基"
+        },
+        {
+          "wave_number": 2,
+          "wave_type": "雷劫",
+          "damage": 80,
+          "rounds": 2,
+          "special_effect": "灼烧",
+          "description": "中三道真雷，焚烧杂质"
+        },
+        {
+          "wave_number": 3,
+          "wave_type": "雷劫",
+          "damage": 120,
+          "rounds": 1,
+          "special_effect": "穿透",
+          "description": "最后三道重雷，奠定根基"
+        }
+      ],
+      "base_difficulty": 30,
+      "success_rate_base": 0.7,
+      "cultivation_reward": 50000,
+      "spirit_stone_reward": 5000,
+      "special_rewards": ["skill:thunder_body_refinement"],
+      "cultivation_loss_rate": 0.1,
+      "realm_demotion": false,
+      "karma_penalty": 50,
+      "cultivation_required": 100000,
+      "karma_required": -50
+    },
+    "foundation_thunder_major": {
+      "name": "筑基大天雷劫",
+      "stage": "筑基劫",
+      "tier": "大天劫",
+      "tribulation_type": "雷劫",
+      "description": "资质出众者的筑基劫，天雷威力倍增，但渡过后的根基也更加深厚。",
+      "waves": [
+        {
+          "wave_number": 1,
+          "wave_type": "雷劫",
+          "damage": 80,
+          "rounds": 3,
+          "special_effect": "麻痹",
+          "description": "前九道重雷轰击"
+        },
+        {
+          "wave_number": 2,
+          "wave_type": "雷劫",
+          "damage": 120,
+          "rounds": 2,
+          "special_effect": "灼烧",
+          "description": "中九道真雷洗礼"
+        },
+        {
+          "wave_number": 3,
+          "wave_type": "雷劫",
+          "damage": 180,
+          "rounds": 1,
+          "special_effect": "穿透",
+          "description": "最后九道灭世雷"
+        }
+      ],
+      "base_difficulty": 50,
+      "success_rate_base": 0.5,
+      "cultivation_reward": 100000,
+      "spirit_stone_reward": 10000,
+      "special_rewards": ["skill:thunder_body_refinement", "artifact:雷纹法袍"],
+      "cultivation_loss_rate": 0.15,
+      "realm_demotion": false,
+      "karma_penalty": 80,
+      "cultivation_required": 150000,
+      "karma_required": 0
+    },
+    "foundation_heart_demon": {
+      "name": "筑基心魔劫",
+      "stage": "筑基劫",
+      "tier": "小天劫",
+      "tribulation_type": "心魔劫",
+      "description": "道心不稳者渡劫时会遇到心魔入侵，幻化出心中最恐惧之物，只有战胜心魔才能继续前行。",
+      "waves": [
+        {
+          "wave_number": 1,
+          "wave_type": "心魔劫",
+          "damage": 30,
+          "rounds": 2,
+          "special_effect": "恐惧",
+          "description": "心魔初现，勾起往事"
+        },
+        {
+          "wave_number": 2,
+          "wave_type": "心魔劫",
+          "damage": 50,
+          "rounds": 3,
+          "special_effect": "混乱",
+          "description": "心魔化身，真假难辨"
+        },
+        {
+          "wave_number": 3,
+          "wave_type": "心魔劫",
+          "damage": 70,
+          "rounds": 2,
+          "special_effect": "魅惑",
+          "description": "心魔诱惑，动摇道心"
+        }
+      ],
+      "base_difficulty": 40,
+      "success_rate_base": 0.6,
+      "cultivation_reward": 60000,
+      "spirit_stone_reward": 6000,
+      "special_rewards": ["skill:heart_seal"],
+      "cultivation_loss_rate": 0.1,
+      "realm_demotion": false,
+      "karma_penalty": 100,
+      "cultivation_required": 120000,
+      "karma_required": 50
+    },
+    "golden_core_thunder": {
+      "name": "金丹天雷劫",
+      "stage": "金丹劫",
+      "tier": "大天劫",
+      "tribulation_type": "雷劫",
+      "description": "金丹期渡劫，九九八十一道天雷洗礼，炼就金丹不灭之体。",
+      "waves": [
+        {
+          "wave_number": 1,
+          "wave_type": "雷劫",
+          "damage": 100,
+          "rounds": 4,
+          "special_effect": "麻痹",
+          "description": "前三九二十七道天雷"
+        },
+        {
+          "wave_number": 2,
+          "wave_type": "雷劫",
+          "damage": 150,
+          "rounds": 3,
+          "special_effect": "灼烧",
+          "description": "中三九二十七道真雷"
+        },
+        {
+          "wave_number": 3,
+          "wave_type": "雷劫",
+          "damage": 200,
+          "rounds": 2,
+          "special_effect": "穿透",
+          "description": "后三九二十七道玄雷"
+        },
+        {
+          "wave_number": 4,
+          "wave_type": "雷劫",
+          "damage": 300,
+          "rounds": 1,
+          "special_effect": "毁灭",
+          "description": "最后九道灭世神雷"
+        }
+      ],
+      "base_difficulty": 60,
+      "success_rate_base": 0.45,
+      "cultivation_reward": 300000,
+      "spirit_stone_reward": 30000,
+      "special_rewards": ["skill:golden_core_refinement", "artifact:金雷战甲"],
+      "cultivation_loss_rate": 0.2,
+      "realm_demotion": false,
+      "karma_penalty": 120,
+      "cultivation_required": 500000,
+      "karma_required": 100
+    },
+    "golden_core_heart_demon": {
+      "name": "金丹心魔劫",
+      "stage": "金丹劫",
+      "tier": "大天劫",
+      "tribulation_type": "心魔劫",
+      "description": "金丹期最凶险的心魔劫，心魔化作曾经挚爱之人，考验修士的道心与执念。",
+      "waves": [
+        {
+          "wave_number": 1,
+          "wave_type": "心魔劫",
+          "damage": 60,
+          "rounds": 3,
+          "special_effect": "悲伤",
+          "description": "心魔幻化往事"
+        },
+        {
+          "wave_number": 2,
+          "wave_type": "心魔劫",
+          "damage": 100,
+          "rounds": 3,
+          "special_effect": "愤怒",
+          "description": "心魔激怒情绪"
+        },
+        {
+          "wave_number": 3,
+          "wave_type": "心魔劫",
+          "damage": 140,
+          "rounds": 2,
+          "special_effect": "绝望",
+          "description": "心魔攻击心灵"
+        },
+        {
+          "wave_number": 4,
+          "wave_type": "心魔劫",
+          "damage": 180,
+          "rounds": 1,
+          "special_effect": "崩溃",
+          "description": "心魔全力一击"
+        }
+      ],
+      "base_difficulty": 55,
+      "success_rate_base": 0.5,
+      "cultivation_reward": 250000,
+      "spirit_stone_reward": 25000,
+      "special_rewards": ["skill:mind_palace"],
+      "cultivation_loss_rate": 0.15,
+      "realm_demotion": false,
+      "karma_penalty": 150,
+      "cultivation_required": 450000,
+      "karma_required": 200
+    },
+    "golden_core_five_decays": {
+      "name": "金丹天人五衰",
+      "stage": "金丹劫",
+      "tier": "灭世天劫",
+      "tribulation_type": "天人五衰",
+      "description": "金丹期最难渡的天劫，生、老、病、死、苦五种灾劫同时降临，只有功德深厚者方能渡过。",
+      "waves": [
+        {
+          "wave_number": 1,
+          "wave_type": "天人五衰",
+          "damage": 120,
+          "rounds": 2,
+          "special_effect": "衰弱",
+          "description": "生之衰：生命力流逝"
+        },
+        {
+          "wave_number": 2,
+          "wave_type": "天人五衰",
+          "damage": 140,
+          "rounds": 2,
+          "special_effect": "衰老",
+          "description": "老之衰：肉身衰老"
+        },
+        {
+          "wave_number": 3,
+          "wave_type": "天人五衰",
+          "damage": 160,
+          "rounds": 2,
+          "special_effect": "病痛",
+          "description": "病之衰：百病缠身"
+        },
+        {
+          "wave_number": 4,
+          "wave_type": "天人五衰",
+          "damage": 180,
+          "rounds": 2,
+          "special_effect": "死亡",
+          "description": "死之衰：死亡逼近"
+        },
+        {
+          "wave_number": 5,
+          "wave_type": "天人五衰",
+          "damage": 220,
+          "rounds": 1,
+          "special_effect": "苦难",
+          "description": "苦之衰：无尽苦难"
+        }
+      ],
+      "base_difficulty": 80,
+      "success_rate_base": 0.25,
+      "cultivation_reward": 500000,
+      "spirit_stone_reward": 50000,
+      "special_rewards": ["skill:immortal_body", "artifact:长生玉"],
+      "cultivation_loss_rate": 0.3,
+      "realm_demotion": true,
+      "karma_penalty": 200,
+      "cultivation_required": 600000,
+      "karma_required": 500
+    },
+    "nascent_soul_thunder": {
+      "name": "元婴天雷劫",
+      "stage": "元婴劫",
+      "tier": "大天劫",
+      "tribulation_type": "雷劫",
+      "description": "元婴期渡劫，天地雷劫共一百零八道，渡过则元婴初成，可神游太虚。",
+      "waves": [
+        {
+          "wave_number": 1,
+          "wave_type": "雷劫",
+          "damage": 150,
+          "rounds": 5,
+          "special_effect": "麻痹",
+          "description": "前三十六道天雷洗礼"
+        },
+        {
+          "wave_number": 2,
+          "wave_type": "雷劫",
+          "damage": 200,
+          "rounds": 4,
+          "special_effect": "灼烧",
+          "description": "中三十六道真雷淬炼"
+        },
+        {
+          "wave_number": 3,
+          "wave_type": "雷劫",
+          "damage": 280,
+          "rounds": 3,
+          "special_effect": "穿透",
+          "description": "后三十六道玄雷凝聚"
+        },
+        {
+          "wave_number": 4,
+          "wave_type": "雷劫",
+          "damage": 400,
+          "rounds": 1,
+          "special_effect": "毁灭",
+          "description": "最后九道灭世神雷"
+        }
+      ],
+      "base_difficulty": 70,
+      "success_rate_base": 0.4,
+      "cultivation_reward": 800000,
+      "spirit_stone_reward": 80000,
+      "special_rewards": ["skill:nascent_soul_flight", "artifact:元婴护罩"],
+      "cultivation_loss_rate": 0.25,
+      "realm_demotion": false,
+      "karma_penalty": 150,
+      "cultivation_required": 1000000,
+      "karma_required": 300
+    },
+    "nascent_soul_heart_demon": {
+      "name": "元婴心魔大劫",
+      "stage": "元婴劫",
+      "tier": "灭世天劫",
+      "tribulation_type": "心魔劫",
+      "description": "元婴期最凶险的心魔大劫，心魔化作另一个自己，所有功法、记忆、执念尽数复制，唯有真正的自我才能战胜。",
+      "waves": [
+        {
+          "wave_number": 1,
+          "wave_type": "心魔劫",
+          "damage": 100,
+          "rounds": 3,
+          "special_effect": "幻象",
+          "description": "心魔显形，与你对视"
+        },
+        {
+          "wave_number": 2,
+          "wave_type": "心魔劫",
+          "damage": 150,
+          "rounds": 3,
+          "special_effect": "复制",
+          "description": "心魔施展你的功法"
+        },
+        {
+          "wave_number": 3,
+          "wave_type": "心魔劫",
+          "damage": 200,
+          "rounds": 2,
+          "special_effect": "嘲讽",
+          "description": "心魔道出你的恐惧"
+        },
+        {
+          "wave_number": 4,
+          "wave_type": "心魔劫",
+          "damage": 280,
+          "rounds": 2,
+          "special_effect": "绝望",
+          "description": "心魔展现你的结局"
+        },
+        {
+          "wave_number": 5,
+          "wave_type": "心魔劫",
+          "damage": 350,
+          "rounds": 1,
+          "special_effect": "同归于尽",
+          "description": "心魔最后的疯狂"
+        }
+      ],
+      "base_difficulty": 85,
+      "success_rate_base": 0.3,
+      "cultivation_reward": 1000000,
+      "spirit_stone_reward": 100000,
+      "special_rewards": ["skill:mind_dominion", "artifact:明心镜"],
+      "cultivation_loss_rate": 0.35,
+      "realm_demotion": true,
+      "karma_penalty": 250,
+      "cultivation_required": 1200000,
+      "karma_required": 600
+    },
+    "spirit_severing_thunder": {
+      "name": "化神天雷劫",
+      "stage": "化神劫",
+      "tier": "大天劫",
+      "tribulation_type": "雷劫",
+      "description": "化神期渡劫，三百六十五道周天雷劫降临，象征着一年三百六十五天，渡过则与天地同寿。",
+      "waves": [
+        {
+          "wave_number": 1,
+          "wave_type": "雷劫",
+          "damage": 200,
+          "rounds": 6,
+          "special_effect": "麻痹",
+          "description": "前七十二道天雷洗礼"
+        },
+        {
+          "wave_number": 2,
+          "wave_type": "雷劫",
+          "damage": 280,
+          "rounds": 5,
+          "special_effect": "灼烧",
+          "description": "中七十二道真雷淬炼"
+        },
+        {
+          "wave_number": 3,
+          "wave_type": "雷劫",
+          "damage": 350,
+          "rounds": 4,
+          "special_effect": "穿透",
+          "description": "后七十二道玄雷凝聚"
+        },
+        {
+          "wave_number": 4,
+          "wave_type": "雷劫",
+          "damage": 450,
+          "rounds": 3,
+          "special_effect": "毁灭",
+          "description": "七十二道灭世神雷"
+        },
+        {
+          "wave_number": 5,
+          "wave_type": "雷劫",
+          "damage": 600,
+          "rounds": 1,
+          "special_effect": "终极审判",
+          "description": "最后九道天道雷罚"
+        }
+      ],
+      "base_difficulty": 80,
+      "success_rate_base": 0.35,
+      "cultivation_reward": 2000000,
+      "spirit_stone_reward": 200000,
+      "special_rewards": ["skill:spirit_severing", "artifact:化神羽衣"],
+      "cultivation_loss_rate": 0.3,
+      "realm_demotion": true,
+      "karma_penalty": 300,
+      "cultivation_required": 3000000,
+      "karma_required": 500
+    },
+    "spirit_severing_five_decays": {
+      "name": "化神天人五衰大劫",
+      "stage": "化神劫",
+      "tier": "灭世天劫",
+      "tribulation_type": "天人五衰",
+      "description": "化神期最难渡的劫难，天地不再容忍，降下最恐怖的天人五衰，唯有功德圆满、道心通明者方能渡过。",
+      "waves": [
+        {
+          "wave_number": 1,
+          "wave_type": "天人五衰",
+          "damage": 180,
+          "rounds": 3,
+          "special_effect": "生衰",
+          "description": "生机断绝，万念俱灰"
+        },
+        {
+          "wave_number": 2,
+          "wave_type": "天人五衰",
+          "damage": 220,
+          "rounds": 3,
+          "special_effect": "老衰",
+          "description": "岁月侵蚀，苍老不堪"
+        },
+        {
+          "wave_number": 3,
+          "wave_type": "天人五衰",
+          "damage": 260,
+          "rounds": 3,
+          "special_effect": "病衰",
+          "description": "病魔缠身，痛苦不堪"
+        },
+        {
+          "wave_number": 4,
+          "wave_type": "天人五衰",
+          "damage": 300,
+          "rounds": 3,
+          "special_effect": "死衰",
+          "description": "死亡召唤，命悬一线"
+        },
+        {
+          "wave_number": 5,
+          "wave_type": "天人五衰",
+          "damage": 400,
+          "rounds": 2,
+          "special_effect": "苦衰",
+          "description": "苦海无边，业火焚身"
+        },
+        {
+          "wave_number": 6,
+          "wave_type": "天人五衰",
+          "damage": 500,
+          "rounds": 1,
+          "special_effect": "终焉",
+          "description": "五衰齐聚，生死一线"
+        }
+      ],
+      "base_difficulty": 90,
+      "success_rate_base": 0.2,
+      "cultivation_reward": 3000000,
+      "spirit_stone_reward": 300000,
+      "special_rewards": ["skill:transcendence", "artifact:五衰轮回珠"],
+      "cultivation_loss_rate": 0.4,
+      "realm_demotion": true,
+      "karma_penalty": 400,
+      "cultivation_required": 4000000,
+      "karma_required": 800
+    },
+    "tribulation_period_thunder": {
+      "name": "渡劫期天雷劫",
+      "stage": "渡劫期天劫",
+      "tier": "灭世天劫",
+      "tribulation_type": "雷劫",
+      "description": "修仙路上的最后考验，一千零八十道天雷洗礼，渡过则飞升成仙，渡不过则灰飞烟灭。",
+      "waves": [
+        {
+          "wave_number": 1,
+          "wave_type": "雷劫",
+          "damage": 300,
+          "rounds": 8,
+          "special_effect": "麻痹",
+          "description": "前二百七十道天雷洗礼"
+        },
+        {
+          "wave_number": 2,
+          "wave_type": "雷劫",
+          "damage": 400,
+          "rounds": 7,
+          "special_effect": "灼烧",
+          "description": "中二百七十道真雷淬炼"
+        },
+        {
+          "wave_number": 3,
+          "wave_type": "雷劫",
+          "damage": 500,
+          "rounds": 6,
+          "special_effect": "穿透",
+          "description": "后二百七十道玄雷凝聚"
+        },
+        {
+          "wave_number": 4,
+          "wave_type": "雷劫",
+          "damage": 650,
+          "rounds": 4,
+          "special_effect": "毁灭",
+          "description": "二百七十道灭世神雷"
+        },
+        {
+          "wave_number": 5,
+          "wave_type": "雷劫",
+          "damage": 800,
+          "rounds": 2,
+          "special_effect": "终极审判",
+          "description": "九九八十一道天道雷罚"
+        },
+        {
+          "wave_number": 6,
+          "wave_type": "雷劫",
+          "damage": 1000,
+          "rounds": 1,
+          "special_effect": "飞升之门",
+          "description": "最后一道通往仙界的门"
+        }
+      ],
+      "base_difficulty": 95,
+      "success_rate_base": 0.15,
+      "cultivation_reward": 5000000,
+      "spirit_stone_reward": 500000,
+      "special_rewards": ["skill:immortal_body", "artifact:飞升仙袍", "title:渡劫仙尊"],
+      "cultivation_loss_rate": 0.5,
+      "realm_demotion": true,
+      "karma_penalty": 500,
+      "cultivation_required": 10000000,
+      "karma_required": 1000
+    },
+    "tribulation_period_heart_demon": {
+      "name": "渡劫期心魔终劫",
+      "stage": "渡劫期天劫",
+      "tier": "灭世天劫",
+      "tribulation_type": "心魔劫",
+      "description": "飞升前最后的心理考验，心魔化作整个世界，要将你永远困在幻境之中。唯有看破虚妄，方见真我。",
+      "waves": [
+        {
+          "wave_number": 1,
+          "wave_type": "心魔劫",
+          "damage": 200,
+          "rounds": 4,
+          "special_effect": "幻境",
+          "description": "心魔构筑完美世界"
+        },
+        {
+          "wave_number": 2,
+          "wave_type": "心魔劫",
+          "damage": 300,
+          "rounds": 4,
+          "special_effect": "执念",
+          "description": "心魔勾起最深执念"
+        },
+        {
+          "wave_number": 3,
+          "wave_type": "心魔劫",
+          "damage": 400,
+          "rounds": 3,
+          "special_effect": "恐惧",
+          "description": "心魔展现最深的恐惧"
+        },
+        {
+          "wave_number": 4,
+          "wave_type": "心魔劫",
+          "damage": 500,
+          "rounds": 3,
+          "special_effect": "绝望",
+          "description": "心魔让你看到失败的结局"
+        },
+        {
+          "wave_number": 5,
+          "wave_type": "心魔劫",
+          "damage": 650,
+          "rounds": 2,
+          "special_effect": "诱惑",
+          "description": "心魔许诺永生幻境"
+        },
+        {
+          "wave_number": 6,
+          "wave_type": "心魔劫",
+          "damage": 800,
+          "rounds": 1,
+          "special_effect": "终焉幻境",
+          "description": "心魔最后的挣扎"
+        }
+      ],
+      "base_difficulty": 92,
+      "success_rate_base": 0.18,
+      "cultivation_reward": 4500000,
+      "spirit_stone_reward": 450000,
+      "special_rewards": ["skill:true_self", "artifact:心魔镜", "title:渡劫仙尊"],
+      "cultivation_loss_rate": 0.45,
+      "realm_demotion": true,
+      "karma_penalty": 450,
+      "cultivation_required": 9000000,
+      "karma_required": 900
+    },
+    "tribulation_period_five_decays": {
+      "name": "渡劫期天人五衰终劫",
+      "stage": "渡劫期天劫",
+      "tier": "灭世天劫",
+      "tribulation_type": "天人五衰",
+      "description": "修仙者面对的最可怕天劫，天地不再容忍，降下终极的天人五衰。唯有功德圆满、道心通明、修为通天者，方能渡过此劫飞升成仙。",
+      "waves": [
+        {
+          "wave_number": 1,
+          "wave_type": "天人五衰",
+          "damage": 280,
+          "rounds": 4,
+          "special_effect": "生机断绝",
+          "description": "生之终衰：生命本源枯竭"
+        },
+        {
+          "wave_number": 2,
+          "wave_type": "天人五衰",
+          "damage": 350,
+          "rounds": 4,
+          "special_effect": "岁月侵蚀",
+          "description": "老之终衰：时光长河逆流"
+        },
+        {
+          "wave_number": 3,
+          "wave_type": "天人五衰",
+          "damage": 420,
+          "rounds": 4,
+          "special_effect": "万病缠身",
+          "description": "病之终衰：亿万病魔入侵"
+        },
+        {
+          "wave_number": 4,
+          "wave_type": "天人五衰",
+          "damage": 490,
+          "rounds": 3,
+          "special_effect": "死亡降临",
+          "description": "死之终衰：死神亲自降临"
+        },
+        {
+          "wave_number": 5,
+          "wave_type": "天人五衰",
+          "damage": 560,
+          "rounds": 3,
+          "special_effect": "苦海无边",
+          "description": "苦之终衰：业火焚烧灵魂"
+        },
+        {
+          "wave_number": 6,
+          "wave_type": "天人五衰",
+          "damage": 700,
+          "rounds": 2,
+          "special_effect": "五衰合一",
+          "description": "五衰终劫：天地不再容忍"
+        },
+        {
+          "wave_number": 7,
+          "wave_type": "天人五衰",
+          "damage": 900,
+          "rounds": 1,
+          "special_effect": "终极审判",
+          "description": "天人裁决：飞升或毁灭"
+        }
+      ],
+      "base_difficulty": 98,
+      "success_rate_base": 0.1,
+      "cultivation_reward": 6000000,
+      "spirit_stone_reward": 600000,
+      "special_rewards": ["skill:immortal_transcendence", "artifact:天人之门", "title:渡劫仙尊"],
+      "cultivation_loss_rate": 0.5,
+      "realm_demotion": true,
+      "karma_penalty": 600,
+      "cultivation_required": 11000000,
+      "karma_required": 1200
+    },
+    "foundation_mixed": {
+      "name": "筑基混合天劫",
+      "stage": "筑基劫",
+      "tier": "大天劫",
+      "tribulation_type": "雷劫",
+      "description": "雷劫与心魔同时降临，考验修士的综合实力，只有肉身与道心双重坚定者方能渡过。",
+      "waves": [
+        {
+          "wave_number": 1,
+          "wave_type": "雷劫",
+          "damage": 60,
+          "rounds": 2,
+          "special_effect": "麻痹",
+          "description": "天雷初临"
+        },
+        {
+          "wave_number": 2,
+          "wave_type": "心魔劫",
+          "damage": 40,
+          "rounds": 2,
+          "special_effect": "恐惧",
+          "description": "心魔趁雷劫而入"
+        },
+        {
+          "wave_number": 3,
+          "wave_type": "雷劫",
+          "damage": 100,
+          "rounds": 2,
+          "special_effect": "灼烧",
+          "description": "天雷与心魔交织"
+        },
+        {
+          "wave_number": 4,
+          "wave_type": "心魔劫",
+          "damage": 80,
+          "rounds": 2,
+          "special_effect": "混乱",
+          "description": "心魔扰乱神识"
+        },
+        {
+          "wave_number": 5,
+          "wave_type": "雷劫",
+          "damage": 150,
+          "rounds": 1,
+          "special_effect": "穿透",
+          "description": "最后一击"
+        }
+      ],
+      "base_difficulty": 55,
+      "success_rate_base": 0.45,
+      "cultivation_reward": 120000,
+      "spirit_stone_reward": 12000,
+      "special_rewards": ["skill:thunder_heart_art"],
+      "cultivation_loss_rate": 0.18,
+      "realm_demotion": false,
+      "karma_penalty": 100,
+      "cultivation_required": 180000,
+      "karma_required": 50
+    },
+    "golden_core_mixed": {
+      "name": "金丹混合天劫",
+      "stage": "金丹劫",
+      "tier": "灭世天劫",
+      "tribulation_type": "雷劫",
+      "description": "雷劫、心魔、天人五衰三灾齐降，金丹期最恐怖的天劫，唯有大毅力、大功德者方能渡过。",
+      "waves": [
+        {
+          "wave_number": 1,
+          "wave_type": "雷劫",
+          "damage": 80,
+          "rounds": 2,
+          "special_effect": "麻痹",
+          "description": "天雷开路"
+        },
+        {
+          "wave_number": 2,
+          "wave_type": "心魔劫",
+          "damage": 60,
+          "rounds": 2,
+          "special_effect": "恐惧",
+          "description": "心魔紧随"
+        },
+        {
+          "wave_number": 3,
+          "wave_type": "天人五衰",
+          "damage": 100,
+          "rounds": 2,
+          "special_effect": "衰弱",
+          "description": "五衰初显"
+        },
+        {
+          "wave_number": 4,
+          "wave_type": "雷劫",
+          "damage": 140,
+          "rounds": 2,
+          "special_effect": "灼烧",
+          "description": "三灾交织"
+        },
+        {
+          "wave_number": 5,
+          "wave_type": "心魔劫",
+          "damage": 120,
+          "rounds": 2,
+          "special_effect": "绝望",
+          "description": "心魔全力"
+        },
+        {
+          "wave_number": 6,
+          "wave_type": "天人五衰",
+          "damage": 180,
+          "rounds": 1,
+          "special_effect": "死亡",
+          "description": "五衰终击"
+        }
+      ],
+      "base_difficulty": 85,
+      "success_rate_base": 0.22,
+      "cultivation_reward": 600000,
+      "spirit_stone_reward": 60000,
+      "special_rewards": ["skill:triple_tribulation_art", "artifact:三灾法袍"],
+      "cultivation_loss_rate": 0.35,
+      "realm_demotion": true,
+      "karma_penalty": 300,
+      "cultivation_required": 700000,
+      "karma_required": 600
+    }
+  },
+  "preparations": {
+    "thunder_ward_talisman": {
+      "name": "避雷符",
+      "preparation_type": "法宝",
+      "effect_type": "damage_reduction",
+      "effect_value": 0.15,
+      "description": "天师府秘传符箓，可抵御天雷伤害15%",
+      "duration": 3,
+      "consumable": true
+    },
+    "heart_guard_mirror": {
+      "name": "护心镜",
+      "preparation_type": "法宝",
+      "effect_type": "heart_protection",
+      "effect_value": 0.25,
+      "description": "佛门至宝，可保护道心免受心魔侵扰",
+      "duration": 5,
+      "consumable": false
+    },
+    "immortal_pill": {
+      "name": "九转金丹",
+      "preparation_type": "丹药",
+      "effect_type": "recovery",
+      "effect_value": 0.3,
+      "description": "炼丹宗师所制，渡劫时可恢复大量生命",
+      "duration": 1,
+      "consumable": true
+    },
+    "tribulation_formation": {
+      "name": "渡劫大阵",
+      "preparation_type": "阵法",
+      "effect_type": "success_rate",
+      "effect_value": 0.1,
+      "description": "上古阵法，可提升渡劫成功率10%",
+      "duration": 99,
+      "consumable": false
+    },
+    "five_elements_shield": {
+      "name": "五行护盾",
+      "preparation_type": "法宝",
+      "effect_type": "damage_reduction",
+      "effect_value": 0.2,
+      "description": "五行宗秘宝，可抵御各种属性伤害20%",
+      "duration": 4,
+      "consumable": false
+    },
+    "dao_heart_pill": {
+      "name": "定心丹",
+      "preparation_type": "丹药",
+      "effect_type": "heart_protection",
+      "effect_value": 0.35,
+      "description": "可暂时稳固道心，抵御心魔入侵",
+      "duration": 2,
+      "consumable": true
+    },
+    "heaven_tribulation_stone": {
+      "name": "渡劫石",
+      "preparation_type": "法宝",
+      "effect_type": "success_rate",
+      "effect_value": 0.15,
+      "description": "蕴含天劫之力的奇石，可提升渡劫成功率15%",
+      "duration": 99,
+      "consumable": true
+    },
+    "rebirth_pill": {
+      "name": "重生丹",
+      "preparation_type": "丹药",
+      "effect_type": "recovery",
+      "effect_value": 0.5,
+      "description": "渡劫失败时触发，恢复50%生命并重新挑战",
+      "duration": 1,
+      "consumable": true
+    },
+    "karma_cleansing_formation": {
+      "name": "消业阵",
+      "preparation_type": "阵法",
+      "effect_type": "success_rate",
+      "effect_value": 0.08,
+      "description": "可消除部分业力，降低天劫难度",
+      "duration": 99,
+      "consumable": false
+    },
+    "soul_guardian_amulet": {
+      "name": "护魂玉佩",
+      "preparation_type": "法宝",
+      "effect_type": "damage_reduction",
+      "effect_value": 0.1,
+      "description": "保护灵魂免受伤害，减少10%伤害",
+      "duration": 99,
+      "consumable": false
+    }
+  }
+}
