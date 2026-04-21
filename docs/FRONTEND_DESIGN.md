@@ -1,0 +1,1667 @@
+# 《蜀山剑侠传》前端设计方案 - 游戏引擎版
+
+> 基于 Phaser 3 + Vue 3 的专业游戏前端设计方案
+
+---
+
+## 📋 目录
+
+1. [技术架构](#一技术架构)
+2. [游戏场景设计](#二游戏场景设计)
+3. [核心场景详细设计](#三核心场景详细设计)
+4. [视觉设计规范](#四视觉设计规范)
+5. [音效系统设计](#五音效系统设计)
+6. [技术实现细节](#六技术实现细节)
+7. [性能优化](#七性能优化)
+8. [开发计划](#八开发计划)
+9. [部署方案](#九部署方案)
+10. [成本估算](#十成本估算)
+
+---
+
+## 一、技术架构
+
+### 1.1 架构层次
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    游戏引擎层                            │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │  Phaser 3 (2D游戏引擎)                           │   │
+│  │  - 场景管理、精灵动画、粒子系统                  │   │
+│  │  - 音效管理、输入处理、物理引擎                  │   │
+│  └─────────────────────────────────────────────────┘   │
+├─────────────────────────────────────────────────────────┤
+│                    渲染层                                │
+│  ┌──────────────┬──────────────┬──────────────┐        │
+│  │  PixiJS      │  WebGL       │  Canvas 2D   │        │
+│  │  (高性能渲染) │  (GPU加速)   │  (降级方案)  │        │
+│  └──────────────┴──────────────┴──────────────┘        │
+├─────────────────────────────────────────────────────────┤
+│                    UI 层                                 │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │  Vue 3 + Element Plus                           │   │
+│  │  - 设置界面、公告、排行榜                        │   │
+│  │  - 成就系统、好友系统                            │   │
+│  └─────────────────────────────────────────────────┘   │
+├─────────────────────────────────────────────────────────┤
+│                    音效层                                │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │  Howler.js (Web Audio API)                      │   │
+│  │  - 背景音乐、战斗音效、UI音效                    │   │
+│  └─────────────────────────────────────────────────┘   │
+├─────────────────────────────────────────────────────────┤
+│                    数据层                                │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │  Pinia (状态管理) + Axios (API请求)             │   │
+│  │  - 本地缓存、状态持久化                          │   │
+│  └─────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────┘
+```
+
+### 1.2 技术选型理由
+
+| 技术 | 版本 | 选型理由 |
+|------|------|---------|
+| **Phaser 3** | 3.60+ | 成熟的 HTML5 游戏引擎，社区活跃 |
+| **Vue 3** | 3.3+ | 渐进式框架，易于集成游戏引擎 |
+| **Element Plus** | 2.4+ | Vue 3 UI 组件库，美观易用 |
+| **Pinia** | 2.1+ | Vue 3 官方状态管理 |
+| **Howler.js** | 2.2+ | 强大的 Web Audio API 封装 |
+| **TypeScript** | 5.0+ | 类型安全，提高代码质量 |
+| **Vite** | 4.4+ | 快速构建工具，热更新 |
+
+---
+
+## 二、游戏场景设计
+
+### 2.1 场景列表
+
+| 场景名称 | 场景类型 | 功能描述 |
+|---------|---------|---------|
+| **BootScene** | 系统场景 | 资源加载、游戏初始化 |
+| **PreloadScene** | 系统场景 | 显示加载进度条 |
+| **MainMenuScene** | 主菜单 | 开始游戏、设置、排行榜入口 |
+| **CharacterScene** | 角色界面 | 角色信息、装备管理、功法查看 |
+| **CultivateScene** | 修炼界面 | 打坐、突破、炼丹、炼器 |
+| **WorldMapScene** | 世界地图 | 地点探索、移动、事件触发 |
+| **BattleScene** | 战斗界面 | 回合制战斗、技能动画 |
+| **DungeonScene** | 副本界面 | 多层副本挑战、Boss战 |
+| **TribulationScene** | 天劫界面 | 渡劫特效、飞升动画 |
+| **UIScene** | UI层叠 | 设置、成就、好友、公告 |
+
+### 2.2 场景切换流程
+
+```
+BootScene
+    ↓
+PreloadScene
+    ↓
+MainMenuScene ←──────┐
+    ↓                │
+CharacterScene       │
+    ↓                │
+GameScene ──────────┘
+    ├── CultivateScene
+    ├── WorldMapScene
+    │       ↓
+    │   ExplorationScene
+    │       ↓
+    │   EventScene
+    ├── BattleScene
+    ├── DungeonScene
+    └── TribulationScene
+```
+
+---
+
+## 三、核心场景详细设计
+
+### 3.1 主菜单场景 (MainMenuScene)
+
+#### 布局设计
+
+```
+┌─────────────────────────────────────────┐
+│                                          │
+│          背景动画：仙山云雾              │
+│          粒子效果：飞剑、灵气            │
+│                                          │
+│      ⚔️ 蜀 山 剑 侠 传 ⚔️               │
+│                                          │
+│      ┌────────────────────────┐         │
+│      │    🎮 开始游戏         │         │
+│      └────────────────────────┘         │
+│      ┌────────────────────────┐         │
+│      │    📊 排行榜          │         │
+│      └────────────────────────┘         │
+│      ┌────────────────────────┐         │
+│      │    ⚙️ 设置            │         │
+│      └────────────────────────┘         │
+│                                          │
+│      背景音乐：仙侠风主题曲              │
+└─────────────────────────────────────────┘
+```
+
+#### 特效清单
+
+| 特效名称 | 实现方式 | 参数 |
+|---------|---------|------|
+| **云雾飘动** | Shader + TileSprite | 速度: 0.5px/s |
+| **飞剑粒子** | Particle System | 5个/秒，向上飘动 |
+| **灵气光芒** | Particle System | 10个/秒，环形扩散 |
+| **按钮悬停** | Tween Animation | 缩放: 1.1x，时长: 0.2s |
+| **Logo光效** | Shader Effect | 扫光动画，周期: 3s |
+
+#### 实现代码
+
+```typescript
+export class MainMenuScene extends Phaser.Scene {
+  constructor() {
+    super({ key: 'MainMenuScene' });
+  }
+  
+  create() {
+    // 背景
+    this.add.tileSprite(640, 360, 1280, 720, 'bg-main');
+    
+    // Logo
+    const logo = this.add.image(640, 200, 'logo');
+    
+    // Logo光效
+    this.tweens.add({
+      targets: logo,
+      alpha: 0.8,
+      duration: 2000,
+      yoyo: true,
+      repeat: -1
+    });
+    
+    // 粒子效果
+    this.createParticles();
+    
+    // 按钮
+    this.createButtons();
+    
+    // 播放背景音乐
+    this.sound.play('bgm-main', { loop: true });
+  }
+  
+  private createParticles() {
+    // 飞剑粒子
+    this.add.particles(0, 0, 'particle-sword', {
+      x: { min: 0, max: 1280 },
+      y: 720,
+      lifespan: 4000,
+      speedY: { min: -100, max: -50 },
+      scale: { start: 0.5, end: 0 },
+      alpha: { start: 1, end: 0 },
+      frequency: 200
+    });
+  }
+  
+  private createButtons() {
+    const buttonY = 400;
+    const spacing = 80;
+    
+    const buttons = [
+      { text: '开始游戏', callback: () => this.startGame() },
+      { text: '排行榜', callback: () => this.showLeaderboard() },
+      { text: '设置', callback: () => this.showSettings() }
+    ];
+    
+    buttons.forEach((btn, index) => {
+      const button = this.createButton(640, buttonY + index * spacing, btn.text);
+      button.on('pointerdown', btn.callback);
+    });
+  }
+}
+```
+
+---
+
+### 3.2 角色场景 (CharacterScene)
+
+#### 布局设计
+
+```
+┌─────────────────────────────────────────┐
+│  [返回]                 角色            │
+├─────────────────────────────────────────┤
+│                                          │
+│  ┌──────────┐    ┌──────────────────┐   │
+│  │          │    │ 【基本信息】      │   │
+│  │  角色    │    │ 名称: tancau     │   │
+│  │  模型    │    │ 境界: 筑基期     │   │
+│  │  (动画)  │    │ 门派: 峨眉派     │   │
+│  │          │    │ 位置: 峨眉山脚   │   │
+│  └──────────┘    └──────────────────┘   │
+│                                          │
+│  ┌──────────────────────────────────┐   │
+│  │ 【属性】                         │   │
+│  │ 修为: 1,000/10,000   ████░░░░  │   │
+│  │ 生命: 150/150        ████████  │   │
+│  │ 真元: 120/150        ███████░  │   │
+│  │ 灵石: 1,000                     │   │
+│  └──────────────────────────────────┘   │
+│                                          │
+│  ┌──────────────────────────────────┐   │
+│  │ 【装备法宝】                      │   │
+│  │  ⚔️ 紫郢剑 (威力: 250)          │   │
+│  │  🔮 灵石护符 (防御: +50)         │   │
+│  └──────────────────────────────────┘   │
+│                                          │
+│  [功法] [法宝] [灵兽] [成就]            │
+└─────────────────────────────────────────┘
+```
+
+#### 特效清单
+
+| 特效名称 | 触发时机 | 效果描述 |
+|---------|---------|---------|
+| **角色呼吸** | 持续 | 轻微上下浮动 |
+| **境界光环** | 持续 | 根据境界显示不同颜色光环 |
+| **属性变化** | 数值变化时 | 数字滚动动画 |
+| **装备高光** | 悬停法宝时 | 金色光芒闪烁 |
+
+#### 实现代码
+
+```typescript
+export class CharacterScene extends Phaser.Scene {
+  private playerSprite!: Phaser.GameObjects.Sprite;
+  private statsTexts: Map<string, Phaser.GameObjects.Text> = new Map();
+  
+  create() {
+    this.createBackground();
+    this.createPlayerSprite();
+    this.createStatsPanel();
+    this.createEquipmentPanel();
+    this.createTabButtons();
+    
+    // 角色呼吸动画
+    this.tweens.add({
+      targets: this.playerSprite,
+      y: this.playerSprite.y - 5,
+      duration: 2000,
+      yoyo: true,
+      repeat: -1,
+      ease: 'Sine.easeInOut'
+    });
+    
+    // 境界光环
+    this.createRealmAura();
+  }
+  
+  private createRealmAura() {
+    const realmColors = {
+      '练气期': 0x4FC3F7,
+      '筑基期': 0x7C4DFF,
+      '金丹期': 0xFFD700,
+      '元婴期': 0xE91E63
+    };
+    
+    const color = realmColors[this.player.realm] || 0x4FC3F7;
+    
+    const aura = this.add.circle(
+      this.playerSprite.x,
+      this.playerSprite.y,
+      100,
+      color,
+      0.3
+    );
+    
+    // 光环脉冲
+    this.tweens.add({
+      targets: aura,
+      scale: 1.2,
+      alpha: 0.5,
+      duration: 1500,
+      yoyo: true,
+      repeat: -1
+    });
+  }
+  
+  updateStats(stats: PlayerStats) {
+    // 数字滚动动画
+    Object.keys(stats).forEach(key => {
+      const text = this.statsTexts.get(key);
+      if (text) {
+        this.tweens.addCounter({
+          from: parseInt(text.text),
+          to: stats[key],
+          duration: 500,
+          onUpdate: tween => {
+            text.setText(Math.floor(tween.getValue()).toString());
+          }
+        });
+      }
+    });
+  }
+}
+```
+
+---
+
+### 3.3 修炼场景 (CultivateScene)
+
+#### 布局设计
+
+```
+┌─────────────────────────────────────────┐
+│  [返回]                 修炼            │
+├─────────────────────────────────────────┤
+│                                          │
+│         ┌────────────────────┐          │
+│         │                    │          │
+│         │   打坐动画         │          │
+│         │   (灵气粒子)       │          │
+│         │                    │          │
+│         └────────────────────┘          │
+│                                          │
+│  ┌──────────────────────────────────┐   │
+│  │ 修为进度条                       │   │
+│  │ ████████░░░░░░░░ 1,000/10,000   │   │
+│  └──────────────────────────────────┘   │
+│                                          │
+│  ┌─────────┐ ┌─────────┐ ┌─────────┐   │
+│  │ 🧘 打坐 │ │ 💨 吐纳 │ │ ⚡ 突破 │   │
+│  └─────────┘ └─────────┘ └─────────┘   │
+│                                          │
+│  💫 修炼速度: +41% (功法加成)            │
+│                                          │
+│  ┌──────────────────────────────────┐   │
+│  │ 【炼丹炼器】                      │   │
+│  │ [炼丹] [炼器] [配方]             │   │
+│  └──────────────────────────────────┘   │
+└─────────────────────────────────────────┘
+```
+
+#### 特效清单
+
+| 特效名称 | 触发时机 | 参数配置 |
+|---------|---------|---------|
+| **灵气粒子** | 打坐时 | 20个/秒，向上飘动，青蓝色 |
+| **修为增加** | 修为变化 | 数字+20，向上飘动消失 |
+| **突破光柱** | 突破成功 | 金色光柱，环形扩散，持续3s |
+| **境界提升** | 境界变化 | 全屏光芒，粒子爆炸 |
+| **炼丹火焰** | 炼丹时 | 红橙色火焰粒子 |
+| **炼器光芒** | 炼器时 | 金色光芒，旋转上升 |
+
+#### 实现代码
+
+```typescript
+export class CultivateScene extends Phaser.Scene {
+  private spiritParticles!: Phaser.GameObjects.Particles.ParticleEmitter;
+  private isMeditating = false;
+  
+  create() {
+    this.createBackground();
+    this.createMeditationArea();
+    this.createProgressBar();
+    this.createActionButtons();
+    this.createCraftingPanel();
+  }
+  
+  private createMeditationArea() {
+    // 打坐区域
+    const centerX = 640;
+    const centerY = 300;
+    
+    // 灵气粒子系统
+    this.spiritParticles = this.add.particles(centerX, centerY + 50, 'particle-spirit', {
+      speed: { min: 50, max: 100 },
+      angle: { min: 250, max: 290 },
+      scale: { start: 0.6, end: 0 },
+      alpha: { start: 1, end: 0 },
+      lifespan: 3000,
+      frequency: -1,  // 暂停
+      blendMode: 'ADD'
+    });
+  }
+  
+  startMeditation() {
+    if (this.isMeditating) return;
+    
+    this.isMeditating = true;
+    this.spiritParticles.start();
+    
+    // 播放打坐动画
+    this.playerSprite.play('meditate');
+    
+    // 调用API
+    const result = await this.api.cultivate();
+    
+    // 显示修为增加
+    this.showCultivationGain(result.gain);
+  }
+  
+  stopMeditation() {
+    this.isMeditating = false;
+    this.spiritParticles.stop();
+    this.playerSprite.stop();
+  }
+  
+  private showCultivationGain(gain: number) {
+    // 数字飘动动画
+    const text = this.add.text(640, 280, `+${gain}`, {
+      fontSize: '36px',
+      color: '#4FC3F7',
+      stroke: '#000000',
+      strokeThickness: 4
+    }).setOrigin(0.5);
+    
+    this.tweens.add({
+      targets: text,
+      y: text.y - 80,
+      alpha: 0,
+      duration: 1500,
+      ease: 'Cubic.easeOut',
+      onComplete: () => text.destroy()
+    });
+    
+    // 更新进度条
+    this.updateProgressBar();
+  }
+  
+  async attemptBreakthrough() {
+    const result = await this.api.advance();
+    
+    if (result.success) {
+      // 突破成功特效
+      this.showBreakthroughEffect();
+    } else {
+      // 失败提示
+      this.showMessage(result.message);
+    }
+  }
+  
+  private showBreakthroughEffect() {
+    // 光柱效果
+    const beam = this.add.rectangle(640, 360, 200, 720, 0xFFD700, 0);
+    
+    this.tweens.add({
+      targets: beam,
+      alpha: 0.8,
+      duration: 500,
+      yoyo: true,
+      hold: 2000,
+      onComplete: () => beam.destroy()
+    });
+    
+    // 粒子爆炸
+    this.add.particles(640, 360, 'particle-light', {
+      speed: { min: 200, max: 400 },
+      scale: { start: 1, end: 0 },
+      lifespan: 2000,
+      quantity: 50,
+      blendMode: 'ADD'
+    }).explode();
+    
+    // 播放音效
+    this.sound.play('sfx-breakthrough');
+    
+    // 屏幕震动
+    this.cameras.main.shake(500, 0.01);
+  }
+}
+```
+
+---
+
+### 3.4 战斗场景 (BattleScene)
+
+#### 布局设计
+
+```
+┌─────────────────────────────────────────┐
+│  战斗 - 第 3 回合              [逃跑]   │
+├─────────────────────────────────────────┤
+│                                          │
+│  ┌──────────┐         ┌──────────┐     │
+│  │  敌人    │ ←────── │  玩家    │     │
+│  │  (动画)  │  剑气   │  (动画)  │     │
+│  │          │         │          │     │
+│  │ HP: 500  │         │ HP: 100  │     │
+│  │ ████████ │         │ ████████ │     │
+│  └──────────┘         └──────────┘     │
+│                                          │
+│  ┌──────────────────────────────────┐   │
+│  │ 【战斗日志】                      │   │
+│  │ [回合3] 使用峨眉剑法，造成120伤害│   │
+│  │ [回合2] 敌人攻击，受到30伤害    │   │
+│  └──────────────────────────────────┘   │
+│                                          │
+│  ┌─────────┐ ┌─────────┐ ┌─────────┐   │
+│  │⚔️ 攻击  │ │✨ 技能  │ │🔮 法宝  │   │
+│  └─────────┘ └─────────┘ └─────────┘   │
+│                                          │
+│  [灵兽出战] [使用丹药]                  │
+└─────────────────────────────────────────┘
+```
+
+#### 特效清单
+
+| 特效名称 | 触发时机 | 参数配置 |
+|---------|---------|---------|
+| **剑气轨迹** | 剑类攻击 | 金色轨迹，持续时间0.3s |
+| **伤害飘字** | 造成伤害 | 红色数字，向上飘动 |
+| **屏幕震动** | 受到攻击 | 震动强度0.02，持续0.2s |
+| **技能特效** | 释放技能 | 根据技能类型显示不同特效 |
+| **死亡动画** | 敌人死亡 | 淡出+缩小，持续1s |
+| **胜利特效** | 战斗胜利 | 金币飞舞，粒子庆祝 |
+
+#### 实现代码
+
+```typescript
+export class BattleScene extends Phaser.Scene {
+  private player!: BattleCharacter;
+  private enemy!: BattleCharacter;
+  private turnNumber = 1;
+  private isPlayerTurn = true;
+  
+  create() {
+    this.createBattleField();
+    this.createCharacters();
+    this.createBattleUI();
+    this.createActionButtons();
+    
+    // 战斗开始
+    this.startBattle();
+  }
+  
+  private createBattleField() {
+    // 战斗背景
+    this.add.image(640, 360, 'bg-battle');
+    
+    // 地面效果
+    this.add.image(640, 500, 'battle-ground');
+  }
+  
+  private createCharacters() {
+    // 玩家角色
+    this.player = new BattleCharacter(this, 200, 400, 'player', {
+      name: 'tancau',
+      hp: 100,
+      maxHp: 100,
+      attack: 50
+    });
+    
+    // 敌人
+    this.enemy = new BattleCharacter(this, 1080, 400, 'enemy', {
+      name: '妖兽',
+      hp: 500,
+      maxHp: 500,
+      attack: 30
+    });
+  }
+  
+  async performAttack(skillName?: string) {
+    if (!this.isPlayerTurn) return;
+    
+    this.isPlayerTurn = false;
+    
+    // 玩家攻击
+    const damage = await this.calculateDamage(skillName);
+    
+    // 播放攻击动画
+    await this.player.playAttackAnimation();
+    
+    // 创建剑气特效
+    this.createSwordSlash(this.player.x, this.player.y, this.enemy.x, this.enemy.y);
+    
+    // 显示伤害数字
+    this.showDamageNumber(this.enemy.x, this.enemy.y - 50, damage, false);
+    
+    // 更新敌人血量
+    await this.enemy.takeDamage(damage);
+    
+    // 检查战斗结果
+    if (this.enemy.hp <= 0) {
+      await this.onBattleWon();
+      return;
+    }
+    
+    // 敌人回合
+    await this.delay(1000);
+    await this.enemyTurn();
+  }
+  
+  private createSwordSlash(fromX: number, fromY: number, toX: number, toY: number) {
+    // 剑气轨迹
+    const slash = this.add.sprite(fromX, fromY, 'effect-sword-slash');
+    slash.setRotation(Phaser.Math.Angle.Between(fromX, fromY, toX, toY));
+    
+    // 移动到目标
+    this.tweens.add({
+      targets: slash,
+      x: toX,
+      y: toY,
+      duration: 300,
+      ease: 'Power2',
+      onComplete: () => {
+        slash.destroy();
+        
+        // 命中特效
+        this.createHitEffect(toX, toY);
+      }
+    });
+    
+    // 音效
+    this.sound.play('sfx-sword');
+  }
+  
+  private showDamageNumber(x: number, y: number, damage: number, isPlayer: boolean) {
+    const color = isPlayer ? '#ff4444' : '#4FC3F7';
+    
+    const text = this.add.text(x, y, `-${damage}`, {
+      fontSize: '40px',
+      color: color,
+      stroke: '#000000',
+      strokeThickness: 6
+    }).setOrigin(0.5);
+    
+    // 放大+上升动画
+    this.tweens.add({
+      targets: text,
+      y: y - 100,
+      scale: 1.5,
+      alpha: 0,
+      duration: 1200,
+      ease: 'Cubic.easeOut',
+      onComplete: () => text.destroy()
+    });
+  }
+  
+  private async enemyTurn() {
+    // 敌人攻击
+    const damage = this.enemy.stats.attack;
+    
+    // 敌人攻击动画
+    await this.enemy.playAttackAnimation();
+    
+    // 屏幕震动
+    this.cameras.main.shake(200, 0.02);
+    
+    // 显示伤害
+    this.showDamageNumber(this.player.x, this.player.y - 50, damage, true);
+    
+    // 更新玩家血量
+    await this.player.takeDamage(damage);
+    
+    // 检查玩家死亡
+    if (this.player.hp <= 0) {
+      await this.onBattleLost();
+      return;
+    }
+    
+    // 回到玩家回合
+    this.turnNumber++;
+    this.isPlayerTurn = true;
+  }
+  
+  private async onBattleWon() {
+    // 胜利特效
+    this.showVictoryEffect();
+    
+    // 显示奖励
+    const rewards = await this.api.battle();
+    
+    // 显示结算界面
+    this.showBattleResult(rewards);
+  }
+  
+  private showVictoryEffect() {
+    // 金币粒子
+    this.add.particles(640, 360, 'particle-coin', {
+      speed: { min: 100, max: 200 },
+      angle: { min: 0, max: 360 },
+      scale: { start: 0.8, end: 0 },
+      lifespan: 2000,
+      quantity: 30,
+      blendMode: 'ADD'
+    }).explode();
+    
+    // 胜利音乐
+    this.sound.play('sfx-victory');
+  }
+}
+```
+
+---
+
+### 3.5 世界地图场景 (WorldMapScene)
+
+#### 布局设计
+
+```
+┌─────────────────────────────────────────┐
+│  世界地图                    [返回]    │
+├─────────────────────────────────────────┤
+│                                          │
+│    ☁️☁️        🏔️ 昆仑山              │
+│       ☁️         [危险: ★★★]          │
+│                                          │
+│  🏯 峨眉山        💫 剑冢               │
+│  [危险: ★]        [危险: ★★★★]        │
+│                                          │
+│        你在这里 📍                       │
+│                                          │
+│  🌸 成都府        🏔️ 青城山             │
+│  [危险: 无]       [危险: ★★]           │
+│                                          │
+│  ─────────────────────────────────────  │
+│  当前位置: 峨眉山脚                      │
+│  点击地点可移动                          │
+└─────────────────────────────────────────┘
+```
+
+#### 特效清单
+
+| 特效名称 | 触发时机 | 参数配置 |
+|---------|---------|---------|
+| **云雾飘动** | 持续 | 速度0.5px/s，透明度0.5 |
+| **地点呼吸** | 悬停 | 缩放1.1x，时长0.3s |
+| **移动路径** | 移动时 | 虚线动画，从起点到终点 |
+| **探索事件** | 到达时 | 弹窗+粒子效果 |
+
+---
+
+## 四、视觉设计规范
+
+### 4.1 色彩体系
+
+#### 主题色
+
+```css
+/* 主色调 */
+--primary-gold: #FFD700;      /* 金色 - 仙人、法宝 */
+--primary-purple: #9C27B0;    /* 紫色 - 魔道、神秘 */
+--primary-blue: #2196F3;      /* 蓝色 - 正道、灵气 */
+
+/* 背景色 */
+--bg-dark: #1A1A2E;           /* 深色背景 */
+--bg-medium: #16213E;         /* 中等背景 */
+--bg-light: #0F3460;          /* 浅色背景 */
+
+/* 功能色 */
+--success: #38EF7D;           /* 成功/正道 */
+--danger: #F45C43;            /* 危险/邪道 */
+--warning: #FFA726;           /* 警告 */
+--info: #4FC3F7;              /* 信息 */
+```
+
+#### 境界色系
+
+```css
+/* 境界颜色 */
+--realm-mortal: #9E9E9E;      /* 凡人 - 灰色 */
+--realm-qi: #4FC3F7;          /* 练气期 - 浅蓝 */
+--realm-foundation: #7C4DFF;  /* 筑基期 - 紫色 */
+--realm-golden: #FFD700;      /* 金丹期 - 金色 */
+--realm-nascent: #E91E63;     /* 元婴期 - 粉红 */
+--realm-immortal: #00BCD4;    /* 化神期 - 青色 */
+--realm-unity: #FF9800;       /* 合体期 - 橙色 */
+--realm-tribulation: #9C27B0; /* 渡劫期 - 深紫 */
+```
+
+#### 五行色系
+
+```css
+/* 五行颜色 */
+--element-metal: #FFC107;     /* 金 - 金色 */
+--element-wood: #4CAF50;      /* 木 - 绿色 */
+--element-water: #2196F3;     /* 水 - 蓝色 */
+--element-fire: #F44336;      /* 火 - 红色 */
+--element-earth: #795548;     /* 土 - 棕色 */
+```
+
+---
+
+### 4.2 字体规范
+
+```css
+/* 标题字体 */
+font-family: 'Ma Shan Zheng', cursive;  /* 中文标题 */
+font-family: 'Cinzel', serif;           /* 英文标题 */
+
+/* 正文字体 */
+font-family: 'Noto Sans SC', sans-serif;  /* 中文正文 */
+font-family: 'Roboto', sans-serif;        /* 英文正文 */
+
+/* 字号规范 */
+--font-size-xs: 12px;
+--font-size-sm: 14px;
+--font-size-base: 16px;
+--font-size-lg: 18px;
+--font-size-xl: 24px;
+--font-size-2xl: 32px;
+--font-size-3xl: 48px;
+```
+
+---
+
+### 4.3 粒子效果库
+
+#### 灵气粒子
+
+```typescript
+const SPIRIT_PARTICLE_CONFIG = {
+  image: 'particle-spirit',
+  speed: { min: 50, max: 100 },
+  angle: { min: 250, max: 290 },  // 向上
+  scale: { start: 0.6, end: 0 },
+  alpha: { start: 1, end: 0 },
+  lifespan: 3000,
+  blendMode: 'ADD',
+  tint: [0x4FC3F7, 0x7C4DFF, 0x00BCD4]  // 蓝/紫/青
+};
+```
+
+#### 剑气粒子
+
+```typescript
+const SWORD_PARTICLE_CONFIG = {
+  image: 'particle-sword',
+  speed: { min: 200, max: 400 },
+  scale: { start: 0.8, end: 0 },
+  alpha: { start: 1, end: 0 },
+  lifespan: 500,
+  blendMode: 'ADD',
+  tint: 0xFFD700  // 金色
+};
+```
+
+#### 火焰粒子
+
+```typescript
+const FIRE_PARTICLE_CONFIG = {
+  image: 'particle-fire',
+  speed: { min: 50, max: 150 },
+  angle: { min: 260, max: 280 },  // 向上
+  scale: { start: 1, end: 0 },
+  alpha: { start: 1, end: 0 },
+  lifespan: 1500,
+  blendMode: 'ADD',
+  tint: [0xFF5722, 0xFF9800, 0xFFC107]  // 红/橙/黄
+};
+```
+
+---
+
+### 4.4 动画规范
+
+#### 缓动函数
+
+```typescript
+// 常用缓动函数
+const EASING = {
+  LINEAR: 'Linear',
+  EASE_OUT: 'Cubic.easeOut',
+  EASE_IN: 'Cubic.easeIn',
+  EASE_IN_OUT: 'Cubic.easeInOut',
+  BACK: 'Back.easeOut',
+  ELASTIC: 'Elastic.easeOut',
+  BOUNCE: 'Bounce.easeOut',
+  SINE: 'Sine.easeInOut'
+};
+```
+
+#### 动画时长标准
+
+```typescript
+// 动画时长（毫秒）
+const DURATION = {
+  // UI 动画
+  BUTTON_CLICK: 150,
+  PAGE_TRANSITION: 300,
+  MODAL_OPEN: 200,
+  TOAST: 3000,
+  
+  // 战斗动画
+  ATTACK: 500,
+  SKILL: 1000,
+  DAMAGE_NUMBER: 1200,
+  DEATH: 1000,
+  
+  // 特效动画
+  BREAKTHROUGH: 3000,
+  LEVEL_UP: 2000,
+  TRIBULATION: 5000
+};
+```
+
+---
+
+## 五、音效系统设计
+
+### 5.1 背景音乐
+
+| 场景 | 音乐名称 | 音乐风格 | 文件格式 |
+|------|---------|---------|---------|
+| 主菜单 | bgm_main.mp3 | 宏大仙侠 | MP3 320kbps |
+| 角色 | bgm_character.mp3 | 轻柔悠扬 | MP3 320kbps |
+| 修炼 | bgm_cultivate.mp3 | 宁静禅意 | MP3 320kbps |
+| 探索 | bgm_explore.mp3 | 轻快神秘 | MP3 320kbps |
+| 战斗 | bgm_battle.mp3 | 激烈紧张 | MP3 320kbps |
+| 副本 | bgm_dungeon.mp3 | 压迫紧张 | MP3 320kbps |
+| 天劫 | bgm_tribulation.mp3 | 震撼史诗 | MP3 320kbps |
+
+---
+
+### 5.2 音效分类
+
+#### UI 音效
+
+| 音效名称 | 触发时机 | 文件名 |
+|---------|---------|--------|
+| 按钮点击 | 点击按钮 | sfx_click.wav |
+| 页面切换 | 场景切换 | sfx_page.wav |
+| 确认操作 | 确认对话框 | sfx_confirm.wav |
+| 取消操作 | 取消对话框 | sfx_cancel.wav |
+| 获得物品 | 获得法宝/丹药 | sfx_item.wav |
+| 任务完成 | 任务达成 | sfx_quest.wav |
+
+#### 战斗音效
+
+| 音效名称 | 触发时机 | 文件名 |
+|---------|---------|--------|
+| 剑气攻击 | 剑类攻击 | sfx_sword.wav |
+| 法术释放 | 技能释放 | sfx_magic.wav |
+| 受击 | 被攻击 | sfx_hit.wav |
+| 闪避 | 闪避成功 | sfx_dodge.wav |
+| 暴击 | 暴击伤害 | sfx_critical.wav |
+| 死亡 | 角色死亡 | sfx_death.wav |
+| 胜利 | 战斗胜利 | sfx_victory.wav |
+| 失败 | 战斗失败 | sfx_defeat.wav |
+
+#### 修炼音效
+
+| 音效名称 | 触发时机 | 文件名 |
+|---------|---------|--------|
+| 开始打坐 | 进入修炼 | sfx_meditate.wav |
+| 修为增加 | 修为变化 | sfx_cultivate.wav |
+| 突破成功 | 境界提升 | sfx_breakthrough.wav |
+| 突破失败 | 突破失败 | sfx_fail.wav |
+| 炼丹 | 炼制丹药 | sfx_alchemy.wav |
+| 炼器 | 炼制法宝 | sfx_forge.wav |
+
+---
+
+### 5.3 音效管理器
+
+```typescript
+export class AudioManager {
+  private bgmPlayer: Howl;
+  private sfxPlayers: Map<string, Howl> = new Map();
+  private bgmVolume = 0.5;
+  private sfxVolume = 0.7;
+  
+  constructor() {
+    // 初始化背景音乐播放器
+    this.bgmPlayer = new Howl({
+      src: [''],
+      loop: true,
+      volume: this.bgmVolume
+    });
+    
+    // 预加载常用音效
+    this.preloadSFX([
+      'sfx_click',
+      'sfx_sword',
+      'sfx_hit',
+      'sfx_cultivate'
+    ]);
+  }
+  
+  // 播放背景音乐
+  playBGM(name: string, fadeIn = true) {
+    this.bgmPlayer.stop();
+    this.bgmPlayer = new Howl({
+      src: [`assets/audio/bgm/${name}.mp3`],
+      loop: true,
+      volume: fadeIn ? 0 : this.bgmVolume
+    });
+    
+    if (fadeIn) {
+      this.bgmPlayer.fade(0, this.bgmVolume, 1000);
+    }
+    
+    this.bgmPlayer.play();
+  }
+  
+  // 停止背景音乐
+  stopBGM(fadeOut = true) {
+    if (fadeOut) {
+      this.bgmPlayer.fade(this.bgmVolume, 0, 1000);
+      setTimeout(() => this.bgmPlayer.stop(), 1000);
+    } else {
+      this.bgmPlayer.stop();
+    }
+  }
+  
+  // 播放音效
+  playSFX(name: string) {
+    let sfx = this.sfxPlayers.get(name);
+    
+    if (!sfx) {
+      sfx = new Howl({
+        src: [`assets/audio/sfx/${name}.wav`],
+        volume: this.sfxVolume
+      });
+      this.sfxPlayers.set(name, sfx);
+    }
+    
+    sfx.play();
+  }
+  
+  // 设置音量
+  setVolume(type: 'bgm' | 'sfx', volume: number) {
+    if (type === 'bgm') {
+      this.bgmVolume = volume;
+      this.bgmPlayer.volume(volume);
+    } else {
+      this.sfxVolume = volume;
+    }
+  }
+}
+```
+
+---
+
+## 六、技术实现细节
+
+### 6.1 项目结构
+
+```
+shushan-frontend/
+├── public/
+│   ├── assets/
+│   │   ├── images/              # 图片资源
+│   │   │   ├── characters/      # 角色图片
+│   │   │   ├── enemies/         # 敌人图片
+│   │   │   ├── artifacts/       # 法宝图片
+│   │   │   ├── effects/         # 特效图片
+│   │   │   ├── maps/            # 地图图片
+│   │   │   ├── items/           # 道具图片
+│   │   │   └── ui/              # UI图片
+│   │   │
+│   │   ├── audio/               # 音频资源
+│   │   │   ├── bgm/             # 背景音乐
+│   │   │   └── sfx/             # 音效
+│   │   │
+│   │   ├── fonts/               # 字体文件
+│   │   │
+│   │   └── sprites/             # 精灵表
+│   │
+│   └── index.html
+│
+├── src/
+│   ├── main.ts                  # 入口文件
+│   ├── App.vue                  # 根组件
+│   ├── vite-env.d.ts
+│   │
+│   ├── game/                    # 游戏引擎代码
+│   │   ├── Game.ts              # 游戏主类
+│   │   │
+│   │   ├── scenes/              # 场景
+│   │   │   ├── BaseScene.ts     # 场景基类
+│   │   │   ├── BootScene.ts     # 启动场景
+│   │   │   ├── PreloadScene.ts  # 加载场景
+│   │   │   ├── MainMenuScene.ts # 主菜单
+│   │   │   ├── CharacterScene.ts# 角色场景
+│   │   │   ├── CultivateScene.ts# 修炼场景
+│   │   │   ├── BattleScene.ts   # 战斗场景
+│   │   │   ├── WorldMapScene.ts # 世界地图
+│   │   │   ├── DungeonScene.ts  # 副本场景
+│   │   │   └── TribulationScene.ts # 天劫场景
+│   │   │
+│   │   ├── objects/             # 游戏对象
+│   │   │   ├── Character.ts     # 角色基类
+│   │   │   ├── Player.ts        # 玩家
+│   │   │   ├── Enemy.ts         # 敌人
+│   │   │   ├── NPC.ts           # NPC
+│   │   │   ├── Artifact.ts      # 法宝
+│   │   │   └── SpiritBeast.ts   # 灵兽
+│   │   │
+│   │   ├── effects/             # 特效系统
+│   │   │   ├── particles/       # 粒子效果
+│   │   │   │   ├── SpiritParticle.ts
+│   │   │   │   ├── SwordParticle.ts
+│   │   │   │   └── FireParticle.ts
+│   │   │   │
+│   │   │   ├── animations/      # 动画
+│   │   │   │   ├── AttackAnimation.ts
+│   │   │   │   └── BreakthroughAnimation.ts
+│   │   │   │
+│   │   │   └── shaders/         # 着色器
+│   │   │       ├── CloudShader.ts
+│   │   │       └── GlowShader.ts
+│   │   │
+│   │   ├── audio/               # 音效管理
+│   │   │   └── AudioManager.ts
+│   │   │
+│   │   └── utils/               # 工具函数
+│   │       ├── MathUtils.ts
+│   │       └── AnimationUtils.ts
+│   │
+│   ├── ui/                      # UI 组件
+│   │   ├── components/          # Vue 组件
+│   │   │   ├── StatusBar.vue
+│   │   │   ├── Inventory.vue
+│   │   │   ├── QuestList.vue
+│   │   │   ├── AchievementList.vue
+│   │   │   ├── FriendList.vue
+│   │   │   ├── Leaderboard.vue
+│   │   │   └── Settings.vue
+│   │   │
+│   │   └── styles/              # 样式
+│   │       ├── variables.css    # CSS变量
+│   │       ├── theme.css        # 主题样式
+│   │       └── animations.css   # 动画样式
+│   │
+│   ├── api/                     # API 层
+│   │   ├── client.ts            # Axios 配置
+│   │   ├── player.ts            # 玩家相关
+│   │   ├── battle.ts            # 战斗相关
+│   │   ├── cultivation.ts       # 修炼相关
+│   │   └── market.ts            # 市场相关
+│   │
+│   ├── stores/                  # 状态管理
+│   │   ├── player.ts            # 玩家状态
+│   │   ├── game.ts              # 游戏状态
+│   │   ├── settings.ts          # 设置状态
+│   │   └── audio.ts             # 音频状态
+│   │
+│   ├── types/                   # 类型定义
+│   │   ├── player.d.ts
+│   │   ├── battle.d.ts
+│   │   └── api.d.ts
+│   │
+│   └── utils/                   # 工具函数
+│       ├── formatters.ts        # 格式化
+│       └── validators.ts        # 验证
+│
+├── package.json
+├── vite.config.ts
+├── tsconfig.json
+└── README.md
+```
+
+---
+
+### 6.2 核心配置
+
+#### package.json
+
+```json
+{
+  "name": "shushan-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.3.0",
+    "element-plus": "^2.4.0",
+    "pinia": "^2.1.0",
+    "axios": "^1.5.0",
+    "phaser": "^3.60.0",
+    "howler": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/howler": "^2.2.0",
+    "@vitejs/plugin-vue": "^4.3.0",
+    "typescript": "^5.0.0",
+    "vite": "^4.4.0",
+    "vue-tsc": "^1.8.0"
+  }
+}
+```
+
+#### vite.config.ts
+
+```typescript
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import path from 'path';
+
+export default defineConfig({
+  plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src')
+    }
+  },
+  server: {
+    port: 3000,
+    proxy: {
+      '/api': {
+        target: 'https://shushan-game.vercel.app',
+        changeOrigin: true
+      }
+    }
+  },
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    chunkSizeWarningLimit: 1500
+  }
+});
+```
+
+---
+
+### 6.3 游戏主类
+
+```typescript
+// src/game/Game.ts
+import Phaser from 'phaser';
+import { BootScene } from './scenes/BootScene';
+import { PreloadScene } from './scenes/PreloadScene';
+import { MainMenuScene } from './scenes/MainMenuScene';
+import { CharacterScene } from './scenes/CharacterScene';
+import { CultivateScene } from './scenes/CultivateScene';
+import { BattleScene } from './scenes/BattleScene';
+import { WorldMapScene } from './scenes/WorldMapScene';
+import { DungeonScene } from './scenes/DungeonScene';
+import { TribulationScene } from './scenes/TribulationScene';
+
+export class ShushanGame extends Phaser.Game {
+  constructor(parent: string) {
+    const config: Phaser.Types.Core.GameConfig = {
+      type: Phaser.AUTO,
+      width: 1280,
+      height: 720,
+      parent: parent,
+      backgroundColor: '#1a1a2e',
+      
+      scene: [
+        BootScene,
+        PreloadScene,
+        MainMenuScene,
+        CharacterScene,
+        CultivateScene,
+        BattleScene,
+        WorldMapScene,
+        DungeonScene,
+        TribulationScene
+      ],
+      
+      physics: {
+        default: 'arcade',
+        arcade: {
+          gravity: { x: 0, y: 0 },
+          debug: false
+        }
+      },
+      
+      audio: {
+        disableWebAudio: false
+      },
+      
+      render: {
+        pixelArt: true,
+        antialias: false
+      },
+      
+      scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH
+      }
+    };
+    
+    super(config);
+  }
+}
+```
+
+---
+
+## 七、性能优化
+
+### 7.1 资源加载优化
+
+#### 分场景加载
+
+```typescript
+// 资源配置
+const SCENE_ASSETS = {
+  boot: {
+    images: ['loading-bg', 'loading-bar'],
+    audio: []
+  },
+  menu: {
+    images: ['bg-main', 'logo', 'button'],
+    audio: ['bgm-main', 'sfx-click']
+  },
+  battle: {
+    images: ['bg-battle', 'player', 'enemy'],
+    audio: ['bgm-battle', 'sfx-sword', 'sfx-hit']
+  }
+};
+
+// 按场景加载资源
+async function loadSceneAssets(scene: Phaser.Scene, sceneName: string) {
+  const assets = SCENE_ASSETS[sceneName];
+  
+  // 加载图片
+  for (const key of assets.images) {
+    scene.load.image(key, `assets/images/${sceneName}/${key}.png`);
+  }
+  
+  // 加载音频
+  for (const key of assets.audio) {
+    const isBGM = key.startsWith('bgm');
+    const ext = isBGM ? 'mp3' : 'wav';
+    scene.load.audio(key, `assets/audio/${isBGM ? 'bgm' : 'sfx'}/${key}.${ext}`);
+  }
+  
+  return new Promise(resolve => {
+    scene.load.once('complete', resolve);
+    scene.load.start();
+  });
+}
+```
+
+#### 精灵表优化
+
+```typescript
+// 使用精灵表减少HTTP请求
+scene.load.atlas(
+  'characters',
+  'assets/sprites/characters.png',
+  'assets/sprites/characters.json'
+);
+
+// 使用纹理图集
+scene.load.atlas(
+  'effects',
+  'assets/sprites/effects.png',
+  'assets/sprites/effects.json'
+);
+```
+
+---
+
+### 7.2 渲染优化
+
+#### 对象池
+
+```typescript
+// 伤害数字对象池
+export class DamageNumberPool {
+  private pool: Phaser.GameObjects.Text[] = [];
+  private scene: Phaser.Scene;
+  
+  constructor(scene: Phaser.Scene, initialSize = 20) {
+    this.scene = scene;
+    
+    // 预创建对象
+    for (let i = 0; i < initialSize; i++) {
+      this.pool.push(this.createText());
+    }
+  }
+  
+  private createText(): Phaser.GameObjects.Text {
+    return this.scene.add.text(0, 0, '', {
+      fontSize: '32px',
+      color: '#ff4444'
+    }).setActive(false).setVisible(false);
+  }
+  
+  get(x: number, y: number, damage: number): Phaser.GameObjects.Text {
+    let text = this.pool.pop();
+    
+    if (!text) {
+      text = this.createText();
+    }
+    
+    text
+      .setPosition(x, y)
+      .setText(`-${damage}`)
+      .setActive(true)
+      .setVisible(true)
+      .setAlpha(1);
+    
+    return text;
+  }
+  
+  release(text: Phaser.GameObjects.Text) {
+    text.setActive(false).setVisible(false);
+    this.pool.push(text);
+  }
+}
+```
+
+#### 批量渲染
+
+```typescript
+// 使用渲染组
+this.add.group({
+  classType: Phaser.GameObjects.Sprite,
+  runChildUpdate: true,
+  createCallback: (obj) => {
+    obj.setDepth(10);
+  }
+});
+```
+
+---
+
+### 7.3 内存优化
+
+#### 纹理缓存管理
+
+```typescript
+// 清理未使用的纹理
+function cleanupTextures(scene: Phaser.Scene) {
+  const usedKeys = new Set<string>();
+  
+  // 收集正在使用的纹理
+  scene.children.each((obj: Phaser.GameObjects.GameObject) => {
+    if ('texture' in obj) {
+      usedKeys.add((obj as any).texture.key);
+    }
+  });
+  
+  // 删除未使用的纹理
+  const allKeys = Object.keys(scene.textures.list);
+  for (const key of allKeys) {
+    if (!usedKeys.has(key) && key !== '__DEFAULT' && key !== '__MISSING') {
+      scene.textures.remove(key);
+    }
+  }
+}
+```
+
+---
+
+## 八、开发计划
+
+### 8.1 开发阶段划分
+
+#### Phase 1：基础框架（5天）
+
+| 任务 | 工作量 | 优先级 |
+|------|--------|--------|
+| 项目初始化 | 0.5天 | ⭐⭐⭐⭐⭐ |
+| 资源加载系统 | 1天 | ⭐⭐⭐⭐⭐ |
+| 场景管理 | 1天 | ⭐⭐⭐⭐⭐ |
+| 音效系统 | 1天 | ⭐⭐⭐⭐ |
+| 基础 UI 组件 | 1.5天 | ⭐⭐⭐⭐ |
+
+#### Phase 2：核心场景（7天）
+
+| 任务 | 工作量 | 优先级 |
+|------|--------|--------|
+| 主菜单场景 | 1天 | ⭐⭐⭐⭐⭐ |
+| 角色场景 | 1天 | ⭐⭐⭐⭐⭐ |
+| 修炼场景 | 1天 | ⭐⭐⭐⭐ |
+| 战斗场景 | 2天 | ⭐⭐⭐⭐⭐ |
+| 世界地图场景 | 1天 | ⭐⭐⭐⭐ |
+| 副本场景 | 1天 | ⭐⭐⭐ |
+
+#### Phase 3：特效系统（5天）
+
+| 任务 | 工作量 | 优先级 |
+|------|--------|--------|
+| 粒子系统 | 2天 | ⭐⭐⭐⭐ |
+| 动画系统 | 2天 | ⭐⭐⭐⭐ |
+| Shader 特效 | 1天 | ⭐⭐⭐ |
+
+#### Phase 4：优化完善（5天）
+
+| 任务 | 工作量 | 优先级 |
+|------|--------|--------|
+| 性能优化 | 2天 | ⭐⭐⭐⭐⭐ |
+| 音效完善 | 1天 | ⭐⭐⭐ |
+| 测试调试 | 2天 | ⭐⭐⭐⭐⭐ |
+
+**总开发时间：约 22 天（3 周）**
+
+---
+
+### 8.2 里程碑
+
+| 里程碑 | 完成时间 | 交付物 |
+|--------|---------|--------|
+| **M1 - 基础框架** | 第 5 天 | 可运行的空游戏框架 |
+| **M2 - 主菜单** | 第 6 天 | 完整的主菜单界面 |
+| **M3 - 角色系统** | 第 7 天 | 角色创建和查看 |
+| **M4 - 修炼系统** | 第 8 天 | 完整的修炼流程 |
+| **M5 - 战斗系统** | 第 10 天 | 回合制战斗 |
+| **M6 - 世界探索** | 第 11 天 | 地图和移动 |
+| **M7 - 副本系统** | 第 12 天 | 副本挑战 |
+| **M8 - 特效完善** | 第 17 天 | 所有特效完成 |
+| **M9 - 优化测试** | 第 22 天 | 可发布版本 |
+
+---
+
+## 九、部署方案
+
+### 9.1 构建配置
+
+#### vercel.json
+
+```json
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vue",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
+```
+
+### 9.2 CDN 配置
+
+```typescript
+// vite.config.ts
+export default defineConfig({
+  base: 'https://cdn.example.com/shushan/',
+  build: {
+    assetsInlineLimit: 4096,
+    rollupOptions: {
+      output: {
+        chunkFileNames: 'js/[name]-[hash].js',
+        entryFileNames: 'js/[name]-[hash].js',
+        assetFileNames: '[ext]/[name]-[hash].[ext]'
+      }
+    }
+  }
+});
+```
+
+### 9.3 PWA 支持
+
+#### manifest.json
+
+```json
+{
+  "name": "蜀山剑侠传",
+  "short_name": "蜀山",
+  "description": "文字修仙游戏",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#FFD700",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+```
+
+---
+
+## 十、成本估算
+
+### 10.1 技术成本
+
+| 项目 | 费用 |
+|------|------|
+| **游戏引擎** | Phaser 3（免费开源） |
+| **前端框架** | Vue 3（免费开源） |
+| **UI 组件库** | Element Plus（免费开源） |
+| **状态管理** | Pinia（免费开源） |
+| **音效库** | Howler.js（免费开源） |
+| **构建工具** | Vite（免费开源） |
+| **托管服务** | Vercel 免费版 |
+| **CDN** | 可选，$5-10/月 |
+
+### 10.2 资源成本
+
+| 资源类型 | 来源 | 费用 |
+|---------|------|------|
+| **图片素材** | 免费/付费素材网站 | $0-50 |
+| **音频素材** | 免费音乐网站 | $0-30 |
+| **字体** | Google Fonts（免费） | $0 |
+| **图标** | Flaticon（免费） | $0 |
+
+### 10.3 总成本
+
+| 方案 | 总费用 |
+|------|--------|
+| **最低成本** | $0（全部使用免费资源） |
+| **推荐方案** | $10-50（部分付费素材） |
+| **专业方案** | $100-500（高质量素材） |
+
+---
+
+## 十一、附录
+
+### 11.1 参考资源
+
+- [Phaser 3 官方文档](https://photonstorm.github.io/phaser3-docs/)
+- [Vue 3 官方文档](https://vuejs.org/)
+- [Howler.js 文档](https://howlerjs.com/)
+- [免费游戏素材](https://opengameart.org/)
+- [免费音乐素材](https://freemusicarchive.org/)
+
+### 11.2 开发规范
+
+- 代码风格：ESLint + Prettier
+- 提交规范：Conventional Commits
+- 分支管理：Git Flow
+- 文档规范：Markdown
+
+---
+
+**文档版本：** v1.0  
+**更新时间：** 2026-04-22  
+**作者：** OpenClaw AI
