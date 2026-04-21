@@ -1,0 +1,776 @@
+{
+  "description": "蜀山剑侠传 - 商店数据库",
+  "version": "1.0.0",
+  
+  "shops": [
+    {
+      "shop_id": "chengdu_pill_shop",
+      "name": "灵药铺",
+      "shop_type": "丹药",
+      "owner_npc": "medicine_merchant",
+      "refresh_time": 24,
+      "reputation_required": 0,
+      "discount_for_sect": {},
+      "items": [
+        {
+          "item_id": "hunchun_pill",
+          "name": "回春丹",
+          "category": "丹药",
+          "price": 50,
+          "stock": -1,
+          "level_required": 1,
+          "realm_required": "",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "恢复生命值100点"
+        },
+        {
+          "item_id": "buqi_pill",
+          "name": "补气丹",
+          "category": "丹药",
+          "price": 50,
+          "stock": -1,
+          "level_required": 1,
+          "realm_required": "",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "恢复真元100点"
+        },
+        {
+          "item_id": "lingqi_pill",
+          "name": "灵气丹",
+          "category": "丹药",
+          "price": 200,
+          "stock": -1,
+          "level_required": 5,
+          "realm_required": "练气期",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "增加修为500点"
+        },
+        {
+          "item_id": "zhujidan",
+          "name": "筑基丹",
+          "category": "丹药",
+          "price": 1000,
+          "stock": 5,
+          "level_required": 10,
+          "realm_required": "练气期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "筑基期突破必备，提升突破成功率30%"
+        },
+        {
+          "item_id": "jindan",
+          "name": "金丹",
+          "category": "丹药",
+          "price": 5000,
+          "stock": 2,
+          "level_required": 30,
+          "realm_required": "筑基期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "金丹期突破必备，提升突破成功率50%"
+        },
+        {
+          "item_id": "yuanidan",
+          "name": "元婴丹",
+          "category": "丹药",
+          "price": 20000,
+          "stock": 1,
+          "level_required": 50,
+          "realm_required": "金丹期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "元婴期突破必备，极为珍贵"
+        },
+        {
+          "item_id": "healing_salve",
+          "name": "疗伤药膏",
+          "category": "丹药",
+          "price": 30,
+          "stock": -1,
+          "level_required": 1,
+          "realm_required": "",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "外用药膏，快速止血疗伤"
+        },
+        {
+          "item_id": "antidote_pill",
+          "name": "解毒丹",
+          "category": "丹药",
+          "price": 100,
+          "stock": -1,
+          "level_required": 3,
+          "realm_required": "",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "解除普通毒素"
+        },
+        {
+          "item_id": "spirit_gathering_pill",
+          "name": "聚灵丹",
+          "category": "丹药",
+          "price": 500,
+          "stock": 10,
+          "level_required": 15,
+          "realm_required": "练气期",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "修炼时增加灵气吸收速度"
+        },
+        {
+          "item_id": "life_extension_pill",
+          "name": "延寿丹",
+          "category": "丹药",
+          "price": 10000,
+          "stock": 1,
+          "level_required": 40,
+          "realm_required": "金丹期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "延寿百年，仙人难求"
+        }
+      ]
+    },
+    {
+      "shop_id": "chengdu_artifact_shop",
+      "name": "法宝阁",
+      "shop_type": "法宝",
+      "owner_npc": "artifact_merchant",
+      "refresh_time": 48,
+      "reputation_required": 0,
+      "discount_for_sect": {},
+      "items": [
+        {
+          "item_id": "iron_sword",
+          "name": "铁剑",
+          "category": "法宝",
+          "price": 100,
+          "stock": -1,
+          "level_required": 1,
+          "realm_required": "",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "普通铁剑，攻击+10"
+        },
+        {
+          "item_id": "spirit_sword",
+          "name": "灵剑",
+          "category": "法宝",
+          "price": 500,
+          "stock": -1,
+          "level_required": 10,
+          "realm_required": "练气期",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "蕴含灵气的长剑，攻击+30"
+        },
+        {
+          "item_id": "flying_sword",
+          "name": "飞剑",
+          "category": "法宝",
+          "price": 2000,
+          "stock": 3,
+          "level_required": 20,
+          "realm_required": "筑基期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "可御剑飞行，攻击+50，速度+20%"
+        },
+        {
+          "item_id": "protective_charm",
+          "name": "护身符",
+          "category": "法宝",
+          "price": 100,
+          "stock": -1,
+          "level_required": 1,
+          "realm_required": "",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "被动防御，抵挡一次致命攻击后破碎"
+        },
+        {
+          "item_id": "spirit_armor",
+          "name": "灵甲",
+          "category": "法宝",
+          "price": 800,
+          "stock": -1,
+          "level_required": 15,
+          "realm_required": "练气期",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "灵气护体，防御+40"
+        },
+        {
+          "item_id": "thunder_sword",
+          "name": "雷剑",
+          "category": "法宝",
+          "price": 5000,
+          "stock": 2,
+          "level_required": 30,
+          "realm_required": "筑基期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "蕴含雷霆之力，攻击+80，附带雷属性伤害"
+        },
+        {
+          "item_id": "ice_mirror",
+          "name": "寒冰镜",
+          "category": "法宝",
+          "price": 3000,
+          "stock": 2,
+          "level_required": 25,
+          "realm_required": "筑基期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "可反射法术攻击，防御+60"
+        },
+        {
+          "item_id": "fire_ring",
+          "name": "火云环",
+          "category": "法宝",
+          "price": 4000,
+          "stock": 2,
+          "level_required": 28,
+          "realm_required": "筑基期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "攻守兼备，攻击+40，防御+40，火属性加成"
+        }
+      ]
+    },
+    {
+      "shop_id": "chengdu_material_shop",
+      "name": "材料铺",
+      "shop_type": "材料",
+      "owner_npc": "material_merchant",
+      "refresh_time": 12,
+      "reputation_required": 0,
+      "discount_for_sect": {},
+      "items": [
+        {
+          "item_id": "xuantie",
+          "name": "玄铁",
+          "category": "材料",
+          "price": 10,
+          "stock": -1,
+          "level_required": 1,
+          "realm_required": "",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "炼器基础材料，凡品"
+        },
+        {
+          "item_id": "jingjin",
+          "name": "精金",
+          "category": "材料",
+          "price": 50,
+          "stock": -1,
+          "level_required": 5,
+          "realm_required": "",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "提炼后的纯净金属，灵品"
+        },
+        {
+          "item_id": "lingshen",
+          "name": "灵参",
+          "category": "材料",
+          "price": 100,
+          "stock": -1,
+          "level_required": 5,
+          "realm_required": "",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "百年灵参，大补元气"
+        },
+        {
+          "item_id": "zhuguo",
+          "name": "朱果",
+          "category": "材料",
+          "price": 150,
+          "stock": -1,
+          "level_required": 8,
+          "realm_required": "",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "增强真元的灵果"
+        },
+        {
+          "item_id": "monster_core",
+          "name": "妖兽内丹",
+          "category": "材料",
+          "price": 500,
+          "stock": 5,
+          "level_required": 15,
+          "realm_required": "练气期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "妖兽修炼精华，炼丹炼器皆可"
+        },
+        {
+          "item_id": "star_sand",
+          "name": "星辰砂",
+          "category": "材料",
+          "price": 800,
+          "stock": 3,
+          "level_required": 25,
+          "realm_required": "筑基期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "陨石所化，蕴含星辰之力"
+        },
+        {
+          "item_id": "ice_crystal",
+          "name": "寒冰晶",
+          "category": "材料",
+          "price": 300,
+          "stock": 5,
+          "level_required": 20,
+          "realm_required": "筑基期",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "极寒之地的结晶"
+        },
+        {
+          "item_id": "fire_stone",
+          "name": "火精石",
+          "category": "材料",
+          "price": 350,
+          "stock": 5,
+          "level_required": 20,
+          "realm_required": "筑基期",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "火山中凝结的火性矿石"
+        },
+        {
+          "item_id": "thunder_stone",
+          "name": "天雷石",
+          "category": "材料",
+          "price": 1500,
+          "stock": 2,
+          "level_required": 30,
+          "realm_required": "筑基期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "雷霆劈石所化，蕴含天雷之力"
+        },
+        {
+          "item_id": "dragon_scale",
+          "name": "龙鳞",
+          "category": "材料",
+          "price": 10000,
+          "stock": 1,
+          "level_required": 50,
+          "realm_required": "金丹期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "真龙鳞片，坚不可摧"
+        }
+      ]
+    },
+    {
+      "shop_id": "black_market_shop",
+      "name": "黑市",
+      "shop_type": "黑市",
+      "owner_npc": "black_market_merchant",
+      "refresh_time": 72,
+      "reputation_required": 0,
+      "discount_for_sect": {
+        "血河教": 0.8
+      },
+      "items": [
+        {
+          "item_id": "blood_pill",
+          "name": "血丹",
+          "category": "丹药",
+          "price": 500,
+          "stock": 5,
+          "level_required": 20,
+          "realm_required": "",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "血河教秘制丹药，可快速提升修为但有副作用"
+        },
+        {
+          "item_id": "demon_core",
+          "name": "魔晶",
+          "category": "材料",
+          "price": 1000,
+          "stock": 3,
+          "level_required": 30,
+          "realm_required": "",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "魔道修行者的结晶，蕴含魔气"
+        },
+        {
+          "item_id": "cursed_sword",
+          "name": "诅咒之剑",
+          "category": "法宝",
+          "price": 3000,
+          "stock": 1,
+          "level_required": 25,
+          "realm_required": "",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "被诅咒的魔剑，威力强大但会侵蚀心神"
+        },
+        {
+          "item_id": "forbidden_scroll",
+          "name": "禁术卷轴",
+          "category": "功法",
+          "price": 5000,
+          "stock": 1,
+          "level_required": 35,
+          "realm_required": "",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "记载禁忌功法的卷轴，修炼需谨慎"
+        },
+        {
+          "item_id": "soul_stone",
+          "name": "摄魂石",
+          "category": "材料",
+          "price": 800,
+          "stock": 3,
+          "level_required": 25,
+          "realm_required": "",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "可捕获灵魂的魔石"
+        },
+        {
+          "item_id": "dark_mirror",
+          "name": "幽冥镜",
+          "category": "法宝",
+          "price": 8000,
+          "stock": 1,
+          "level_required": 45,
+          "realm_required": "",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "可召唤幽冥鬼物助战"
+        },
+        {
+          "item_id": "poison_needle",
+          "name": "追魂针",
+          "category": "法宝",
+          "price": 2000,
+          "stock": 2,
+          "level_required": 20,
+          "realm_required": "",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "淬毒暗器，见血封喉"
+        }
+      ]
+    },
+    {
+      "shop_id": "emei_artifact_shop",
+      "name": "峨眉法宝殿",
+      "shop_type": "法宝",
+      "owner_npc": "qi_shushi",
+      "refresh_time": 48,
+      "reputation_required": 100,
+      "discount_for_sect": {
+        "峨眉派": 0.7
+      },
+      "items": [
+        {
+          "item_id": "emei_flying_sword",
+          "name": "峨眉飞剑",
+          "category": "法宝",
+          "price": 3000,
+          "stock": 2,
+          "level_required": 25,
+          "realm_required": "筑基期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "峨眉派秘传飞剑，攻击+70，剑速+30%"
+        },
+        {
+          "item_id": "emei_robe",
+          "name": "峨眉道袍",
+          "category": "法宝",
+          "price": 1500,
+          "stock": 3,
+          "level_required": 15,
+          "realm_required": "练气期",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "峨眉派弟子道袍，防御+50，修炼速度+10%"
+        },
+        {
+          "item_id": "purple_cloud_sword",
+          "name": "紫云剑",
+          "category": "法宝",
+          "price": 8000,
+          "stock": 1,
+          "level_required": 40,
+          "realm_required": "金丹期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "紫云真气凝聚而成，攻击+120"
+        },
+        {
+          "item_id": "emei_token",
+          "name": "峨眉令牌",
+          "category": "法宝",
+          "price": 500,
+          "stock": 5,
+          "level_required": 10,
+          "realm_required": "",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "峨眉派身份象征，可进入门派禁地"
+        }
+      ]
+    },
+    {
+      "shop_id": "kunlun_artifact_shop",
+      "name": "昆仑炼器阁",
+      "shop_type": "法宝",
+      "owner_npc": "zhongli_quan",
+      "refresh_time": 48,
+      "reputation_required": 100,
+      "discount_for_sect": {
+        "昆仑派": 0.7
+      },
+      "items": [
+        {
+          "item_id": "kunlun_mirror",
+          "name": "昆仑镜",
+          "category": "法宝",
+          "price": 10000,
+          "stock": 1,
+          "level_required": 40,
+          "realm_required": "金丹期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "昆仑至宝，可照见人心，防御+100"
+        },
+        {
+          "item_id": "star_sword",
+          "name": "星辰剑",
+          "category": "法宝",
+          "price": 5000,
+          "stock": 2,
+          "level_required": 30,
+          "realm_required": "筑基期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "以星辰砂炼制，攻击+90，夜战加成"
+        },
+        {
+          "item_id": "kunlun_jade",
+          "name": "昆仑玉佩",
+          "category": "法宝",
+          "price": 2000,
+          "stock": 3,
+          "level_required": 20,
+          "realm_required": "筑基期",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "昆仑灵玉制成，增加修炼速度20%"
+        },
+        {
+          "item_id": "immortal_armor",
+          "name": "仙甲",
+          "category": "法宝",
+          "price": 15000,
+          "stock": 1,
+          "level_required": 50,
+          "realm_required": "金丹期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "仙人遗留的战甲，防御+150"
+        }
+      ]
+    },
+    {
+      "shop_id": "traveling_merchant_shop",
+      "name": "行脚商人",
+      "shop_type": "杂货",
+      "owner_npc": "traveling_merchant",
+      "refresh_time": 168,
+      "reputation_required": 0,
+      "discount_for_sect": {},
+      "items": [
+        {
+          "item_id": "teleport_charm",
+          "name": "传送符",
+          "category": "杂货",
+          "price": 200,
+          "stock": 10,
+          "level_required": 1,
+          "realm_required": "",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "可传送到已探索过的地点"
+        },
+        {
+          "item_id": "exorcism_charm",
+          "name": "驱邪符",
+          "category": "杂货",
+          "price": 150,
+          "stock": -1,
+          "level_required": 5,
+          "realm_required": "",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "驱散邪气，对鬼物有特效"
+        },
+        {
+          "item_id": "treasure_map",
+          "name": "藏宝图",
+          "category": "杂货",
+          "price": 1000,
+          "stock": 2,
+          "level_required": 15,
+          "realm_required": "",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "标注了某个秘境的位置"
+        },
+        {
+          "item_id": "rare_herb_seeds",
+          "name": "珍稀草药种子",
+          "category": "材料",
+          "price": 500,
+          "stock": 5,
+          "level_required": 20,
+          "realm_required": "",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "可种植珍稀灵草"
+        },
+        {
+          "item_id": "spirit_beast_egg",
+          "name": "灵兽蛋",
+          "category": "杂货",
+          "price": 3000,
+          "stock": 1,
+          "level_required": 25,
+          "realm_required": "",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "未知种类的灵兽蛋，可孵化灵兽"
+        },
+        {
+          "item_id": "ancient_scroll",
+          "name": "古籍残卷",
+          "category": "功法",
+          "price": 2000,
+          "stock": 2,
+          "level_required": 20,
+          "realm_required": "",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "记载了一些古老的知识"
+        }
+      ]
+    },
+    {
+      "shop_id": "qingcheng_artifact_shop",
+      "name": "青城法宝阁",
+      "shop_type": "法宝",
+      "owner_npc": "jile_zhenren",
+      "refresh_time": 48,
+      "reputation_required": 100,
+      "discount_for_sect": {
+        "青城派": 0.7
+      },
+      "items": [
+        {
+          "item_id": "qingcheng_sword",
+          "name": "青城剑",
+          "category": "法宝",
+          "price": 2500,
+          "stock": 2,
+          "level_required": 22,
+          "realm_required": "筑基期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "青城派秘传宝剑，攻守兼备"
+        },
+        {
+          "item_id": "qingcheng_robe",
+          "name": "青城道袍",
+          "category": "法宝",
+          "price": 1200,
+          "stock": 3,
+          "level_required": 12,
+          "realm_required": "练气期",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "青城派弟子道袍，防御+45"
+        },
+        {
+          "item_id": "thunder_talisman",
+          "name": "雷符",
+          "category": "法宝",
+          "price": 800,
+          "stock": 5,
+          "level_required": 15,
+          "realm_required": "",
+          "is_rare": false,
+          "discount": 1.0,
+          "description": "可召唤一道天雷攻击敌人"
+        }
+      ]
+    },
+    {
+      "shop_id": "blood_sect_shop",
+      "name": "血河宝库",
+      "shop_type": "法宝",
+      "owner_npc": "blood_river_ancestor",
+      "refresh_time": 48,
+      "reputation_required": 0,
+      "discount_for_sect": {
+        "血河教": 0.6
+      },
+      "items": [
+        {
+          "item_id": "blood_river_sword",
+          "name": "血河剑",
+          "category": "法宝",
+          "price": 5000,
+          "stock": 1,
+          "level_required": 35,
+          "realm_required": "筑基期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "以血河炼制，攻击+100，吸取敌人生命力"
+        },
+        {
+          "item_id": "blood_armor",
+          "name": "血河战甲",
+          "category": "法宝",
+          "price": 4000,
+          "stock": 1,
+          "level_required": 30,
+          "realm_required": "筑基期",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "血气护体，防御+90，受伤时自动吸血恢复"
+        },
+        {
+          "item_id": "blood_bead",
+          "name": "血珠",
+          "category": "法宝",
+          "price": 2000,
+          "stock": 2,
+          "level_required": 25,
+          "realm_required": "",
+          "is_rare": true,
+          "discount": 1.0,
+          "description": "储存生命精华，关键时刻可爆发"
+        }
+      ]
+    }
+  ]
+}

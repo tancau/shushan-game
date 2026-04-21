@@ -1,0 +1,1350 @@
+{
+  "encounters": [
+    {
+      "id": "inherit_001",
+      "name": "古修洞府",
+      "type": "传承",
+      "description": "在山中发现一处隐蔽的洞府，门前刻有\"清虚\"二字。",
+      "story": "你在一处悬崖下发现了一个隐蔽的洞府入口。洞府门前青苔遍布，显然已无人问津多年。门楣上刻着\"清虚洞天\"四个大字，散发着淡淡的灵气波动。",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.1, "description": "探索时有10%概率发现"},
+        {"type": "境界", "value": {"min": 2, "max": 4}, "description": "筑基期至金丹期"}
+      ],
+      "choices": [
+        {
+          "text": "恭敬地进入洞府",
+          "description": "以礼相待，或许能得到前辈的认可",
+          "effects": [
+            {"type": "设置标记", "target": "清虚洞府访问", "value": true}
+          ],
+          "rewards": [
+            {"type": "功法", "value": {"id": "qingxu_jue", "name": "清虚诀"}, "quality": "稀有"}
+          ],
+          "karma_change": 5
+        },
+        {
+          "text": "谨慎探索，以防陷阱",
+          "description": "小心为上，仔细检查每一步",
+          "effects": [
+            {"type": "获得", "target": "灵石", "value": 200}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 500, "quality": "精良"}
+          ]
+        },
+        {
+          "text": "翻找宝物，取走值钱之物",
+          "description": "机不可失，先下手为强",
+          "effects": [
+            {"type": "获得", "target": "灵石", "value": 500},
+            {"type": "失去", "target": "功德", "value": -10}
+          ],
+          "karma_change": -15
+        }
+      ],
+      "risk_level": 2,
+      "rarity": "稀有",
+      "location_specific": ["峨眉山", "昆仑山", "青城山"],
+      "one_time": true
+    },
+    {
+      "id": "inherit_002",
+      "name": "剑仙遗蜕",
+      "type": "传承",
+      "description": "在一处孤峰上发现一具盘膝而坐的遗骨，身旁插着一柄古剑。",
+      "story": "登上孤峰，你看到一具遗骨端坐在石台上，虽已不知过去多少岁月，但骨身仍有淡淡金光。身旁插着一柄古剑，剑身锈迹斑斑，却隐约可见\"问天\"二字。遗骨前有一行字：\"吾剑问天，天不语。后来者，若能拔剑，便是我传人。\"",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.05, "description": "探索孤峰时有5%概率发现"},
+        {"type": "境界", "value": 3, "description": "需要金丹期"},
+        {"type": "功法", "value": ["sword_basic", "sword_intermediate"], "description": "需要剑法基础"}
+      ],
+      "choices": [
+        {
+          "text": "诚心叩拜，然后尝试拔剑",
+          "description": "以礼相待，表达敬意",
+          "effects": [
+            {"type": "设置标记", "target": "问天剑传人", "value": true}
+          ],
+          "rewards": [
+            {"type": "法宝", "value": {"name": "问天剑", "type": "飞剑", "quality": "传说", "attack": 150}, "quality": "传说"},
+            {"type": "功法", "value": {"id": "wentian_jianjue", "name": "问天剑诀"}, "quality": "传说"}
+          ],
+          "karma_change": 20
+        },
+        {
+          "text": "直接拔剑",
+          "description": "直接尝试拔出古剑",
+          "requirements": [
+            {"type": "功德", "value": {"min": 20, "max": 9999}, "description": "需要功德20以上"}
+          ],
+          "rewards": [
+            {"type": "法宝", "value": {"name": "问天剑", "type": "飞剑", "quality": "传说", "attack": 120}, "quality": "稀有"}
+          ],
+          "karma_change": 0
+        },
+        {
+          "text": "将遗骨安葬",
+          "description": "让前辈入土为安",
+          "effects": [
+            {"type": "设置标记", "target": "安葬剑仙", "value": true}
+          ],
+          "rewards": [
+            {"type": "功德", "value": 30, "quality": "精良"}
+          ],
+          "karma_change": 30
+        }
+      ],
+      "risk_level": 3,
+      "rarity": "传说",
+      "location_specific": ["孤峰", "剑冢"],
+      "one_time": true
+    },
+    {
+      "id": "inherit_003",
+      "name": "秘境传承",
+      "type": "传承",
+      "description": "误入一处秘境空间，发现一座古老殿堂。",
+      "story": "你在一阵空间波动后，发现自己置身于一个独立的小世界中。这里灵气充沛，仙鹤飞舞。远处有一座白玉殿堂，门上写着\"青云秘境\"。殿堂中传来阵阵回音，似乎在等待有缘人。",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.03, "description": "探索秘境时有3%概率"},
+        {"type": "境界", "value": 4, "description": "需要元婴期"}
+      ],
+      "choices": [
+        {
+          "text": "进入殿堂接受传承",
+          "description": "接受秘境传承的考验",
+          "effects": [
+            {"type": "触发", "target": "inherit_003_trial", "value": true}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 3000, "quality": "稀有"}
+          ],
+          "next_encounter": "inherit_003_trial"
+        },
+        {
+          "text": "探索周围收集资源",
+          "description": "先看看有什么可以带走的",
+          "rewards": [
+            {"type": "材料", "value": {"name": "仙鹤羽", "amount": 5}, "quality": "稀有"},
+            {"type": "材料", "value": {"name": "灵玉石", "amount": 3}, "quality": "精良"},
+            {"type": "灵石", "value": 1000, "quality": "稀有"}
+          ]
+        },
+        {
+          "text": "尝试离开此地",
+          "description": "此地太过神秘，不宜久留",
+          "effects": [
+            {"type": "设置标记", "target": "错过传承", "value": true}
+          ]
+        }
+      ],
+      "risk_level": 4,
+      "rarity": "传说",
+      "one_time": true
+    },
+    {
+      "id": "treasure_001",
+      "name": "天地灵药",
+      "type": "宝物",
+      "description": "在悬崖边发现一株散发着奇异光芒的灵草。",
+      "story": "你发现悬崖边上有一株灵草，通体晶莹，散发着淡蓝色光芒。从其灵气波动来看，这至少是千年以上的灵药。然而，灵草旁边有一只青蛇盘踞，似乎在守护着它。",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.15, "description": "采药时有15%概率发现"},
+        {"type": "境界", "value": 2, "description": "需要筑基期"}
+      ],
+      "choices": [
+        {
+          "text": "与青蛇协商",
+          "description": "尝试与守护兽沟通",
+          "requirements": [
+            {"type": "功法", "value": ["beast_communication"], "description": "需要驭兽术"}
+          ],
+          "rewards": [
+            {"type": "物品", "value": {"name": "千年灵草", "amount": 1}, "quality": "稀有"},
+            {"type": "功德", "value": 5}
+          ],
+          "karma_change": 5
+        },
+        {
+          "text": "趁青蛇不备偷取",
+          "description": "快速采摘然后逃离",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 30, "probability": 0.5}
+          ],
+          "rewards": [
+            {"type": "物品", "value": {"name": "千年灵草", "amount": 1}, "quality": "稀有"}
+          ],
+          "karma_change": -5
+        },
+        {
+          "text": "击杀青蛇夺取灵药",
+          "description": "以武力解决",
+          "effects": [
+            {"type": "失去", "target": "功德", "value": -10}
+          ],
+          "rewards": [
+            {"type": "物品", "value": {"name": "千年灵草", "amount": 1}, "quality": "稀有"},
+            {"type": "材料", "value": {"name": "青蛇胆", "amount": 1}, "quality": "精良"}
+          ],
+          "karma_change": -10
+        }
+      ],
+      "risk_level": 2,
+      "rarity": "稀有",
+      "location_specific": ["深山", "悬崖", "灵谷"],
+      "one_time": false
+    },
+    {
+      "id": "treasure_002",
+      "name": "上古法宝碎片",
+      "type": "宝物",
+      "description": "在废墟中发现一块散发着古老气息的法宝碎片。",
+      "story": "你在一片废墟中挖掘，突然发现了一块巴掌大小的碎片，上面刻有复杂的符文。碎片散发着沧桑古老的气息，显然是一件上古法宝的残片。虽然残缺，但其中蕴含的力量依然可观。",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.1, "description": "搜索废墟时有10%概率"},
+        {"type": "境界", "value": 3, "description": "需要金丹期"}
+      ],
+      "choices": [
+        {
+          "text": "收集碎片，日后尝试修复",
+          "description": "保存在储物袋中",
+          "rewards": [
+            {"type": "物品", "value": {"name": "上古法宝碎片", "amount": 1}, "quality": "稀有"}
+          ]
+        },
+        {
+          "text": "尝试吸收碎片中的力量",
+          "description": "直接炼化获取力量",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 50, "probability": 0.3}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 1000, "quality": "稀有"}
+          ]
+        },
+        {
+          "text": "寻找更多碎片",
+          "description": "在附近继续搜索",
+          "effects": [
+            {"type": "设置标记", "target": "寻找法宝碎片", "value": true}
+          ],
+          "rewards": [
+            {"type": "物品", "value": {"name": "上古法宝碎片", "amount": 2}, "quality": "稀有"}
+          ]
+        }
+      ],
+      "risk_level": 2,
+      "rarity": "稀有",
+      "location_specific": ["上古遗迹", "废墟", "战场遗址"],
+      "one_time": false
+    },
+    {
+      "id": "treasure_003",
+      "name": "仙丹妙药",
+      "type": "宝物",
+      "description": "在一处古墓中发现一瓶保存完好的丹药。",
+      "story": "你在一座古老墓室中发现了一个玉瓶，瓶身刻有\"九转金丹\"四字。丹药散发着金色光芒，药香浓郁。这显然是极为珍贵的丹药，据说能助人突破瓶颈。",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.08, "description": "探索古墓时有8%概率"},
+        {"type": "境界", "value": {"min": 2, "max": 5}, "description": "筑基期至化神期"}
+      ],
+      "choices": [
+        {
+          "text": "立即服用",
+          "description": "直接吞服丹药",
+          "effects": [
+            {"type": "治疗", "target": "生命", "value": 100},
+            {"type": "获得", "target": "修为", "value": 2000}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 2000, "quality": "传说"}
+          ]
+        },
+        {
+          "text": "小心保存，日后使用",
+          "description": "留作突破时使用",
+          "rewards": [
+            {"type": "物品", "value": {"name": "九转金丹", "amount": 1}, "quality": "传说"}
+          ]
+        },
+        {
+          "text": "鉴定后再决定",
+          "description": "先弄清楚丹药的性质",
+          "requirements": [
+            {"type": "功法", "value": ["alchemy_basic"], "description": "需要丹道基础"}
+          ],
+          "rewards": [
+            {"type": "物品", "value": {"name": "九转金丹", "amount": 1}, "quality": "传说"},
+            {"type": "功德", "value": 5}
+          ]
+        }
+      ],
+      "risk_level": 3,
+      "rarity": "传说",
+      "location_specific": ["古墓", "仙府遗迹"],
+      "one_time": false
+    },
+    {
+      "id": "treasure_004",
+      "name": "灵石矿脉",
+      "type": "宝物",
+      "description": "发现一处隐藏的灵石矿脉入口。",
+      "story": "你在山中发现一处隐蔽的洞穴，洞穴深处传来阵阵灵气波动。走近一看，竟然是一处小型灵石矿脉！灵石闪烁着柔和的光芒，每一块都价值不菲。",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.12, "description": "山洞探索有12%概率"},
+        {"type": "境界", "value": 1, "description": "任何境界"}
+      ],
+      "choices": [
+        {
+          "text": "大量开采",
+          "description": "尽可能多采集灵石",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 20}
+          ],
+          "rewards": [
+            {"type": "灵石", "value": 800, "quality": "精良"}
+          ]
+        },
+        {
+          "text": "小心采集，避免破坏矿脉",
+          "description": "可持续开采",
+          "rewards": [
+            {"type": "灵石", "value": 300, "quality": "普通"}
+          ]
+        },
+        {
+          "text": "标记位置，日后再来",
+          "description": "秘密保存这个发现",
+          "effects": [
+            {"type": "设置标记", "target": "发现灵石矿", "value": true}
+          ],
+          "rewards": [
+            {"type": "灵石", "value": 100, "quality": "普通"}
+          ]
+        }
+      ],
+      "risk_level": 1,
+      "rarity": "精良",
+      "location_specific": ["山洞", "矿洞"],
+      "one_time": false
+    },
+    {
+      "id": "opportunity_001",
+      "name": "灵兽认主",
+      "type": "机缘",
+      "description": "遇到一只受伤的灵兽，它似乎在寻找主人。",
+      "story": "你在林中发现一只浑身雪白的小狐狸，它后腿受了伤，正哀怜地看着你。这小狐狸眼中似有灵光流转，显然不是普通野兽。它似乎感受到了你身上的善意，慢慢向你靠近。",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.1, "description": "森林探索有10%概率"},
+        {"type": "功德", "value": {"min": 0, "max": 9999}, "description": "需要功德为正"}
+      ],
+      "choices": [
+        {
+          "text": "救治灵兽，以诚相待",
+          "description": "用灵药救治它",
+          "requirements": [
+            {"type": "功德", "value": {"min": 10, "max": 9999}, "description": "需要功德10以上"}
+          ],
+          "effects": [
+            {"type": "设置标记", "target": "白狐契约", "value": true}
+          ],
+          "rewards": [
+            {"type": "物品", "value": {"name": "灵兽契约·雪狐", "amount": 1}, "quality": "稀有"},
+            {"type": "功德", "value": 20}
+          ],
+          "karma_change": 20
+        },
+        {
+          "text": "给它一些灵石，让它自己疗伤",
+          "description": "保持距离",
+          "rewards": [
+            {"type": "功德", "value": 5}
+          ],
+          "karma_change": 5
+        },
+        {
+          "text": "转身离开",
+          "description": "不想惹麻烦",
+          "effects": [
+            {"type": "失去", "target": "功德", "value": -5}
+          ],
+          "karma_change": -5
+        }
+      ],
+      "risk_level": 1,
+      "rarity": "稀有",
+      "location_specific": ["森林", "山谷", "灵山"],
+      "one_time": false
+    },
+    {
+      "id": "opportunity_002",
+      "name": "顿悟时刻",
+      "type": "机缘",
+      "description": "在一处灵泉旁，你突然陷入了顿悟状态。",
+      "story": "你来到一处灵泉边休息，清澈的泉水映照着天空。突然，你的脑海中闪过一道明光，之前困扰你的功法难题竟然豁然开朗。这是难得的顿悟时刻！",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.08, "description": "修炼时有8%概率顿悟"},
+        {"type": "境界", "value": 2, "description": "需要筑基期"}
+      ],
+      "choices": [
+        {
+          "text": "沉浸于顿悟之中",
+          "description": "全力把握这次机缘",
+          "effects": [
+            {"type": "失去", "target": "生命", "value": -30}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 3000, "quality": "传说"},
+            {"type": "功德", "value": 10}
+          ]
+        },
+        {
+          "text": "保持清醒，记录感悟",
+          "description": "将顿悟记录下来",
+          "rewards": [
+            {"type": "修为", "value": 1500, "quality": "稀有"},
+            {"type": "物品", "value": {"name": "顿悟心得", "amount": 1}, "quality": "精良"}
+          ]
+        },
+        {
+          "text": "稍作体验后停止",
+          "description": "安全第一",
+          "rewards": [
+            {"type": "修为", "value": 500, "quality": "精良"}
+          ]
+        }
+      ],
+      "risk_level": 2,
+      "rarity": "稀有",
+      "location_specific": ["灵泉", "悟道崖", "仙山"],
+      "one_time": false
+    },
+    {
+      "id": "opportunity_003",
+      "name": "功法领悟",
+      "type": "机缘",
+      "description": "在一处石壁上看到古老的功法图谱，似有所悟。",
+      "story": "你在一处石壁上发现了模糊的功法图谱，图中的运功路线奇特，却暗含天地至理。你仔细观摩，感觉体内的真元开始自行运转，似乎在模仿图谱中的运行方式。",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.1, "description": "探索遗迹有10%概率"},
+        {"type": "境界", "value": 2, "description": "需要筑基期"}
+      ],
+      "choices": [
+        {
+          "text": "全神贯注地参悟",
+          "description": "投入全部精力",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 20, "probability": 0.3}
+          ],
+          "rewards": [
+            {"type": "功法", "value": {"id": "ancient_movement", "name": "古法身法"}, "quality": "稀有"},
+            {"type": "修为", "value": 800, "quality": "精良"}
+          ]
+        },
+        {
+          "text": "拓印图谱带走",
+          "description": "记录下来慢慢研究",
+          "rewards": [
+            {"type": "物品", "value": {"name": "功法图谱拓印", "amount": 1}, "quality": "精良"},
+            {"type": "修为", "value": 200, "quality": "普通"}
+          ]
+        },
+        {
+          "text": "大致记住后离开",
+          "description": "不强求完整领悟",
+          "rewards": [
+            {"type": "修为", "value": 300, "quality": "普通"}
+          ]
+        }
+      ],
+      "risk_level": 2,
+      "rarity": "稀有",
+      "one_time": false
+    },
+    {
+      "id": "opportunity_004",
+      "name": "血脉觉醒",
+      "type": "机缘",
+      "description": "在一次危机中，你的体内突然涌起一股奇异的力量。",
+      "story": "当你面对危险时，体内突然涌起一股奇异的热流，仿佛有什么沉睡已久的东西正在苏醒。你的视野变得清晰，力量倍增，这是血脉觉醒的征兆！",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.03, "description": "战斗中有3%概率觉醒"},
+        {"type": "境界", "value": 3, "description": "需要金丹期"},
+        {"type": "标记", "value": "血脉未觉醒", "description": "血脉尚未觉醒"}
+      ],
+      "choices": [
+        {
+          "text": "引导血脉之力",
+          "description": "主动激发觉醒",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 40},
+            {"type": "设置标记", "target": "血脉觉醒", "value": true}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 2000, "quality": "传说"},
+            {"type": "物品", "value": {"name": "血脉石", "amount": 1}, "quality": "传说"}
+          ]
+        },
+        {
+          "text": "压制血脉之力",
+          "description": "等待更好的时机",
+          "rewards": [
+            {"type": "修为", "value": 500, "quality": "精良"}
+          ]
+        }
+      ],
+      "risk_level": 4,
+      "rarity": "传说",
+      "one_time": true
+    },
+    {
+      "id": "danger_001",
+      "name": "妖兽袭击",
+      "type": "危险",
+      "description": "一只凶猛的妖兽突然从暗处扑出！",
+      "story": "你正专注于赶路，突然听到身后传来破风之声！一头体型巨大的妖狼从树丛中跃出，绿莹莹的眼睛盯着你，口中流着腥臭的涎水。这显然是一场无法避免的战斗！",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.2, "description": "野外有20%概率遭遇"},
+        {"type": "境界", "value": 1, "description": "任何境界"}
+      ],
+      "choices": [
+        {
+          "text": "拔剑迎战",
+          "description": "正面对抗妖兽",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 30, "probability": 0.6}
+          ],
+          "rewards": [
+            {"type": "材料", "value": {"name": "妖狼皮", "amount": 1}, "quality": "普通"},
+            {"type": "灵石", "value": 50, "quality": "普通"}
+          ]
+        },
+        {
+          "text": "使用法宝攻击",
+          "description": "用法宝远程攻击",
+          "requirements": [
+            {"type": "法宝", "value": ["any_artifact"], "description": "需要拥有法宝"}
+          ],
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 15, "probability": 0.3}
+          ],
+          "rewards": [
+            {"type": "材料", "value": {"name": "妖狼皮", "amount": 1}, "quality": "普通"},
+            {"type": "材料", "value": {"name": "妖狼牙", "amount": 2}, "quality": "精良"},
+            {"type": "灵石", "value": 100, "quality": "精良"}
+          ]
+        },
+        {
+          "text": "迅速逃离",
+          "description": "保命要紧",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 20, "probability": 0.8}
+          ]
+        }
+      ],
+      "risk_level": 3,
+      "rarity": "普通",
+      "one_time": false
+    },
+    {
+      "id": "danger_002",
+      "name": "阵法陷阱",
+      "type": "危险",
+      "description": "你不小心踏入了上古阵法之中！",
+      "story": "当你踩到一块看似普通的石板时，周围的景色突然扭曲。一股无形的力量将你困在原地，四周出现了虚幻的幻象。这是一座上古阵法，被困住的人很少有生还的。",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.15, "description": "遗迹探索有15%概率"},
+        {"type": "境界", "value": 2, "description": "需要筑基期"}
+      ],
+      "choices": [
+        {
+          "text": "尝试破阵",
+          "description": "用阵法知识破解",
+          "requirements": [
+            {"type": "功法", "value": ["array_basic"], "description": "需要阵法基础"}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 500, "quality": "精良"},
+            {"type": "物品", "value": {"name": "阵旗", "amount": 3}, "quality": "精良"}
+          ]
+        },
+        {
+          "text": "强行突破",
+          "description": "以力破巧",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 50},
+            {"type": "失去", "target": "修为", "value": -200}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 200, "quality": "普通"}
+          ]
+        },
+        {
+          "text": "静心等待，寻找规律",
+          "description": "观察阵法运转",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 20}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 300, "quality": "精良"},
+            {"type": "功德", "value": 5}
+          ]
+        }
+      ],
+      "risk_level": 4,
+      "rarity": "精良",
+      "location_specific": ["遗迹", "古墓", "禁地"],
+      "one_time": false
+    },
+    {
+      "id": "danger_003",
+      "name": "天劫预警",
+      "type": "危险",
+      "description": "天空突然乌云密布，这是天劫即将降临的征兆！",
+      "story": "原本晴朗的天空突然乌云密布，雷声隐隐。你感受到一股强大的威压从天而降，体内的灵气开始躁动不安。这是天劫即将降临的征兆！你现在的修为还不足以抵抗天劫，必须尽快找到躲避之处！",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.05, "description": "修炼时有5%概率触发"},
+        {"type": "境界", "value": {"min": 4, "max": 7}, "description": "元婴期至渡劫期"}
+      ],
+      "choices": [
+        {
+          "text": "寻找避劫之地",
+          "description": "找到安全的地方躲避",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 30, "probability": 0.5}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 500, "quality": "精良"}
+          ]
+        },
+        {
+          "text": "尝试引开天劫",
+          "description": "用秘法转移天劫目标",
+          "requirements": [
+            {"type": "功法", "value": ["tribulation_art"], "description": "需要渡劫秘术"}
+          ],
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 50}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 1000, "quality": "稀有"},
+            {"type": "功德", "value": 10}
+          ]
+        },
+        {
+          "text": "就地硬抗",
+          "description": "以实力对抗天劫",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 80}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 2000, "quality": "传说"},
+            {"type": "功德", "value": 20}
+          ]
+        }
+      ],
+      "risk_level": 5,
+      "rarity": "稀有",
+      "one_time": false
+    },
+    {
+      "id": "danger_004",
+      "name": "毒瘴之地",
+      "type": "危险",
+      "description": "你误入了一片充满毒瘴的区域！",
+      "story": "周围的空气突然变得浑浊，一股腥甜的气息钻入鼻腔。你发现自己已经踏入了一片毒瘴之地，这里的毒雾能腐蚀修士的灵力和肉身。如果不尽快离开，恐怕会毒发身亡！",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.18, "description": "沼泽探索有18%概率"},
+        {"type": "境界", "value": 1, "description": "任何境界"}
+      ],
+      "choices": [
+        {
+          "text": "屏住呼吸快速穿越",
+          "description": "用轻功快速离开",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 20, "probability": 0.7}
+          ],
+          "rewards": [
+            {"type": "材料", "value": {"name": "毒瘴草", "amount": 3}, "quality": "精良"}
+          ]
+        },
+        {
+          "text": "用功法驱散毒雾",
+          "description": "净化周围空气",
+          "requirements": [
+            {"type": "功法", "value": ["detoxify"], "description": "需要解毒功法"}
+          ],
+          "rewards": [
+            {"type": "材料", "value": {"name": "毒瘴草", "amount": 5}, "quality": "精良"},
+            {"type": "材料", "value": {"name": "解毒丹", "amount": 2}, "quality": "精良"}
+          ]
+        },
+        {
+          "text": "收集毒物炼制丹药",
+          "description": "就地取材",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 40}
+          ],
+          "rewards": [
+            {"type": "材料", "value": {"name": "毒瘴精髓", "amount": 1}, "quality": "稀有"},
+            {"type": "材料", "value": {"name": "毒瘴草", "amount": 10}, "quality": "精良"}
+          ]
+        }
+      ],
+      "risk_level": 3,
+      "rarity": "普通",
+      "location_specific": ["沼泽", "毒谷", "瘴气林"],
+      "one_time": false
+    },
+    {
+      "id": "stranger_001",
+      "name": "隐世高人",
+      "type": "奇人",
+      "description": "遇到一位看似普通的老者，但气息深不可测。",
+      "story": "你在山道上遇到一位白发老者，他穿着粗布衣裳，手持一根枯木杖，看起来就像普通的山野老人。但当你靠近时，却感受到一股深不可测的气息。这位老者，恐怕是位隐世高人！",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.08, "description": "山路有8%概率遇到"},
+        {"type": "境界", "value": 2, "description": "需要筑基期"}
+      ],
+      "choices": [
+        {
+          "text": "恭敬行礼，请教修行之道",
+          "description": "虚心求教",
+          "effects": [
+            {"type": "设置标记", "target": "拜访高人", "value": true}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 800, "quality": "稀有"},
+            {"type": "功德", "value": 10}
+          ],
+          "karma_change": 10,
+          "next_encounter": "stranger_001_2"
+        },
+        {
+          "text": "询问老者的来历",
+          "description": "探听虚实",
+          "rewards": [
+            {"type": "修为", "value": 200, "quality": "普通"}
+          ]
+        },
+        {
+          "text": "点头致意，继续赶路",
+          "description": "保持距离",
+          "rewards": [
+            {"type": "修为", "value": 50, "quality": "普通"}
+          ]
+        }
+      ],
+      "risk_level": 1,
+      "rarity": "稀有",
+      "one_time": false
+    },
+    {
+      "id": "stranger_001_2",
+      "name": "高人指点",
+      "type": "奇人",
+      "description": "隐世高人决定指点你一番。",
+      "story": "老者看了你一眼，微微点头：\"孺子可教。你且坐好，我传你一些心得。\"说罢，老者伸指点向你的眉心，一股庞大的信息涌入你的脑海。",
+      "trigger_conditions": [
+        {"type": "标记", "value": "拜访高人", "description": "需要拜访过高人"}
+      ],
+      "choices": [
+        {
+          "text": "全神贯注地领悟",
+          "description": "珍惜这次机会",
+          "rewards": [
+            {"type": "功法", "value": {"id": "master_technique", "name": "无名心法"}, "quality": "传说"},
+            {"type": "修为", "value": 1500, "quality": "传说"}
+          ]
+        },
+        {
+          "text": "边领悟边记录",
+          "description": "将心得记录下来",
+          "rewards": [
+            {"type": "功法", "value": {"id": "master_technique_basic", "name": "无名心法（残）"}, "quality": "稀有"},
+            {"type": "物品", "value": {"name": "高人心得", "amount": 1}, "quality": "稀有"}
+          ]
+        }
+      ],
+      "risk_level": 1,
+      "rarity": "传说",
+      "one_time": true
+    },
+    {
+      "id": "stranger_002",
+      "name": "散修前辈",
+      "type": "奇人",
+      "description": "遇到一位独自修炼的散修，他似乎愿意与你交流。",
+      "story": "你在山中发现一位中年男子正在打坐，他的气息虽然不如门派弟子纯正，但另有一番野路子的精纯。散修见你到来，睁开眼睛：\"小友，要不要坐下来聊几句？\"",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.12, "description": "山野有12%概率遇到"},
+        {"type": "境界", "value": 2, "description": "需要筑基期"}
+      ],
+      "choices": [
+        {
+          "text": "请教散修的修炼心得",
+          "description": "学习不同的修炼方式",
+          "rewards": [
+            {"type": "修为", "value": 400, "quality": "精良"},
+            {"type": "物品", "value": {"name": "散修心得", "amount": 1}, "quality": "精良"}
+          ]
+        },
+        {
+          "text": "交换修炼资源",
+          "description": "以物易物",
+          "requirements": [
+            {"type": "境界", "value": 3, "description": "需要金丹期"}
+          ],
+          "effects": [
+            {"type": "失去", "target": "灵石", "value": -200}
+          ],
+          "rewards": [
+            {"type": "物品", "value": {"name": "散修秘宝", "amount": 1}, "quality": "稀有"}
+          ]
+        },
+        {
+          "text": "询问附近的机缘",
+          "description": "打听消息",
+          "rewards": [
+            {"type": "物品", "value": {"name": "藏宝图碎片", "amount": 1}, "quality": "精良"}
+          ]
+        }
+      ],
+      "risk_level": 2,
+      "rarity": "普通",
+      "one_time": false
+    },
+    {
+      "id": "stranger_003",
+      "name": "魔道中人",
+      "type": "奇人",
+      "description": "遇到一位浑身散发着阴冷气息的修士。",
+      "story": "前方走来一位黑衣修士，浑身散发着阴冷的气息。他的眼神阴鸷，嘴角带着一丝邪笑。此人显然修炼的是魔道功法，行走间带着凛冽的杀意。",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.1, "description": "暗处有10%概率遇到"},
+        {"type": "境界", "value": 2, "description": "需要筑基期"}
+      ],
+      "choices": [
+        {
+          "text": "提高警惕，准备战斗",
+          "description": "防备可能的攻击",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 30, "probability": 0.4}
+          ],
+          "rewards": [
+            {"type": "材料", "value": {"name": "魔道令牌", "amount": 1}, "quality": "精良"},
+            {"type": "功德", "value": 10}
+          ]
+        },
+        {
+          "text": "尝试交流，了解对方",
+          "description": "以言语试探",
+          "effects": [
+            {"type": "失去", "target": "功德", "value": -5}
+          ],
+          "rewards": [
+            {"type": "功法", "value": {"id": "dark_art", "name": "暗影诀"}, "quality": "稀有"}
+          ],
+          "karma_change": -10
+        },
+        {
+          "text": "绕道而行",
+          "description": "不想惹麻烦",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 10, "probability": 0.6}
+          ]
+        }
+      ],
+      "risk_level": 4,
+      "rarity": "精良",
+      "location_specific": ["荒野", "暗黑森林", "废墟"],
+      "one_time": false
+    },
+    {
+      "id": "stranger_004",
+      "name": "仙人遗迹守护者",
+      "type": "奇人",
+      "description": "在遗迹深处遇到一位自称守护者的老者。",
+      "story": "在遗迹的最深处，你遇到了一位老者。他盘坐在虚空中，周身散发着淡淡的仙光。\"凡人，你能来到此地，说明你有几分机缘。\"老者缓缓开口，\"我是此地的守护者，你想要什么？\"",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.05, "description": "遗迹深处有5%概率"},
+        {"type": "境界", "value": 4, "description": "需要元婴期"}
+      ],
+      "choices": [
+        {
+          "text": "请求传承",
+          "description": "寻求仙人的指点",
+          "requirements": [
+            {"type": "功德", "value": {"min": 50, "max": 9999}, "description": "需要功德50以上"}
+          ],
+          "rewards": [
+            {"type": "功法", "value": {"id": "immortal_art", "name": "仙道真经"}, "quality": "传说"},
+            {"type": "法宝", "value": {"name": "仙器碎片", "type": "法宝", "quality": "传说", "attack": 100}, "quality": "传说"}
+          ],
+          "karma_change": 30
+        },
+        {
+          "text": "询问遗迹的秘密",
+          "description": "了解历史",
+          "rewards": [
+            {"type": "修为", "value": 2000, "quality": "传说"},
+            {"type": "物品", "value": {"name": "仙人遗书", "amount": 1}, "quality": "传说"}
+          ]
+        },
+        {
+          "text": "索要宝物",
+          "description": "直接要求奖励",
+          "effects": [
+            {"type": "失去", "target": "功德", "value": -20}
+          ],
+          "rewards": [
+            {"type": "灵石", "value": 5000, "quality": "稀有"}
+          ],
+          "karma_change": -20
+        }
+      ],
+      "risk_level": 3,
+      "rarity": "传说",
+      "location_specific": ["仙人遗迹", "仙府"],
+      "one_time": true
+    },
+    {
+      "id": "stranger_005",
+      "name": "迷途仙子",
+      "type": "奇人",
+      "description": "在灵泉边遇到一位白衣少女，她似乎来历不凡。",
+      "story": "灵泉边，一位白衣少女正在梳洗。她的容颜如画，肌肤胜雪，周身萦绕着淡淡的仙气。见到你，她并未惊慌，只是微微一笑：\"公子，可曾见过一只白鹿？\"",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.06, "description": "灵泉有6%概率遇到"},
+        {"type": "功德", "value": {"min": 10, "max": 9999}, "description": "需要功德10以上"}
+      ],
+      "choices": [
+        {
+          "text": "帮助寻找白鹿",
+          "description": "施以援手",
+          "effects": [
+            {"type": "设置标记", "target": "帮助仙子", "value": true}
+          ],
+          "rewards": [
+            {"type": "物品", "value": {"name": "仙子玉佩", "amount": 1}, "quality": "传说"},
+            {"type": "功德", "value": 20}
+          ],
+          "karma_change": 20,
+          "next_encounter": "stranger_005_2"
+        },
+        {
+          "text": "摇头表示不知",
+          "description": "保持礼貌",
+          "rewards": [
+            {"type": "修为", "value": 100, "quality": "普通"}
+          ]
+        },
+        {
+          "text": "询问少女的身份",
+          "description": "好奇她的来历",
+          "rewards": [
+            {"type": "物品", "value": {"name": "仙缘信物", "amount": 1}, "quality": "稀有"}
+          ]
+        }
+      ],
+      "risk_level": 1,
+      "rarity": "稀有",
+      "location_specific": ["灵泉", "仙山"],
+      "one_time": false
+    },
+    {
+      "id": "stranger_005_2",
+      "name": "仙子馈赠",
+      "type": "奇人",
+      "description": "仙子为感谢你的帮助，赠予你一份礼物。",
+      "story": "你在附近找到了白鹿，将它带回给白衣少女。少女露出欣慰的笑容：\"多谢公子相助。这份心意，请收下。\"她从袖中取出一个玉瓶，递到你手中。",
+      "trigger_conditions": [
+        {"type": "标记", "value": "帮助仙子", "description": "需要帮助过仙子"}
+      ],
+      "choices": [
+        {
+          "text": "欣然接受",
+          "description": "感谢仙子的馈赠",
+          "rewards": [
+            {"type": "物品", "value": {"name": "仙露琼浆", "amount": 3}, "quality": "传说"},
+            {"type": "修为", "value": 1000, "quality": "传说"}
+          ]
+        },
+        {
+          "text": "婉拒礼物",
+          "description": "不求回报",
+          "rewards": [
+            {"type": "功德", "value": 50},
+            {"type": "物品", "value": {"name": "仙子承诺", "amount": 1}, "quality": "传说"}
+          ],
+          "karma_change": 30
+        }
+      ],
+      "risk_level": 1,
+      "rarity": "传说",
+      "one_time": true
+    },
+    {
+      "id": "inherit_004",
+      "name": "剑心传承",
+      "type": "传承",
+      "description": "在一处剑壁前，你感受到剑意的召唤。",
+      "story": "你来到一处剑壁前，壁上插满了断剑。每一柄断剑都散发着凌厉的剑意。突然，你感到一道剑意直冲心神，仿佛有人在向你诉说着什么。这是剑心的传承！",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.07, "description": "剑壁有7%概率触发"},
+        {"type": "境界", "value": 3, "description": "需要金丹期"},
+        {"type": "功法", "value": ["sword_basic"], "description": "需要剑法基础"}
+      ],
+      "choices": [
+        {
+          "text": "接受剑心传承",
+          "description": "让剑意进入心神",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 30},
+            {"type": "设置标记", "target": "剑心传承", "value": true}
+          ],
+          "rewards": [
+            {"type": "功法", "value": {"id": "sword_heart", "name": "剑心诀"}, "quality": "传说"},
+            {"type": "修为", "value": 1500, "quality": "传说"}
+          ]
+        },
+        {
+          "text": "只取剑意精华",
+          "description": "部分接受",
+          "rewards": [
+            {"type": "功法", "value": {"id": "sword_heart_basic", "name": "剑心诀（残）"}, "quality": "稀有"},
+            {"type": "修为", "value": 800, "quality": "稀有"}
+          ]
+        },
+        {
+          "text": "离开此地",
+          "description": "不敢冒险",
+          "rewards": [
+            {"type": "修为", "value": 200, "quality": "普通"}
+          ]
+        }
+      ],
+      "risk_level": 3,
+      "rarity": "传说",
+      "location_specific": ["剑壁", "剑冢"],
+      "one_time": true
+    },
+    {
+      "id": "treasure_005",
+      "name": "龙脉灵气",
+      "type": "宝物",
+      "description": "发现一处龙脉汇聚之地，灵气浓郁无比。",
+      "story": "你发现一处山谷，灵气浓郁得几乎凝结成雾。这里应该是一处龙脉的交汇点，天地灵气在此汇聚。如果在此修炼，事半功倍！",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.1, "description": "山谷有10%概率发现"},
+        {"type": "境界", "value": 3, "description": "需要金丹期"}
+      ],
+      "choices": [
+        {
+          "text": "在此闭关修炼",
+          "description": "充分利用龙脉灵气",
+          "effects": [
+            {"type": "设置标记", "target": "龙脉修炼", "value": true}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 5000, "quality": "传说"},
+            {"type": "功德", "value": 10}
+          ]
+        },
+        {
+          "text": "收集灵气凝聚的结晶",
+          "description": "带走一些灵气精华",
+          "rewards": [
+            {"type": "物品", "value": {"name": "灵气结晶", "amount": 5}, "quality": "稀有"},
+            {"type": "修为", "value": 500, "quality": "精良"}
+          ]
+        },
+        {
+          "text": "标记位置，日后再来",
+          "description": "记住这个地方",
+          "effects": [
+            {"type": "设置标记", "target": "龙脉位置", "value": true}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 200, "quality": "普通"}
+          ]
+        }
+      ],
+      "risk_level": 2,
+      "rarity": "稀有",
+      "location_specific": ["龙脉", "灵山"],
+      "one_time": false
+    },
+    {
+      "id": "danger_005",
+      "name": "心魔幻境",
+      "type": "危险",
+      "description": "修炼时突然陷入心魔幻境！",
+      "story": "在你修炼时，眼前突然出现了无数幻象。有的是你内心最深处的恐惧，有的是你最渴望得到的宝物。心魔试图诱惑你，让你迷失自我。如果你无法从幻境中挣脱，将会走火入魔！",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.1, "description": "修炼时有10%概率"},
+        {"type": "境界", "value": 3, "description": "需要金丹期"}
+      ],
+      "choices": [
+        {
+          "text": "守心破幻",
+          "description": "以坚定的道心抵抗",
+          "requirements": [
+            {"type": "功德", "value": {"min": 20, "max": 9999}, "description": "需要功德20以上"}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 1000, "quality": "传说"},
+            {"type": "功德", "value": 15}
+          ]
+        },
+        {
+          "text": "以力破幻",
+          "description": "用修为强行挣脱",
+          "effects": [
+            {"type": "失去", "target": "修为", "value": -500},
+            {"type": "伤害", "target": "生命", "value": 40}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 300, "quality": "精良"}
+          ]
+        },
+        {
+          "text": "寻求外援",
+          "description": "用法宝或丹药帮助",
+          "requirements": [
+            {"type": "法宝", "value": ["spirit_guard"], "description": "需要护心法宝"}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 800, "quality": "稀有"},
+            {"type": "功德", "value": 5}
+          ]
+        }
+      ],
+      "risk_level": 5,
+      "rarity": "稀有",
+      "one_time": false
+    },
+    {
+      "id": "opportunity_005",
+      "name": "道心磨砺",
+      "type": "机缘",
+      "description": "在一处悬崖边，你突然陷入了对道的思考。",
+      "story": "你站在悬崖边，看着云海翻涌，心中突然涌起一股明悟。什么是道？什么是修行？这些困扰你许久的问题，在此刻似乎有了答案。这是一次难得的道心磨砺！",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.08, "description": "悬崖有8%概率"},
+        {"type": "境界", "value": 2, "description": "需要筑基期"}
+      ],
+      "choices": [
+        {
+          "text": "沉浸于思考",
+          "description": "深入领悟",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 10, "probability": 0.3}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 1500, "quality": "传说"},
+            {"type": "功德", "value": 15}
+          ]
+        },
+        {
+          "text": "记录感悟",
+          "description": "将思考记录下来",
+          "rewards": [
+            {"type": "物品", "value": {"name": "道心感悟", "amount": 1}, "quality": "稀有"},
+            {"type": "修为", "value": 500, "quality": "精良"}
+          ]
+        },
+        {
+          "text": "稍作思考后离开",
+          "description": "点到为止",
+          "rewards": [
+            {"type": "修为", "value": 200, "quality": "普通"}
+          ]
+        }
+      ],
+      "risk_level": 2,
+      "rarity": "稀有",
+      "location_specific": ["悬崖", "悟道崖"],
+      "one_time": false
+    },
+    {
+      "id": "inherit_005",
+      "name": "魔修遗府",
+      "type": "传承",
+      "description": "发现一处魔修遗府，其中传来阵阵阴冷的气息。",
+      "story": "你在一处幽暗的洞穴深处发现了一座府邸，门上刻着\"血河洞天\"四字。一股阴冷的气息从中传来，显然这是一处魔修的遗府。门前的石碑上写着：\"入我血河，永堕魔道。\"",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.06, "description": "洞穴深处有6%概率"},
+        {"type": "境界", "value": 3, "description": "需要金丹期"}
+      ],
+      "choices": [
+        {
+          "text": "进入探索",
+          "description": "无视警告进入",
+          "effects": [
+            {"type": "失去", "target": "功德", "value": -10},
+            {"type": "设置标记", "target": "进入魔府", "value": true}
+          ],
+          "rewards": [
+            {"type": "功法", "value": {"id": "blood_river", "name": "血河大法"}, "quality": "传说"},
+            {"type": "法宝", "value": {"name": "血河剑", "type": "飞剑", "quality": "传说", "attack": 180}, "quality": "传说"}
+          ],
+          "karma_change": -30
+        },
+        {
+          "text": "在外搜刮",
+          "description": "只在入口处探索",
+          "rewards": [
+            {"type": "灵石", "value": 500, "quality": "精良"},
+            {"type": "材料", "value": {"name": "血灵石", "amount": 3}, "quality": "精良"}
+          ]
+        },
+        {
+          "text": "封印此地",
+          "description": "以防他人误入",
+          "requirements": [
+            {"type": "功德", "value": {"min": 30, "max": 9999}, "description": "需要功德30以上"}
+          ],
+          "rewards": [
+            {"type": "功德", "value": 50},
+            {"type": "修为", "value": 500, "quality": "精良"}
+          ],
+          "karma_change": 30
+        }
+      ],
+      "risk_level": 4,
+      "rarity": "传说",
+      "location_specific": ["幽暗洞穴", "魔域"],
+      "one_time": true
+    },
+    {
+      "id": "treasure_006",
+      "name": "仙器残片",
+      "type": "宝物",
+      "description": "在虚空中发现一块散发着仙光的碎片。",
+      "story": "你在修炼时，突然看到虚空中有一块碎片缓缓飘落。碎片散发着柔和的仙光，显然是仙器的残片。虽然只是残片，但其中蕴含的力量依然惊人。",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.04, "description": "修炼时有4%概率"},
+        {"type": "境界", "value": 4, "description": "需要元婴期"}
+      ],
+      "choices": [
+        {
+          "text": "尝试炼化",
+          "description": "将残片融入自己的法宝",
+          "effects": [
+            {"type": "伤害", "target": "生命", "value": 50, "probability": 0.5}
+          ],
+          "rewards": [
+            {"type": "法宝", "value": {"name": "仙器残片炼化物", "type": "法宝", "quality": "传说", "attack": 200}, "quality": "传说"}
+          ]
+        },
+        {
+          "text": "收集保存",
+          "description": "保存起来日后使用",
+          "rewards": [
+            {"type": "物品", "value": {"name": "仙器残片", "amount": 1}, "quality": "传说"}
+          ]
+        },
+        {
+          "text": "吸收其中的仙力",
+          "description": "直接炼化仙力",
+          "rewards": [
+            {"type": "修为", "value": 3000, "quality": "传说"}
+          ]
+        }
+      ],
+      "risk_level": 3,
+      "rarity": "传说",
+      "one_time": false
+    },
+    {
+      "id": "opportunity_006",
+      "name": "天降机缘",
+      "type": "机缘",
+      "description": "天空中突然降下一道金光，似乎在指引某个方向。",
+      "story": "原本晴朗的天空中，突然降下一道金光。金光缓缓移动，似乎在指引着某个方向。这是天地间难得的机缘！如果你跟随金光，或许能发现意想不到的宝物。",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.05, "description": "野外有5%概率"},
+        {"type": "功德", "value": {"min": 30, "max": 9999}, "description": "需要功德30以上"}
+      ],
+      "choices": [
+        {
+          "text": "跟随金光",
+          "description": "追踪天降机缘",
+          "effects": [
+            {"type": "触发", "target": "treasure_006", "value": true}
+          ],
+          "rewards": [
+            {"type": "修为", "value": 500, "quality": "精良"}
+          ]
+        },
+        {
+          "text": "记录方向，日后再来",
+          "description": "保守起见",
+          "rewards": [
+            {"type": "物品", "value": {"name": "天机图", "amount": 1}, "quality": "稀有"}
+          ]
+        },
+        {
+          "text": "不感兴趣",
+          "description": "继续赶路",
+          "rewards": [
+            {"type": "修为", "value": 50, "quality": "普通"}
+          ]
+        }
+      ],
+      "risk_level": 1,
+      "rarity": "传说",
+      "one_time": false
+    },
+    {
+      "id": "stranger_006",
+      "name": "神秘商人",
+      "type": "奇人",
+      "description": "遇到一位神秘的商人，他的货物都很特别。",
+      "story": "你在路上遇到一位蒙面的商人，他的货物五花八门，有些甚至是闻所未闻的奇珍异宝。商人沙哑的声音传来：\"道友，看看有什么合眼缘的？\"",
+      "trigger_conditions": [
+        {"type": "概率", "value": 0.1, "description": "路边有10%概率"},
+        {"type": "境界", "value": 2, "description": "需要筑基期"}
+      ],
+      "choices": [
+        {
+          "text": "购买稀有物品",
+          "description": "花灵石购买",
+          "effects": [
+            {"type": "失去", "target": "灵石", "value": -300}
+          ],
+          "rewards": [
+            {"type": "物品", "value": {"name": "神秘宝箱", "amount": 1}, "quality": "稀有"}
+          ]
+        },
+        {
+          "text": "用功德交换",
+          "description": "用功德换取宝物",
+          "requirements": [
+            {"type": "功德", "value": {"min": 50, "max": 9999}, "description": "需要功德50以上"}
+          ],
+          "effects": [
+            {"type": "失去", "target": "功德", "value": -30}
+          ],
+          "rewards": [
+            {"type": "法宝", "value": {"name": "神秘商人法宝", "type": "法宝", "quality": "传说", "attack": 100}, "quality": "传说"}
+          ]
+        },
+        {
+          "text": "打听消息",
+          "description": "询问有没有特别的消息",
+          "effects": [
+            {"type": "失去", "target": "灵石", "value": -50}
+          ],
+          "rewards": [
+            {"type": "物品", "value": {"name": "藏宝图", "amount": 1}, "quality": "精良"}
+          ]
+        }
+      ],
+      "risk_level": 2,
+      "rarity": "精良",
+      "one_time": false
+    }
+  ]
+}

@@ -1,0 +1,748 @@
+{
+  "description": "蜀山剑侠传 - NPC 数据库",
+  "version": "1.0.0",
+  
+  "npcs": [
+    {
+      "npc_id": "miaoyi_zhenren",
+      "name": "妙一真人",
+      "npc_type": "师傅",
+      "location": "峨眉山",
+      "description": "峨眉派掌门，正道领袖，飞剑之术登峰造极。修为已至化境，为人和蔼可亲。",
+      "dialogues": [
+        {
+          "text": "峨眉弟子，可有什么不解之处？修道之路，贵在坚持。",
+          "options": [
+            {"text": "请教飞剑之术", "action": "learn_skill", "skill_id": "emei_sword_art"},
+            {"text": "兑换门派物品", "action": "exchange"},
+            {"text": "告辞", "action": "leave"}
+          ]
+        },
+        {
+          "text": "你已突破练气期，可尝试修炼更高深的功法。",
+          "condition": "level>=10",
+          "options": [
+            {"text": "学习紫云真经", "action": "learn_skill", "skill_id": "purple_cloud_sutra"}
+          ]
+        }
+      ],
+      "default_greeting": "峨眉弟子，可有什么不解之处？",
+      "shop_id": null,
+      "quest_ids": ["emei_trial"],
+      "skill_ids": ["emei_sword_art", "purple_cloud_sutra"],
+      "sect": "峨眉派",
+      "can_exchange": true,
+      "exchange_items": [
+        {"exchange_id": "emei_sword", "name": "峨眉飞剑", "item_id": "emei_flying_sword", "contribution": 500},
+        {"exchange_id": "emei_armor", "name": "峨眉道袍", "item_id": "emei_robe", "contribution": 300},
+        {"exchange_id": "emei_pill", "name": "峨眉筑基丹", "item_id": "emei_foundation_pill", "contribution": 200}
+      ],
+      "level_required": 1,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": false
+    },
+    {
+      "npc_id": "qi_shushi",
+      "name": "齐漱石",
+      "npc_type": "师傅",
+      "location": "峨眉山",
+      "description": "峨眉派长老，精通阵法与炼器。性格严谨，对弟子要求严格。",
+      "dialogues": [
+        {
+          "text": "需要炼制法宝吗？峨眉炼器术天下闻名。不过要准备好材料。",
+          "options": [
+            {"text": "查看法宝商店", "action": "open_shop"},
+            {"text": "学习阵法", "action": "learn_skill", "skill_id": "emei_formation"},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "需要炼制法宝吗？峨眉炼器术天下闻名。",
+      "shop_id": "emei_artifact_shop",
+      "quest_ids": [],
+      "skill_ids": ["emei_formation", "artifact_refining"],
+      "sect": "峨眉派",
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 1,
+      "quest_required": null,
+      "sect_required": "峨眉派",
+      "hidden": false
+    },
+    {
+      "npc_id": "li_yingqiong",
+      "name": "李英琼",
+      "npc_type": "任务发布者",
+      "location": "峨眉山",
+      "description": "峨眉派天才弟子，剑术超群。性格豪爽，喜欢结交朋友。",
+      "dialogues": [
+        {
+          "text": "师弟/师妹，正想去山中历练，可愿同行？",
+          "options": [
+            {"text": "接受历练邀请", "action": "accept_quest", "quest_id": "emei_trial"},
+            {"text": "稍后再说", "action": "leave"}
+          ]
+        },
+        {
+          "text": "我刚从后山回来，那里似乎有妖兽出没...情况有些不妙。",
+          "condition": "level>=10",
+          "quest_trigger": "investigate_back_mountain"
+        }
+      ],
+      "default_greeting": "师弟/师妹，正想去山中历练，可愿同行？",
+      "shop_id": null,
+      "quest_ids": ["emei_trial", "sword_seeking"],
+      "skill_ids": [],
+      "sect": "峨眉派",
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 1,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": false
+    },
+    {
+      "npc_id": "jile_zhenren",
+      "name": "极乐真人",
+      "npc_type": "师傅",
+      "location": "青城山",
+      "description": "青城派掌门，剑术防御见长。性格温和，善于教导。",
+      "dialogues": [
+        {
+          "text": "青城弟子，来修炼剑术吗？防御之道，以静制动。",
+          "options": [
+            {"text": "学习青城剑法", "action": "learn_skill", "skill_id": "qingcheng_sword"},
+            {"text": "学习防御术", "action": "learn_skill", "skill_id": "defense_art"},
+            {"text": "兑换门派物品", "action": "exchange"},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "青城弟子，来修炼剑术吗？",
+      "shop_id": null,
+      "quest_ids": [],
+      "skill_ids": ["qingcheng_sword", "defense_art"],
+      "sect": "青城派",
+      "can_exchange": true,
+      "exchange_items": [
+        {"exchange_id": "qingcheng_sword", "name": "青城剑", "item_id": "qingcheng_sword", "contribution": 400},
+        {"exchange_id": "qingcheng_armor", "name": "青城道袍", "item_id": "qingcheng_robe", "contribution": 250}
+      ],
+      "level_required": 1,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": false
+    },
+    {
+      "npc_id": "zhuge_jingwo",
+      "name": "诸葛警我",
+      "npc_type": "师傅",
+      "location": "青城山",
+      "description": "青城派长老，擅长雷法。性格刚烈，嫉恶如仇。",
+      "dialogues": [
+        {
+          "text": "修雷法者，需心正意诚。你可有此决心？",
+          "options": [
+            {"text": "学习雷法", "action": "learn_skill", "skill_id": "thunder_art"},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "修雷法者，需心正意诚。",
+      "shop_id": null,
+      "quest_ids": [],
+      "skill_ids": ["thunder_art"],
+      "sect": "青城派",
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 5,
+      "quest_required": null,
+      "sect_required": "青城派",
+      "hidden": false
+    },
+    {
+      "npc_id": "zhongli_quan",
+      "name": "钟离权",
+      "npc_type": "师傅",
+      "location": "昆仑山",
+      "description": "昆仑派祖师，八仙之一，炼器大成。仙风道骨，和蔼可亲。",
+      "dialogues": [
+        {
+          "text": "昆仑炼器术，天下无双。你可愿学？",
+          "options": [
+            {"text": "学习炼器术", "action": "learn_skill", "skill_id": "kunlun_refining"},
+            {"text": "学习法宝掌控", "action": "learn_skill", "skill_id": "artifact_mastery"},
+            {"text": "查看法宝商店", "action": "open_shop"},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "昆仑炼器术，天下无双。",
+      "shop_id": "kunlun_artifact_shop",
+      "quest_ids": [],
+      "skill_ids": ["kunlun_refining", "artifact_mastery"],
+      "sect": "昆仑派",
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 1,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": false
+    },
+    {
+      "npc_id": "lv_dongbin",
+      "name": "吕洞宾",
+      "npc_type": "师傅",
+      "location": "昆仑山",
+      "description": "昆仑派祖师，八仙之一，剑术通神。风流倜傥，剑道宗师。",
+      "dialogues": [
+        {
+          "text": "剑道万千，各有千秋。你可找到自己的剑道？",
+          "options": [
+            {"text": "请教剑术", "action": "learn_skill", "skill_id": "immortal_sword_art"},
+            {"text": "学习纯阳心法", "action": "learn_skill", "skill_id": "pure_yang_art"},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "剑道万千，各有千秋。",
+      "shop_id": null,
+      "quest_ids": [],
+      "skill_ids": ["immortal_sword_art", "pure_yang_art"],
+      "sect": "昆仑派",
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 1,
+      "quest_required": null,
+      "sect_required": "昆仑派",
+      "hidden": false
+    },
+    {
+      "npc_id": "medicine_merchant",
+      "name": "灵药商人·孙思邈",
+      "npc_type": "商人",
+      "location": "成都府",
+      "description": "行走江湖的灵药商人，据说与药王孙思邈有渊源。贩卖各种灵药丹药。",
+      "dialogues": [
+        {
+          "text": "道友需要什么灵药？小店应有尽有。丹药可以助你修炼事半功倍。",
+          "options": [
+            {"text": "查看丹药", "action": "open_shop"},
+            {"text": "打听消息", "response": "最近峨眉山附近发现了一些珍稀草药..."},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "道友需要什么灵药？小店应有尽有。",
+      "shop_id": "chengdu_pill_shop",
+      "quest_ids": ["herb_collection"],
+      "skill_ids": [],
+      "sect": null,
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 1,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": false
+    },
+    {
+      "npc_id": "artifact_merchant",
+      "name": "法宝商人·欧冶子后人",
+      "npc_type": "商人",
+      "location": "成都府",
+      "description": "传说中的铸剑师欧冶子后人，贩卖各式法宝。对法宝有独到见解。",
+      "dialogues": [
+        {
+          "text": "看看有没有合手的法宝？每件法宝都是精心打造。",
+          "options": [
+            {"text": "查看法宝", "action": "open_shop"},
+            {"text": "修理法宝", "action": "repair_artifact"},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "看看有没有合手的法宝？",
+      "shop_id": "chengdu_artifact_shop",
+      "quest_ids": [],
+      "skill_ids": [],
+      "sect": null,
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 1,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": false
+    },
+    {
+      "npc_id": "material_merchant",
+      "name": "材料商人",
+      "npc_type": "商人",
+      "location": "成都府",
+      "description": "贩卖各种炼丹炼器材料。经常深入险地收集珍稀材料。",
+      "dialogues": [
+        {
+          "text": "上好的材料，炼丹炼器必备！你要找什么材料？",
+          "options": [
+            {"text": "查看材料", "action": "open_shop"},
+            {"text": "出售材料", "action": "sell_materials"},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "上好的材料，炼丹炼器必备！",
+      "shop_id": "chengdu_material_shop",
+      "quest_ids": [],
+      "skill_ids": [],
+      "sect": null,
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 1,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": false
+    },
+    {
+      "npc_id": "black_market_merchant",
+      "name": "神秘商人",
+      "npc_type": "黑市商人",
+      "location": "成都府",
+      "description": "隐藏在暗处的黑市商人，贩卖稀有物品。身份神秘，来历不明。",
+      "dialogues": [
+        {
+          "text": "嘘...这里的东西，不要外传。都是难得的好货。",
+          "options": [
+            {"text": "查看商品", "action": "open_shop"},
+            {"text": "打听消息", "response": "血河教最近在寻找一件上古神器..."},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "嘘...这里的东西，不要外传。",
+      "shop_id": "black_market_shop",
+      "quest_ids": [],
+      "skill_ids": [],
+      "sect": null,
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 20,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": true,
+      "appear_condition": "level>=20"
+    },
+    {
+      "npc_id": "village_elder",
+      "name": "村长",
+      "npc_type": "任务发布者",
+      "location": "峨眉山脚",
+      "description": "峨眉山脚小村的村长。年迈但精神矍铄，关心村民。",
+      "dialogues": [
+        {
+          "text": "年轻人，能否帮我一个忙？最近山中有妖狼出没，骚扰村民。",
+          "options": [
+            {"text": "接受任务", "action": "accept_quest", "quest_id": "village_wolf"},
+            {"text": "稍后再说", "action": "leave"}
+          ]
+        },
+        {
+          "text": "感谢你除去了妖狼！村民们可以安心了。这是你的报酬。",
+          "condition": "quest_completed:village_wolf"
+        }
+      ],
+      "default_greeting": "年轻人，能否帮我一个忙？",
+      "shop_id": null,
+      "quest_ids": ["village_wolf", "village_herbs"],
+      "skill_ids": [],
+      "sect": null,
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 1,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": false
+    },
+    {
+      "npc_id": "hunter_zhang",
+      "name": "猎人张三",
+      "npc_type": "任务发布者",
+      "location": "峨眉山脚",
+      "description": "山脚下的猎人，熟悉山中地形。性格豪爽，乐于助人。",
+      "dialogues": [
+        {
+          "text": "山中的妖兽最近不太安分啊...我发现了几个可疑的洞穴。",
+          "options": [
+            {"text": "帮忙探查洞穴", "action": "accept_quest", "quest_id": "explore_cave"},
+            {"text": "猎杀妖兽", "action": "accept_quest", "quest_id": "hunt_beast"},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "山中的妖兽最近不太安分啊...",
+      "shop_id": null,
+      "quest_ids": ["hunt_beast", "explore_cave", "rare_beast"],
+      "skill_ids": [],
+      "sect": null,
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 3,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": false
+    },
+    {
+      "npc_id": "wandering_cultivator",
+      "name": "云游修士",
+      "npc_type": "任务发布者",
+      "location": "成都府",
+      "description": "四处云游的修士，见多识广。喜欢结交天下豪杰。",
+      "dialogues": [
+        {
+          "text": "我曾游历四方，有什么想问的吗？天下之大，奇事无数。",
+          "options": [
+            {"text": "接受探险任务", "action": "accept_quest", "quest_id": "secret_map"},
+            {"text": "打听消息", "response": "东海蓬莱仙岛据说有仙人出没..."},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "我曾游历四方，有什么想问的吗？",
+      "shop_id": null,
+      "quest_ids": ["secret_map", "lost_artifact", "explore_ruins"],
+      "skill_ids": [],
+      "sect": null,
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 10,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": false
+    },
+    {
+      "npc_id": "hidden_master",
+      "name": "隐世高人",
+      "npc_type": "特殊NPC",
+      "location": "桃花源",
+      "description": "隐居桃源的高人，据说已臻化境。仙风道骨，超凡脱俗。",
+      "dialogues": [
+        {
+          "text": "能来到此地，说明你有缘。我在此等候有缘人已千年...",
+          "options": [
+            {"text": "请问前辈名号", "response": "名号不过是过眼云烟...你可愿继承我的传承？"},
+            {"text": "愿意接受传承", "action": "accept_quest", "quest_id": "hidden_legacy"},
+            {"text": "告辞", "action": "leave"}
+          ]
+        },
+        {
+          "text": "你通过了考验。这是我的毕生所学——至高剑诀。",
+          "condition": "quest_completed:hidden_master_trial",
+          "quest_trigger": "learn_supreme_art"
+        }
+      ],
+      "default_greeting": "能来到此地，说明你有缘。",
+      "shop_id": null,
+      "quest_ids": ["hidden_legacy", "hidden_master_trial"],
+      "skill_ids": ["supreme_sword_art"],
+      "sect": null,
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 50,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": true,
+      "appear_condition": "level>=50"
+    },
+    {
+      "npc_id": "mysterious_old_man",
+      "name": "神秘老者",
+      "npc_type": "特殊NPC",
+      "location": "华山",
+      "description": "华山上出现的神秘老者，身份成谜。剑道深不可测。",
+      "dialogues": [
+        {
+          "text": "年轻人，悟性不错。华山的剑意，你可有所感悟？",
+          "options": [
+            {"text": "请前辈指点", "action": "learn_sword"},
+            {"text": "请教剑道", "response": "剑道无边，随心而动..."},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "年轻人，悟性不错。",
+      "shop_id": null,
+      "quest_ids": ["sword_enlightenment"],
+      "skill_ids": [],
+      "sect": null,
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 30,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": true,
+      "appear_condition": "level>=30"
+    },
+    {
+      "npc_id": "blood_river_ancestor",
+      "name": "血河老祖",
+      "npc_type": "师傅",
+      "location": "血河教总坛",
+      "description": "血河教教主，邪道巨擘。修炼血河之法，威力惊人。",
+      "dialogues": [
+        {
+          "text": "入我血河，可得永生！血河之法，乃是夺天地之造化！",
+          "options": [
+            {"text": "学习血河真经", "action": "learn_skill", "skill_id": "blood_river_art"},
+            {"text": "学习血祭之术", "action": "learn_skill", "skill_id": "blood_sacrifice"},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "入我血河，可得永生！",
+      "shop_id": null,
+      "quest_ids": [],
+      "skill_ids": ["blood_river_art", "blood_sacrifice"],
+      "sect": "血河教",
+      "can_exchange": true,
+      "exchange_items": [
+        {"exchange_id": "blood_pill", "name": "血丹", "item_id": "blood_pill", "contribution": 300},
+        {"exchange_id": "blood_sword", "name": "血河剑", "item_id": "blood_river_sword", "contribution": 600}
+      ],
+      "level_required": 20,
+      "quest_required": null,
+      "sect_required": "血河教",
+      "hidden": false
+    },
+    {
+      "npc_id": "inn_keeper",
+      "name": "客栈掌柜",
+      "npc_type": "路人",
+      "location": "成都府",
+      "description": "云来客栈的掌柜。热情好客，消息灵通。",
+      "dialogues": [
+        {
+          "text": "客官要住店吗？一晚十块灵石，可恢复全部精力。客栈也是打听消息的好地方。",
+          "options": [
+            {"text": "住店休息", "action": "rest"},
+            {"text": "打听消息", "response": "最近长安城来了不少修士，据说有大事发生..."},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "客官要住店吗？一晚十块灵石。",
+      "shop_id": null,
+      "quest_ids": [],
+      "skill_ids": [],
+      "sect": null,
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 1,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": false
+    },
+    {
+      "npc_id": "teahouse_owner",
+      "name": "茶馆老板",
+      "npc_type": "路人",
+      "location": "成都府",
+      "description": "茶馆老板，消息灵通。很多修士喜欢在此喝茶聊天。",
+      "dialogues": [
+        {
+          "text": "来喝杯茶？最近江湖上发生了不少事...茶馆里消息最灵通了。",
+          "options": [
+            {"text": "喝茶聊天", "action": "drink_tea"},
+            {"text": "打听消息", "response": "听说血河教最近又蠢蠢欲动了..."},
+            {"text": "告辞", "action": "leave"}
+          ]
+        },
+        {
+          "text": "东海龙宫似乎有异动，不少修士都去探查了。据说有宝物出世！",
+          "condition": "level>=40"
+        }
+      ],
+      "default_greeting": "来喝杯茶？最近江湖上发生了不少事...",
+      "shop_id": null,
+      "quest_ids": [],
+      "skill_ids": [],
+      "sect": null,
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 1,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": false
+    },
+    {
+      "npc_id": "fortune_teller",
+      "name": "算命先生",
+      "npc_type": "路人",
+      "location": "长安城",
+      "description": "长安城的算命先生，据说颇为灵验。神秘莫测。",
+      "dialogues": [
+        {
+          "text": "客官，算一卦？十块灵石，可知吉凶祸福。",
+          "options": [
+            {"text": "算卦", "action": "fortune_telling"},
+            {"text": "你的命格奇特...将来必有大机缘！", "response": "天机不可泄露..."},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "客官，算一卦？",
+      "shop_id": null,
+      "quest_ids": [],
+      "skill_ids": [],
+      "sect": null,
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 1,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": false
+    },
+    {
+      "npc_id": "emei_steward",
+      "name": "峨眉执事",
+      "npc_type": "师傅",
+      "location": "峨眉山",
+      "description": "峨眉派执事，负责门派贡献兑换。处事公正。",
+      "dialogues": [
+        {
+          "text": "弟子可用门派贡献兑换物品。为门派做出贡献，必有回报。",
+          "options": [
+            {"text": "兑换物品", "action": "exchange"},
+            {"text": "查看贡献", "action": "check_contribution"},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "弟子可用门派贡献兑换物品。",
+      "shop_id": null,
+      "quest_ids": [],
+      "skill_ids": [],
+      "sect": "峨眉派",
+      "can_exchange": true,
+      "exchange_items": [
+        {"exchange_id": "emei_pill", "name": "峨眉筑基丹", "item_id": "emei_foundation_pill", "contribution": 200},
+        {"exchange_id": "emei_token", "name": "峨眉令牌", "item_id": "emei_token", "contribution": 100}
+      ],
+      "level_required": 1,
+      "quest_required": null,
+      "sect_required": "峨眉派",
+      "hidden": false
+    },
+    {
+      "npc_id": "kunlun_steward",
+      "name": "昆仑执事",
+      "npc_type": "师傅",
+      "location": "昆仑山",
+      "description": "昆仑派执事，负责门派贡献兑换。知识渊博。",
+      "dialogues": [
+        {
+          "text": "昆仑弟子，可用贡献兑换珍稀材料和法宝。",
+          "options": [
+            {"text": "兑换物品", "action": "exchange"},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "昆仑弟子，可用贡献兑换珍稀材料和法宝。",
+      "shop_id": null,
+      "quest_ids": [],
+      "skill_ids": [],
+      "sect": "昆仑派",
+      "can_exchange": true,
+      "exchange_items": [
+        {"exchange_id": "kunlun_jade", "name": "昆仑玉", "item_id": "kunlun_jade", "contribution": 150},
+        {"exchange_id": "kunlun_pill", "name": "昆仑金丹", "item_id": "kunlun_golden_pill", "contribution": 400}
+      ],
+      "level_required": 1,
+      "quest_required": null,
+      "sect_required": "昆仑派",
+      "hidden": false
+    },
+    {
+      "npc_id": "traveling_merchant",
+      "name": "行脚商人",
+      "npc_type": "商人",
+      "location": "长安城",
+      "description": "走南闯北的商人，贩卖各地特产。商品稀有但价格不菲。",
+      "dialogues": [
+        {
+          "text": "我从天南地北收集来的宝贝，看看有没有你需要的？",
+          "options": [
+            {"text": "查看商品", "action": "open_shop"},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "我从天南地北收集来的宝贝。",
+      "shop_id": "traveling_merchant_shop",
+      "quest_ids": [],
+      "skill_ids": [],
+      "sect": null,
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 15,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": false
+    },
+    {
+      "npc_id": "sword_tomb_guardian",
+      "name": "剑冢守护者",
+      "npc_type": "特殊NPC",
+      "location": "蜀山剑冢",
+      "description": "守护蜀山剑冢的神秘存在。对剑道有极高造诣。",
+      "dialogues": [
+        {
+          "text": "此地乃万剑埋骨之地，非剑道大成者不可入。你可敢接受剑意试炼？",
+          "options": [
+            {"text": "接受试炼", "action": "accept_quest", "quest_id": "sword_tomb_trial"},
+            {"text": "请教剑道", "response": "剑在心中，不在手中..."},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "此地乃万剑埋骨之地。",
+      "shop_id": null,
+      "quest_ids": ["sword_tomb_trial", "awaken_sword_spirit"],
+      "skill_ids": ["sword_intent_mastery"],
+      "sect": null,
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 70,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": false
+    },
+    {
+      "npc_id": "dragon_prince",
+      "name": "龙族太子",
+      "npc_type": "特殊NPC",
+      "location": "龙宫",
+      "description": "东海龙族太子，实力强大。可以教授水系和龙族功法。",
+      "dialogues": [
+        {
+          "text": "凡人竟能来到龙宫，有些本事。龙族功法，你可有兴趣？",
+          "options": [
+            {"text": "学习龙族功法", "action": "learn_skill", "skill_id": "dragon_art"},
+            {"text": "请教龙族秘闻", "response": "龙族历史悠久，与仙界颇有渊源..."},
+            {"text": "告辞", "action": "leave"}
+          ]
+        }
+      ],
+      "default_greeting": "凡人竟能来到龙宫，有些本事。",
+      "shop_id": null,
+      "quest_ids": ["dragon_favor"],
+      "skill_ids": ["dragon_art", "water_mastery"],
+      "sect": null,
+      "can_exchange": false,
+      "exchange_items": [],
+      "level_required": 80,
+      "quest_required": null,
+      "sect_required": null,
+      "hidden": false
+    }
+  ]
+}

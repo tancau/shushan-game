@@ -1,0 +1,707 @@
+{
+  "description": "蜀山剑侠传 - 阵法数据库",
+  "version": "1.0.0",
+  
+  "品质等级": {
+    "凡": {"level": 1, "color": "白色", "描述": "凡人可布，威力有限"},
+    "灵": {"level": 2, "color": "绿色", "描述": "蕴含灵气，威力不俗"},
+    "仙": {"level": 3, "color": "蓝色", "描述": "仙家阵法，变化莫测"},
+    "神": {"level": 4, "color": "金色", "描述": "上古神阵，通天彻地"},
+    "圣": {"level": 5, "color": "紫色", "描述": "圣人遗阵，天地法则"}
+  },
+  
+  "阵法类型": {
+    "攻击阵": {"用途": "杀伤敌人", "特性": "伤害加成"},
+    "防御阵": {"用途": "保护自己", "特性": "防御加成"},
+    "困敌阵": {"用途": "困住敌人", "特性": "控制效果"},
+    "辅助阵": {"用途": "辅助战斗", "特性": "增益效果"}
+  },
+  
+  "阵位说明": {
+    "阵眼": {"描述": "阵法核心，决定阵法存亡", "效果": "核心位置，威力倍增"},
+    "阵角": {"描述": "支撑阵法四角", "效果": "增加阵法稳定性"},
+    "阵门": {"描述": "阵法出入口", "效果": "可设陷阱或生机"}
+  },
+  
+  "五行相克": {
+    "金": {"克": "木", "被克": "火"},
+    "木": {"克": "土", "被克": "金"},
+    "水": {"克": "火", "被克": "土"},
+    "火": {"克": "金", "被克": "水"},
+    "土": {"克": "水", "被克": "木"}
+  },
+  
+  "formations": {
+    "jinguang_zhen": {
+      "id": "jinguang_zhen",
+      "name": "金光阵",
+      "type": "防御阵",
+      "quality": "灵",
+      "element": "金",
+      "description": "金光护体，刀剑难伤",
+      "realm_required": "练气期",
+      "formation_size": 5,
+      "positions": {
+        "阵眼": {"count": 1, "effect": "核心防御"},
+        "阵角": {"count": 4, "effect": "支撑护盾"}
+      },
+      "effects": [
+        {
+          "name": "金光护体",
+          "type": "defense_boost",
+          "value": 0.3,
+          "duration": 5
+        },
+        {
+          "name": "金属性伤害减免",
+          "type": "element_resist",
+          "element": "金",
+          "value": 0.2
+        }
+      ],
+      "base_damage": 0,
+      "base_defense": 50,
+      "mp_cost_per_turn": 5,
+      "setup_mp_cost": 30,
+      "materials": {
+        "玄铁": 5,
+        "精金": 2
+      },
+      "max_level": 10,
+      "upgrade_materials": {
+        "玄铁": 3,
+        "精金": 1
+      }
+    },
+    
+    "liehuo_zhen": {
+      "id": "liehuo_zhen",
+      "name": "烈火阵",
+      "type": "攻击阵",
+      "quality": "灵",
+      "element": "火",
+      "description": "烈火焚天，灼烧万物",
+      "realm_required": "练气期",
+      "formation_size": 5,
+      "positions": {
+        "阵眼": {"count": 1, "effect": "火源核心"},
+        "阵角": {"count": 4, "effect": "引导火势"}
+      },
+      "effects": [
+        {
+          "name": "烈火焚身",
+          "type": "damage",
+          "value": 80,
+          "duration": 1
+        },
+        {
+          "name": "灼烧",
+          "type": "dot",
+          "value": 20,
+          "duration": 3
+        }
+      ],
+      "base_damage": 80,
+      "base_defense": 0,
+      "mp_cost_per_turn": 8,
+      "setup_mp_cost": 40,
+      "materials": {
+        "赤铜": 5,
+        "火山晶": 3
+      },
+      "max_level": 10,
+      "upgrade_materials": {
+        "赤铜": 3,
+        "火山晶": 2
+      }
+    },
+    
+    "bingshuang_zhen": {
+      "id": "bingshuang_zhen",
+      "name": "冰霜阵",
+      "type": "困敌阵",
+      "quality": "灵",
+      "element": "水",
+      "description": "冰封千里，冻结万物",
+      "realm_required": "筑基期",
+      "formation_size": 7,
+      "positions": {
+        "阵眼": {"count": 1, "effect": "寒冰之源"},
+        "阵角": {"count": 4, "effect": "冰霜蔓延"},
+        "阵门": {"count": 2, "effect": "封锁退路"}
+      },
+      "effects": [
+        {
+          "name": "冰封",
+          "type": "freeze",
+          "chance": 0.3,
+          "duration": 2
+        },
+        {
+          "name": "寒霜伤害",
+          "type": "damage",
+          "value": 50,
+          "duration": 1
+        },
+        {
+          "name": "减速",
+          "type": "slow",
+          "value": 0.3,
+          "duration": 3
+        }
+      ],
+      "base_damage": 50,
+      "base_defense": 10,
+      "mp_cost_per_turn": 10,
+      "setup_mp_cost": 50,
+      "materials": {
+        "寒铁矿": 5,
+        "玄冰魄": 2
+      },
+      "max_level": 10,
+      "upgrade_materials": {
+        "寒铁矿": 3,
+        "玄冰魄": 1
+      }
+    },
+    
+    "leiting_zhen": {
+      "id": "leiting_zhen",
+      "name": "雷霆阵",
+      "type": "攻击阵",
+      "quality": "仙",
+      "element": "金",
+      "description": "引九天神雷，雷霆万钧",
+      "realm_required": "筑基期",
+      "formation_size": 9,
+      "positions": {
+        "阵眼": {"count": 1, "effect": "雷电汇聚"},
+        "阵角": {"count": 4, "effect": "引导雷击"},
+        "阵门": {"count": 4, "effect": "封锁空间"}
+      },
+      "effects": [
+        {
+          "name": "天雷击",
+          "type": "damage",
+          "value": 150,
+          "duration": 1
+        },
+        {
+          "name": "麻痹",
+          "type": "paralyze",
+          "chance": 0.25,
+          "duration": 1
+        }
+      ],
+      "base_damage": 150,
+      "base_defense": 0,
+      "mp_cost_per_turn": 15,
+      "setup_mp_cost": 80,
+      "materials": {
+        "天雷石": 5,
+        "精金": 3
+      },
+      "max_level": 10,
+      "upgrade_materials": {
+        "天雷石": 3,
+        "精金": 2
+      }
+    },
+    
+    "houtu_zhen": {
+      "id": "houtu_zhen",
+      "name": "厚土阵",
+      "type": "防御阵",
+      "quality": "仙",
+      "element": "土",
+      "description": "厚土为盾，坚不可摧",
+      "realm_required": "筑基期",
+      "formation_size": 9,
+      "positions": {
+        "阵眼": {"count": 1, "effect": "大地之力"},
+        "阵角": {"count": 4, "effect": "土墙支撑"},
+        "阵门": {"count": 4, "effect": "生生不息"}
+      },
+      "effects": [
+        {
+          "name": "大地护盾",
+          "type": "shield",
+          "value": 200,
+          "duration": 5
+        },
+        {
+          "name": "土属性伤害减免",
+          "type": "element_resist",
+          "element": "土",
+          "value": 0.3
+        }
+      ],
+      "base_damage": 0,
+      "base_defense": 100,
+      "mp_cost_per_turn": 12,
+      "setup_mp_cost": 70,
+      "materials": {
+        "五行石": 3,
+        "玄铁": 5
+      },
+      "max_level": 10,
+      "upgrade_materials": {
+        "五行石": 2,
+        "玄铁": 3
+      }
+    },
+    
+    "zhuxian_jianzhen": {
+      "id": "zhuxian_jianzhen",
+      "name": "诛仙剑阵",
+      "type": "攻击阵",
+      "quality": "圣",
+      "element": "金",
+      "description": "上古第一杀阵，四剑诛仙，神鬼莫敌",
+      "realm_required": "化神期",
+      "formation_size": 12,
+      "positions": {
+        "阵眼": {"count": 1, "effect": "剑阵核心"},
+        "阵角": {"count": 4, "effect": "四剑镇守"},
+        "阵门": {"count": 7, "effect": "杀机四伏"}
+      },
+      "effects": [
+        {
+          "name": "诛仙剑气",
+          "type": "damage",
+          "value": 500,
+          "duration": 1
+        },
+        {
+          "name": "剑气缠绕",
+          "type": "dot",
+          "value": 100,
+          "duration": 5
+        },
+        {
+          "name": "破甲",
+          "type": "defense_break",
+          "value": 0.5,
+          "duration": 3
+        }
+      ],
+      "base_damage": 500,
+      "base_defense": 0,
+      "mp_cost_per_turn": 50,
+      "setup_mp_cost": 300,
+      "materials": {
+        "太乙精金": 5,
+        "星辰砂": 10,
+        "龙鳞": 3
+      },
+      "max_level": 5,
+      "upgrade_materials": {
+        "太乙精金": 2,
+        "星辰砂": 3,
+        "龙鳞": 1
+      },
+      "prerequisites": ["wanjian_zhen", "qisha_jianzhen"]
+    },
+    
+    "wanjian_zhen": {
+      "id": "wanjian_zhen",
+      "name": "万剑阵",
+      "type": "攻击阵",
+      "quality": "仙",
+      "element": "金",
+      "description": "万剑齐发，剑气纵横",
+      "realm_required": "金丹期",
+      "formation_size": 10,
+      "positions": {
+        "阵眼": {"count": 1, "effect": "剑气汇聚"},
+        "阵角": {"count": 4, "effect": "剑阵支柱"},
+        "阵门": {"count": 5, "effect": "剑气出口"}
+      },
+      "effects": [
+        {
+          "name": "万剑齐发",
+          "type": "damage",
+          "value": 200,
+          "duration": 1
+        },
+        {
+          "name": "剑气散射",
+          "type": "aoe_damage",
+          "value": 100,
+          "targets": 3
+        }
+      ],
+      "base_damage": 200,
+      "base_defense": 0,
+      "mp_cost_per_turn": 20,
+      "setup_mp_cost": 100,
+      "materials": {
+        "精金": 10,
+        "星辰砂": 3
+      },
+      "max_level": 10,
+      "upgrade_materials": {
+        "精金": 5,
+        "星辰砂": 2
+      }
+    },
+    
+    "qisha_jianzhen": {
+      "id": "qisha_jianzhen",
+      "name": "七杀剑阵",
+      "type": "攻击阵",
+      "quality": "神",
+      "element": "金",
+      "description": "七杀为名，杀气冲天，此阵一出，必见血光",
+      "realm_required": "元婴期",
+      "formation_size": 7,
+      "positions": {
+        "阵眼": {"count": 1, "effect": "杀意核心"},
+        "阵角": {"count": 4, "effect": "四杀位"},
+        "阵门": {"count": 2, "effect": "生门死门"}
+      },
+      "effects": [
+        {
+          "name": "七杀剑意",
+          "type": "damage",
+          "value": 350,
+          "duration": 1
+        },
+        {
+          "name": "杀意压制",
+          "type": "attack_debuff",
+          "value": 0.2,
+          "duration": 3
+        },
+        {
+          "name": "致命一击",
+          "type": "crit_boost",
+          "value": 0.3
+        }
+      ],
+      "base_damage": 350,
+      "base_defense": 0,
+      "mp_cost_per_turn": 30,
+      "setup_mp_cost": 150,
+      "materials": {
+        "虎魄": 3,
+        "星辰砂": 5,
+        "精金": 8
+      },
+      "max_level": 10,
+      "upgrade_materials": {
+        "虎魄": 1,
+        "星辰砂": 2,
+        "精金": 3
+      }
+    },
+    
+    "tiangang_jianzhen": {
+      "id": "tiangang_jianzhen",
+      "name": "天罡剑阵",
+      "type": "攻击阵",
+      "quality": "仙",
+      "element": "金",
+      "description": "借天罡北斗之力，剑阵如星辰运转",
+      "realm_required": "金丹期",
+      "formation_size": 7,
+      "positions": {
+        "阵眼": {"count": 1, "effect": "北斗中心"},
+        "阵角": {"count": 4, "effect": "四方星位"},
+        "阵门": {"count": 2, "effect": "阴阳流转"}
+      },
+      "effects": [
+        {
+          "name": "天罡剑气",
+          "type": "damage",
+          "value": 180,
+          "duration": 1
+        },
+        {
+          "name": "星辰之力",
+          "type": "mp_regen",
+          "value": 10,
+          "duration": 5
+        }
+      ],
+      "base_damage": 180,
+      "base_defense": 0,
+      "mp_cost_per_turn": 18,
+      "setup_mp_cost": 90,
+      "materials": {
+        "星辰砂": 5,
+        "精金": 5
+      },
+      "max_level": 10,
+      "upgrade_materials": {
+        "星辰砂": 2,
+        "精金": 2
+      }
+    },
+    
+    "liangyi_weichen": {
+      "id": "liangyi_weichen",
+      "name": "两仪微尘阵",
+      "type": "困敌阵",
+      "quality": "神",
+      "element": "无",
+      "description": "佛门至高阵法，化两仪为微尘，敌人入阵如入虚空",
+      "realm_required": "元婴期",
+      "formation_size": 10,
+      "positions": {
+        "阵眼": {"count": 1, "effect": "阴阳核心"},
+        "阵角": {"count": 4, "effect": "四象支持"},
+        "阵门": {"count": 5, "effect": "生死转换"}
+      },
+      "effects": [
+        {
+          "name": "微尘幻境",
+          "type": "confuse",
+          "chance": 0.4,
+          "duration": 3
+        },
+        {
+          "name": "两仪绞杀",
+          "type": "damage",
+          "value": 120,
+          "duration": 1
+        },
+        {
+          "name": "灵力压制",
+          "type": "mp_drain",
+          "value": 30,
+          "duration": 1
+        }
+      ],
+      "base_damage": 120,
+      "base_defense": 50,
+      "mp_cost_per_turn": 25,
+      "setup_mp_cost": 200,
+      "materials": {
+        "五行石": 5,
+        "混沌石": 1,
+        "千年灵芝": 3
+      },
+      "max_level": 5,
+      "upgrade_materials": {
+        "五行石": 2,
+        "千年灵芝": 1
+      }
+    },
+    
+    "jiuqu_huanghe": {
+      "id": "jiuqu_huanghe",
+      "name": "九曲黄河阵",
+      "type": "困敌阵",
+      "quality": "神",
+      "element": "水",
+      "description": "黄河九曲，暗藏杀机，敌人入阵，九死一生",
+      "realm_required": "元婴期",
+      "formation_size": 9,
+      "positions": {
+        "阵眼": {"count": 1, "effect": "黄河之源"},
+        "阵角": {"count": 4, "effect": "四曲流转"},
+        "阵门": {"count": 4, "effect": "生死门"}
+      },
+      "effects": [
+        {
+          "name": "黄河冲刷",
+          "type": "damage",
+          "value": 150,
+          "duration": 1
+        },
+        {
+          "name": "水流缠绕",
+          "type": "slow",
+          "value": 0.4,
+          "duration": 4
+        },
+        {
+          "name": "溺毙",
+          "type": "dot",
+          "value": 50,
+          "duration": 5
+        }
+      ],
+      "base_damage": 150,
+      "base_defense": 30,
+      "mp_cost_per_turn": 22,
+      "setup_mp_cost": 180,
+      "materials": {
+        "蛟龙胆": 3,
+        "玄冰魄": 3,
+        "碧水珠": 10
+      },
+      "max_level": 5,
+      "upgrade_materials": {
+        "蛟龙胆": 1,
+        "碧水珠": 3
+      }
+    },
+    
+    "shijue_zhen": {
+      "id": "shijue_zhen",
+      "name": "十绝阵",
+      "type": "困敌阵",
+      "quality": "神",
+      "element": "无",
+      "description": "十绝杀阵，天地绝灭，入阵者十死无生",
+      "realm_required": "化神期",
+      "formation_size": 10,
+      "positions": {
+        "阵眼": {"count": 1, "effect": "绝杀核心"},
+        "阵角": {"count": 4, "effect": "四绝"},
+        "阵门": {"count": 5, "effect": "无生门"}
+      },
+      "effects": [
+        {
+          "name": "十绝杀",
+          "type": "damage",
+          "value": 300,
+          "duration": 1
+        },
+        {
+          "name": "绝灵",
+          "type": "mp_block",
+          "duration": 2
+        },
+        {
+          "name": "绝气",
+          "type": "stat_debuff",
+          "stat": "attack",
+          "value": 0.3,
+          "duration": 3
+        }
+      ],
+      "base_damage": 300,
+      "base_defense": 0,
+      "mp_cost_per_turn": 40,
+      "setup_mp_cost": 250,
+      "materials": {
+        "混沌石": 1,
+        "妖王晶": 3,
+        "五行石": 5
+      },
+      "max_level": 5,
+      "upgrade_materials": {
+        "妖王晶": 1,
+        "五行石": 2
+      }
+    },
+    
+    "juling_zhen": {
+      "id": "juling_zhen",
+      "name": "聚灵阵",
+      "type": "辅助阵",
+      "quality": "灵",
+      "element": "木",
+      "description": "汇聚天地灵气，加速修炼恢复",
+      "realm_required": "练气期",
+      "formation_size": 5,
+      "positions": {
+        "阵眼": {"count": 1, "effect": "灵气汇聚"},
+        "阵角": {"count": 4, "effect": "引导灵气"}
+      },
+      "effects": [
+        {
+          "name": "灵气汇聚",
+          "type": "cultivation_boost",
+          "value": 0.3,
+          "duration": 10
+        },
+        {
+          "name": "真元恢复",
+          "type": "mp_regen",
+          "value": 5,
+          "duration": 5
+        }
+      ],
+      "base_damage": 0,
+      "base_defense": 10,
+      "mp_cost_per_turn": 3,
+      "setup_mp_cost": 20,
+      "materials": {
+        "灵参": 3,
+        "七心海棠": 2
+      },
+      "max_level": 10,
+      "upgrade_materials": {
+        "灵参": 1,
+        "七心海棠": 1
+      }
+    },
+    
+    "hushen_zhen": {
+      "id": "hushen_zhen",
+      "name": "护身阵",
+      "type": "防御阵",
+      "quality": "凡",
+      "element": "无",
+      "description": "基础护身阵法，形成护盾保护自己",
+      "realm_required": "练气期",
+      "formation_size": 3,
+      "positions": {
+        "阵眼": {"count": 1, "effect": "护盾核心"},
+        "阵角": {"count": 2, "effect": "支撑护盾"}
+      },
+      "effects": [
+        {
+          "name": "护身气盾",
+          "type": "shield",
+          "value": 50,
+          "duration": 3
+        }
+      ],
+      "base_damage": 0,
+      "base_defense": 30,
+      "mp_cost_per_turn": 3,
+      "setup_mp_cost": 15,
+      "materials": {
+        "玄铁": 2
+      },
+      "max_level": 10,
+      "upgrade_materials": {
+        "玄铁": 1
+      }
+    },
+    
+    "yinni_zhen": {
+      "id": "yinni_zhen",
+      "name": "隐匿阵",
+      "type": "辅助阵",
+      "quality": "灵",
+      "element": "无",
+      "description": "隐藏气息，敌人难以察觉",
+      "realm_required": "筑基期",
+      "formation_size": 5,
+      "positions": {
+        "阵眼": {"count": 1, "effect": "气息收敛"},
+        "阵角": {"count": 4, "effect": "屏蔽感知"}
+      },
+      "effects": [
+        {
+          "name": "气息隐匿",
+          "type": "stealth",
+          "duration": 10
+        },
+        {
+          "name": "感知屏蔽",
+          "type": "sensor_block",
+          "duration": 10
+        }
+      ],
+      "base_damage": 0,
+      "base_defense": 0,
+      "mp_cost_per_turn": 5,
+      "setup_mp_cost": 25,
+      "materials": {
+        "五行石": 1,
+        "千年灵芝": 1
+      },
+      "max_level": 10,
+      "upgrade_materials": {
+        "五行石": 1
+      }
+    }
+  }
+}
