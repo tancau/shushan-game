@@ -1,0 +1,888 @@
+{
+  "quests": [
+    {
+      "quest_id": "main_001",
+      "name": "初入蜀山",
+      "description": "你初到蜀山，听闻峨眉派正招收新弟子。前往峨眉山脚，寻找引路人。",
+      "quest_type": "主线",
+      "objectives": [
+        {
+          "objective_type": "探索",
+          "target": "峨眉山脚",
+          "required": 1,
+          "description": "抵达峨眉山脚"
+        },
+        {
+          "objective_type": "对话",
+          "target": "引路人李青云",
+          "required": 1,
+          "description": "与引路人李青云交谈"
+        }
+      ],
+      "rewards": {
+        "cultivation": 100,
+        "spirit_stones": 50,
+        "karma": 5
+      },
+      "prerequisites": [],
+      "giver_npc": "系统",
+      "completer_npc": "引路人李青云",
+      "dialogues": [
+        {
+          "dialogue_id": "main_001_d1",
+          "speaker": "引路人李青云",
+          "text": "小友，你便是新来的弟子吧？峨眉派乃是正道大派，若有机缘，不妨入我门下修行。",
+          "choices": [
+            {
+              "text": "弟子愿入峨眉修行",
+              "next_dialogue_id": "main_001_d2_a",
+              "karma_change": 5
+            },
+            {
+              "text": "我想再考虑一下",
+              "next_dialogue_id": "main_001_d2_b",
+              "karma_change": 0
+            }
+          ]
+        },
+        {
+          "dialogue_id": "main_001_d2_a",
+          "speaker": "引路人李青云",
+          "text": "甚好！你且去后山修炼场，先习得基础功法，日后自有进益。"
+        },
+        {
+          "dialogue_id": "main_001_d2_b",
+          "speaker": "引路人李青云",
+          "text": "无妨，你且在山中四处走走，若想明白了再来寻我。"
+        }
+      ],
+      "story_chapter": 1,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "main_002",
+      "name": "入世修行",
+      "description": "在峨眉山中修炼，掌握基本的吐纳之法，为日后斩妖除魔打下基础。",
+      "quest_type": "主线",
+      "objectives": [
+        {
+          "objective_type": "修炼",
+          "target": "打坐",
+          "required": 5,
+          "description": "完成5次打坐修炼"
+        },
+        {
+          "objective_type": "突破",
+          "target": "练气期二层",
+          "required": 1,
+          "description": "突破至练气期二层"
+        }
+      ],
+      "rewards": {
+        "cultivation": 300,
+        "spirit_stones": 100,
+        "skills": ["峨眉基础剑法"]
+      },
+      "prerequisites": ["main_001"],
+      "giver_npc": "引路人李青云",
+      "completer_npc": "引路人李青云",
+      "dialogues": [
+        {
+          "dialogue_id": "main_002_d1",
+          "speaker": "引路人李青云",
+          "text": "你已掌握吐纳之法，可以去历练一番了。山下有些妖魔作祟，不妨去清理一番。"
+        }
+      ],
+      "story_chapter": 1,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "main_003",
+      "name": "斩妖除魔",
+      "description": "下山历练，清除山脚附近的妖魔，获取实战经验。",
+      "quest_type": "主线",
+      "objectives": [
+        {
+          "objective_type": "击杀",
+          "target": "山妖",
+          "required": 5,
+          "description": "击杀5只山妖"
+        },
+        {
+          "objective_type": "击杀",
+          "target": "妖狼",
+          "required": 3,
+          "description": "击杀3只妖狼"
+        }
+      ],
+      "rewards": {
+        "cultivation": 500,
+        "spirit_stones": 200,
+        "artifacts": ["精铁剑"]
+      },
+      "prerequisites": ["main_002"],
+      "giver_npc": "引路人李青云",
+      "completer_npc": "引路人李青云",
+      "dialogues": [
+        {
+          "dialogue_id": "main_003_d1",
+          "speaker": "引路人李青云",
+          "text": "你做得很好！这些妖魔祸害百姓已久，你为山民除了一害。峨眉派的师兄们都在称赞你呢。"
+        }
+      ],
+      "story_chapter": 1,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "main_004",
+      "name": "峨眉试炼",
+      "description": "参加峨眉派的入门试炼，证明自己的实力。",
+      "quest_type": "主线",
+      "objectives": [
+        {
+          "objective_type": "挑战",
+          "target": "试炼傀儡",
+          "required": 1,
+          "description": "击败试炼傀儡"
+        },
+        {
+          "objective_type": "探索",
+          "target": "试炼幻境",
+          "required": 1,
+          "description": "通过试炼幻境"
+        }
+      ],
+      "rewards": {
+        "cultivation": 800,
+        "spirit_stones": 300,
+        "karma": 10,
+        "artifacts": ["峨眉弟子令"]
+      },
+      "prerequisites": ["main_003"],
+      "giver_npc": "峨眉长老",
+      "completer_npc": "峨眉长老",
+      "dialogues": [
+        {
+          "dialogue_id": "main_004_d1",
+          "speaker": "峨眉长老",
+          "text": "你已通过试炼，正式成为峨眉弟子。记住，修仙之路漫漫，当以斩妖除魔、护佑苍生为己任。",
+          "choices": [
+            {
+              "text": "弟子谨记长老教诲",
+              "karma_change": 10,
+              "effects": {"set_flag": {"峨眉弟子": true}}
+            },
+            {
+              "text": "我自会走我的道",
+              "karma_change": -5
+            }
+          ]
+        }
+      ],
+      "story_chapter": 2,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "main_005",
+      "name": "剑灵觉醒",
+      "description": "在峨眉后山发现一把古剑，剑中似有灵识沉睡。",
+      "quest_type": "主线",
+      "objectives": [
+        {
+          "objective_type": "探索",
+          "target": "后山禁地",
+          "required": 1,
+          "description": "探索后山禁地"
+        },
+        {
+          "objective_type": "获取",
+          "target": "沉睡的古剑",
+          "required": 1,
+          "description": "获得沉睡的古剑"
+        },
+        {
+          "objective_type": "修炼",
+          "target": "悟道",
+          "required": 3,
+          "description": "参悟剑意3次"
+        }
+      ],
+      "rewards": {
+        "cultivation": 1000,
+        "artifacts": ["沉睡的古剑"]
+      },
+      "prerequisites": ["main_004"],
+      "giver_npc": "系统",
+      "completer_npc": "系统",
+      "dialogues": [
+        {
+          "dialogue_id": "main_005_d1",
+          "speaker": "神秘声音",
+          "text": "少年...你竟能踏入此地...这把剑，你且拿去，但切记，剑乃凶器，用在正道...",
+          "choices": [
+            {
+              "text": "前辈放心，晚辈定当用剑护道",
+              "karma_change": 15,
+              "effects": {"set_flag": {"剑灵认可": true}}
+            },
+            {
+              "text": "多谢前辈赐剑",
+              "karma_change": 5
+            }
+          ]
+        }
+      ],
+      "story_chapter": 2,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "main_006",
+      "name": "青城来访",
+      "description": "青城派使者来访，带来一封挑战书。",
+      "quest_type": "主线",
+      "objectives": [
+        {
+          "objective_type": "对话",
+          "target": "青城使者",
+          "required": 1,
+          "description": "与青城使者交谈"
+        },
+        {
+          "objective_type": "挑战",
+          "target": "青城弟子",
+          "required": 3,
+          "description": "在比试中击败3名青城弟子"
+        }
+      ],
+      "rewards": {
+        "cultivation": 1200,
+        "spirit_stones": 500,
+        "karma": 5
+      },
+      "prerequisites": ["main_005"],
+      "giver_npc": "青城使者",
+      "completer_npc": "峨眉长老",
+      "dialogues": [
+        {
+          "dialogue_id": "main_006_d1",
+          "speaker": "青城使者",
+          "text": "峨眉派号称正道领袖，不知实力如何？我青城派特来切磋。",
+          "choices": [
+            {
+              "text": "既然是切磋，在下领教",
+              "karma_change": 5
+            },
+            {
+              "text": "无谓的争斗毫无意义",
+              "karma_change": -3
+            }
+          ]
+        }
+      ],
+      "story_chapter": 3,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "main_007",
+      "name": "峨眉斗剑",
+      "description": "峨眉派与青城派的正式比武，你将代表峨眉出战。",
+      "quest_type": "主线",
+      "objectives": [
+        {
+          "objective_type": "挑战",
+          "target": "青城首席弟子",
+          "required": 1,
+          "description": "击败青城首席弟子"
+        },
+        {
+          "objective_type": "突破",
+          "target": "筑基期",
+          "required": 1,
+          "description": "突破至筑基期"
+        }
+      ],
+      "rewards": {
+        "cultivation": 2000,
+        "spirit_stones": 1000,
+        "karma": 20,
+        "skills": ["峨眉金顶剑诀"],
+        "artifacts": ["青锋剑"]
+      },
+      "prerequisites": ["main_006"],
+      "giver_npc": "峨眉长老",
+      "completer_npc": "峨眉长老",
+      "dialogues": [
+        {
+          "dialogue_id": "main_007_d1",
+          "speaker": "青城首席弟子",
+          "text": "你便是峨眉的新星？让我看看你有多少斤两！"
+        },
+        {
+          "dialogue_id": "main_007_d2",
+          "speaker": "峨眉长老",
+          "text": "你为峨眉争得荣耀，此次斗剑，我峨眉大获全胜！"
+        }
+      ],
+      "story_chapter": 3,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "main_008",
+      "name": "血河异动",
+      "description": "血河教在暗中蠢蠢欲动，似乎在策划什么阴谋。",
+      "quest_type": "主线",
+      "objectives": [
+        {
+          "objective_type": "探索",
+          "target": "血河教据点",
+          "required": 1,
+          "description": "探索血河教据点"
+        },
+        {
+          "objective_type": "击杀",
+          "target": "血河教徒",
+          "required": 10,
+          "description": "击杀10名血河教徒"
+        },
+        {
+          "objective_type": "获取",
+          "target": "血河密信",
+          "required": 1,
+          "description": "获取血河密信"
+        }
+      ],
+      "rewards": {
+        "cultivation": 1500,
+        "spirit_stones": 800,
+        "karma": 30
+      },
+      "prerequisites": ["main_007"],
+      "giver_npc": "峨眉长老",
+      "completer_npc": "峨眉长老",
+      "dialogues": [
+        {
+          "dialogue_id": "main_008_d1",
+          "speaker": "血河教徒",
+          "text": "峨眉狗贼，休想坏我教大事！"
+        },
+        {
+          "dialogue_id": "main_008_d2",
+          "speaker": "峨眉长老",
+          "text": "血河教竟然想血祭整座蜀山！此事非同小可，必须通知各大门派。",
+          "choices": [
+            {
+              "text": "弟子愿前往各派通报",
+              "karma_change": 20
+            },
+            {
+              "text": "此事太过危险，需从长计议",
+              "karma_change": -5
+            }
+          ]
+        }
+      ],
+      "story_chapter": 4,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "main_009",
+      "name": "联盟结成",
+      "description": "联合各大门派，组成正道联盟，共同对抗血河教。",
+      "quest_type": "主线",
+      "objectives": [
+        {
+          "objective_type": "对话",
+          "target": "昆仑掌门",
+          "required": 1,
+          "description": "说服昆仑派加入联盟"
+        },
+        {
+          "objective_type": "对话",
+          "target": "青城掌门",
+          "required": 1,
+          "description": "说服青城派加入联盟"
+        },
+        {
+          "objective_type": "探索",
+          "target": "联盟大殿",
+          "required": 1,
+          "description": "参加联盟大会"
+        }
+      ],
+      "rewards": {
+        "cultivation": 2000,
+        "spirit_stones": 1500,
+        "karma": 50,
+        "skills": ["正道联盟令"]
+      },
+      "prerequisites": ["main_008"],
+      "giver_npc": "峨眉长老",
+      "completer_npc": "联盟盟主",
+      "dialogues": [
+        {
+          "dialogue_id": "main_009_d1",
+          "speaker": "昆仑掌门",
+          "text": "血河教若真有此阴谋，我昆仑派自当出力。",
+          "choices": [
+            {
+              "text": "昆仑派高义，晚辈佩服",
+              "karma_change": 10
+            }
+          ]
+        },
+        {
+          "dialogue_id": "main_009_d2",
+          "speaker": "联盟盟主",
+          "text": "既已结成联盟，便当同心协力，共抗血河！"
+        }
+      ],
+      "story_chapter": 4,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "main_010",
+      "name": "蜀山劫难",
+      "description": "血河教发动总攻，血祭仪式即将开始，你必须阻止这场浩劫。",
+      "quest_type": "主线",
+      "objectives": [
+        {
+          "objective_type": "击杀",
+          "target": "血河护法",
+          "required": 4,
+          "description": "击杀4名血河护法"
+        },
+        {
+          "objective_type": "挑战",
+          "target": "血河教主",
+          "required": 1,
+          "description": "击败血河教主"
+        },
+        {
+          "objective_type": "探索",
+          "target": "血祭大阵",
+          "required": 1,
+          "description": "破坏血祭大阵"
+        }
+      ],
+      "rewards": {
+        "cultivation": 5000,
+        "spirit_stones": 3000,
+        "karma": 100,
+        "artifacts": ["血河神剑", "蜀山令"],
+        "skills": ["万剑归宗"]
+      },
+      "prerequisites": ["main_009"],
+      "giver_npc": "联盟盟主",
+      "completer_npc": "联盟盟主",
+      "dialogues": [
+        {
+          "dialogue_id": "main_010_d1",
+          "speaker": "血河教主",
+          "text": "哈哈哈！尔等蝼蚁，也敢阻挡我血祭大业？今日便是蜀山覆灭之时！",
+          "choices": [
+            {
+              "text": "邪魔外道，人人得而诛之！",
+              "karma_change": 30,
+              "effects": {"choice_id": "final_stance"}
+            },
+            {
+              "text": "你的野心到此为止了！",
+              "karma_change": 15,
+              "effects": {"choice_id": "final_stance"}
+            }
+          ]
+        },
+        {
+          "dialogue_id": "main_010_d2",
+          "speaker": "联盟盟主",
+          "text": "蜀山之劫已解，你立下盖世奇功！从此，你便是蜀山剑仙！"
+        }
+      ],
+      "story_chapter": 5,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "side_001",
+      "name": "山民求助",
+      "description": "山脚的村民求助，他们的孩子被山妖抓走了。",
+      "quest_type": "支线",
+      "objectives": [
+        {
+          "objective_type": "探索",
+          "target": "山妖巢穴",
+          "required": 1,
+          "description": "找到山妖巢穴"
+        },
+        {
+          "objective_type": "击杀",
+          "target": "山妖首领",
+          "required": 1,
+          "description": "击杀山妖首领"
+        },
+        {
+          "objective_type": "对话",
+          "target": "获救的孩子",
+          "required": 1,
+          "description": "护送孩子回家"
+        }
+      ],
+      "rewards": {
+        "cultivation": 300,
+        "spirit_stones": 200,
+        "karma": 15
+      },
+      "prerequisites": ["main_002"],
+      "giver_npc": "村民老王",
+      "completer_npc": "村民老王",
+      "story_chapter": 0,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "side_002",
+      "name": "寻宝猎人",
+      "description": "听说峨眉山中有一处古修士的洞府，里面藏有宝物。",
+      "quest_type": "支线",
+      "objectives": [
+        {
+          "objective_type": "探索",
+          "target": "古修洞府",
+          "required": 1,
+          "description": "找到古修洞府"
+        },
+        {
+          "objective_type": "挑战",
+          "target": "洞府守护兽",
+          "required": 1,
+          "description": "击败守护兽"
+        },
+        {
+          "objective_type": "获取",
+          "target": "古修遗物",
+          "required": 1,
+          "description": "获取古修遗物"
+        }
+      ],
+      "rewards": {
+        "cultivation": 500,
+        "spirit_stones": 500,
+        "artifacts": ["古修玉佩"],
+        "skills": ["聚灵术"]
+      },
+      "prerequisites": ["main_003"],
+      "giver_npc": "游方道士",
+      "completer_npc": "系统",
+      "story_chapter": 0,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "side_003",
+      "name": "护送商队",
+      "description": "护送一支商队穿过妖魔出没的山路。",
+      "quest_type": "支线",
+      "objectives": [
+        {
+          "objective_type": "击杀",
+          "target": "劫匪",
+          "required": 8,
+          "description": "击退劫匪"
+        },
+        {
+          "objective_type": "探索",
+          "target": "安全点",
+          "required": 1,
+          "description": "护送商队到达安全点"
+        }
+      ],
+      "rewards": {
+        "cultivation": 400,
+        "spirit_stones": 600
+      },
+      "prerequisites": ["main_003"],
+      "giver_npc": "商队领队",
+      "completer_npc": "商队领队",
+      "story_chapter": 0,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "side_004",
+      "name": "斩妖除魔令",
+      "description": "峨眉派发布斩妖令，清除附近作恶的妖魔。",
+      "quest_type": "支线",
+      "objectives": [
+        {
+          "objective_type": "击杀",
+          "target": "妖魔",
+          "required": 15,
+          "description": "击杀任意妖魔"
+        }
+      ],
+      "rewards": {
+        "cultivation": 600,
+        "spirit_stones": 400,
+        "karma": 10
+      },
+      "prerequisites": ["main_004"],
+      "giver_npc": "峨眉任务使",
+      "completer_npc": "峨眉任务使",
+      "story_chapter": 0,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "side_005",
+      "name": "传承之谜",
+      "description": "在山中偶遇一位隐世前辈，似乎有要事相托。",
+      "quest_type": "支线",
+      "objectives": [
+        {
+          "objective_type": "对话",
+          "target": "隐世前辈",
+          "required": 1,
+          "description": "与隐世前辈交谈"
+        },
+        {
+          "objective_type": "修炼",
+          "target": "悟道",
+          "required": 5,
+          "description": "参悟前辈传授的心法"
+        }
+      ],
+      "rewards": {
+        "cultivation": 1000,
+        "skills": ["太乙真经"]
+      },
+      "prerequisites": ["main_005"],
+      "giver_npc": "隐世前辈",
+      "completer_npc": "隐世前辈",
+      "dialogues": [
+        {
+          "dialogue_id": "side_005_d1",
+          "speaker": "隐世前辈",
+          "text": "小友根骨不凡，这套心法便传于你。切记，修行之本在于心正。",
+          "choices": [
+            {
+              "text": "前辈教诲，晚辈铭记于心",
+              "karma_change": 20,
+              "effects": {"set_flag": {"太乙传人": true}}
+            },
+            {
+              "text": "多谢前辈厚爱",
+              "karma_change": 5
+            }
+          ]
+        }
+      ],
+      "story_chapter": 0,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "daily_001",
+      "name": "每日修炼",
+      "description": "每日在修炼场进行基础修炼。",
+      "quest_type": "日常",
+      "objectives": [
+        {
+          "objective_type": "修炼",
+          "target": "打坐",
+          "required": 3,
+          "description": "完成3次打坐修炼"
+        }
+      ],
+      "rewards": {
+        "cultivation": 100,
+        "spirit_stones": 50
+      },
+      "prerequisites": ["main_002"],
+      "giver_npc": "修炼场长老",
+      "completer_npc": "修炼场长老",
+      "story_chapter": 0,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "daily_002",
+      "name": "每日战斗",
+      "description": "每日下山历练，积累实战经验。",
+      "quest_type": "日常",
+      "objectives": [
+        {
+          "objective_type": "击杀",
+          "target": "任意敌人",
+          "required": 5,
+          "description": "击败5个任意敌人"
+        }
+      ],
+      "rewards": {
+        "cultivation": 150,
+        "spirit_stones": 80
+      },
+      "prerequisites": ["main_003"],
+      "giver_npc": "任务使",
+      "completer_npc": "任务使",
+      "story_chapter": 0,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "daily_003",
+      "name": "收集灵草",
+      "description": "为门派收集炼丹所需的灵草。",
+      "quest_type": "日常",
+      "objectives": [
+        {
+          "objective_type": "收集",
+          "target": "灵草",
+          "required": 10,
+          "description": "收集10株灵草"
+        }
+      ],
+      "rewards": {
+        "cultivation": 80,
+        "spirit_stones": 100
+      },
+      "prerequisites": ["main_004"],
+      "giver_npc": "丹房长老",
+      "completer_npc": "丹房长老",
+      "story_chapter": 0,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "encounter_001",
+      "name": "意外的传承",
+      "description": "在山中迷路时，意外发现一处前辈洞府。",
+      "quest_type": "奇遇",
+      "objectives": [
+        {
+          "objective_type": "探索",
+          "target": "神秘洞府",
+          "required": 1,
+          "description": "探索神秘洞府"
+        },
+        {
+          "objective_type": "对话",
+          "target": "洞府残魂",
+          "required": 1,
+          "description": "与洞府残魂交谈"
+        }
+      ],
+      "rewards": {
+        "cultivation": 2000,
+        "artifacts": ["前辈遗剑"],
+        "skills": ["玄天剑诀"]
+      },
+      "prerequisites": [],
+      "giver_npc": "系统",
+      "completer_npc": "洞府残魂",
+      "dialogues": [
+        {
+          "dialogue_id": "encounter_001_d1",
+          "speaker": "洞府残魂",
+          "text": "你能来到此地，便是缘分。我的传承...便交给你了...",
+          "choices": [
+            {
+              "text": "前辈放心，晚辈定不负所托",
+              "karma_change": 25,
+              "effects": {"set_flag": {"玄天传人": true}}
+            }
+          ]
+        }
+      ],
+      "story_chapter": 0,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "encounter_002",
+      "name": "血剑认主",
+      "description": "你发现了一把散发着血色光芒的剑，剑中似乎有邪念。",
+      "quest_type": "奇遇",
+      "objectives": [
+        {
+          "objective_type": "获取",
+          "target": "血色古剑",
+          "required": 1,
+          "description": "拾取血色古剑"
+        },
+        {
+          "objective_type": "修炼",
+          "target": "悟道",
+          "required": 1,
+          "description": "压制剑中邪念"
+        }
+      ],
+      "rewards": {
+        "cultivation": 1500,
+        "artifacts": ["血影剑"]
+      },
+      "prerequisites": [],
+      "giver_npc": "系统",
+      "completer_npc": "系统",
+      "dialogues": [
+        {
+          "dialogue_id": "encounter_002_d1",
+          "speaker": "血影剑",
+          "text": "血...血...给我血...我将赐你无尽力量...",
+          "choices": [
+            {
+              "text": "我不会被你支配",
+              "karma_change": 20,
+              "effects": {"set_flag": {"压制血剑": true}}
+            },
+            {
+              "text": "力量...我需要力量...",
+              "karma_change": -30,
+              "effects": {"set_flag": {"血剑认主": true}}
+            }
+          ]
+        }
+      ],
+      "story_chapter": 0,
+      "time_limit": 0
+    },
+    {
+      "quest_id": "encounter_003",
+      "name": "仙缘",
+      "description": "你在一处灵泉旁遇到了一位白衣少女，她似乎来历不凡。",
+      "quest_type": "奇遇",
+      "objectives": [
+        {
+          "objective_type": "对话",
+          "target": "白衣少女",
+          "required": 1,
+          "description": "与白衣少女交谈"
+        },
+        {
+          "objective_type": "收集",
+          "target": "灵泉水",
+          "required": 1,
+          "description": "为少女取灵泉水"
+        }
+      ],
+      "rewards": {
+        "cultivation": 800,
+        "spirit_stones": 300,
+        "karma": 10,
+        "items": {"灵泉水": 5}
+      },
+      "prerequisites": [],
+      "giver_npc": "白衣少女",
+      "completer_npc": "白衣少女",
+      "dialogues": [
+        {
+          "dialogue_id": "encounter_003_d1",
+          "speaker": "白衣少女",
+          "text": "你能看到我？有意思...你与我有缘，这瓶灵泉便赠予你。",
+          "choices": [
+            {
+              "text": "多谢姑娘，不知姑娘芳名？",
+              "karma_change": 5,
+              "effects": {"set_flag": {"结识仙子": true}}
+            },
+            {
+              "text": "收下灵泉，默默离去",
+              "karma_change": 0
+            }
+          ]
+        }
+      ],
+      "story_chapter": 0,
+      "time_limit": 0
+    }
+  ]
+}

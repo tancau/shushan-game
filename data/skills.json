@@ -1,0 +1,699 @@
+{
+  "skills": [
+    {
+      "id": "basic_qigong",
+      "name": "基础吐纳法",
+      "skill_type": "主修",
+      "quality": "凡",
+      "description": "修真入门功法，吐纳天地灵气，稳固根基",
+      "realm_required": "练气期",
+      "effects": [
+        {
+          "name": "修炼加成",
+          "description": "提升修炼速度",
+          "effect_type": "passive",
+          "value": 0.1
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 50,
+      "level_up_cultivation": 50
+    },
+    {
+      "id": "emei_sword",
+      "name": "峨眉剑法",
+      "skill_type": "辅修",
+      "quality": "灵",
+      "description": "峨眉派镇派剑法，剑走轻灵，以快制胜",
+      "sect": "峨眉派",
+      "realm_required": "练气期",
+      "effects": [
+        {
+          "name": "剑术精通",
+          "description": "提升剑类法宝威力",
+          "effect_type": "passive",
+          "value": 0.15
+        },
+        {
+          "name": "剑光分化",
+          "description": "分化剑光攻击多个目标",
+          "effect_type": "active",
+          "value": 1.5,
+          "mp_cost": 20,
+          "cooldown": 3
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 100,
+      "level_up_cultivation": 100
+    },
+    {
+      "id": "taiqing_qi",
+      "name": "太清一气诀",
+      "skill_type": "主修",
+      "quality": "仙",
+      "description": "峨眉派至高心法，修太清之气，炼神养性",
+      "sect": "峨眉派",
+      "realm_required": "筑基期",
+      "prerequisites": ["basic_qigong"],
+      "effects": [
+        {
+          "name": "修炼加成",
+          "description": "大幅提升修炼速度",
+          "effect_type": "passive",
+          "value": 0.3
+        },
+        {
+          "name": "真元恢复",
+          "description": "战斗中持续恢复真元",
+          "effect_type": "passive",
+          "value": 0.05
+        },
+        {
+          "name": "清心明性",
+          "description": "抵抗心魔侵扰",
+          "effect_type": "special",
+          "value": 0.2
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 300,
+      "level_up_cultivation": 300
+    },
+    {
+      "id": "emei_seven_swords",
+      "name": "峨眉七煞剑",
+      "skill_type": "秘术",
+      "quality": "仙",
+      "description": "峨眉派绝学，七剑合一，威力无穷",
+      "sect": "峨眉派",
+      "realm_required": "金丹期",
+      "prerequisites": ["emei_sword"],
+      "is_secret": true,
+      "effects": [
+        {
+          "name": "七煞剑阵",
+          "description": "召唤七柄飞剑组成剑阵",
+          "effect_type": "active",
+          "value": 3.0,
+          "mp_cost": 100,
+          "cooldown": 10,
+          "duration": 5
+        }
+      ],
+      "max_level": 5,
+      "level_up_cost": 500,
+      "level_up_cultivation": 500
+    },
+    {
+      "id": "qingcheng_sword",
+      "name": "青城剑诀",
+      "skill_type": "辅修",
+      "quality": "灵",
+      "description": "青城派基础剑法，攻守兼备，稳扎稳打",
+      "sect": "青城派",
+      "realm_required": "练气期",
+      "effects": [
+        {
+          "name": "防御加成",
+          "description": "提升防御能力",
+          "effect_type": "passive",
+          "value": 0.15
+        },
+        {
+          "name": "剑气护体",
+          "description": "形成剑气护盾",
+          "effect_type": "active",
+          "value": 0.5,
+          "mp_cost": 15,
+          "cooldown": 2
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 100,
+      "level_up_cultivation": 100
+    },
+    {
+      "id": "xuanmen_heart",
+      "name": "玄门心法",
+      "skill_type": "主修",
+      "quality": "仙",
+      "description": "青城派核心心法，玄门正宗，根基深厚",
+      "sect": "青城派",
+      "realm_required": "筑基期",
+      "prerequisites": ["basic_qigong"],
+      "effects": [
+        {
+          "name": "修炼加成",
+          "description": "大幅提升修炼速度",
+          "effect_type": "passive",
+          "value": 0.28
+        },
+        {
+          "name": "护体真气",
+          "description": "受到攻击时减少伤害",
+          "effect_type": "passive",
+          "value": 0.1
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 280,
+      "level_up_cultivation": 280
+    },
+    {
+      "id": "qingcheng_escapement",
+      "name": "青城遁术",
+      "skill_type": "秘术",
+      "quality": "灵",
+      "description": "青城派秘传遁术，来去无踪",
+      "sect": "青城派",
+      "realm_required": "金丹期",
+      "is_secret": true,
+      "effects": [
+        {
+          "name": "土遁",
+          "description": "穿行土石如履平地",
+          "effect_type": "special",
+          "value": 1.0
+        },
+        {
+          "name": "瞬移",
+          "description": "短距离瞬间移动",
+          "effect_type": "active",
+          "value": 0.5,
+          "mp_cost": 30,
+          "cooldown": 5
+        }
+      ],
+      "max_level": 5,
+      "level_up_cost": 200,
+      "level_up_cultivation": 200
+    },
+    {
+      "id": "kunlun_sword_manual",
+      "name": "昆仑剑经",
+      "skill_type": "辅修",
+      "quality": "仙",
+      "description": "昆仑派剑道总纲，蕴含无上剑意",
+      "sect": "昆仑派",
+      "realm_required": "筑基期",
+      "effects": [
+        {
+          "name": "剑意提升",
+          "description": "提升剑道领悟",
+          "effect_type": "passive",
+          "value": 0.25
+        },
+        {
+          "name": "御剑术",
+          "description": "远程操控飞剑攻击",
+          "effect_type": "active",
+          "value": 2.0,
+          "mp_cost": 25,
+          "cooldown": 2
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 250,
+      "level_up_cultivation": 250
+    },
+    {
+      "id": "artifact_refining",
+      "name": "炼器真解",
+      "skill_type": "辅修",
+      "quality": "仙",
+      "description": "昆仑派炼器秘籍，提升法宝炼制成功率",
+      "sect": "昆仑派",
+      "realm_required": "金丹期",
+      "effects": [
+        {
+          "name": "炼器加成",
+          "description": "提升炼器成功率",
+          "effect_type": "passive",
+          "value": 0.3
+        },
+        {
+          "name": "法宝契合",
+          "description": "提升法宝威力",
+          "effect_type": "passive",
+          "value": 0.15
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 200,
+      "level_up_cultivation": 200
+    },
+    {
+      "id": "kunlun_heart",
+      "name": "昆仑心法",
+      "skill_type": "主修",
+      "quality": "仙",
+      "description": "昆仑派核心修炼心法，兼容并蓄",
+      "sect": "昆仑派",
+      "realm_required": "筑基期",
+      "prerequisites": ["basic_qigong"],
+      "effects": [
+        {
+          "name": "修炼加成",
+          "description": "提升修炼速度",
+          "effect_type": "passive",
+          "value": 0.26
+        },
+        {
+          "name": "五行调和",
+          "description": "五行功法修炼加成",
+          "effect_type": "passive",
+          "value": 0.1
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 260,
+      "level_up_cultivation": 260
+    },
+    {
+      "id": "five_elements_escape",
+      "name": "五行遁术",
+      "skill_type": "秘术",
+      "quality": "仙",
+      "description": "上古遁术，可借五行之力遁走千里",
+      "realm_required": "金丹期",
+      "effects": [
+        {
+          "name": "金遁",
+          "description": "穿行金石",
+          "effect_type": "special",
+          "value": 1.0
+        },
+        {
+          "name": "木遁",
+          "description": "穿行草木",
+          "effect_type": "special",
+          "value": 1.0
+        },
+        {
+          "name": "水遁",
+          "description": "穿行水流",
+          "effect_type": "special",
+          "value": 1.0
+        },
+        {
+          "name": "火遁",
+          "description": "穿行火焰",
+          "effect_type": "special",
+          "value": 1.0
+        },
+        {
+          "name": "土遁",
+          "description": "穿行土石",
+          "effect_type": "special",
+          "value": 1.0
+        }
+      ],
+      "max_level": 5,
+      "level_up_cost": 400,
+      "level_up_cultivation": 400
+    },
+    {
+      "id": "qi_refining_art",
+      "name": "炼气诀",
+      "skill_type": "主修",
+      "quality": "灵",
+      "description": "基础炼气功法，适合筑基期修士",
+      "realm_required": "筑基期",
+      "prerequisites": ["basic_qigong"],
+      "effects": [
+        {
+          "name": "修炼加成",
+          "description": "提升修炼速度",
+          "effect_type": "passive",
+          "value": 0.2
+        },
+        {
+          "name": "真元上限",
+          "description": "提升真元上限",
+          "effect_type": "passive",
+          "value": 0.1
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 150,
+      "level_up_cultivation": 150
+    },
+    {
+      "id": "foundation_building",
+      "name": "筑基心法",
+      "skill_type": "主修",
+      "quality": "灵",
+      "description": "筑基期专用心法，稳固根基",
+      "realm_required": "筑基期",
+      "effects": [
+        {
+          "name": "修炼加成",
+          "description": "提升修炼速度",
+          "effect_type": "passive",
+          "value": 0.18
+        },
+        {
+          "name": "筑基稳固",
+          "description": "提升突破成功率",
+          "effect_type": "special",
+          "value": 0.1
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 120,
+      "level_up_cultivation": 120
+    },
+    {
+      "id": "golden_core_art",
+      "name": "金丹大道",
+      "skill_type": "主修",
+      "quality": "仙",
+      "description": "金丹期核心功法，凝聚金丹之法",
+      "realm_required": "金丹期",
+      "effects": [
+        {
+          "name": "修炼加成",
+          "description": "大幅提升修炼速度",
+          "effect_type": "passive",
+          "value": 0.35
+        },
+        {
+          "name": "金丹凝聚",
+          "description": "提升金丹品质",
+          "effect_type": "special",
+          "value": 0.15
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 400,
+      "level_up_cultivation": 400
+    },
+    {
+      "id": "spirit_sword_art",
+      "name": "御剑术",
+      "skill_type": "辅修",
+      "quality": "灵",
+      "description": "基础御剑之法，人剑合一",
+      "realm_required": "筑基期",
+      "effects": [
+        {
+          "name": "飞剑威力",
+          "description": "提升飞剑攻击力",
+          "effect_type": "passive",
+          "value": 0.2
+        },
+        {
+          "name": "剑光护体",
+          "description": "飞剑环绕护体",
+          "effect_type": "active",
+          "value": 0.3,
+          "mp_cost": 10,
+          "cooldown": 1
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 150,
+      "level_up_cultivation": 150
+    },
+    {
+      "id": "divine_sense_art",
+      "name": "神识修炼法",
+      "skill_type": "辅修",
+      "quality": "仙",
+      "description": "修炼神识之法，扩展感知范围",
+      "realm_required": "元婴期",
+      "effects": [
+        {
+          "name": "神识范围",
+          "description": "扩展神识感知范围",
+          "effect_type": "passive",
+          "value": 0.5
+        },
+        {
+          "name": "神识攻击",
+          "description": "以神识攻击敌人",
+          "effect_type": "active",
+          "value": 1.0,
+          "mp_cost": 50,
+          "cooldown": 5
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 300,
+      "level_up_cultivation": 300
+    },
+    {
+      "id": "blood_river_art",
+      "name": "血河大法",
+      "skill_type": "主修",
+      "quality": "神",
+      "description": "血河教镇教绝学，以血证道，速成但危险",
+      "sect": "血河教",
+      "realm_required": "筑基期",
+      "effects": [
+        {
+          "name": "修炼加成",
+          "description": "极大幅度提升修炼速度",
+          "effect_type": "passive",
+          "value": 0.5
+        },
+        {
+          "name": "血河护体",
+          "description": "血气护体，反弹伤害",
+          "effect_type": "passive",
+          "value": 0.1
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 200,
+      "level_up_cultivation": 200
+    },
+    {
+      "id": "blood_escape",
+      "name": "血遁术",
+      "skill_type": "秘术",
+      "quality": "仙",
+      "description": "血河教秘传遁术，消耗精血瞬移千里",
+      "sect": "血河教",
+      "realm_required": "金丹期",
+      "is_secret": true,
+      "effects": [
+        {
+          "name": "血遁",
+          "description": "消耗生命值瞬移",
+          "effect_type": "special",
+          "value": 1.0
+        }
+      ],
+      "max_level": 5,
+      "level_up_cost": 150,
+      "level_up_cultivation": 150
+    },
+    {
+      "id": "thunder_sword",
+      "name": "雷火剑诀",
+      "skill_type": "辅修",
+      "quality": "仙",
+      "description": "蕴含雷火之力的剑法，威力惊人",
+      "realm_required": "金丹期",
+      "element": "火",
+      "effects": [
+        {
+          "name": "雷火加成",
+          "description": "攻击附带雷火属性",
+          "effect_type": "passive",
+          "value": 0.3
+        },
+        {
+          "name": "雷火剑气",
+          "description": "释放雷火剑气",
+          "effect_type": "active",
+          "value": 2.5,
+          "mp_cost": 40,
+          "cooldown": 3
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 300,
+      "level_up_cultivation": 300
+    },
+    {
+      "id": "invisible_sword",
+      "name": "无形剑气",
+      "skill_type": "秘术",
+      "quality": "神",
+      "description": "无形剑气，杀人于无形，极难防御",
+      "realm_required": "元婴期",
+      "effects": [
+        {
+          "name": "隐形剑气",
+          "description": "释放无形剑气",
+          "effect_type": "active",
+          "value": 3.0,
+          "mp_cost": 60,
+          "cooldown": 4
+        },
+        {
+          "name": "穿透",
+          "description": "无视部分防御",
+          "effect_type": "special",
+          "value": 0.3
+        }
+      ],
+      "max_level": 5,
+      "level_up_cost": 500,
+      "level_up_cultivation": 500
+    },
+    {
+      "id": "immortal_body",
+      "name": "金刚不坏体",
+      "skill_type": "辅修",
+      "quality": "神",
+      "description": "上古炼体秘术，肉身堪比法宝",
+      "realm_required": "化神期",
+      "effects": [
+        {
+          "name": "防御加成",
+          "description": "极大幅度提升防御",
+          "effect_type": "passive",
+          "value": 0.5
+        },
+        {
+          "name": "生命上限",
+          "description": "大幅提升生命上限",
+          "effect_type": "passive",
+          "value": 0.3
+        },
+        {
+          "name": "伤害减免",
+          "description": "减少受到的伤害",
+          "effect_type": "special",
+          "value": 0.2
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 600,
+      "level_up_cultivation": 600
+    },
+    {
+      "id": "primordial_spirit",
+      "name": "元神出窍术",
+      "skill_type": "秘术",
+      "quality": "神",
+      "description": "元婴期以上神通，元神可离体行动",
+      "realm_required": "元婴期",
+      "effects": [
+        {
+          "name": "元神出窍",
+          "description": "元神离体侦查或攻击",
+          "effect_type": "special",
+          "value": 1.0
+        },
+        {
+          "name": "神识强化",
+          "description": "强化神识威力",
+          "effect_type": "passive",
+          "value": 0.2
+        }
+      ],
+      "max_level": 5,
+      "level_up_cost": 500,
+      "level_up_cultivation": 500
+    },
+    {
+      "id": "sword_intent_heart",
+      "name": "剑意通心",
+      "skill_type": "主修",
+      "quality": "圣",
+      "description": "剑道至高心法，以剑入道，剑心通明",
+      "realm_required": "化神期",
+      "prerequisites": ["kunlun_sword_manual", "spirit_sword_art"],
+      "effects": [
+        {
+          "name": "修炼加成",
+          "description": "极大提升修炼速度",
+          "effect_type": "passive",
+          "value": 0.4
+        },
+        {
+          "name": "剑意威压",
+          "description": "剑意压制敌人",
+          "effect_type": "special",
+          "value": 0.3
+        },
+        {
+          "name": "万剑归宗",
+          "description": "召唤万剑攻击",
+          "effect_type": "active",
+          "value": 5.0,
+          "mp_cost": 200,
+          "cooldown": 15
+        }
+      ],
+      "max_level": 5,
+      "level_up_cost": 1000,
+      "level_up_cultivation": 1000
+    },
+    {
+      "id": "grand_dao_art",
+      "name": "太上大道诀",
+      "skill_type": "主修",
+      "quality": "圣",
+      "description": "道家至高心法，直指大道本源",
+      "realm_required": "渡劫期",
+      "prerequisites": ["taiqing_qi", "xuanmen_heart", "kunlun_heart"],
+      "effects": [
+        {
+          "name": "修炼加成",
+          "description": "极致提升修炼速度",
+          "effect_type": "passive",
+          "value": 0.6
+        },
+        {
+          "name": "道法自然",
+          "description": "领悟天地法则",
+          "effect_type": "special",
+          "value": 0.5
+        },
+        {
+          "name": "渡劫加成",
+          "description": "提升渡劫成功率",
+          "effect_type": "special",
+          "value": 0.2
+        }
+      ],
+      "max_level": 5,
+      "level_up_cost": 2000,
+      "level_up_cultivation": 2000
+    },
+    {
+      "id": "wood_healing_art",
+      "name": "青木回春术",
+      "skill_type": "辅修",
+      "quality": "灵",
+      "description": "木属性治疗术，快速恢复伤势",
+      "realm_required": "筑基期",
+      "element": "木",
+      "effects": [
+        {
+          "name": "治疗加成",
+          "description": "提升治疗效果",
+          "effect_type": "passive",
+          "value": 0.2
+        },
+        {
+          "name": "回春术",
+          "description": "恢复生命值",
+          "effect_type": "active",
+          "value": 0.3,
+          "mp_cost": 15,
+          "cooldown": 2
+        }
+      ],
+      "max_level": 10,
+      "level_up_cost": 120,
+      "level_up_cultivation": 120
+    }
+  ]
+}

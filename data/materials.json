@@ -1,0 +1,362 @@
+{
+  "description": "蜀山剑侠传 - 材料数据库",
+  "version": "1.0.0",
+  
+  "品质等级": {
+    "凡": {"level": 1, "color": "白色", "描述": "凡间常见材料"},
+    "灵": {"level": 2, "color": "绿色", "描述": "蕴含灵气的材料"},
+    "仙": {"level": 3, "color": "蓝色", "描述": "仙家珍品，稀世罕见"},
+    "神": {"level": 4, "color": "金色", "描述": "上古神物，传世至宝"}
+  },
+  
+  "材料类型": {
+    "矿石": {"用途": "炼器主材", "描述": "天地孕育的矿石材料"},
+    "药材": {"用途": "炼丹主材", "描述": "蕴含药性的灵草灵药"},
+    "妖丹": {"用途": "炼丹炼器辅材", "描述": "妖兽内丹，蕴含强大能量"},
+    "灵材": {"用途": "炼丹炼器辅材", "描述": "天材地宝，特殊材料"}
+  },
+  
+  "materials": {
+    "玄铁": {
+      "name": "玄铁",
+      "type": "矿石",
+      "quality": "凡",
+      "element": "金",
+      "description": "坚硬的黑铁，炼制兵器的基础材料",
+      "base_value": 10,
+      "rarity": 1,
+      "source": ["矿脉", "商店"],
+      "stack_max": 99
+    },
+    "精金": {
+      "name": "精金",
+      "type": "矿石",
+      "quality": "灵",
+      "element": "金",
+      "description": "提炼后的纯净金属，光泽如镜",
+      "base_value": 50,
+      "rarity": 2,
+      "source": ["熔炼", "商店"],
+      "stack_max": 99
+    },
+    "星辰砂": {
+      "name": "星辰砂",
+      "type": "矿石",
+      "quality": "仙",
+      "element": "金",
+      "description": "陨石所化的星辰砂，蕴含星辰之力",
+      "base_value": 500,
+      "rarity": 3,
+      "source": ["天外陨石", "秘境"],
+      "stack_max": 50
+    },
+    "太乙精金": {
+      "name": "太乙精金",
+      "type": "矿石",
+      "quality": "神",
+      "element": "金",
+      "description": "上古神金，可炼制神器",
+      "base_value": 5000,
+      "rarity": 4,
+      "source": ["上古遗迹", "神器碎片"],
+      "stack_max": 10
+    },
+    "寒铁矿": {
+      "name": "寒铁矿",
+      "type": "矿石",
+      "quality": "灵",
+      "element": "水",
+      "description": "极寒之地出产的矿石，冰寒刺骨",
+      "base_value": 80,
+      "rarity": 2,
+      "source": ["冰原", "雪域"],
+      "stack_max": 99
+    },
+    "赤铜": {
+      "name": "赤铜",
+      "type": "矿石",
+      "quality": "凡",
+      "element": "火",
+      "description": "赤红色的铜矿，蕴含火性",
+      "base_value": 15,
+      "rarity": 1,
+      "source": ["火山", "熔岩地带"],
+      "stack_max": 99
+    },
+    "五行石": {
+      "name": "五行石",
+      "type": "矿石",
+      "quality": "仙",
+      "element": "土",
+      "description": "蕴含五行之力的奇石",
+      "base_value": 800,
+      "rarity": 3,
+      "source": ["五行秘境", "天地交汇处"],
+      "stack_max": 30
+    },
+    "灵参": {
+      "name": "灵参",
+      "type": "药材",
+      "quality": "灵",
+      "element": "木",
+      "description": "百年灵参，大补元气",
+      "base_value": 100,
+      "rarity": 2,
+      "source": ["深山", "灵药园"],
+      "stack_max": 99
+    },
+    "朱果": {
+      "name": "朱果",
+      "type": "药材",
+      "quality": "灵",
+      "element": "火",
+      "description": "赤红如火的灵果，增强真元",
+      "base_value": 150,
+      "rarity": 2,
+      "source": ["火山", "火域"],
+      "stack_max": 99
+    },
+    "千年灵芝": {
+      "name": "千年灵芝",
+      "type": "药材",
+      "quality": "仙",
+      "element": "木",
+      "description": "生长千年的灵芝，延年益寿",
+      "base_value": 1000,
+      "rarity": 3,
+      "source": ["仙山", "秘境"],
+      "stack_max": 20
+    },
+    "雪莲": {
+      "name": "雪莲",
+      "type": "药材",
+      "quality": "灵",
+      "element": "水",
+      "description": "雪山之巅的圣洁莲花",
+      "base_value": 200,
+      "rarity": 2,
+      "source": ["雪域", "冰原"],
+      "stack_max": 99
+    },
+    "天心莲": {
+      "name": "天心莲",
+      "type": "药材",
+      "quality": "仙",
+      "element": "木",
+      "description": "天池中的莲花，可炼筑基丹",
+      "base_value": 2000,
+      "rarity": 3,
+      "source": ["天池", "仙境"],
+      "stack_max": 10
+    },
+    "九转还魂草": {
+      "name": "九转还魂草",
+      "type": "药材",
+      "quality": "神",
+      "element": "木",
+      "description": "传说中可起死回生的神草",
+      "base_value": 10000,
+      "rarity": 4,
+      "source": ["仙界", "上古遗迹"],
+      "stack_max": 5
+    },
+    "龙血草": {
+      "name": "龙血草",
+      "type": "药材",
+      "quality": "仙",
+      "element": "火",
+      "description": "龙血浇灌长大的灵草，药性猛烈",
+      "base_value": 3000,
+      "rarity": 3,
+      "source": ["龙巢", "龙域"],
+      "stack_max": 10
+    },
+    "七心海棠": {
+      "name": "七心海棠",
+      "type": "药材",
+      "quality": "灵",
+      "element": "木",
+      "description": "七瓣海棠，各有妙用",
+      "base_value": 300,
+      "rarity": 2,
+      "source": ["药园", "灵山"],
+      "stack_max": 50
+    },
+    "妖兽内丹": {
+      "name": "妖兽内丹",
+      "type": "妖丹",
+      "quality": "灵",
+      "element": "无",
+      "description": "妖兽修炼精华所化的内丹",
+      "base_value": 500,
+      "rarity": 2,
+      "source": ["击杀妖兽"],
+      "stack_max": 99
+    },
+    "龙珠": {
+      "name": "龙珠",
+      "type": "妖丹",
+      "quality": "神",
+      "element": "无",
+      "description": "真龙内丹，蕴含龙族神力",
+      "base_value": 100000,
+      "rarity": 4,
+      "source": ["击杀真龙", "龙族传承"],
+      "stack_max": 1
+    },
+    "凤髓": {
+      "name": "凤髓",
+      "type": "妖丹",
+      "quality": "神",
+      "element": "火",
+      "description": "凤凰精髓，涅槃重生之力",
+      "base_value": 80000,
+      "rarity": 4,
+      "source": ["凤巢", "凤凰传承"],
+      "stack_max": 1
+    },
+    "蛟龙胆": {
+      "name": "蛟龙胆",
+      "type": "妖丹",
+      "quality": "仙",
+      "element": "水",
+      "description": "蛟龙之胆，水族至宝",
+      "base_value": 5000,
+      "rarity": 3,
+      "source": ["击杀蛟龙"],
+      "stack_max": 10
+    },
+    "虎魄": {
+      "name": "虎魄",
+      "type": "妖丹",
+      "quality": "仙",
+      "element": "金",
+      "description": "白虎精髓所化，蕴含杀伐之气",
+      "base_value": 4000,
+      "rarity": 3,
+      "source": ["击杀白虎", "虎族领地"],
+      "stack_max": 10
+    },
+    "妖王晶": {
+      "name": "妖王晶",
+      "type": "妖丹",
+      "quality": "仙",
+      "element": "无",
+      "description": "妖王级妖兽的结晶，能量纯净",
+      "base_value": 8000,
+      "rarity": 3,
+      "source": ["击杀妖王"],
+      "stack_max": 10
+    },
+    "天雷石": {
+      "name": "天雷石",
+      "type": "灵材",
+      "quality": "仙",
+      "element": "金",
+      "description": "雷霆劈石所化，蕴含天雷之力",
+      "base_value": 1500,
+      "rarity": 3,
+      "source": ["雷域", "雷击木旁"],
+      "stack_max": 30
+    },
+    "千年雷击木": {
+      "name": "千年雷击木",
+      "type": "灵材",
+      "quality": "神",
+      "element": "木",
+      "description": "千年古木被天雷击中而不死，蕴含雷霆生机",
+      "base_value": 30000,
+      "rarity": 4,
+      "source": ["雷域", "古树"],
+      "stack_max": 5
+    },
+    "玄冰魄": {
+      "name": "玄冰魄",
+      "type": "灵材",
+      "quality": "仙",
+      "element": "水",
+      "description": "极寒之地的冰魄，冰封万物",
+      "base_value": 2000,
+      "rarity": 3,
+      "source": ["冰封之地", "极北"],
+      "stack_max": 20
+    },
+    "凤凰羽": {
+      "name": "凤凰羽",
+      "type": "灵材",
+      "quality": "神",
+      "element": "火",
+      "description": "凤凰脱落的羽毛，涅槃之火不灭",
+      "base_value": 50000,
+      "rarity": 4,
+      "source": ["凤巢", "凤凰遗迹"],
+      "stack_max": 5
+    },
+    "龙鳞": {
+      "name": "龙鳞",
+      "type": "灵材",
+      "quality": "仙",
+      "element": "无",
+      "description": "真龙鳞片，坚不可摧",
+      "base_value": 10000,
+      "rarity": 3,
+      "source": ["龙族领地", "击杀龙族"],
+      "stack_max": 20
+    },
+    "麒麟血": {
+      "name": "麒麟血",
+      "type": "灵材",
+      "quality": "神",
+      "element": "土",
+      "description": "瑞兽麒麟之血，蕴含祥瑞之力",
+      "base_value": 60000,
+      "rarity": 4,
+      "source": ["麒麟洞", "祥瑞之地"],
+      "stack_max": 5
+    },
+    "混沌石": {
+      "name": "混沌石",
+      "type": "灵材",
+      "quality": "神",
+      "element": "无",
+      "description": "混沌初开时的原石，蕴含天地本源",
+      "base_value": 100000,
+      "rarity": 4,
+      "source": ["混沌裂隙", "上古遗迹"],
+      "stack_max": 1
+    },
+    "天山雪魄": {
+      "name": "天山雪魄",
+      "type": "灵材",
+      "quality": "仙",
+      "element": "水",
+      "description": "天山巅的雪之精华，纯净无瑕",
+      "base_value": 3000,
+      "rarity": 3,
+      "source": ["天山", "雪域"],
+      "stack_max": 20
+    },
+    "碧水珠": {
+      "name": "碧水珠",
+      "type": "灵材",
+      "quality": "灵",
+      "element": "水",
+      "description": "深海明珠，蕴含水行之力",
+      "base_value": 400,
+      "rarity": 2,
+      "source": ["深海", "龙宫"],
+      "stack_max": 50
+    },
+    "火山晶": {
+      "name": "火山晶",
+      "type": "灵材",
+      "quality": "灵",
+      "element": "火",
+      "description": "火山喷发凝结的晶石，火性炽烈",
+      "base_value": 350,
+      "rarity": 2,
+      "source": ["火山", "熔岩地带"],
+      "stack_max": 50
+    }
+  }
+}

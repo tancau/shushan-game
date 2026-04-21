@@ -1,0 +1,559 @@
+{
+  "description": "蜀山剑侠传 - 配方数据库",
+  "version": "1.0.0",
+  
+  "配方分类": {
+    "丹药": "炼丹师炼制的丹药，用于疗伤、修炼、突破等",
+    "法宝": "炼器师炼制的法宝，用于战斗、防御、辅助"
+  },
+  
+  "recipes": {
+    "疗伤丹": {
+      "name": "疗伤丹",
+      "type": "丹药",
+      "tier": 1,
+      "description": "快速恢复伤势的基础丹药",
+      "effect": {"生命": 50},
+      "success_rate": 90,
+      "materials": {
+        "灵参": 1,
+        "七心海棠": 1
+      },
+      "cultivation_required": 0,
+      "realm_required": "练气期",
+      "output_count": 3,
+      "value": 200
+    },
+    "补气丹": {
+      "name": "补气丹",
+      "type": "丹药",
+      "tier": 1,
+      "description": "恢复真元的基础丹药",
+      "effect": {"真元": 30},
+      "success_rate": 90,
+      "materials": {
+        "灵参": 2
+      },
+      "cultivation_required": 0,
+      "realm_required": "练气期",
+      "output_count": 3,
+      "value": 150
+    },
+    "筑基丹": {
+      "name": "筑基丹",
+      "type": "丹药",
+      "tier": 2,
+      "description": "筑基期突破必备丹药，铸就道基",
+      "effect": {"修为": 500, "突破成功率": 0.3},
+      "success_rate": 60,
+      "materials": {
+        "千年灵芝": 1,
+        "天心莲": 1,
+        "妖兽内丹": 1
+      },
+      "cultivation_required": 500,
+      "realm_required": "练气期",
+      "output_count": 1,
+      "value": 5000
+    },
+    "金丹丹": {
+      "name": "金丹丹",
+      "type": "丹药",
+      "tier": 3,
+      "description": "金丹期突破必备丹药，凝聚金丹",
+      "effect": {"修为": 5000, "突破成功率": 0.25},
+      "success_rate": 40,
+      "materials": {
+        "天心莲": 2,
+        "蛟龙胆": 1,
+        "天雷石": 1
+      },
+      "cultivation_required": 8000,
+      "realm_required": "筑基期",
+      "output_count": 1,
+      "value": 30000
+    },
+    "元婴丹": {
+      "name": "元婴丹",
+      "type": "丹药",
+      "tier": 4,
+      "description": "元婴期突破必备丹药，元婴出窍",
+      "effect": {"修为": 50000, "突破成功率": 0.2},
+      "success_rate": 30,
+      "materials": {
+        "九转还魂草": 1,
+        "龙鳞": 2,
+        "妖王晶": 2
+      },
+      "cultivation_required": 80000,
+      "realm_required": "金丹期",
+      "output_count": 1,
+      "value": 100000
+    },
+    "渡劫丹": {
+      "name": "渡劫丹",
+      "type": "丹药",
+      "tier": 5,
+      "description": "渡劫必备丹药，抵御天劫",
+      "effect": {"渡劫成功率": 0.4},
+      "success_rate": 20,
+      "materials": {
+        "九转还魂草": 2,
+        "龙珠": 1,
+        "凤凰羽": 1
+      },
+      "cultivation_required": 8000000,
+      "realm_required": "合体期",
+      "output_count": 1,
+      "value": 500000
+    },
+    "九转金丹": {
+      "name": "九转金丹",
+      "type": "丹药",
+      "tier": 5,
+      "description": "上古神丹，可让人一步登天",
+      "effect": {"修为": 100000, "全属性": 50},
+      "success_rate": 10,
+      "materials": {
+        "九转还魂草": 3,
+        "龙珠": 1,
+        "混沌石": 1
+      },
+      "cultivation_required": 100000,
+      "realm_required": "金丹期",
+      "output_count": 1,
+      "value": 500000
+    },
+    "回春丹": {
+      "name": "回春丹",
+      "type": "丹药",
+      "tier": 2,
+      "description": "中级疗伤丹药，恢复大量生命",
+      "effect": {"生命": 200},
+      "success_rate": 80,
+      "materials": {
+        "千年灵芝": 1,
+        "雪莲": 1
+      },
+      "cultivation_required": 500,
+      "realm_required": "练气期",
+      "output_count": 2,
+      "value": 800
+    },
+    "凝元丹": {
+      "name": "凝元丹",
+      "type": "丹药",
+      "tier": 2,
+      "description": "中级补气丹药，恢复大量真元",
+      "effect": {"真元": 100},
+      "success_rate": 80,
+      "materials": {
+        "朱果": 2,
+        "龙血草": 1
+      },
+      "cultivation_required": 500,
+      "realm_required": "练气期",
+      "output_count": 2,
+      "value": 1000
+    },
+    "悟道丹": {
+      "name": "悟道丹",
+      "type": "丹药",
+      "tier": 3,
+      "description": "服用后可顿悟，大幅提升修炼速度",
+      "effect": {"修炼速度": 2.0, "持续时间": "7天"},
+      "success_rate": 50,
+      "materials": {
+        "千年灵芝": 2,
+        "天心莲": 1,
+        "天山雪魄": 1
+      },
+      "cultivation_required": 5000,
+      "realm_required": "筑基期",
+      "output_count": 1,
+      "value": 8000
+    },
+    "烈火丹": {
+      "name": "烈火丹",
+      "type": "丹药",
+      "tier": 2,
+      "description": "提升火属性攻击力的丹药",
+      "effect": {"火攻": 30, "持续时间": "1场战斗"},
+      "success_rate": 70,
+      "materials": {
+        "朱果": 2,
+        "火山晶": 2
+      },
+      "cultivation_required": 300,
+      "realm_required": "练气期",
+      "output_count": 2,
+      "value": 600
+    },
+    "寒冰丹": {
+      "name": "寒冰丹",
+      "type": "丹药",
+      "tier": 2,
+      "description": "提升水属性防御的丹药",
+      "effect": {"水防": 30, "持续时间": "1场战斗"},
+      "success_rate": 70,
+      "materials": {
+        "雪莲": 2,
+        "玄冰魄": 1
+      },
+      "cultivation_required": 300,
+      "realm_required": "练气期",
+      "output_count": 2,
+      "value": 700
+    },
+    "化毒丹": {
+      "name": "化毒丹",
+      "type": "丹药",
+      "tier": 2,
+      "description": "解除各种毒素的丹药",
+      "effect": {"解毒": "全等级"},
+      "success_rate": 75,
+      "materials": {
+        "七心海棠": 2,
+        "灵参": 1
+      },
+      "cultivation_required": 200,
+      "realm_required": "练气期",
+      "output_count": 3,
+      "value": 500
+    },
+    "增寿丹": {
+      "name": "增寿丹",
+      "type": "丹药",
+      "tier": 4,
+      "description": "延年益寿的神丹",
+      "effect": {"寿命": 100},
+      "success_rate": 40,
+      "materials": {
+        "千年灵芝": 3,
+        "九转还魂草": 1,
+        "麒麟血": 1
+      },
+      "cultivation_required": 50000,
+      "realm_required": "金丹期",
+      "output_count": 1,
+      "value": 80000
+    },
+    
+    "青竹剑_配方": {
+      "name": "青竹剑",
+      "type": "法宝",
+      "tier": 1,
+      "description": "青竹炼制的基础飞剑",
+      "success_rate": 85,
+      "materials": {
+        "玄铁": 5,
+        "赤铜": 3
+      },
+      "cultivation_required": 0,
+      "realm_required": "练气期",
+      "output": {
+        "name": "青竹剑",
+        "artifact_type": "飞剑",
+        "element": "木",
+        "power": 50,
+        "speed": 60,
+        "special_effect": null
+      },
+      "value": 200
+    },
+    "铁精剑_配方": {
+      "name": "铁精剑",
+      "type": "法宝",
+      "tier": 1,
+      "description": "精铁打造的入门飞剑",
+      "success_rate": 80,
+      "materials": {
+        "玄铁": 8,
+        "精金": 2
+      },
+      "cultivation_required": 100,
+      "realm_required": "练气期",
+      "output": {
+        "name": "铁精剑",
+        "artifact_type": "飞剑",
+        "element": "金",
+        "power": 60,
+        "speed": 50,
+        "special_effect": null
+      },
+      "value": 300
+    },
+    "护身玉佩_配方": {
+      "name": "护身玉佩",
+      "type": "法宝",
+      "tier": 1,
+      "description": "简单的护身法宝",
+      "success_rate": 85,
+      "materials": {
+        "玄铁": 3,
+        "碧水珠": 2
+      },
+      "cultivation_required": 0,
+      "realm_required": "练气期",
+      "output": {
+        "name": "护身玉佩",
+        "artifact_type": "防御",
+        "element": "土",
+        "power": 30,
+        "speed": 0,
+        "special_effect": "自动护主，抵挡一次致命攻击"
+      },
+      "value": 250
+    },
+    "青索剑_配方": {
+      "name": "青索剑",
+      "type": "法宝",
+      "tier": 2,
+      "description": "峨眉镇山之宝之一，剑光如青索",
+      "success_rate": 50,
+      "materials": {
+        "精金": 10,
+        "寒铁矿": 5,
+        "妖兽内丹": 3
+      },
+      "cultivation_required": 1000,
+      "realm_required": "筑基期",
+      "output": {
+        "name": "青索剑",
+        "artifact_type": "飞剑",
+        "element": "木",
+        "power": 200,
+        "speed": 150,
+        "special_effect": "剑光坚韧，可缠绕敌人"
+      },
+      "value": 5000
+    },
+    "紫郢剑_配方": {
+      "name": "紫郢剑",
+      "type": "法宝",
+      "tier": 2,
+      "description": "峨眉镇山至宝，剑光紫若云霞",
+      "success_rate": 45,
+      "materials": {
+        "精金": 15,
+        "星辰砂": 3,
+        "妖兽内丹": 5
+      },
+      "cultivation_required": 2000,
+      "realm_required": "筑基期",
+      "output": {
+        "name": "紫郢剑",
+        "artifact_type": "飞剑",
+        "element": "金",
+        "power": 250,
+        "speed": 180,
+        "special_effect": "无视部分防御"
+      },
+      "value": 8000
+    },
+    "五云锁仙屏_配方": {
+      "name": "五云锁仙屏",
+      "type": "法宝",
+      "tier": 2,
+      "description": "五色云光组成的护身屏风",
+      "success_rate": 50,
+      "materials": {
+        "五行石": 1,
+        "妖兽内丹": 3,
+        "玄冰魄": 2
+      },
+      "cultivation_required": 1500,
+      "realm_required": "筑基期",
+      "output": {
+        "name": "五云锁仙屏",
+        "artifact_type": "防御",
+        "element": "土",
+        "power": 150,
+        "speed": 0,
+        "special_effect": "可抵挡多次攻击"
+      },
+      "value": 6000
+    },
+    "七修剑_配方": {
+      "name": "七修剑",
+      "type": "法宝",
+      "tier": 3,
+      "description": "七口飞剑合一，威力无穷",
+      "success_rate": 30,
+      "materials": {
+        "星辰砂": 10,
+        "天雷石": 3,
+        "蛟龙胆": 2,
+        "妖王晶": 1
+      },
+      "cultivation_required": 15000,
+      "realm_required": "金丹期",
+      "output": {
+        "name": "七修剑",
+        "artifact_type": "飞剑",
+        "element": "金",
+        "power": 500,
+        "speed": 300,
+        "special_effect": "可分化七道剑光"
+      },
+      "value": 50000
+    },
+    "白眉针_配方": {
+      "name": "白眉针",
+      "type": "法宝",
+      "tier": 3,
+      "description": "细如牛毛，专破护身法宝",
+      "success_rate": 35,
+      "materials": {
+        "精金": 20,
+        "星辰砂": 5,
+        "虎魄": 1
+      },
+      "cultivation_required": 12000,
+      "realm_required": "金丹期",
+      "output": {
+        "name": "白眉针",
+        "artifact_type": "攻击",
+        "element": "金",
+        "power": 400,
+        "speed": 500,
+        "special_effect": "高穿透，难以防御"
+      },
+      "value": 40000
+    },
+    "天蝉灵叶_配方": {
+      "name": "天蝉灵叶",
+      "type": "法宝",
+      "tier": 3,
+      "description": "身化蝉蜕，可避致命一击",
+      "success_rate": 40,
+      "materials": {
+        "千年灵芝": 5,
+        "天心莲": 3,
+        "天山雪魄": 2
+      },
+      "cultivation_required": 10000,
+      "realm_required": "金丹期",
+      "output": {
+        "name": "天蝉灵叶",
+        "artifact_type": "辅助",
+        "element": "木",
+        "power": 0,
+        "speed": 0,
+        "special_effect": "濒死时自动使用，保留1点生命"
+      },
+      "value": 35000
+    },
+    "天魔诛仙剑_配方": {
+      "name": "天魔诛仙剑",
+      "type": "法宝",
+      "tier": 4,
+      "description": "魔教至宝，剑光黑红交织",
+      "success_rate": 25,
+      "materials": {
+        "星辰砂": 15,
+        "火山晶": 10,
+        "龙血草": 5,
+        "妖王晶": 3
+      },
+      "cultivation_required": 100000,
+      "realm_required": "元婴期",
+      "output": {
+        "name": "天魔诛仙剑",
+        "artifact_type": "飞剑",
+        "element": "火",
+        "power": 800,
+        "speed": 400,
+        "special_effect": "附带灼烧效果"
+      },
+      "value": 150000
+    },
+    "九天元阳尺_配方": {
+      "name": "九天元阳尺",
+      "type": "法宝",
+      "tier": 4,
+      "description": "尺身阳火旺盛，可炼化邪魔",
+      "success_rate": 25,
+      "materials": {
+        "凤凰羽": 1,
+        "火山晶": 15,
+        "龙鳞": 3,
+        "妖王晶": 2
+      },
+      "cultivation_required": 80000,
+      "realm_required": "元婴期",
+      "output": {
+        "name": "九天元阳尺",
+        "artifact_type": "防御",
+        "element": "火",
+        "power": 600,
+        "speed": 0,
+        "special_effect": "对邪道敌人伤害加成"
+      },
+      "value": 120000
+    },
+    "轩辕剑_配方": {
+      "name": "轩辕剑",
+      "type": "法宝",
+      "tier": 5,
+      "description": "上古神器，剑气纵横三万里",
+      "success_rate": 10,
+      "materials": {
+        "太乙精金": 5,
+        "龙珠": 1,
+        "混沌石": 1,
+        "千年雷击木": 1
+      },
+      "cultivation_required": 1000000,
+      "realm_required": "化神期",
+      "output": {
+        "name": "轩辕剑",
+        "artifact_type": "飞剑",
+        "element": "金",
+        "power": 2000,
+        "speed": 1000,
+        "special_effect": "每回合自动发动一次剑气攻击"
+      },
+      "value": 1000000
+    },
+    "昊天镜_配方": {
+      "name": "昊天镜",
+      "type": "法宝",
+      "tier": 5,
+      "description": "照妖镜，可破一切幻术",
+      "success_rate": 10,
+      "materials": {
+        "太乙精金": 3,
+        "星辰砂": 20,
+        "凤凰羽": 2,
+        "麒麟血": 1
+      },
+      "cultivation_required": 800000,
+      "realm_required": "化神期",
+      "output": {
+        "name": "昊天镜",
+        "artifact_type": "特殊",
+        "element": "金",
+        "power": 1500,
+        "speed": 0,
+        "special_effect": "识破敌人所有幻术和隐身"
+      },
+      "value": 800000
+    }
+  },
+  
+  "法宝强化": {
+    "description": "使用材料强化已有法宝",
+    "规则": {
+      "强化等级上限": 10,
+      "每级属性提升": "10%",
+      "失败惩罚": "无（成功率随等级递减）"
+    },
+    "材料消耗": {
+      "1-3级": {"精金": 2, "妖兽内丹": 1},
+      "4-6级": {"星辰砂": 2, "妖王晶": 1},
+      "7-9级": {"天雷石": 2, "龙鳞": 1},
+      "10级": {"太乙精金": 1, "龙珠": 1}
+    }
+  }
+}
