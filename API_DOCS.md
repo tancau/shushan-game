@@ -1,34 +1,107 @@
-# 蜀山剑侠传 - API 文档
+# 蜀山剑侠传 - 完整 API 文档
 
-## 基础信息
+## 📊 API 概览
 
 **Base URL:** https://shushan-game.vercel.app
 
-**玩家ID:** 默认使用 'tancau'
+**总路由数:** 33 个
+
+**支持系统:** 19 个游戏模块全覆盖
 
 ---
 
-## 通用响应格式
+## 🔗 API 列表
 
-```json
-{
-  "success": true/false,
-  "message": "提示信息",
-  "data": { ... }
-}
-```
+### 1. 核心系统（11个）
+
+| 方法 | 路径 | 说明 |
+|------|------|------|
+| GET | `/api/status` | 获取玩家状态 |
+| GET | `/api/cultivate` | 修炼 |
+| GET | `/api/advance` | 突破境界 |
+| GET | `/api/battle` | 战斗 |
+| GET | `/api/explore` | 探索 |
+| GET | `/api/artifacts` | 法宝列表 |
+| GET | `/api/skills` | 功法列表 |
+| GET | `/api/quests` | 任务列表 |
+| GET | `/api/map` | 地图 |
+| POST | `/api/travel` | 移动 |
+
+### 2. 灵兽系统（3个）
+
+| 方法 | 路径 | 说明 |
+|------|------|------|
+| GET | `/api/spirit-beasts` | 获取灵兽列表 |
+| POST | `/api/spirit-beast/capture` | 捕捉灵兽 |
+| POST | `/api/spirit-beast/<id>/feed` | 喂养灵兽 |
+
+### 3. 天劫系统（2个）
+
+| 方法 | 路径 | 说明 |
+|------|------|------|
+| GET | `/api/tribulation/status` | 天劫状态 |
+| POST | `/api/tribulation/start` | 开始渡劫 |
+
+### 4. 道心系统（2个）
+
+| 方法 | 路径 | 说明 |
+|------|------|------|
+| GET | `/api/dao-heart` | 道心信息 |
+| GET | `/api/merit-shop` | 功德商店 |
+
+### 5. 排行榜（1个）
+
+| 方法 | 路径 | 说明 |
+|------|------|------|
+| GET | `/api/leaderboard/<type>` | 排行榜（power/cultivation/realm/wealth/achievement） |
+
+### 6. 副本系统（2个）
+
+| 方法 | 路径 | 说明 |
+|------|------|------|
+| GET | `/api/dungeons` | 副本列表 |
+| POST | `/api/dungeon/<id>/enter` | 进入副本 |
+
+### 7. 活动系统（2个）
+
+| 方法 | 路径 | 说明 |
+|------|------|------|
+| GET | `/api/events` | 活动列表 |
+| POST | `/api/sign-in` | 每日签到 |
+
+### 8. 好友系统（3个）
+
+| 方法 | 路径 | 说明 |
+|------|------|------|
+| GET | `/api/friends` | 好友列表 |
+| POST | `/api/friend/add` | 添加好友 |
+| POST | `/api/friend/gift` | 赠送礼物 |
+
+### 9. 成就系统（4个）
+
+| 方法 | 路径 | 说明 |
+|------|------|------|
+| GET | `/api/achievements` | 成就列表 |
+| GET | `/api/achievements/check` | 检查成就 |
+| GET | `/api/achievements/summary` | 成就概要 |
+| POST | `/api/achievements/<id>/claim` | 领取奖励 |
+
+### 10. 称号系统（3个）
+
+| 方法 | 路径 | 说明 |
+|------|------|------|
+| GET | `/api/titles` | 称号列表 |
+| POST | `/api/titles/<id>/equip` | 装备称号 |
+| POST | `/api/titles/remove` | 移除称号 |
 
 ---
 
-## 核心 API
+## 📝 详细说明
 
-### 1. 玩家状态
+### 玩家状态
 
 **GET** `/api/status`
 
-获取玩家当前状态
-
-**响应：**
 ```json
 {
   "success": true,
@@ -39,266 +112,106 @@
   "mp": "95/100",
   "spirit_stones": "100",
   "sect": "峨眉派",
-  "location": "峨眉山脚",
-  "equipped_artifact": "青竹剑"
+  "location": "峨眉山脚"
 }
 ```
 
----
+### 灵兽捕捉
 
-### 2. 修炼
+**POST** `/api/spirit-beast/capture`
 
-**GET** `/api/cultivate`
-
-进行修炼
-
-**响应：**
 ```json
 {
   "success": true,
-  "message": "吐纳天地灵气，获得修为 +22"
+  "message": "成功捕捉 青龙！",
+  "beast": {
+    "name": "青龙",
+    "type": "神兽",
+    "level": 1,
+    "affection": 0
+  }
 }
 ```
 
----
+### 天劫状态
 
-### 3. 突破境界
+**GET** `/api/tribulation/status`
 
-**GET** `/api/advance`
-
-尝试突破境界
-
-**响应：**
 ```json
 {
   "success": true,
-  "message": "🎉 恭喜突破至筑基期！"
+  "realm": "练气期",
+  "can_attempt": true,
+  "next_tribulation": "练气期天劫"
 }
 ```
-
----
-
-### 4. 战斗
-
-**GET** `/api/battle`
-
-与随机敌人战斗
-
-**响应：**
-```json
-{
-  "success": true,
-  "message": "战斗胜利！修为 +500，灵石 +100"
-}
-```
-
----
-
-### 5. 探索
-
-**GET** `/api/explore`
-
-探索当前位置
-
-**响应：**
-```json
-{
-  "success": true,
-  "message": "探索事件: 宝物 - 发现了珍贵的灵草"
-}
-```
-
----
-
-### 6. 法宝列表
-
-**GET** `/api/artifacts`
-
-获取玩家法宝列表
-
-**响应：**
-```json
-{
-  "success": true,
-  "artifacts": [
-    {
-      "name": "青竹剑",
-      "power": 100,
-      "element": "木",
-      "description": "入门级飞剑"
-    }
-  ]
-}
-```
-
----
-
-### 7. 功法列表
-
-**GET** `/api/skills`
-
-获取已学功法
-
-**响应：**
-```json
-{
-  "success": true,
-  "skills": [
-    {
-      "name": "峨眉剑法",
-      "type": "辅修",
-      "quality": "灵"
-    }
-  ]
-}
-```
-
----
-
-### 8. 任务列表
-
-**GET** `/api/quests`
-
-获取任务列表
-
-**响应：**
-```json
-{
-  "success": true,
-  "quests": [
-    {
-      "id": "quest_001",
-      "name": "初入蜀山",
-      "type": "主线",
-      "status": "进行中"
-    }
-  ]
-}
-```
-
----
-
-### 9. 地图
-
-**GET** `/api/map`
-
-获取可访问的地图地点
-
-**响应：**
-```json
-{
-  "success": true,
-  "locations": [
-    {
-      "name": "峨眉山",
-      "region": "中原",
-      "danger": 1
-    }
-  ]
-}
-```
-
----
-
-### 10. 移动
-
-**POST** `/api/travel`
-
-移动到指定地点
-
-**请求：**
-```json
-{
-  "location": "成都府"
-}
-```
-
-**响应：**
-```json
-{
-  "success": true,
-  "message": "已到达成都府"
-}
-```
-
----
-
-### 11. 成就列表
-
-**GET** `/api/achievements`
-
-获取成就列表
-
-**响应：**
-```json
-{
-  "success": true,
-  "achievements": [
-    {
-      "id": "ach_001",
-      "name": "初入仙门",
-      "description": "开始修真之路",
-      "completed": true
-    }
-  ]
-}
-```
-
----
-
-## 高级 API（需实现）
-
-### 灵兽系统
-- `GET /api/spirit-beasts` - 获取灵兽列表
-- `POST /api/spirit-beast/capture` - 捕捉灵兽
-- `POST /api/spirit-beast/feed` - 喂养灵兽
-
-### 天劫系统
-- `GET /api/tribulation/status` - 天劫状态
-- `POST /api/tribulation/start` - 开始渡劫
-
-### 道心系统
-- `GET /api/dao-heart` - 获取道心信息
-- `GET /api/merit-shop` - 功德商店
 
 ### 排行榜
-- `GET /api/leaderboard/<type>` - 获取排行榜
 
-### 副本
-- `GET /api/dungeons` - 副本列表
-- `POST /api/dungeon/enter` - 进入副本
-
-### 活动
-- `GET /api/events` - 活动列表
-- `POST /api/sign-in` - 每日签到
-
-### 好友
-- `GET /api/friends` - 好友列表
-- `POST /api/friend/add` - 添加好友
-- `POST /api/friend/gift` - 赠送礼物
-
----
-
-## 错误处理
-
-所有 API 在失败时返回：
+**GET** `/api/leaderboard/power`
 
 ```json
 {
-  "success": false,
-  "error": "错误信息"
+  "success": true,
+  "type": "power",
+  "leaderboard": [
+    {"rank": 1, "name": "剑圣", "value": 99999},
+    {"rank": 2, "name": "tancau", "value": 1000}
+  ]
 }
 ```
 
 ---
 
-## 开发建议
+## 🎯 使用示例
 
-1. **缓存策略** - 玩家状态可缓存 1-5 秒
-2. **错误重试** - 网络错误自动重试 3 次
-3. **加载状态** - 所有 API 调用显示加载动画
-4. **离线支持** - 关键数据可本地存储
+### JavaScript (Axios)
+
+```javascript
+import axios from 'axios'
+
+const API_BASE = 'https://shushan-game.vercel.app/api'
+
+// 获取状态
+const status = await axios.get(`${API_BASE}/status`)
+
+// 修炼
+const result = await axios.get(`${API_BASE}/cultivate`)
+
+// 捕捉灵兽
+const beast = await axios.post(`${API_BASE}/spirit-beast/capture`)
+
+// 移动
+await axios.post(`${API_BASE}/travel`, { location: '成都府' })
+```
+
+### Python (requests)
+
+```python
+import requests
+
+API_BASE = 'https://shushan-game.vercel.app/api'
+
+# 获取状态
+status = requests.get(f'{API_BASE}/status').json()
+
+# 修炼
+result = requests.get(f'{API_BASE}/cultivate').json()
+
+# 捕捉灵兽
+beast = requests.post(f'{API_BASE}/spirit-beast/capture').json()
+```
+
+---
+
+## ⚠️ 注意事项
+
+1. **玩家ID** - 当前固定为 'tancau'
+2. **数据保存** - 所有修改自动保存
+3. **跨域** - 已配置 CORS
+4. **缓存** - 建议状态数据缓存 1-5 秒
 
 ---
 
 *更新时间: 2026-04-22*
+*版本: v0.5.0 完整版*
