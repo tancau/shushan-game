@@ -1,227 +1,107 @@
 /**
  * 主菜单场景
- * 游戏主界面，包含开始游戏、排行榜、设置等入口
+ * 游戏主界面 - 使用生成的美术资源
  */
 
 import { BaseScene } from './BaseScene'
 import { SCENE_KEYS } from '../Game'
-import { COLORS, DURATION, EASING, PARTICLE_CONFIG } from '../config/gameConfig'
+import { COLORS } from '../config/gameConfig'
 
 export class MainMenuScene extends BaseScene {
-  private logo!: Phaser.GameObjects.Image
-  private particles!: Phaser.GameObjects.Particles.ParticleEmitter
-
   constructor() {
     super(SCENE_KEYS.MAIN_MENU)
   }
 
   protected onCreate(): void {
-    // 创建背景
-    this.createBackgroundWithTexture()
-
-    // 创建 Logo
+    this.createBackground()
     this.createLogo()
-
-    // 创建粒子效果
     this.createParticles()
-
-    // 创建菜单按钮
     this.createMenuButtons()
-
-    // 播放背景音乐
     this.playBackgroundMusic()
   }
 
-  /**
-   * 创建背景
-   */
-  private setupBackground(): void {
-    // 尝试加载背景图片，如果不存在则使用纯色背景
-    if (this.textures.exists('bg-main')) {
-      const bg = this.add.tileSprite(
-        this.centerX,
-        this.centerY,
-        this.cameras.main.width,
-        this.cameras.main.height,
-        'bg-main'
-      )
-      bg.setDepth(-1)
-
-      // 云雾飘动效果
-      this.tweens.add({
-        targets: bg,
-        tilePositionX: bg.tilePositionX + 100,
-        duration: 20000,
-        repeat: -1
-      })
+  private createBackground(): void {
+    // 使用生成的地图背景
+    if (this.textures.exists('bg-map')) {
+      const bg = this.add.image(this.centerX, this.centerY, 'bg-map')
+      bg.setScale(0.8) // 适配屏幕
     } else {
-      // 使用渐变背景
+      // 备用渐变背景
       const graphics = this.add.graphics()
-      graphics.fillGradientStyle(
-        COLORS.BG_DARK,
-        COLORS.BG_DARK,
-        COLORS.BG_MEDIUM,
-        COLORS.BG_MEDIUM,
-        1
-      )
+      graphics.fillGradientStyle(0x1a1a2e, 0x1a1a2e, 0x16213e, 0x16213e, 1)
       graphics.fillRect(0, 0, this.cameras.main.width, this.cameras.main.height)
-      graphics.setDepth(-1)
     }
   }
 
-  /**
-   * 创建 Logo
-   */
   private createLogo(): void {
-    if (this.textures.exists('logo')) {
-      this.logo = this.add.image(this.centerX, 150, 'logo')
-    } else {
-      // 使用文字作为 Logo
-      this.logo = this.add.image(this.centerX, 150, '__DEFAULT')
-
-      const logoText = this.createText(
-        this.centerX,
-        150,
-        '蜀山剑侠传',
-        { fontSize: '64px', color: '#FFD700', strokeThickness: 8 }
-      )
-      logoText.setOrigin(0.5)
-
-      // Logo 光效
-      this.tweens.add({
-        targets: logoText,
-        alpha: 0.7,
-        duration: 2000,
-        yoyo: true,
-        repeat: -1
-      })
-    }
-
-    // Logo 缩放动画
-    this.tweens.add({
-      targets: this.logo,
-      scale: 1.05,
-      duration: 1500,
-      yoyo: true,
-      repeat: -1,
-      ease: EASING.SINE
+    // 游戏标题
+    const titleText = this.createText(this.centerX, 150, '蜀山剑侠传', {
+      fontSize: '64px',
+      color: '#FFD700',
+      strokeThickness: 8
     })
+    titleText.setOrigin(0.5)
+
+    // 光效动画
+    this.tweens.add({
+      targets: titleText,
+      alpha: 0.7,
+      duration: 2000,
+      yoyo: true,
+      repeat: -1
+    })
+
+    // 副标题
+    const subtitle = this.createText(this.centerX, 220, 'JRPG Demo', {
+      fontSize: '24px',
+      color: '#4FC3F7'
+    })
+    subtitle.setOrigin(0.5)
   }
 
-  /**
-   * 创建粒子效果
-   */
   private createParticles(): void {
-    // 飞剑粒子（从下往上飘动）
-    if (this.textures.exists('particle-sword')) {
-      this.add.particles(0, 0, 'particle-sword', {
-        x: { min: 0, max: this.cameras.main.width },
-        y: this.cameras.main.height,
-        lifespan: PARTICLE_CONFIG.FLYING_SWORD.lifespan,
-        speedY: PARTICLE_CONFIG.FLYING_SWORD.speedY,
-        scale: PARTICLE_CONFIG.FLYING_SWORD.scale,
-        alpha: PARTICLE_CONFIG.FLYING_SWORD.alpha,
-        frequency: PARTICLE_CONFIG.FLYING_SWORD.frequency,
-        blendMode: 'ADD'
-      })
-    }
-
-    // 灵气粒子（环形扩散）
-    if (this.textures.exists('particle-spirit')) {
-      this.add.particles(this.centerX, this.centerY, 'particle-spirit', {
+    // 灵气粒子效果
+    if (this.textures.exists('particle-light')) {
+      this.add.particles(this.centerX, this.centerY, 'particle-light', {
         speed: { min: 20, max: 50 },
         angle: { min: 0, max: 360 },
         scale: { start: 0.4, end: 0 },
         alpha: { start: 0.6, end: 0 },
         lifespan: 4000,
         frequency: 300,
-        blendMode: 'ADD',
-        tint: PARTICLE_CONFIG.SPIRIT.tint
+        blendMode: 'ADD'
       })
     }
   }
 
-  /**
-   * 创建菜单按钮
-   */
   private createMenuButtons(): void {
     const buttonY = 350
     const spacing = 70
 
-    // 开始游戏按钮
-    const startButton = this.createButton(
-      this.centerX,
-      buttonY,
-      '开始游戏',
-      () => this.startGame()
-    )
+    // 开始游戏
+    this.createButton(this.centerX, buttonY, '开始游戏', () => this.startGame())
 
-    // 排行榜按钮
-    const leaderboardButton = this.createButton(
-      this.centerX,
-      buttonY + spacing,
-      '排行榜',
-      () => this.showLeaderboard()
-    )
+    // 排行榜
+    this.createButton(this.centerX, buttonY + spacing, '排行榜', () => {
+      this.showMessage('排行榜功能开发中...', 2000)
+    })
 
-    // 设置按钮
-    const settingsButton = this.createButton(
-      this.centerX,
-      buttonY + spacing * 2,
-      '设置',
-      () => this.showSettings()
-    )
-
-    // 按钮入场动画
-    const buttons = [startButton, leaderboardButton, settingsButton]
-    buttons.forEach((btn, index) => {
-      btn.setAlpha(0)
-      btn.setY(btn.y + 50)
-
-      this.tweens.add({
-        targets: btn,
-        alpha: 1,
-        y: btn.y - 50,
-        duration: 500,
-        delay: index * 150,
-        ease: EASING.BACK
-      })
+    // 设置
+    this.createButton(this.centerX, buttonY + spacing * 2, '设置', () => {
+      this.showMessage('设置功能开发中...', 2000)
     })
   }
 
-  /**
-   * 播放背景音乐
-   */
   private playBackgroundMusic(): void {
-    if (this.sound.get('bgm-main')) {
-      this.sound.play('bgm-main', { loop: true, volume: 0.5 })
+    if (this.sound.get('bgm-battle')) {
+      this.sound.play('bgm-battle', { loop: true, volume: 0.5 })
     }
   }
 
-  /**
-   * 开始游戏
-   */
   private startGame(): void {
-    // 播放点击音效
-    this.sound.play('sfx-click', { volume: 0.7 })
-
-    // 切换到角色场景
-    this.transitionTo({ targetScene: SCENE_KEYS.CHARACTER })
-  }
-
-  /**
-   * 显示排行榜
-   */
-  private showLeaderboard(): void {
-    this.sound.play('sfx-click', { volume: 0.7 })
-    this.showMessage('排行榜功能开发中...', 2000)
-  }
-
-  /**
-   * 显示设置
-   */
-  private showSettings(): void {
-    this.sound.play('sfx-click', { volume: 0.7 })
-    this.showMessage('设置功能开发中...', 2000)
+    if (this.sound.get('sfx-click')) {
+      this.sound.play('sfx-click', { volume: 0.7 })
+    }
+    this.transitionTo({ targetScene: SCENE_KEYS.WORLD_MAP })
   }
 }
