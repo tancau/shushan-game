@@ -1,0 +1,290 @@
+{
+  "source": "《蜀山剑侠传》还珠楼主",
+  "last_updated": "2026-04-22",
+  "drops": [
+    {
+      "enemy_id": "wolf",
+      "enemy_name": "妖狼",
+      "enemy_type": "普通怪物",
+      "drop_table": [
+        {"item_id": "wolf_fang", "name": "狼牙", "rate": 0.3, "count": [1, 2], "description": "铁匠锻造材料"},
+        {"item_id": "wolf_pelt", "name": "狼皮", "rate": 0.2, "count": [1, 1], "description": "制作防具材料"},
+        {"item_id": "wolf_meat", "name": "狼肉", "rate": 0.5, "count": [1, 3], "description": "食材，恢复少量HP"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [10, 25]}
+      ]
+    },
+    {
+      "enemy_id": "wolf_king",
+      "enemy_name": "狼王",
+      "enemy_type": "精英怪",
+      "drop_table": [
+        {"item_id": "wolf_king_fang", "name": "狼王獠牙", "rate": 0.8, "count": [1, 1], "description": "稀有锻造材料"},
+        {"item_id": "wolf_king_pelt", "name": "狼王皮", "rate": 0.6, "count": [1, 1], "description": "制作高级防具材料"},
+        {"item_id": "wolf_king_core", "name": "狼王精核", "rate": 0.3, "count": [1, 1], "description": "炼丹材料"},
+        {"item_id": "iron_sword", "name": "铁剑", "rate": 0.4, "count": [1, 1], "description": "基础武器"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [100, 200]}
+      ]
+    },
+    {
+      "enemy_id": "spirit_ape",
+      "enemy_name": "灵猿",
+      "enemy_type": "普通怪物",
+      "drop_table": [
+        {"item_id": "ape_fur", "name": "猿毛", "rate": 0.25, "count": [1, 2], "description": "制作材料"},
+        {"item_id": "ape_bone", "name": "猿骨", "rate": 0.2, "count": [1, 1], "description": "炼丹材料"},
+        {"item_id": "spirit_fruit", "name": "灵果", "rate": 0.1, "count": [1, 1], "description": "恢复MP"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [15, 35]}
+      ]
+    },
+    {
+      "enemy_id": "jade_tiger",
+      "enemy_name": "玉虎剑灵",
+      "enemy_type": "BOSS",
+      "drop_table": [
+        {"item_id": "jade_tiger_essence", "name": "玉虎精魄", "rate": 1.0, "count": [1, 1], "description": "炼制玉虎双剑材料"},
+        {"item_id": "spirit_jade", "name": "灵玉", "rate": 0.5, "count": [2, 3], "description": "稀有材料"},
+        {"item_id": "tiger_sword_manual", "name": "玉虎剑诀", "rate": 0.3, "count": [1, 1], "description": "技能书"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [500, 800]}
+      ]
+    },
+    {
+      "enemy_id": "ice_silkworm",
+      "enemy_name": "千年冰蚕",
+      "enemy_type": "精英怪",
+      "drop_table": [
+        {"item_id": "ice_silkworm_silk", "name": "冰蚕丝", "rate": 0.6, "count": [3, 5], "description": "制作高级防具材料"},
+        {"item_id": "ice_silkworm_essence", "name": "冰蚕精华", "rate": 0.4, "count": [1, 1], "description": "炼制冰系法宝材料"},
+        {"item_id": "ice_crystal", "name": "冰晶", "rate": 0.3, "count": [1, 2], "description": "冰系材料"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [300, 500]}
+      ]
+    },
+    {
+      "enemy_id": "thousand_year_spider",
+      "enemy_name": "千年文蛛",
+      "enemy_type": "精英怪",
+      "drop_table": [
+        {"item_id": "spider_silk", "name": "蛛丝", "rate": 0.5, "count": [5, 10], "description": "制作材料"},
+        {"item_id": "spider_poison", "name": "蛛毒", "rate": 0.4, "count": [1, 2], "description": "炼制毒药材料"},
+        {"item_id": "qiantian_fire_pearl", "name": "乾天火灵珠", "rate": 0.15, "count": [1, 1], "description": "火系顶级法宝材料"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [400, 700]}
+      ]
+    },
+    {
+      "enemy_id": "nine_ghost_snake",
+      "enemy_name": "九幽灵蛇",
+      "enemy_type": "普通怪物",
+      "drop_table": [
+        {"item_id": "snake_gall", "name": "蛇胆", "rate": 0.3, "count": [1, 1], "description": "炼丹材料"},
+        {"item_id": "snake_scale", "name": "灵蛇鳞片", "rate": 0.25, "count": [1, 3], "description": "制作防具材料"},
+        {"item_id": "snake_venom", "name": "蛇毒", "rate": 0.2, "count": [1, 1], "description": "炼制毒药"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [20, 45]}
+      ]
+    },
+    {
+      "enemy_id": "golden_silkworm_gu",
+      "enemy_name": "百毒金蚕蛊",
+      "enemy_type": "普通怪物(群)",
+      "drop_table": [
+        {"item_id": "gu_poison_sample", "name": "蛊毒样本", "rate": 0.2, "count": [1, 1], "description": "炼制蛊毒解药材料"},
+        {"item_id": "silkworm_silk", "name": "蚕丝", "rate": 0.3, "count": [1, 2], "description": "制作材料"},
+        {"item_id": "poison_essence", "name": "毒之精华", "rate": 0.1, "count": [1, 1], "description": "炼制毒系法宝材料"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [15, 30]}
+      ]
+    },
+    {
+      "enemy_id": "poison_dragon",
+      "enemy_name": "毒龙",
+      "enemy_type": "BOSS",
+      "drop_table": [
+        {"item_id": "dragon_scale", "name": "龙鳞", "rate": 0.8, "count": [3, 5], "description": "制作高级防具材料"},
+        {"item_id": "dragon_blood", "name": "龙血", "rate": 0.6, "count": [1, 2], "description": "炼丹材料"},
+        {"item_id": "dragon_core", "name": "龙珠", "rate": 0.2, "count": [1, 1], "description": "龙族精华"},
+        {"item_id": "poison_dragon_essence", "name": "毒龙精华", "rate": 0.3, "count": [1, 1], "description": "炼制毒系法宝材料"},
+        {"item_id": "dragon_slaying_knife", "name": "屠龙刀", "rate": 0.1, "count": [1, 1], "description": "冰系武器"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [2000, 3000]}
+      ]
+    },
+    {
+      "enemy_id": "yaogun",
+      "enemy_name": "妖鲧",
+      "enemy_type": "BOSS",
+      "drop_table": [
+        {"item_id": "yaogun_core", "name": "妖鲧内丹", "rate": 1.0, "count": [1, 1], "description": "妖物精华"},
+        {"item_id": "water_element_essence", "name": "水之精华", "rate": 0.7, "count": [3, 5], "description": "水系材料"},
+        {"item_id": "yu_cauldron", "name": "禹鼎", "rate": 0.2, "count": [1, 1], "description": "召唤系法宝"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [1500, 2500]}
+      ]
+    },
+    {
+      "enemy_id": "wuhuashi",
+      "enemy_name": "无华氏",
+      "enemy_type": "终极BOSS",
+      "drop_table": [
+        {"item_id": "ancient_demon_core", "name": "上古妖丹", "rate": 1.0, "count": [1, 1], "description": "上古妖物精华"},
+        {"item_id": "demon_king_soul", "name": "妖王之魂", "rate": 0.5, "count": [1, 1], "description": "炼制法宝材料"},
+        {"item_id": "immortal_essence", "name": "仙元", "rate": 0.3, "count": [2, 3], "description": "高级炼丹材料"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [5000, 8000]}
+      ]
+    },
+    {
+      "enemy_id": "rongdun",
+      "enemy_name": "戎敦",
+      "enemy_type": "终极BOSS",
+      "drop_table": [
+        {"item_id": "ancient_demon_core", "name": "上古妖丹", "rate": 1.0, "count": [1, 1], "description": "上古妖物精华"},
+        {"item_id": "demon_bone", "name": "妖骨", "rate": 0.6, "count": [2, 3], "description": "炼制法宝材料"},
+        {"item_id": "immortal_essence", "name": "仙元", "rate": 0.3, "count": [2, 3], "description": "高级炼丹材料"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [5000, 8000]}
+      ]
+    },
+    {
+      "enemy_id": "qiongqi",
+      "enemy_name": "穷奇",
+      "enemy_type": "终极BOSS",
+      "drop_table": [
+        {"item_id": "ancient_demon_core", "name": "上古妖丹", "rate": 1.0, "count": [1, 1], "description": "上古妖物精华"},
+        {"item_id": "qiongqi_feather", "name": "穷奇羽", "rate": 0.8, "count": [3, 5], "description": "制作飞行法宝材料"},
+        {"item_id": "immortal_essence", "name": "仙元", "rate": 0.4, "count": [3, 5], "description": "高级炼丹材料"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [6000, 10000]}
+      ]
+    },
+    {
+      "enemy_id": "nine_child_yin_demon",
+      "enemy_name": "九子母阴魔",
+      "enemy_type": "BOSS召唤物",
+      "drop_table": [
+        {"item_id": "demon_element_pearl", "name": "魔元珠", "rate": 0.3, "count": [1, 1], "description": "炼制魔道法宝材料"},
+        {"item_id": "yin_soul_silk", "name": "阴魂丝", "rate": 0.4, "count": [1, 2], "description": "制作材料"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [200, 400]}
+      ]
+    },
+    {
+      "enemy_id": "jiupan_po",
+      "enemy_name": "鸠盘婆",
+      "enemy_type": "四大妖孽",
+      "drop_table": [
+        {"item_id": "demon_subduing_seven_treasures", "name": "降魔七宝", "rate": 0.4, "count": [1, 1], "description": "佛门法宝"},
+        {"item_id": "nine_mother_demon_manual", "name": "九子母天魔秘籍", "rate": 0.3, "count": [1, 1], "description": "召唤系技能书"},
+        {"item_id": "immortal_essence", "name": "仙元", "rate": 0.5, "count": [5, 8], "description": "高级炼丹材料"},
+        {"item_id": "heavenly_tribulation_stone", "name": "天劫石", "rate": 0.2, "count": [1, 1], "description": "炼制渡劫丹材料"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [3000, 5000]}
+      ]
+    },
+    {
+      "enemy_id": "green_robe_ancestor",
+      "enemy_name": "绿袍老祖",
+      "enemy_type": "四大妖孽",
+      "drop_table": [
+        {"item_id": "xuanbi_pearl", "name": "玄牝珠", "rate": 0.5, "count": [1, 1], "description": "第二元神法宝"},
+        {"item_id": "gu_poison_antidote_recipe", "name": "蛊毒解药配方", "rate": 0.6, "count": [1, 1], "description": "配方书"},
+        {"item_id": "hundred_poison_manual", "name": "百毒真经", "rate": 0.3, "count": [1, 1], "description": "毒系功法"},
+        {"item_id": "immortal_essence", "name": "仙元", "rate": 0.5, "count": [5, 8], "description": "高级炼丹材料"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [3000, 5000]}
+      ]
+    },
+    {
+      "enemy_id": "demon_corpse_guchen",
+      "enemy_name": "妖尸谷辰",
+      "enemy_type": "四大妖孽",
+      "drop_table": [
+        {"item_id": "xuanyin_beast_banner", "name": "玄阴聚兽幡", "rate": 0.4, "count": [1, 1], "description": "召唤系法宝"},
+        {"item_id": "soul_gathering_manual", "name": "炼魂聚魄秘籍", "rate": 0.3, "count": [1, 1], "description": "魂系功法"},
+        {"item_id": "immortal_essence", "name": "仙元", "rate": 0.5, "count": [5, 8], "description": "高级炼丹材料"},
+        {"item_id": "demon_core", "name": "魔核", "rate": 0.6, "count": [2, 3], "description": "炼制魔道法宝材料"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [3000, 5000]}
+      ]
+    },
+    {
+      "enemy_id": "blood_god_dengyin",
+      "enemy_name": "血神子邓隐",
+      "enemy_type": "四大妖孽",
+      "drop_table": [
+        {"item_id": "blood_shadow_manual", "name": "血影神光秘籍", "rate": 0.3, "count": [1, 1], "description": "血系功法"},
+        {"item_id": "immortal_essence", "name": "仙元", "rate": 0.5, "count": [5, 8], "description": "高级炼丹材料"},
+        {"item_id": "blood_element_essence", "name": "血之精华", "rate": 0.7, "count": [3, 5], "description": "血系材料"},
+        {"item_id": "immortal_sword", "name": "仙剑", "rate": 0.1, "count": [1, 1], "description": "顶级武器"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [5000, 8000]}
+      ]
+    },
+    {
+      "enemy_id": "shipi_old_man",
+      "enemy_name": "尸毗老人",
+      "enemy_type": "魔教第一人",
+      "drop_table": [
+        {"item_id": "buddha_heart_lamp", "name": "心灯", "rate": 0.3, "count": [1, 1], "description": "佛门顶级法宝"},
+        {"item_id": "asura_demon_manual", "name": "阿修罗魔功", "rate": 0.2, "count": [1, 1], "description": "魔道顶级功法"},
+        {"item_id": "immortal_essence", "name": "仙元", "rate": 0.8, "count": [10, 15], "description": "高级炼丹材料"},
+        {"item_id": "immortal_sword", "name": "仙剑", "rate": 0.2, "count": [1, 1], "description": "顶级武器"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [8000, 12000]}
+      ]
+    },
+    {
+      "enemy_id": "heavenly_demon",
+      "enemy_name": "天魔",
+      "enemy_type": "天劫BOSS",
+      "drop_table": [
+        {"item_id": "heavenly_demon_essence", "name": "天魔精魄", "rate": 1.0, "count": [1, 1], "description": "炼制渡劫丹材料"},
+        {"item_id": "immortal_essence", "name": "仙元", "rate": 0.8, "count": [5, 10], "description": "高级炼丹材料"},
+        {"item_id": "heavenly_tribulation_stone", "name": "天劫石", "rate": 0.5, "count": [1, 2], "description": "炼制渡劫丹材料"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [1000, 2000]}
+      ]
+    },
+    {
+      "enemy_id": "wutai_disciple",
+      "enemy_name": "五台派弟子",
+      "enemy_type": "普通怪物",
+      "drop_table": [
+        {"item_id": "wutai_badge", "name": "五台派信物", "rate": 0.2, "count": [1, 1], "description": "门派信物"},
+        {"item_id": "yin_sword_fragment", "name": "阴魂剑碎片", "rate": 0.15, "count": [1, 1], "description": "炼制材料"},
+        {"item_id": "healing_pill", "name": "疗伤丹", "rate": 0.3, "count": [1, 2], "description": "恢复HP"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [30, 60]}
+      ]
+    },
+    {
+      "enemy_id": "xu_feiniang",
+      "enemy_name": "万妙仙姑许飞娘",
+      "enemy_type": "BOSS",
+      "drop_table": [
+        {"item_id": "demon_slaying_sword", "name": "天魔诛仙剑", "rate": 0.2, "count": [1, 1], "description": "魔道武器"},
+        {"item_id": "wutai_secret_manual", "name": "五台派秘籍", "rate": 0.4, "count": [1, 1], "description": "五台派功法"},
+        {"item_id": "spirit_stone_medium", "name": "中品灵石", "rate": 0.6, "count": [3, 5], "description": "中级货币"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [1000, 1500]}
+      ]
+    },
+    {
+      "enemy_id": "demon_servant",
+      "enemy_name": "魔道仆从",
+      "enemy_type": "普通怪物",
+      "drop_table": [
+        {"item_id": "demon_blood", "name": "魔血", "rate": 0.25, "count": [1, 2], "description": "炼丹材料"},
+        {"item_id": "dark_crystal", "name": "暗晶", "rate": 0.15, "count": [1, 1], "description": "炼制材料"},
+        {"item_id": "gold", "name": "金币", "rate": 1.0, "count": [25, 50]}
+      ]
+    }
+  ],
+  "drop_types": {
+    "common": "普通掉落 - 掉率>30%",
+    "uncommon": "稀有掉落 - 掉率15-30%",
+    "rare": "精良掉落 - 掉率5-15%",
+    "epic": "史诗掉落 - 掉率1-5%",
+    "legendary": "传说掉落 - 掉率<1%"
+  },
+  "drop_factors": {
+    "enemy_level": "敌人等级越高，掉落越好",
+    "player_luck": "玩家幸运属性可提升掉率",
+    "first_kill": "首次击杀BOSS必掉稀有物品",
+    "party_size": "组队击杀提升掉率"
+  },
+  "special_drops": {
+    "first_kill_bonus": "首次击杀BOSS时，掉率+50%",
+    "critical_kill": "以致命一击击杀时，金币+20%",
+    "steal_kill": "偷袭击杀时，额外掉落一件物品"
+  },
+  "notes": [
+    "共设计23个敌人的掉落表",
+    "覆盖普通怪物、精英怪、BOSS、终极BOSS",
+    "掉落物品包括材料、装备、丹药、金币等",
+    "BOSS级敌人有几率掉落稀有物品",
+    "四大妖孽和魔教第一人有专属掉落"
+  ]
+}

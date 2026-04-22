@@ -1,0 +1,879 @@
+{
+  "source": "《蜀山剑侠传》还珠楼主",
+  "last_updated": "2026-04-22",
+  "levels": [
+    {
+      "id": "shushan_foot",
+      "name": "蜀山脚下",
+      "chapter": "序章",
+      "description": "玩家进入蜀山世界的起点，山脚下的小村庄",
+      "recommended_level": [1, 5],
+      "script": [
+        {
+          "step": 1,
+          "type": "cutscene",
+          "content": "山路蜿蜒，远处仙山隐约可见云雾之中。山脚下，几户人家炊烟袅袅。",
+          "narration": "你沿山路而来，眼前便是传说中的蜀山。仙气缭绕，好一派仙家气象。"
+        },
+        {
+          "step": 2,
+          "type": "dialogue",
+          "speaker": "guide_npc",
+          "text": "年轻人，你也是来蜀山求道的？我叫老王，在这山脚做了几十年引路人。"
+        },
+        {
+          "step": 3,
+          "type": "tutorial",
+          "tutorial_type": "movement",
+          "content": "学习移动操作：WASD移动，空格跳跃，鼠标控制视角"
+        },
+        {
+          "step": 4,
+          "type": "explore",
+          "area": "shushan_foot_village",
+          "objectives": ["与铁匠老张对话", "与药铺掌柜对话", "探索村庄"],
+          "npcs": ["blacksmith_zhang", "medicine_shop_owner"]
+        },
+        {
+          "step": 5,
+          "type": "dialogue",
+          "speaker": "guide_npc",
+          "text": "山上最近有妖狼作祟，你若要上山，需先有些自保之力。不如去山脚猎几只狼练练手？"
+        },
+        {
+          "step": 6,
+          "type": "tutorial",
+          "tutorial_type": "combat",
+          "content": "学习基础战斗：左键攻击，右键防御，1234使用技能，Q喝药"
+        },
+        {
+          "step": 7,
+          "type": "battle",
+          "enemies": ["wolf"],
+          "count": 3,
+          "is_tutorial": true,
+          "location": "shushan_foot_forest"
+        },
+        {
+          "step": 8,
+          "type": "dialogue",
+          "speaker": "guide_npc",
+          "text": "不错！你有修行的天资。随我来，我引你上山。"
+        },
+        {
+          "step": 9,
+          "type": "explore",
+          "area": "shushan_foot",
+          "objectives": ["收集狼牙 x5", "采集灵草 x3", "探索山脚全境"],
+          "enemies": ["wolf", "boar", "wild_dog"]
+        },
+        {
+          "step": 10,
+          "type": "quest",
+          "quest_id": "sq_001",
+          "giver": "blacksmith_zhang",
+          "auto_trigger": false
+        },
+        {
+          "step": 11,
+          "type": "quest",
+          "quest_id": "sq_002",
+          "giver": "medicine_shop_owner",
+          "auto_trigger": false
+        },
+        {
+          "step": 12,
+          "type": "boss_battle",
+          "boss": "wolf_king",
+          "location": "wolf_den",
+          "trigger": "进入狼王洞穴",
+          "cutscene_before": {
+            "content": "洞穴深处传来低沉的咆哮，一双幽绿的眼睛在黑暗中闪烁。",
+            "narration": "你握紧手中的剑，缓缓走入洞穴..."
+          }
+        },
+        {
+          "step": 13,
+          "type": "cutscene",
+          "content": "狼王倒下，洞穴深处隐隐发光...",
+          "narration": "你在洞穴中发现了一把古朴的铁剑，剑身隐隐有灵光流转。"
+        },
+        {
+          "step": 14,
+          "type": "item_get",
+          "item": "iron_sword",
+          "description": "获得铁剑 - 剑身古朴，但隐隐有灵气流转"
+        },
+        {
+          "step": 15,
+          "type": "dialogue",
+          "speaker": "guide_npc",
+          "text": "看来你已有些本事了。走吧，去凝碧崖，峨眉派就在那里。"
+        },
+        {
+          "step": 16,
+          "type": "transition",
+          "target_level": "ningbi_cliff",
+          "method": "fast_travel"
+        }
+      ],
+      "enemies": [
+        {"id": "wolf", "count": 15, "respawn": true},
+        {"id": "wolf_king", "count": 1, "respawn": false},
+        {"id": "boar", "count": 8, "respawn": true},
+        {"id": "wild_dog", "count": 10, "respawn": true}
+      ],
+      "npcs": [
+        {"id": "guide_npc", "location": "village_entrance"},
+        {"id": "blacksmith_zhang", "location": "blacksmith_shop"},
+        {"id": "medicine_shop_owner", "location": "medicine_shop"}
+      ],
+      "treasures": [
+        {"id": "chest_001", "location": "hidden_cave", "items": ["healing_pill", "gold_50"]},
+        {"id": "chest_002", "location": "waterfall_behind", "items": ["spirit_herb", "basic_sword_manual"]}
+      ],
+      "shops": ["shushan_blacksmith", "shushan_medicine"],
+      "save_points": ["village_center", "mountain_path"]
+    },
+    {
+      "id": "ningbi_cliff",
+      "name": "峨眉凝碧崖",
+      "chapter": "第一卷",
+      "description": "峨眉派所在地，修仙者云集的圣地",
+      "recommended_level": [5, 15],
+      "script": [
+        {
+          "step": 1,
+          "type": "cutscene",
+          "content": "凝碧崖上，云雾缭绕，仙鹤翩飞。远处山峰耸立，道观隐现。",
+          "narration": "你终于来到了传说中的峨眉派，正道领袖的所在。"
+        },
+        {
+          "step": 2,
+          "type": "dialogue",
+          "speaker": "zhuge_jingwo",
+          "text": "你是来拜师的？我是诸葛警我，峨眉派大师兄。随我来，我带你去见掌门。"
+        },
+        {
+          "step": 3,
+          "type": "escort",
+          "target": "zhuge_jingwo",
+          "destination": "main_hall"
+        },
+        {
+          "step": 4,
+          "type": "dialogue",
+          "speaker": "miaoyi_zhenren",
+          "text": "你是新入门的弟子？好。峨眉门规森严，当恪守正道，勤勉修行。"
+        },
+        {
+          "step": 5,
+          "type": "ceremony",
+          "ceremony_type": "initiation",
+          "description": "参加入门仪式，正式成为峨眉弟子"
+        },
+        {
+          "step": 6,
+          "type": "item_get",
+          "item": "emei_disciple_robe",
+          "description": "获得峨眉弟子袍 - 正式成为峨眉派弟子"
+        },
+        {
+          "step": 7,
+          "type": "dialogue",
+          "speaker": "li_yingqiong",
+          "text": "你便是新来的弟子？我乃峨眉李英琼，这把紫郢剑便是我本命飞剑。"
+        },
+        {
+          "step": 8,
+          "type": "quest",
+          "quest_id": "mq_004",
+          "giver": "li_yingqiong",
+          "auto_trigger": true
+        },
+        {
+          "step": 9,
+          "type": "tutorial",
+          "tutorial_type": "cultivation",
+          "content": "学习修炼系统：打坐修炼、提升境界、学习技能"
+        },
+        {
+          "step": 10,
+          "type": "explore",
+          "area": "ningbi_cliff",
+          "objectives": ["拜访各长老", "学习基础功法", "探索凝碧崖"],
+          "npcs": ["miaoyi_zhenren", "zhuge_jingwo", "li_yingqiong", "zhou_qingyun", "qi_lingyun"]
+        },
+        {
+          "step": 11,
+          "type": "dialogue",
+          "speaker": "changmei_zhenren",
+          "text": "（影像）来者何人？...原来是新入门的弟子。吾乃长眉，虽已飞升，但留影像于凝碧崖，指点后辈。"
+        },
+        {
+          "step": 12,
+          "type": "skill_learn",
+          "skill": "basic_qi_cultivation",
+          "teacher": "changmei_zhenren",
+          "description": "学习基础吐纳术"
+        },
+        {
+          "step": 13,
+          "type": "quest",
+          "quest_id": "sq_006",
+          "giver": "zhi_xian",
+          "auto_trigger": false,
+          "trigger_location": "garden_area"
+        },
+        {
+          "step": 14,
+          "type": "battle",
+          "enemies": ["demon_scout"],
+          "count": 3,
+          "trigger": "夜晚时分",
+          "cutscene_before": {
+            "content": "夜深人静，几个黑影潜入凝碧崖...",
+            "narration": "你发现了可疑的入侵者！"
+          }
+        },
+        {
+          "step": 15,
+          "type": "cutscene",
+          "content": "入侵者被击退，但留下了五台派的信物...",
+          "narration": "看来五台派蠢蠢欲动，正邪之争即将开始。"
+        },
+        {
+          "step": 16,
+          "type": "quest",
+          "quest_id": "mq_008",
+          "giver": "miaoyi_zhenren",
+          "auto_trigger": true,
+          "condition": "complete mq_004"
+        }
+      ],
+      "enemies": [
+        {"id": "demon_scout", "count": 5, "respawn": false, "trigger": "night_time"}
+      ],
+      "npcs": [
+        {"id": "miaoyi_zhenren", "location": "main_hall"},
+        {"id": "changmei_zhenren", "location": "ancestor_hall", "type": "projection"},
+        {"id": "zhuge_jingwo", "location": "training_ground"},
+        {"id": "li_yingqiong", "location": "sword_pavilion"},
+        {"id": "zhou_qingyun", "location": "meditation_hall"},
+        {"id": "qi_lingyun", "location": "main_hall"},
+        {"id": "qi_jinchan", "location": "roaming"},
+        {"id": "zhi_xian", "location": "garden"}
+      ],
+      "treasures": [
+        {"id": "chest_003", "location": "library", "items": ["basic_qi_formula", "healing_pill"]},
+        {"id": "chest_004", "location": "training_ground", "items": ["iron_sword", "gold_100"]}
+      ],
+      "shops": ["emei_item_shop", "emei_skill_shop"],
+      "save_points": ["main_hall", "training_ground", "sword_pavilion"],
+      "special_locations": [
+        {"id": "ancestor_hall", "name": "祖师殿", "description": "供奉长眉真人影像，可学习高级功法"},
+        {"id": "sword_pavilion", "name": "剑阁", "description": "存放各派飞剑，李英琼常驻于此"},
+        {"id": "library", "name": "藏经阁", "description": "存放各种功法秘籍"},
+        {"id": "training_ground", "name": "练功场", "description": "弟子修炼切磋之所"}
+      ]
+    },
+    {
+      "id": "ciyun_temple",
+      "name": "慈云寺",
+      "chapter": "第一卷",
+      "description": "五台派据点，正邪初次大规模冲突之地",
+      "recommended_level": [15, 25],
+      "script": [
+        {
+          "step": 1,
+          "type": "cutscene",
+          "content": "慈云寺坐落在山谷之中，阴气森森。寺庙破败，但暗藏杀机。",
+          "narration": "你来到慈云寺外围，五台派的据点就在眼前。"
+        },
+        {
+          "step": 2,
+          "type": "dialogue",
+          "speaker": "zhu_mei",
+          "text": "你就是峨眉派派来的？我是矮叟朱梅，青城派。我们联手围攻此寺！"
+        },
+        {
+          "step": 3,
+          "type": "battle",
+          "enemies": ["wutai_disciple"],
+          "count": 5,
+          "location": "temple_entrance",
+          "cutscene_before": {
+            "content": "几个五台派弟子拦在门口，手持阴魂剑。",
+            "narration": "五台派弟子阴笑着看向你..."
+          }
+        },
+        {
+          "step": 4,
+          "type": "explore",
+          "area": "ciyun_temple_outer",
+          "objectives": ["清除外围敌人", "寻找入口机关", "收集情报"],
+          "enemies": ["wutai_disciple", "demon_servant"]
+        },
+        {
+          "step": 5,
+          "type": "puzzle",
+          "puzzle_type": "mechanism",
+          "description": "破解寺门机关",
+          "solution": "按照阴符排列顺序按下开关"
+        },
+        {
+          "step": 6,
+          "type": "cutscene",
+          "content": "寺门缓缓打开，殿内传来阵阵阴气...",
+          "narration": "你踏入慈云寺内部，黑暗中似乎有无数眼睛在注视着你。"
+        },
+        {
+          "step": 7,
+          "type": "battle",
+          "enemies": ["wutai_disciple"],
+          "count": 10,
+          "location": "main_hall",
+          "formation": "ambush"
+        },
+        {
+          "step": 8,
+          "type": "boss_battle",
+          "boss": "xu_feiniang",
+          "location": "inner_hall",
+          "cutscene_before": {
+            "content": "万妙仙姑许飞娘冷笑着走出，手中天魔诛仙剑散发着诡异的光芒。",
+            "narration": "正邪对决，一触即发！"
+          }
+        },
+        {
+          "step": 9,
+          "type": "cutscene",
+          "content": "许飞娘身受重伤，却阴笑着退走...",
+          "narration": "\"峨眉！这笔账我们五台派记下了！\""
+        },
+        {
+          "step": 10,
+          "type": "dialogue",
+          "speaker": "zhu_mei",
+          "text": "干得好！不过这只是开始，五台派不会善罢甘休。"
+        },
+        {
+          "step": 11,
+          "type": "boss_battle",
+          "boss": "jile_daoren",
+          "location": "secret_chamber",
+          "trigger": "进入密室",
+          "cutscene_before": {
+            "content": "密室中，一个全身裹着绿袍的身影端坐...",
+            "narration": "绿袍老祖！他竟在这里！"
+          }
+        },
+        {
+          "step": 12,
+          "type": "cutscene",
+          "content": "极乐道人突然出现，一道金光将绿袍老祖斩做两截！",
+          "narration": "绿袍老祖惨叫一声，化为一道绿光遁走..."
+        },
+        {
+          "step": 13,
+          "type": "quest_completed",
+          "quest_id": "mq_009"
+        },
+        {
+          "step": 14,
+          "type": "transition",
+          "target_level": "ningbi_cliff",
+          "method": "fast_travel"
+        }
+      ],
+      "enemies": [
+        {"id": "wutai_disciple", "count": 20, "respawn": true},
+        {"id": "demon_servant", "count": 10, "respawn": true},
+        {"id": "xu_feiniang", "count": 1, "respawn": false, "type": "boss"},
+        {"id": "jile_daoren", "count": 1, "respawn": false, "type": "boss"}
+      ],
+      "npcs": [
+        {"id": "zhu_mei", "location": "temple_entrance", "type": "ally"}
+      ],
+      "treasures": [
+        {"id": "chest_005", "location": "main_hall", "items": ["wutai_sword_fragment", "gold_300"]},
+        {"id": "chest_006", "location": "secret_chamber", "items": ["xuanbi_pearl_fragment", "demon_pill"]}
+      ],
+      "save_points": ["temple_entrance", "main_hall"],
+      "danger_level": "high"
+    },
+    {
+      "id": "ziyun_palace",
+      "name": "紫云宫",
+      "chapter": "第二卷",
+      "description": "东海海底的水府仙宫，藏有无数宝物",
+      "recommended_level": [25, 35],
+      "script": [
+        {
+          "step": 1,
+          "type": "cutscene",
+          "content": "东海之滨，波涛汹涌。远处海底，隐约可见一座宏伟的水晶宫殿。",
+          "narration": "你来到东海海岸，紫云宫就在深海之中。"
+        },
+        {
+          "step": 2,
+          "type": "dialogue",
+          "speaker": "qi_lingyun",
+          "text": "紫云宫就在海底。这里有水遁符，可以助你潜入。"
+        },
+        {
+          "step": 3,
+          "type": "item_get",
+          "item": "water_breathing_pill",
+          "description": "获得避水珠 - 可在水中自由呼吸"
+        },
+        {
+          "step": 4,
+          "type": "transition",
+          "method": "dive",
+          "target": "underwater_palace"
+        },
+        {
+          "step": 5,
+          "type": "cutscene",
+          "content": "水下世界色彩斑斓，紫云宫散发着柔和的光芒。",
+          "narration": "你潜入深海，紫云宫的宏伟渐渐展现在眼前。"
+        },
+        {
+          "step": 6,
+          "type": "battle",
+          "enemies": ["water_demon", "sea_serpent"],
+          "count": 8,
+          "location": "palace_entrance"
+        },
+        {
+          "step": 7,
+          "type": "puzzle",
+          "puzzle_type": "water_formation",
+          "description": "破解水系阵法",
+          "solution": "按照水流动向调整机关"
+        },
+        {
+          "step": 8,
+          "type": "dialogue",
+          "speaker": "golden_whisker_servant",
+          "text": "你是峨眉派的人？我是金须奴，紫云宫的侍者。方初凤姐姐在里面..."
+        },
+        {
+          "step": 9,
+          "type": "choice",
+          "choices": [
+            {"text": "我与方初凤一战", "result": "battle_route"},
+            {"text": "我想和平解决", "result": "negotiate_route"}
+          ]
+        },
+        {
+          "step": 10,
+          "type": "branch_battle",
+          "branches": {
+            "battle_route": [
+              {
+                "step": 10.1,
+                "type": "boss_battle",
+                "boss": "fang_chufeng",
+                "location": "throne_room"
+              },
+              {
+                "step": 10.2,
+                "type": "boss_battle",
+                "boss": "fang_sanfeng",
+                "location": "throne_room",
+                "trigger": "fang_chufeng_defeated"
+              }
+            ],
+            "negotiate_route": [
+              {
+                "step": 10.1,
+                "type": "dialogue",
+                "speaker": "fang_chufeng",
+                "text": "你愿意和平解决？...好，我愿意归顺峨眉派。"
+              },
+              {
+                "step": 10.2,
+                "type": "cutscene",
+                "content": "秦氏姐妹表示愿意改邪归正，紫云宫成为峨眉行宫。",
+                "narration": "紫云宫之战，和平结束。"
+              }
+            ]
+          }
+        },
+        {
+          "step": 11,
+          "type": "cutscene",
+          "content": "紫云宫中，弥尘幡散发着奇异的光芒...",
+          "narration": "你获得了紫云宫的控制权，这里将成为峨眉派的行宫。"
+        },
+        {
+          "step": 12,
+          "type": "item_get",
+          "item": "michen_banner",
+          "description": "获得弥尘幡 - 可瞬移和储物的法宝"
+        },
+        {
+          "step": 13,
+          "type": "base_unlock",
+          "base": "ziyun_palace",
+          "description": "紫云宫成为你的基地"
+        },
+        {
+          "step": 14,
+          "type": "quest_completed",
+          "quest_id": "mq_012"
+        }
+      ],
+      "enemies": [
+        {"id": "water_demon", "count": 15, "respawn": true},
+        {"id": "sea_serpent", "count": 10, "respawn": true},
+        {"id": "fang_chufeng", "count": 1, "respawn": false, "type": "boss"},
+        {"id": "fang_sanfeng", "count": 1, "respawn": false, "type": "boss"},
+        {"id": "golden_whisker_servant", "count": 1, "respawn": false, "type": "neutral"}
+      ],
+      "npcs": [
+        {"id": "qi_lingyun", "location": "coast", "type": "quest_giver"},
+        {"id": "qin_ziling", "location": "throne_room", "type": "after_battle_ally"},
+        {"id": "qin_hane", "location": "garden", "type": "after_battle_ally"}
+      ],
+      "treasures": [
+        {"id": "chest_007", "location": "treasure_room", "items": ["gold_1000", "water_element_essence", "sea_dragon_scale"]},
+        {"id": "chest_008", "location": "secret_chamber", "items": ["michen_banner", "purple_cloud_pearl"]}
+      ],
+      "save_points": ["palace_entrance", "throne_room"],
+      "special_mechanics": ["underwater_breathing", "water_formation_puzzle"]
+    },
+    {
+      "id": "huanbo_pool",
+      "name": "幻波池",
+      "chapter": "第二卷",
+      "description": "圣姑伽因所建仙府，设有五行仙遁禁制",
+      "recommended_level": [35, 45],
+      "script": [
+        {
+          "step": 1,
+          "type": "cutscene",
+          "content": "幻波池隐于山林之中，池水波光粼粼，却暗藏玄机。",
+          "narration": "你来到幻波池，圣姑伽因的传承就在其中。"
+        },
+        {
+          "step": 2,
+          "type": "dialogue",
+          "speaker": "yi_jing",
+          "text": "我是易静，幻波池的守护者之一。圣姑的传承在池底，但需要破解五行仙遁。"
+        },
+        {
+          "step": 3,
+          "type": "tutorial",
+          "tutorial_type": "five_element",
+          "content": "学习五行系统：金克木、木克土、土克水、水克火、火克金"
+        },
+        {
+          "step": 4,
+          "type": "puzzle",
+          "puzzle_type": "five_element_formation",
+          "description": "破解五行仙遁第一层 - 金行",
+          "solution": "使用火系法术攻击金门"
+        },
+        {
+          "step": 5,
+          "type": "battle",
+          "enemies": ["metal_guardian"],
+          "count": 3,
+          "location": "metal_room"
+        },
+        {
+          "step": 6,
+          "type": "puzzle",
+          "puzzle_type": "five_element_formation",
+          "description": "破解五行仙遁第二层 - 木行",
+          "solution": "使用金系法术攻击木门"
+        },
+        {
+          "step": 7,
+          "type": "battle",
+          "enemies": ["wood_guardian"],
+          "count": 3,
+          "location": "wood_room"
+        },
+        {
+          "step": 8,
+          "type": "puzzle",
+          "puzzle_type": "five_element_formation",
+          "description": "破解五行仙遁第三层 - 水行",
+          "solution": "使用土系法术攻击水门"
+        },
+        {
+          "step": 9,
+          "type": "battle",
+          "enemies": ["water_guardian"],
+          "count": 3,
+          "location": "water_room"
+        },
+        {
+          "step": 10,
+          "type": "puzzle",
+          "puzzle_type": "five_element_formation",
+          "description": "破解五行仙遁第四层 - 火行",
+          "solution": "使用水系法术攻击火门"
+        },
+        {
+          "step": 11,
+          "type": "battle",
+          "enemies": ["fire_guardian"],
+          "count": 3,
+          "location": "fire_room"
+        },
+        {
+          "step": 12,
+          "type": "puzzle",
+          "puzzle_type": "five_element_formation",
+          "description": "破解五行仙遁第五层 - 土行",
+          "solution": "使用木系法术攻击土门"
+        },
+        {
+          "step": 13,
+          "type": "battle",
+          "enemies": ["earth_guardian"],
+          "count": 3,
+          "location": "earth_room"
+        },
+        {
+          "step": 14,
+          "type": "cutscene",
+          "content": "五行仙遁全破，池底露出一条通道...",
+          "narration": "你成功破解了五行仙遁，通往圣姑传承的道路打开了。"
+        },
+        {
+          "step": 15,
+          "type": "dialogue",
+          "speaker": "shenggu_shiyin",
+          "text": "（影像）你是何人？...嗯，根骨深厚，心性纯良。吾乃圣姑伽因，愿传你五行仙遁。"
+        },
+        {
+          "step": 16,
+          "type": "trial",
+          "trial_type": "heart_seal",
+          "description": "通过心灵禁制试炼",
+          "enemies": ["inner_demon"]
+        },
+        {
+          "step": 17,
+          "type": "boss_battle",
+          "boss": "cui_ying",
+          "location": "core_chamber",
+          "cutscene_before": {
+            "content": "一个美艳的女子出现在面前，眼中却闪烁着邪恶的光芒...",
+            "narration": "艳尸崔盈！她占据了幻波池！"
+          }
+        },
+        {
+          "step": 18,
+          "type": "cutscene",
+          "content": "艳尸崔盈被打败，圣姑的传承终于归于正道...",
+          "narration": "你获得了圣姑的认可，幻波池成为你的修炼之地。"
+        },
+        {
+          "step": 19,
+          "type": "item_get",
+          "item": "seven_treasure_gold_banner",
+          "description": "获得七宝金幢 - 佛门顶级法宝"
+        },
+        {
+          "step": 20,
+          "type": "base_unlock",
+          "base": "huanbo_pool",
+          "description": "幻波池成为你的基地"
+        },
+        {
+          "step": 21,
+          "type": "quest_completed",
+          "quest_id": "mq_014"
+        }
+      ],
+      "enemies": [
+        {"id": "metal_guardian", "count": 5, "respawn": true},
+        {"id": "wood_guardian", "count": 5, "respawn": true},
+        {"id": "water_guardian", "count": 5, "respawn": true},
+        {"id": "fire_guardian", "count": 5, "respawn": true},
+        {"id": "earth_guardian", "count": 5, "respawn": true},
+        {"id": "corrupted_spirit", "count": 15, "respawn": true},
+        {"id": "cui_ying", "count": 1, "respawn": false, "type": "boss"}
+      ],
+      "npcs": [
+        {"id": "yi_jing", "location": "entrance", "type": "ally"},
+        {"id": "laigu", "location": "training_ground", "type": "ally"},
+        {"id": "shenggu_shiyin", "location": "core_chamber", "type": "projection"}
+      ],
+      "treasures": [
+        {"id": "chest_009", "location": "metal_room", "items": ["gold_element_essence", "gold_500"]},
+        {"id": "chest_010", "location": "wood_room", "items": ["wood_element_essence", "spirit_herb"]},
+        {"id": "chest_011", "location": "water_room", "items": ["water_element_essence", "ice_crystal"]},
+        {"id": "chest_012", "location": "fire_room", "items": ["fire_element_essence", "fire_crystal"]},
+        {"id": "chest_013", "location": "earth_room", "items": ["earth_element_essence", "spirit_stone"]},
+        {"id": "chest_014", "location": "core_chamber", "items": ["seven_treasure_gold_banner", "five_element_escape_manual"]}
+      ],
+      "save_points": ["entrance", "five_element_hall", "core_chamber"],
+      "special_mechanics": ["five_element_puzzle", "heart_seal_trial"]
+    },
+    {
+      "id": "baiman_yinfeng_cave",
+      "name": "百蛮山阴风洞",
+      "chapter": "第三卷",
+      "description": "绿袍老祖的巢穴，阴森恐怖的魔道禁地",
+      "recommended_level": [45, 55],
+      "script": [
+        {
+          "step": 1,
+          "type": "cutscene",
+          "content": "百蛮山阴云密布，阴风洞中传来阵阵鬼哭狼嚎之声。",
+          "narration": "你来到绿袍老祖的巢穴，这里充满了邪恶的气息。"
+        },
+        {
+          "step": 2,
+          "type": "dialogue",
+          "speaker": "xuanzhen_zi",
+          "text": "这里是绿袍老祖的巢穴。我们三仙二老已布下两仪微尘阵，只待他出来！"
+        },
+        {
+          "step": 3,
+          "type": "battle",
+          "enemies": ["golden_silkworm_gu"],
+          "count": 20,
+          "location": "cave_entrance",
+          "cutscene_before": {
+            "content": "无数金色的蛊虫如潮水般涌来...",
+            "narration": "百毒金蚕蛊！剧毒无比！"
+          }
+        },
+        {
+          "step": 4,
+          "type": "explore",
+          "area": "yinfeng_cave",
+          "objectives": ["清除蛊虫", "寻找绿袍老祖", "解救被困之人"],
+          "enemies": ["golden_silkworm_gu", "demon_disciple", "poison_spider"]
+        },
+        {
+          "step": 5,
+          "type": "trap",
+          "trap_type": "poison_gas",
+          "description": "毒气陷阱",
+          "solution": "使用解毒丹或快速通过"
+        },
+        {
+          "step": 6,
+          "type": "boss_battle",
+          "boss": "green_robe_disciple_leader",
+          "location": "inner_cave",
+          "cutscene_before": {
+            "content": "一个绿袍弟子冷笑着拦住去路...",
+            "narration": "\"想见我师尊？先过我这关！\""
+          }
+        },
+        {
+          "step": 7,
+          "type": "cutscene",
+          "content": "洞穴深处，绿袍老祖端坐在血池之上...",
+          "narration": "绿袍老祖！他的身上散发着浓烈的阴气！"
+        },
+        {
+          "step": 8,
+          "type": "dialogue",
+          "speaker": "green_robe_ancestor",
+          "text": "（阴森森）哦？有人闯入本座的阴风洞？...哈哈哈！正好，本座的金蚕蛊饿了！"
+        },
+        {
+          "step": 9,
+          "type": "boss_battle",
+          "boss": "green_robe_ancestor",
+          "phase": 1,
+          "description": "绿袍老祖第一形态"
+        },
+        {
+          "step": 10,
+          "type": "cutscene",
+          "content": "绿袍老祖身受重伤，但玄牝珠飞出，化为第二元神！",
+          "narration": "他的元神分裂了！这是玄牝大法！"
+        },
+        {
+          "step": 11,
+          "type": "boss_battle",
+          "boss": "green_robe_ancestor",
+          "phase": 2,
+          "description": "绿袍老祖第二形态 - 元神分裂"
+        },
+        {
+          "step": 12,
+          "type": "cutscene",
+          "content": "绿袍老祖元神被击溃，两仪微尘阵启动！",
+          "narration": "三仙二老合力启动阵法，绿袍老祖被困！"
+        },
+        {
+          "step": 13,
+          "type": "cutscene",
+          "content": "阵法中，绿袍老祖的身体逐渐被炼化...",
+          "narration": "\"两仪微尘阵...炼化本座...不...本座不甘...不甘...\""
+        },
+        {
+          "step": 14,
+          "type": "item_get",
+          "item": "xuanbi_pearl",
+          "description": "获得玄牝珠 - 可化为第二元神的法宝"
+        },
+        {
+          "step": 15,
+          "type": "quest_completed",
+          "quest_id": "mq_015"
+        }
+      ],
+      "enemies": [
+        {"id": "golden_silkworm_gu", "count": 50, "respawn": true},
+        {"id": "demon_disciple", "count": 15, "respawn": true},
+        {"id": "poison_spider", "count": 10, "respawn": true},
+        {"id": "green_robe_disciple_leader", "count": 1, "respawn": false, "type": "mini_boss"},
+        {"id": "green_robe_ancestor", "count": 1, "respawn": false, "type": "boss", "phases": 2}
+      ],
+      "npcs": [
+        {"id": "xuanzhen_zi", "location": "cave_entrance", "type": "ally"},
+        {"id": "zhuiyun_sou", "location": "formation_point", "type": "ally"}
+      ],
+      "treasures": [
+        {"id": "chest_015", "location": "treasure_room", "items": ["xuanbi_pearl", "gu_poison_antidote", "gold_1000"]},
+        {"id": "chest_016", "location": "secret_chamber", "items": ["demon_core", "poison_essence"]}
+      ],
+      "save_points": ["cave_entrance", "inner_cave"],
+      "danger_level": "extreme",
+      "special_mechanics": ["poison_trap", "boss_phases", "formation_ultimate"]
+    }
+  ],
+  "level_types": {
+    "tutorial": "新手教学关卡",
+    "exploration": "探索型关卡",
+    "combat": "战斗型关卡",
+    "puzzle": "解谜型关卡",
+    "boss": "BOSS关卡",
+    "mixed": "综合型关卡"
+  },
+  "script_elements": {
+    "cutscene": "过场动画",
+    "dialogue": "NPC对话",
+    "tutorial": "教学环节",
+    "battle": "战斗",
+    "boss_battle": "BOSS战",
+    "explore": "探索",
+    "puzzle": "解谜",
+    "quest": "任务触发",
+    "item_get": "获得物品",
+    "transition": "场景转换",
+    "choice": "玩家选择",
+    "branch_battle": "分支战斗"
+  },
+  "notes": [
+    "共设计6个主要关卡剧本",
+    "覆盖序章到第三卷的主要剧情",
+    "包含教学、探索、战斗、解谜等多种玩法",
+    "每个关卡都有详细的步骤设计"
+  ]
+}

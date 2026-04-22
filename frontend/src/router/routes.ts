@@ -21,6 +21,12 @@ export const routes: RouteRecordRaw[] = [
     ],
   },
   {
+    path: '/game',
+    name: 'Game',
+    component: () => import('@/views/game/GameView.vue'),
+    meta: { title: '游戏', fullScreen: true, public: true },
+  },
+  {
     path: '/',
     name: 'Layout',
     component: () => import('../components/layout/AppLayout/AppLayout.vue'),

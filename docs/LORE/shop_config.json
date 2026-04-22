@@ -1,0 +1,197 @@
+{
+  "source": "《蜀山剑侠传》还珠楼主",
+  "last_updated": "2026-04-22",
+  "shops": [
+    {
+      "id": "shushan_blacksmith",
+      "name": "蜀山铁匠铺",
+      "location": "shushan_foot",
+      "keeper": "铁匠老张",
+      "description": "山脚下唯一的铁匠铺，提供基础的武器装备",
+      "type": "weapon",
+      "items": [
+        {"item_id": "iron_sword", "name": "铁剑", "category": "武器", "price": 200, "stock": -1, "required_level": 1, "stats": {"attack": 10}},
+        {"item_id": "iron_blade", "name": "铁刀", "category": "武器", "price": 180, "stock": -1, "required_level": 1, "stats": {"attack": 8}},
+        {"item_id": "iron_staff", "name": "铁杖", "category": "武器", "price": 250, "stock": -1, "required_level": 1, "stats": {"attack": 12, "defense": 5}},
+        {"item_id": "steel_sword", "name": "钢剑", "category": "武器", "price": 500, "stock": 5, "required_level": 5, "stats": {"attack": 20, "critical": 5}, "requirements": ["wolf_fang x5"]},
+        {"item_id": "refined_steel_sword", "name": "精钢剑", "category": "武器", "price": 1000, "stock": 2, "required_level": 10, "stats": {"attack": 35, "critical": 8}, "requirements": ["wolf_fang x10", "spirit_iron x5"]},
+        {"item_id": "iron_armor", "name": "铁甲", "category": "防具", "price": 300, "stock": -1, "required_level": 1, "stats": {"defense": 15}},
+        {"item_id": "iron_helmet", "name": "铁盔", "category": "防具", "price": 150, "stock": -1, "required_level": 1, "stats": {"defense": 8}},
+        {"item_id": "iron_shield", "name": "铁盾", "category": "防具", "price": 200, "stock": -1, "required_level": 1, "stats": {"defense": 20, "block_rate": 10}}
+      ],
+      "services": [
+        {"service": "repair", "name": "装备修理", "price_formula": "item_price * 0.1"},
+        {"service": "upgrade", "name": "装备强化", "price_formula": "item_price * 0.5", "requirements": ["spirit_iron"]}
+      ]
+    },
+    {
+      "id": "shushan_medicine",
+      "name": "蜀山药铺",
+      "location": "shushan_foot",
+      "keeper": "药铺掌柜",
+      "description": "山中唯一的药铺，提供各类丹药药材",
+      "type": "medicine",
+      "items": [
+        {"item_id": "healing_pill", "name": "疗伤丹", "category": "丹药", "price": 50, "stock": -1, "effect": "恢复HP 100点"},
+        {"item_id": "qi_recovery_pill", "name": "回气丹", "category": "丹药", "price": 80, "stock": -1, "effect": "恢复MP 50点"},
+        {"item_id": "antidote_pill", "name": "解毒丹", "category": "丹药", "price": 100, "stock": -1, "effect": "解除中毒状态"},
+        {"item_id": "revival_pill", "name": "复活丹", "category": "丹药", "price": 500, "stock": 10, "effect": "复活倒地队友，恢复30%HP"},
+        {"item_id": "spirit_herb", "name": "灵草", "category": "材料", "price": 20, "stock": -1, "effect": "炼丹材料"},
+        {"item_id": "ginseng", "name": "人参", "category": "材料", "price": 100, "stock": 20, "effect": "炼丹材料，提升丹药效果"},
+        {"item_id": "dragon_blood_grass", "name": "龙血草", "category": "材料", "price": 500, "stock": 5, "effect": "稀有炼丹材料，用于炼制高级丹药"}
+      ],
+      "services": [
+        {"service": "alchemy", "name": "炼丹", "description": "使用材料炼制丹药", "price_formula": "base_cost + materials"}
+      ]
+    },
+    {
+      "id": "emei_item_shop",
+      "name": "峨眉杂物店",
+      "location": "ningbi_cliff",
+      "keeper": "杂货铺掌柜",
+      "description": "峨眉派内的杂货店，提供各类日常用品",
+      "type": "general",
+      "items": [
+        {"item_id": "travel_rations", "name": "行军粮", "category": "消耗品", "price": 10, "stock": -1, "effect": "恢复HP 10点/秒，持续10秒"},
+        {"item_id": "torch", "name": "火把", "category": "道具", "price": 20, "stock": -1, "effect": "照亮黑暗区域"},
+        {"item_id": "rope", "name": "绳索", "category": "道具", "price": 50, "stock": -1, "effect": "用于攀爬或捆绑"},
+        {"item_id": "map_emei", "name": "峨眉地图", "category": "道具", "price": 100, "stock": -1, "effect": "显示峨眉地区地图"},
+        {"item_id": "storage_bag_small", "name": "小型储物袋", "category": "容器", "price": 500, "stock": 10, "effect": "背包容量+10"},
+        {"item_id": "storage_bag_medium", "name": "中型储物袋", "category": "容器", "price": 2000, "stock": 5, "effect": "背包容量+20"},
+        {"item_id": "teleport_scroll", "name": "传送符", "category": "消耗品", "price": 300, "stock": 20, "effect": "传送回最近的存档点"}
+      ],
+      "services": [
+        {"service": "identify", "name": "物品鉴定", "price": 50, "description": "鉴定未知物品"}
+      ]
+    },
+    {
+      "id": "emei_skill_shop",
+      "name": "峨眉功法阁",
+      "location": "ningbi_cliff",
+      "keeper": "功法阁长老",
+      "description": "峨眉派功法传授之处，可用贡献点兑换功法",
+      "type": "skill",
+      "currency": "contribution_points",
+      "items": [
+        {"item_id": "basic_qi_cultivation", "name": "基础吐纳术", "category": "功法", "price": 100, "stock": -1, "effect": "学习基础吐纳术", "required_realm": "练气期"},
+        {"item_id": "emei_sword_basic", "name": "峨眉剑术·初窥", "category": "技能", "price": 200, "stock": -1, "effect": "学习峨眉基础剑术", "required_realm": "练气期"},
+        {"item_id": "emei_sword_intermediate", "name": "峨眉剑术·小成", "category": "技能", "price": 500, "stock": -1, "effect": "提升峨眉剑术", "required_realm": "筑基期", "prerequisites": ["emei_sword_basic"]},
+        {"item_id": "cloud_escape_art", "name": "云遁术", "category": "技能", "price": 800, "stock": -1, "effect": "学习云遁术，可短暂飞行", "required_realm": "筑基期"},
+        {"item_id": "five_element_escape_basic", "name": "五行遁术·入门", "category": "功法", "price": 1500, "stock": -1, "effect": "学习五行遁术基础", "required_realm": "筑基期"},
+        {"item_id": "ziying_sword_art", "name": "紫郢剑诀", "category": "技能", "price": 3000, "stock": -1, "effect": "学习紫郢剑诀", "required_realm": "金丹期", "prerequisites": ["emei_sword_intermediate"]},
+        {"item_id": "double_sword_fusion", "name": "双剑合璧", "category": "技能", "price": 5000, "stock": -1, "effect": "学习紫青双剑合璧", "required_realm": "元婴期", "prerequisites": ["ziying_sword_art", "qingsuo_sword_art"]}
+      ],
+      "services": [
+        {"service": "skill_reset", "name": "技能重置", "price": 1000, "description": "重置已学技能，返还部分贡献点"}
+      ]
+    },
+    {
+      "id": "ziyun_treasure_shop",
+      "name": "紫云宫宝库",
+      "location": "ziyun_palace",
+      "keeper": "金须奴",
+      "description": "紫云宫的宝库，出售水系法宝和稀有材料",
+      "type": "treasure",
+      "unlock_condition": "complete mq_012",
+      "items": [
+        {"item_id": "water_element_essence", "name": "水之精华", "category": "材料", "price": 500, "stock": 10, "effect": "炼制水系法宝的材料"},
+        {"item_id": "sea_dragon_scale", "name": "海龙鳞", "category": "材料", "price": 1000, "stock": 5, "effect": "炼制防具的稀有材料"},
+        {"item_id": "ice_crystal", "name": "冰晶", "category": "材料", "price": 800, "stock": 8, "effect": "炼制冰系法宝的材料"},
+        {"item_id": "water_breathing_pearl", "name": "避水珠", "category": "法宝", "price": 3000, "stock": 3, "effect": "在水中自由呼吸", "required_level": 20},
+        {"item_id": "wave_calling_drum", "name": "唤波鼓", "category": "法宝", "price": 5000, "stock": 2, "effect": "召唤水系攻击", "required_level": 30},
+        {"item_id": "frozen_sword", "name": "寒冰剑", "category": "武器", "price": 8000, "stock": 1, "effect": "冰系飞剑，附带冰冻效果", "required_level": 35, "stats": {"attack": 50, "ice_damage": 20}}
+      ],
+      "services": [
+        {"service": "treasure_identify", "name": "宝物鉴定", "price": 200, "description": "鉴定未知宝物"}
+      ]
+    },
+    {
+      "id": "huanbo_alchemy_shop",
+      "name": "幻波池炼丹房",
+      "location": "huanbo_pool",
+      "keeper": "圣姑影像",
+      "description": "幻波池的炼丹房，出售高级丹药和五行材料",
+      "type": "alchemy",
+      "unlock_condition": "complete mq_014",
+      "items": [
+        {"item_id": "gold_element_essence", "name": "金之精华", "category": "材料", "price": 800, "stock": 10, "effect": "五行材料·金"},
+        {"item_id": "wood_element_essence", "name": "木之精华", "category": "材料", "price": 800, "stock": 10, "effect": "五行材料·木"},
+        {"item_id": "water_element_essence_hq", "name": "水之精华(高品质)", "category": "材料", "price": 1200, "stock": 8, "effect": "五行材料·水(高品质)"},
+        {"item_id": "fire_element_essence", "name": "火之精华", "category": "材料", "price": 800, "stock": 10, "effect": "五行材料·火"},
+        {"item_id": "earth_element_essence", "name": "土之精华", "category": "材料", "price": 800, "stock": 10, "effect": "五行材料·土"},
+        {"item_id": "golden_core", "name": "金丹", "category": "丹药", "price": 10000, "stock": 3, "effect": "突破到金丹期的必需品"},
+        {"item_id": "immortal_pill", "name": "仙丹", "category": "丹药", "price": 50000, "stock": 1, "effect": "全属性+100，突破成功率+20%"},
+        {"item_id": "reincarnation_pill", "name": "轮回丹", "category": "丹药", "price": 100000, "stock": 1, "effect": "复活后不损失经验，保留全部装备"}
+      ],
+      "services": [
+        {"service": "high_level_alchemy", "name": "高级炼丹", "description": "炼制高级丹药", "unlock_level": 40}
+      ]
+    },
+    {
+      "id": "wandering_merchant",
+      "name": "神秘行商",
+      "location": "roaming",
+      "keeper": "神秘商人",
+      "description": "四处游荡的神秘商人，出售稀有物品",
+      "type": "special",
+      "spawn_locations": ["shushan_foot", "ningbi_cliff", "ziyun_palace", "huanbo_pool"],
+      "spawn_time": "random",
+      "items": [
+        {"item_id": "mysterious_box", "name": "神秘宝箱", "category": "道具", "price": 1000, "stock": 1, "effect": "随机开出稀有物品"},
+        {"item_id": "rare_skill_scroll", "name": "稀有技能卷轴", "category": "道具", "price": 5000, "stock": 1, "effect": "随机学习一个稀有技能"},
+        {"item_id": "teleport_stone", "name": "传送石", "category": "道具", "price": 2000, "stock": 3, "effect": "传送到任意已探索地点"},
+        {"item_id": "luck_charm", "name": "幸运符", "category": "道具", "price": 3000, "stock": 2, "effect": "提升掉落率20%，持续1小时"},
+        {"item_id": "experience_pill", "name": "经验丹", "category": "丹药", "price": 5000, "stock": 5, "effect": "获得1000点经验"},
+        {"item_id": "treasure_map", "name": "藏宝图", "category": "道具", "price": 10000, "stock": 1, "effect": "显示一个隐藏宝箱的位置"}
+      ],
+      "special_notes": "神秘行商随机出现，物品库存有限，错过可能不再出现"
+    },
+    {
+      "id": "demon_black_market",
+      "name": "魔道黑市",
+      "location": "baiman_yinfeng_cave",
+      "keeper": "神秘商人",
+      "description": "魔道黑市，出售一些见不得光的物品",
+      "type": "black_market",
+      "unlock_condition": "relation_demon >= 30 OR complete mq_015",
+      "items": [
+        {"item_id": "poison_needle", "name": "毒针", "category": "武器", "price": 2000, "stock": 10, "effect": "附带剧毒的暗器", "required_level": 30},
+        {"item_id": "demon_core", "name": "魔核", "category": "材料", "price": 3000, "stock": 5, "effect": "炼制魔道法宝的材料"},
+        {"item_id": "blood_pill", "name": "血丹", "category": "丹药", "price": 5000, "stock": 5, "effect": "临时提升攻击力50%，持续10分钟，副作用：HP上限-20%"},
+        {"item_id": "shadow_escape_art", "name": "影遁术", "category": "技能", "price": 10000, "stock": 1, "effect": "学习影遁术，隐身移动"},
+        {"item_id": "cursed_sword", "name": "诅咒之剑", "category": "武器", "price": 20000, "stock": 1, "effect": "威力强大但会侵蚀使用者心智", "required_level": 50}
+      ],
+      "special_notes": "黑市物品威力强大，但可能带来负面效果"
+    }
+  ],
+  "shop_categories": {
+    "weapon": "武器店",
+    "armor": "防具店",
+    "medicine": "药铺",
+    "general": "杂货店",
+    "skill": "功法阁",
+    "treasure": "宝库",
+    "alchemy": "炼丹房",
+    "special": "特殊商店",
+    "black_market": "黑市"
+  },
+  "currency_types": {
+    "gold": "金币 - 主要货币",
+    "contribution_points": "贡献点 - 门派货币，通过完成任务获得",
+    "spirit_stones": "灵石 - 高级货币，稀有物品交易",
+    "demon_coins": "魔币 - 黑市货币，通过击败魔道敌人获得"
+  },
+  "price_tiers": {
+    "cheap": "便宜 (<100金)",
+    "normal": "普通 (100-1000金)",
+    "expensive": "昂贵 (1000-10000金)",
+    "luxury": "奢侈品 (>10000金)"
+  },
+  "notes": [
+    "共设计8个商店，覆盖主要区域",
+    "商店类型多样：武器、药品、功法、宝库等",
+    "部分商店有解锁条件",
+    "神秘行商随机出现，增加游戏趣味性",
+    "黑市提供强力但有代价的物品"
+  ]
+}

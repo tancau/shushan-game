@@ -1,0 +1,97 @@
+{
+  "player_initial": {
+    "name": "无名弟子",
+    "level": 1,
+    "realm": "练气期",
+    "hp": 100,
+    "max_hp": 100,
+    "mp": 50,
+    "max_mp": 50,
+    "attack": 15,
+    "defense": 8,
+    "speed": 10,
+    "element": "metal",
+    "exp": 0,
+    "exp_to_level": 100,
+    "gold": 50,
+    "initial_skills": ["sword_slash", "heal"],
+    "initial_items": [
+      {"id": "hp_pill", "count": 5},
+      {"id": "mp_pill", "count": 3},
+      {"id": "starter_sword", "count": 1},
+      {"id": "cloth_armor", "count": 1}
+    ]
+  },
+  "level_up": {
+    "exp_formula": "level * 100",
+    "hp_gain": 15,
+    "mp_gain": 8,
+    "attack_gain": 3,
+    "defense_gain": 2,
+    "speed_gain": 1,
+    "skill_points_per_level": 1,
+    "stat_points_per_level": 2
+  },
+  "combat": {
+    "turn_order": "speed",
+    "max_party_size": 3,
+    "max_enemies": 5,
+    "flee_base_chance": 0.4,
+    "flee_speed_bonus": 0.02,
+    "flee_boss_disabled": true,
+    "critical_hit_chance": 0.1,
+    "critical_hit_multiplier": 1.5,
+    "dodge_chance": 0.05,
+    "element_advantage_multiplier": 1.5,
+    "element_disadvantage_multiplier": 0.6,
+    "defense_reduction": 0.5,
+    "min_damage": 1,
+    "status_effect_chance_base": 1.0,
+    "revive_hp_percent": 0.3
+  },
+  "damage_formula": {
+    "type": "standard",
+    "formula": "max(1, attack * skill_multiplier - defense * 0.5) * random(0.9, 1.1)",
+    "element_bonus": "* 1.5 if advantage, * 0.6 if disadvantage",
+    "critical_bonus": "* 1.5 if critical"
+  },
+  "game_settings": {
+    "fps": 60,
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "tile_size": 32,
+    "battle_animation_speed": 1.0,
+    "text_speed": 50,
+    "auto_save": true,
+    "auto_save_interval": 300,
+    "max_save_slots": 5,
+    "language": "zh-CN",
+    "difficulty": "normal",
+    "difficulty_settings": {
+      "easy": {"enemy_hp_multiplier": 0.7, "enemy_damage_multiplier": 0.7, "exp_multiplier": 1.3},
+      "normal": {"enemy_hp_multiplier": 1.0, "enemy_damage_multiplier": 1.0, "exp_multiplier": 1.0},
+      "hard": {"enemy_hp_multiplier": 1.5, "enemy_damage_multiplier": 1.3, "exp_multiplier": 0.8}
+    }
+  },
+  "rewards": {
+    "first_kill_bonus": 1.5,
+    "no_damage_bonus": 2.0,
+    "speed_kill_bonus_turns": 5,
+    "speed_kill_bonus": 1.3,
+    "exp_share_ratio": {
+      "active": 1.0,
+      "reserve": 0.5,
+      "dead": 0.0
+    }
+  },
+  "status_effects": {
+    "burn": {"damage_per_turn": 8, "duration": 3, "icon": "skill_fire"},
+    "poison": {"damage_per_turn": 6, "duration": 4, "icon": "skill_heal"},
+    "freeze": {"skip_turn": true, "duration": 2, "icon": "skill_ice"},
+    "stun": {"skip_turn": true, "duration": 1, "icon": "skill_thunder"},
+    "attack_up": {"stat": "attack", "value": 10, "duration": 3},
+    "defense_up": {"stat": "defense", "value": 15, "duration": 3},
+    "defense_down": {"stat": "defense", "value": -10, "duration": 2},
+    "shield": {"absorb_damage": 50, "duration": 3}
+  }
+}

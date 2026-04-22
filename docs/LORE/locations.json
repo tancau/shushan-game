@@ -1,0 +1,250 @@
+{
+  "source": "《蜀山剑侠传》还珠楼主",
+  "last_updated": "2026-04-22",
+  "locations": [
+    {
+      "name": "峨眉山",
+      "type": "山峰",
+      "region": "四川",
+      "danger_level": 1,
+      "inhabitants": ["峨眉派"],
+      "resources": ["灵气充沛", "仙药", "凝碧崖"],
+      "description": "蜀中有名的胜地。西蜀神权最胜，山上的庙宇寺观不下数百。峨眉派总坛所在。",
+      "key_areas": ["凝碧崖", "飞雷岭", "解脱庵"],
+      "game_role": "新手村，门派主基地"
+    },
+    {
+      "name": "凝碧崖",
+      "type": "洞府",
+      "region": "峨眉山",
+      "danger_level": 1,
+      "inhabitants": ["峨眉派弟子", "芝仙", "芝马"],
+      "resources": ["灵气充沛", "仙草"],
+      "description": "峨眉派核心区域，白眉和尚曾居于此。芝仙、芝马归附后迁至此处。",
+      "key_areas": ["芝仙洞府", "弟子修炼区"],
+      "game_role": "门派主殿，任务中心"
+    },
+    {
+      "name": "青城山",
+      "type": "山峰",
+      "region": "四川",
+      "danger_level": 2,
+      "inhabitants": ["青城派"],
+      "resources": ["灵气充沛", "金鞭崖"],
+      "description": "四川道教名山，青城派所在。极乐真人李静虚以道童形态游戏人间。",
+      "key_areas": ["金鞭崖", "长春岩无忧洞"],
+      "game_role": "青城派门派区域"
+    },
+    {
+      "name": "莽苍山",
+      "type": "山峰",
+      "region": "四川",
+      "danger_level": 5,
+      "inhabitants": ["袁星", "猩猿群", "妖兽"],
+      "resources": ["朱果", "万年温玉", "冰蚕", "紫郢剑(原)"],
+      "description": "李英琼奇遇之地。有风穴、灵玉崖等。袁星所率猩猿群居于此。",
+      "key_areas": ["风穴", "灵玉崖", "古洞"],
+      "game_role": "中级副本区域"
+    },
+    {
+      "name": "黄山",
+      "type": "山峰",
+      "region": "安徽",
+      "danger_level": 3,
+      "inhabitants": ["餐霞大师", "峨眉派女弟子"],
+      "resources": ["云海", "仙药"],
+      "description": "餐霞大师居于此，周轻云、朱文等师从餐霞大师。",
+      "key_areas": ["餐霞洞府"],
+      "game_role": "女弟子修炼区"
+    },
+    {
+      "name": "紫云宫",
+      "type": "水府",
+      "region": "东海海底",
+      "danger_level": 6,
+      "inhabitants": ["秦紫玲", "秦寒萼", "陆蓉波", "司徒平", "金须奴"],
+      "resources": ["海底宝物", "水系灵材"],
+      "description": "东海海底仙宫，原为方初凤姐妹所据，后被峨眉派收服。设有水系禁制。",
+      "key_areas": ["主殿", "后宫", "水牢"],
+      "game_role": "水系副本，门派行宫"
+    },
+    {
+      "name": "幻波池",
+      "type": "洞府",
+      "region": "川边",
+      "danger_level": 8,
+      "inhabitants": ["李英琼", "易静", "癞姑", "余英男", "上官红"],
+      "resources": ["五行宝物", "圣姑遗宝"],
+      "description": "圣姑伽因所建仙府，设有五行仙遁禁制。后由李英琼等人继承。",
+      "key_areas": ["五行仙遁", "圣姑法体", "宝库"],
+      "game_role": "高级副本，主角基地"
+    },
+    {
+      "name": "慈云寺",
+      "type": "寺庙",
+      "region": "成都附近",
+      "danger_level": 4,
+      "inhabitants": ["智通方丈(原)", "妖邪(原)"],
+      "resources": ["佛门宝物"],
+      "description": "原为五台派据点，智通方丈主持。正邪大战后归于正道。",
+      "key_areas": ["大殿", "后院", "藏经阁"],
+      "game_role": "早期主线副本"
+    },
+    {
+      "name": "百蛮山阴风洞",
+      "type": "洞府",
+      "region": "云南边界",
+      "danger_level": 9,
+      "inhabitants": ["绿袍老祖(原)", "蛊虫"],
+      "resources": ["蛊毒材料", "玄牝珠"],
+      "description": "绿袍老祖居所，极端阴森。培养百毒金蚕蛊之地。",
+      "key_areas": ["阴风洞", "蛊池", "炼魔场"],
+      "game_role": "绿袍老祖副本"
+    },
+    {
+      "name": "火云岭神剑峰阿修罗宫",
+      "type": "魔宫",
+      "region": "火云岭",
+      "danger_level": 10,
+      "inhabitants": ["尸毗老人", "田琪", "田瑶", "魔女明殊"],
+      "resources": ["魔道宝物", "阿修罗魔功"],
+      "description": "尸毗老人所居魔宫，得道已有千年，拥有不死之身。魔教第一人的驻地。",
+      "key_areas": ["主殿", "修炼场", "十三门恶阵"],
+      "game_role": "终极副本"
+    },
+    {
+      "name": "铜椰岛",
+      "type": "岛屿",
+      "region": "东海",
+      "danger_level": 7,
+      "inhabitants": ["天痴上人"],
+      "resources": ["千年铜椰木", "海底宝物"],
+      "description": "天痴上人所居，有千年铜椰木。神驼乙休曾与此地冲突后和解。",
+      "key_areas": ["主岛", "椰林"],
+      "game_role": "中级副本"
+    },
+    {
+      "name": "月儿岛",
+      "type": "岛屿",
+      "region": "东海",
+      "danger_level": 6,
+      "inhabitants": ["火无害(原)"],
+      "resources": ["火经", "鸳鸯霹雳剑", "太阳神针"],
+      "description": "连山大师火解之地，藏有众多火系宝物。火无害曾居于此。",
+      "key_areas": ["火穴", "藏宝洞"],
+      "game_role": "火系副本"
+    },
+    {
+      "name": "大荒山无终岭",
+      "type": "山峰",
+      "region": "大荒",
+      "danger_level": 8,
+      "inhabitants": ["枯竹老人"],
+      "resources": ["巽灵珠", "古仙人遗宝"],
+      "description": "枯竹老人隐居千余年之地，唐初以旁门成道。",
+      "key_areas": ["枯竹洞府"],
+      "game_role": "高级NPC区域"
+    },
+    {
+      "name": "小崆峒倚天崖龙象庵",
+      "type": "寺庙",
+      "region": "小崆峒",
+      "danger_level": 3,
+      "inhabitants": ["神尼芬陀", "杨瑾"],
+      "resources": ["佛门宝物", "昊天宝鉴", "九疑鼎"],
+      "description": "神尼芬陀所居，法力高深、威震群魔。杨瑾亦居于此。",
+      "key_areas": ["大殿", "修炼室"],
+      "game_role": "佛门NPC区域"
+    },
+    {
+      "name": "巫山神羊峰",
+      "type": "山峰",
+      "region": "巫山",
+      "danger_level": 5,
+      "inhabitants": ["神驼乙休"],
+      "resources": ["散仙宝物"],
+      "description": "神驼乙休所居，散仙中第一能手，拥有不死之身。",
+      "key_areas": ["乙休洞府"],
+      "game_role": "高级NPC区域"
+    },
+    {
+      "name": "红木岭神宫",
+      "type": "宫殿",
+      "region": "云南边界",
+      "danger_level": 6,
+      "inhabitants": ["红发老祖"],
+      "resources": ["天魔化血神刀", "千年蘘荷"],
+      "description": "红发老祖所居，本姓蓝。与白谷逸交好，惧怕枯竹老人。",
+      "key_areas": ["主殿", "神刀殿"],
+      "game_role": "中立NPC区域/副本"
+    },
+    {
+      "name": "小南极",
+      "type": "区域",
+      "region": "极南",
+      "danger_level": 9,
+      "inhabitants": ["千年寒蚿", "不夜城主钱康"],
+      "resources": ["冰系宝物", "寒蚿元婴"],
+      "description": "极南之地，有千年寒蚿。叶缤和凌云凤曾在此斩杀九烈神君之子。",
+      "key_areas": ["寒冰区域", "不夜城"],
+      "game_role": "高级冰系副本"
+    },
+    {
+      "name": "北海无定岛",
+      "type": "岛屿",
+      "region": "北海",
+      "danger_level": 8,
+      "inhabitants": ["陷空老祖"],
+      "resources": ["海底宝物", "冰系灵材"],
+      "description": "陷空老祖所居，两次指使峨嵋晚辈盗取自家的丹药。",
+      "key_areas": ["陷空洞府", "丹房"],
+      "game_role": "高级副本"
+    },
+    {
+      "name": "蚩尤墓穴",
+      "type": "古墓",
+      "region": "未知",
+      "danger_level": 10,
+      "inhabitants": ["无华氏", "戎敦", "穷奇"],
+      "resources": ["上古妖丹", "妖王之魂"],
+      "description": "蚩尤墓穴中的上古妖物，三人皆为古墓三尸。",
+      "key_areas": ["墓穴深处", "祭祀场"],
+      "game_role": "终极副本"
+    },
+    {
+      "name": "天风报馆",
+      "type": "城镇",
+      "region": "天津",
+      "danger_level": 1,
+      "inhabitants": ["凡人"],
+      "resources": ["无"],
+      "description": "《蜀山剑侠传》首次连载之地(现实)。游戏中可作为新手城镇。",
+      "key_areas": ["客栈", "集市"],
+      "game_role": "新手城镇"
+    }
+  ],
+  "location_categories": {
+    "山峰": "主要修炼区域",
+    "洞府": "仙人洞府，多为副本",
+    "水府": "海底仙宫",
+    "魔宫": "魔道据点",
+    "岛屿": "东海、北海岛屿",
+    "寺庙": "佛门修炼地",
+    "古墓": "上古遗迹"
+  },
+  "total_count": 20,
+  "danger_levels": {
+    "1": "安全区域",
+    "2-3": "低危区域",
+    "4-5": "中危区域",
+    "6-7": "高危区域",
+    "8-9": "极危区域",
+    "10": "终极副本"
+  },
+  "notes": [
+    "峨眉山为新手区和门派主基地",
+    "紫云宫和幻波池为主角后期基地",
+    "魔宫和古墓为高级副本",
+    "散仙洞府多为高级NPC区域"
+  ]
+}

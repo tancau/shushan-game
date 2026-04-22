@@ -1,0 +1,39 @@
+<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect x="0" y="0" width="200" height="60" rx="8" ry="8"
+        fill="url(#goldGradient)"
+        stroke="#8B4513"
+        stroke-width="2"
+        filter="url(#glow)"/>
+
+  <!-- 装饰边框 -->
+  <rect x="5" y="5" width="190" height="50" rx="5" ry="5"
+        fill="none"
+        stroke="#8B4513"
+        stroke-width="1"/>
+
+  <!-- 文字占位符 -->
+  <text x="100" y="38"
+        font-family="KaiTi, SimKai, serif"
+        font-size="20"
+        fill="#8B4513"
+        text-anchor="middle"
+        font-weight="bold">
+    门派按钮
+  </text>
+</svg>

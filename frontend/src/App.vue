@@ -1,29 +1,48 @@
 <template>
-  <router-view v-slot="{ Component }">
-    <transition name="page" mode="out-in">
-      <component :is="Component" />
-    </transition>
-  </router-view>
+  <div id="app">
+    <h1>蜀山剑侠传</h1>
+    <div id="game-container"></div>
+  </div>
 </template>
 
-<style lang="scss">
+<script setup lang="ts">
+import { onMounted } from 'vue'
+import { MenuScene } from './scenes/MenuScene'
+import { MapScene } from './scenes/MapScene'
+import { BattleScene } from './scenes/BattleScene'
+import Phaser from 'phaser'
+
+onMounted(() => {
+  const config: Phaser.Types.Core.GameConfig = {
+    type: Phaser.AUTO,
+    width: 800,
+    height: 600,
+    parent: 'game-container',
+    scene: [MenuScene, MapScene, BattleScene],
+    physics: {
+      default: 'arcade',
+      arcade: {
+        gravity: { y: 0 },
+        debug: false
+      }
+    }
+  }
+
+  new Phaser.Game(config)
+})
+</script>
+
+<style>
 #app {
-  min-height: 100vh;
-  background: var(--bg-primary);
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.page-enter-from {
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-.page-leave-to {
-  opacity: 0;
-  transform: translateY(-10px);
+#game-container {
+  margin: 0 auto;
 }
 </style>

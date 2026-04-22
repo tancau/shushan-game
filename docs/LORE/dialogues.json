@@ -1,0 +1,903 @@
+{
+  "source": "《蜀山剑侠传》还珠楼主",
+  "last_updated": "2026-04-22",
+  "npcs": [
+    {
+      "id": "li_yingqiong",
+      "name": "李英琼",
+      "role": "峨眉派三代弟子",
+      "title": "三英之首",
+      "personality": "爽朗直率，天资聪颖",
+      "dialogues": {
+        "first_meet": {
+          "text": "你便是新来的弟子？我乃峨眉李英琼，这把紫郢剑便是我本命飞剑。修行之路漫漫，你可有决心？",
+          "choices": [
+            {"text": "弟子愿入峨眉，勤修剑道", "response": "好！有此决心便好。我先带你熟悉山门。", "relation_change": 10},
+            {"text": "修仙为何？", "response": "求长生、护苍生、斩妖魔，三者缺一不可。", "relation_change": 5}
+          ]
+        },
+        "greeting": {
+          "text": "又来修炼了？今日天色不错，正适合练剑。"
+        },
+        "greeting_high_relation": {
+          "text": "师弟/师妹来得正好，我近日对剑道颇有感悟，不如切磋一番？"
+        },
+        "quest_available": {
+          "text": "山下来报，妖狼又在作祟。你可敢下山一探？",
+          "quest_id": "mq_001"
+        },
+        "quest_accepted": {
+          "text": "甚好！切记，修行之人当以斩妖除魔为己任。"
+        },
+        "quest_completed": {
+          "text": "做得好！这些妖物扰我山门清修，当诛！"
+        },
+        "quest_in_progress": {
+          "text": "怎的还未动手？莫非心生怯意？"
+        },
+        "battle_start": {
+          "text": "看我紫郢剑法！",
+          "battle_quotes": [
+            "紫郢出鞘，妖魔退散！",
+            "此剑在手，天下无敌！",
+            "今日便让你见识峨眉剑术！"
+          ]
+        },
+        "battle_victory": {
+          "text": "区区妖物，不过如此。"
+        },
+        "battle_defeat": {
+          "text": "今日技不如人，来日再战！"
+        },
+        "battle_low_hp": {
+          "text": "不可轻敌，此妖有些门道..."
+        },
+        "idle": [
+          "修炼之道，在于持之以恒。",
+          "我听闻紫云宫中有上古秘宝，不知何时能一探究竟。",
+          "长眉祖师留下的剑诀，我近日又有新悟。",
+          "钢羽今日精神抖擞，似有所感。",
+          "袁星那家伙，又在偷懒了。",
+          "修行三十载，终有所成，但距离大道尚远。"
+        ],
+        "goodbye": {
+          "text": "去吧，修行之路漫漫，切勿懈怠。"
+        },
+        "gift_accepted": {
+          "text": "多谢！此物于我修炼颇有助益。",
+          "items": ["spirit_herb", "sword_manual", "fire_essence"]
+        },
+        "gift_rejected": {
+          "text": "此物我无用，你且留着。"
+        },
+        "special_event_ziying": {
+          "text": "紫郢剑今日格外清鸣，似有感召..."
+        },
+        "special_event_shenggu": {
+          "text": "圣姑伽因的传承，我定不负所托。"
+        }
+      }
+    },
+    {
+      "id": "zhou_qingyun",
+      "name": "周轻云",
+      "role": "峨眉派二代弟子",
+      "title": "二云之一",
+      "personality": "温柔稳重，心思细腻",
+      "dialogues": {
+        "first_meet": {
+          "text": "你是新入门的师弟/师妹？我是周轻云，师从餐霞大师。修行路上若有不明之处，尽管问我。",
+          "choices": [
+            {"text": "多谢师姐指点", "response": "不必客气，同门之间互帮互助乃是应该。", "relation_change": 10},
+            {"text": "师姐修为如何？", "response": "惭愧，虽入门多年，但资质愚钝，修为尚浅。", "relation_change": 5}
+          ]
+        },
+        "greeting": {
+          "text": "今日修习可还顺利？"
+        },
+        "greeting_high_relation": {
+          "text": "师弟/师妹，我煮了些茶，不如一同品茗论道？"
+        },
+        "quest_available": {
+          "text": "有人在山中迷失，你可愿相助寻找？",
+          "quest_id": "sq_002"
+        },
+        "quest_accepted": {
+          "text": "多谢。山中危险，务必小心。"
+        },
+        "quest_completed": {
+          "text": "辛苦你了，这是些微薄谢礼。"
+        },
+        "quest_in_progress": {
+          "text": "可有线索？不必着急，稳扎稳打。"
+        },
+        "battle_start": {
+          "text": "青索剑，出！",
+          "battle_quotes": [
+            "剑随心走，心正剑正。",
+            "青索之威，今日便让你见识！",
+            "师门所授，不敢有失。"
+          ]
+        },
+        "battle_victory": {
+          "text": "幸好未辱使命。"
+        },
+        "battle_defeat": {
+          "text": "此番失利，当回去好好参悟。"
+        },
+        "battle_low_hp": {
+          "text": "情况有些不妙，需谨慎应对..."
+        },
+        "idle": [
+          "师门剑诀，需日日勤练。",
+          "听说紫云宫水系法术奇妙，不知何时能一观。",
+          "餐霞师尊教导，剑道在心不在形。",
+          "轻云不才，愿为师门分忧。",
+          "峨眉剑术，贵在精诚。",
+          "修行之人，当以慈悲为怀。"
+        ],
+        "goodbye": {
+          "text": "慢走，修行路上多保重。"
+        },
+        "special_event_qingsuo": {
+          "text": "青索剑与紫郢剑本是同源，若能双剑合璧..."
+        },
+        "romantic_hint": {
+          "text": "师弟/师妹，近日总觉心中有件事放不下...",
+          "condition": "relation >= 80"
+        }
+      }
+    },
+    {
+      "id": "yu_yingnan",
+      "name": "余英男",
+      "role": "峨眉派三代弟子",
+      "title": "三英之一",
+      "personality": "沉默寡言，外冷内热",
+      "dialogues": {
+        "first_meet": {
+          "text": "...你是新来的？",
+          "choices": [
+            {"text": "是的，请多指教", "response": "嗯。", "relation_change": 5},
+            {"text": "余师兄大名，早有耳闻", "response": "...不过是些虚名。", "relation_change": 10}
+          ]
+        },
+        "greeting": {
+          "text": "...来了。"
+        },
+        "greeting_high_relation": {
+          "text": "师弟/师妹...今日可要一同修炼？"
+        },
+        "quest_available": {
+          "text": "有人托我查探一事...你可愿相助？",
+          "quest_id": "sq_004"
+        },
+        "quest_accepted": {
+          "text": "多谢。"
+        },
+        "quest_completed": {
+          "text": "做得好。"
+        },
+        "quest_in_progress": {
+          "text": "继续。"
+        },
+        "battle_start": {
+          "text": "南明离火！",
+          "battle_quotes": [
+            "...死。",
+            "南明离火，焚尽一切。",
+            "剑出无悔。"
+          ]
+        },
+        "battle_victory": {
+          "text": "结束。"
+        },
+        "battle_defeat": {
+          "text": "...来日方长。"
+        },
+        "battle_low_hp": {
+          "text": "...不妙。"
+        },
+        "idle": [
+          "...",
+          "剑道在心，不在言。",
+          "南明离火剑，乃达摩祖师遗宝...",
+          "修行三十载，方知大道之艰。",
+          "沉默是金，多言必失。",
+          "英琼是我挚友，值得信任。"
+        ],
+        "goodbye": {
+          "text": "...保重。"
+        },
+        "backstory_hint": {
+          "text": "拜入峨眉之前...那段日子，不堪回首。",
+          "condition": "relation >= 60"
+        }
+      }
+    },
+    {
+      "id": "qi_lingyun",
+      "name": "齐灵云",
+      "role": "峨眉派二代弟子",
+      "title": "二云之一",
+      "personality": "端庄大方，老成持重",
+      "dialogues": {
+        "first_meet": {
+          "text": "你是新入门的弟子？我是齐灵云，妙一真人便是家父。日后同门修行，还望多多切磋。",
+          "choices": [
+            {"text": "弟子定当勤勉", "response": "甚好。师门有规矩，新弟子当先学基础，日后方能精进。", "relation_change": 10},
+            {"text": "齐师姐修为深厚", "response": "过誉了。不过是入门较早，多练了几日罢了。", "relation_change": 5}
+          ]
+        },
+        "greeting": {
+          "text": "今日修习如何？可有什么疑难？"
+        },
+        "greeting_high_relation": {
+          "text": "师弟/师妹，正好我有些门派事务想与你商议。"
+        },
+        "quest_available": {
+          "text": "紫云宫有些异动，你可愿前往查探？",
+          "quest_id": "mq_011"
+        },
+        "quest_accepted": {
+          "text": "此行凶险，务必谨慎。"
+        },
+        "quest_completed": {
+          "text": "辛苦了。此番收获颇丰，师门记你一功。"
+        },
+        "quest_in_progress": {
+          "text": "进展如何？有需要尽管开口。"
+        },
+        "battle_start": {
+          "text": "峨眉弟子，当仁不让！",
+          "battle_quotes": [
+            "紫云仙法，今日便让你见识！",
+            "师门威严，不容侵犯！",
+            "身为大师姐，当为同门表率！"
+          ]
+        },
+        "battle_victory": {
+          "text": "峨眉剑术，果然名不虚传。"
+        },
+        "battle_defeat": {
+          "text": "今日失利，当引以为戒。"
+        },
+        "battle_low_hp": {
+          "text": "诸弟小心，此敌不简单！"
+        },
+        "idle": [
+          "紫云宫事务繁杂，需妥善处理。",
+          "父亲常说，修行当循序渐进。",
+          "身为大师姐，当为同门分忧。",
+          "金蝉那孩子，总是让人放心不下。",
+          "紫云仙法，水系为上。",
+          "峨眉开府后，门派事务日渐繁重。"
+        ],
+        "goodbye": {
+          "text": "去吧，切勿懈怠。"
+        },
+        "leader_speech": {
+          "text": "诸位同门，今日一战，关乎师门荣誉，望大家全力以赴！"
+        }
+      }
+    },
+    {
+      "id": "qi_jinchan",
+      "name": "齐金蝉",
+      "role": "峨眉派二代弟子",
+      "title": "七矮之一",
+      "personality": "活泼好动，福缘深厚",
+      "dialogues": {
+        "first_meet": {
+          "text": "哎呀！新面孔！我是齐金蝉，灵云师姐是我亲姐姐。你来峨眉多久了？会什么剑法？",
+          "choices": [
+            {"text": "刚入门，还在学习基础", "response": "哈哈，不打紧！我教你几招！对了，你有没有见过朱文师姐？", "relation_change": 10},
+            {"text": "略懂一二", "response": "哦？那要不要比试比试？我鸳鸯霹雳剑可是很厉害的！", "relation_change": 15}
+          ]
+        },
+        "greeting": {
+          "text": "嘿！师弟/师妹！今天又有什么好玩的？"
+        },
+        "greeting_high_relation": {
+          "text": "师弟/师妹！正好！我发现了好玩的地方，一起去看看？"
+        },
+        "quest_available": {
+          "text": "听说山下来了个厉害的妖物！师弟/师妹要不要一起去见识见识？",
+          "quest_id": "mq_008"
+        },
+        "quest_accepted": {
+          "text": "太好了！走！我带你飞！"
+        },
+        "quest_completed": {
+          "text": "哈哈！太刺激了！下次再来！"
+        },
+        "quest_in_progress": {
+          "text": "师弟/师妹快点！我都等不及了！"
+        },
+        "battle_start": {
+          "text": "鸳鸯霹雳剑！接招！",
+          "battle_quotes": [
+            "雷来！哈哈哈！",
+            "看我双剑合璧！",
+            "金蝉出剑，天下无双！"
+          ]
+        },
+        "battle_victory": {
+          "text": "哈哈！太弱了太弱了！还有没有更强的？"
+        },
+        "battle_defeat": {
+          "text": "哼！下次一定赢回来！"
+        },
+        "battle_low_hp": {
+          "text": "哎呀！有点不妙啊师弟/师妹！"
+        },
+        "idle": [
+          "石生那家伙又躲哪去了？",
+          "天啸剑今天格外兴奋！",
+          "姐姐总是唠叨，真是的...",
+          "朱文师姐...嘿嘿...",
+          "听说光明境有很多宝贝！好想去看看！",
+          "我可是福星！跟着我准没错！"
+        ],
+        "goodbye": {
+          "text": "下次再一起玩啊师弟/师妹！"
+        },
+        "special_event_zhuwen": {
+          "text": "朱文师姐...我愿意为她放弃一切...",
+          "condition": "relation >= 70"
+        }
+      }
+    },
+    {
+      "id": "changmei_zhenren",
+      "name": "长眉真人",
+      "role": "峨眉派开派祖师",
+      "title": "峨眉开派祖师",
+      "personality": "威严慈祥，道法通玄",
+      "dialogues": {
+        "first_meet": {
+          "text": "（影像）来者何人？...原来是新入门的弟子。吾乃长眉，虽已飞升，但留影像于凝碧崖，指点后辈。",
+          "choices": [
+            {"text": "弟子拜见祖师", "response": "起来吧。修行之道，在于心诚。吾观你根骨尚可，当勤加修炼。", "relation_change": 10},
+            {"text": "祖师法力如何？", "response": "（微笑）法力不过是末节。真正的大道，在于心境。", "relation_change": 5}
+          ]
+        },
+        "greeting": {
+          "text": "又是你...可有什么收获？"
+        },
+        "greeting_high_relation": {
+          "text": "你的进步吾都看在眼里。继续努力。"
+        },
+        "wisdom_teaching": {
+          "text": "剑者，心也。心正则剑正，心邪则剑邪。此乃剑道之根本。"
+        },
+        "battle_guidance": {
+          "text": "紫郢青索，双剑合璧，天下无敌。但切记，剑乃凶器，非不得已不可轻用。"
+        },
+        "idle": [
+          "大道三千，殊途同归。",
+          "峨眉弟子，当以匡扶正道为己任。",
+          "第三次斗剑，将是正邪终局...",
+          "紫郢青索，吾留于世间，只为斩妖除魔。",
+          "修行百年，不如悟道一日。",
+          "李英琼那孩子，根骨深厚，未来可期。"
+        ],
+        "goodbye": {
+          "text": "去吧，修行路上，勿忘初心。"
+        },
+        "secret_revealed": {
+          "text": "紫郢剑中藏有吾一道神念，危急时刻或可助你一臂之力。",
+          "condition": "relation >= 90"
+        }
+      }
+    },
+    {
+      "id": "miaoyi_zhenren",
+      "name": "妙一真人",
+      "role": "峨眉派掌门",
+      "title": "乾坤正气妙一真人",
+      "personality": "沉稳睿智，正道领袖",
+      "dialogues": {
+        "first_meet": {
+          "text": "你是新入门的弟子？好。峨眉门规森严，当恪守正道，勤勉修行。",
+          "choices": [
+            {"text": "弟子定当遵循教诲", "response": "甚好。先去领入门功法，日后若有疑问，可来问吾。", "relation_change": 10},
+            {"text": "掌门修为如何？", "response": "修行在于修心，不在境界高低。你且去吧。", "relation_change": 5}
+          ]
+        },
+        "greeting": {
+          "text": "弟子来访，可有事要禀报？"
+        },
+        "greeting_high_relation": {
+          "text": "你的进步吾甚欣慰。峨眉有你，实乃门派之幸。"
+        },
+        "quest_available": {
+          "text": "慈云寺那帮邪魔又在蠢蠢欲动...你可愿前往查探？",
+          "quest_id": "mq_008"
+        },
+        "quest_accepted": {
+          "text": "此行凶险，务必小心。峨眉弟子，不可辱没师门。"
+        },
+        "quest_completed": {
+          "text": "做得好！此功记于门派功劳簿。"
+        },
+        "quest_in_progress": {
+          "text": "进展如何？若有难处，尽管开口。"
+        },
+        "battle_start": {
+          "text": "邪魔外道，今日便让你见识峨眉正道！",
+          "battle_quotes": [
+            "乾坤正气，斩妖除魔！",
+            "峨眉开府以来，正道昌盛！",
+            "先天一气大擒拿！"
+          ]
+        },
+        "battle_victory": {
+          "text": "正道必胜，邪魔必败！"
+        },
+        "battle_defeat": {
+          "text": "今日虽败，正道不灭！"
+        },
+        "battle_low_hp": {
+          "text": "诸位弟子小心！"
+        },
+        "idle": [
+          "门派事务繁杂，需妥善处理。",
+          "灵云稳重，金蝉活泼，各有千秋。",
+          "正邪大战将至，当未雨绸缪。",
+          "李英琼那孩子，天赋异禀，乃峨眉之幸。",
+          "开府大典即将来临，需做准备。",
+          "五台派许飞娘...此人不可不防。"
+        ],
+        "goodbye": {
+          "text": "去吧，勿忘师门教诲。"
+        },
+        "major_announcement": {
+          "text": "诸位弟子！峨眉开府在即！天下群仙将齐聚一堂，届时正邪决战，关乎天下苍生！"
+        }
+      }
+    },
+    {
+      "id": "zhuiyun_sou",
+      "name": "追云叟白谷逸",
+      "role": "峨眉派初代弟子",
+      "title": "东海三仙之一、嵩山二老之一",
+      "personality": "嗜酒如命，古怪幽默",
+      "dialogues": {
+        "first_meet": {
+          "text": "（醉醺醺）哈！新面孔！来来来，陪老夫喝两杯！什么？不喝酒？那你还修什么仙！",
+          "choices": [
+            {"text": "弟子愿意一试", "response": "哈哈！痛快！来，干了这杯！好！好！你小子有前途！", "relation_change": 15},
+            {"text": "弟子不善饮酒", "response": "切...无趣！罢了，修行也好修行也好。", "relation_change": 5}
+          ]
+        },
+        "greeting": {
+          "text": "又是你...来来来，老夫刚弄到一坛好酒！"
+        },
+        "greeting_high_relation": {
+          "text": "哈哈！你来了！今天咱们不醉不归！"
+        },
+        "quest_available": {
+          "text": "老夫听说山下有妖物作祟...你愿意去看看吗？",
+          "quest_id": "sq_003"
+        },
+        "quest_accepted": {
+          "text": "好！去吧去吧！老夫再喝两杯等你！"
+        },
+        "quest_completed": {
+          "text": "不错不错！来，这壶酒赏你！...什么？你不喝酒？浪费！"
+        },
+        "quest_in_progress": {
+          "text": "还没回来？老夫酒都醒了..."
+        },
+        "battle_start": {
+          "text": "老夫久不出手了！今天就拿你练练！",
+          "battle_quotes": [
+            "云遁术！哈哈！你打不到我！",
+            "老夫醉剑，天下无双！",
+            "喝酒喝酒！打完再喝！"
+          ]
+        },
+        "battle_victory": {
+          "text": "哈哈！老夫宝刀未老！"
+        },
+        "battle_defeat": {
+          "text": "喝多了...下次再战！"
+        },
+        "battle_low_hp": {
+          "text": "哎呀！酒劲过了...不太妙..."
+        },
+        "idle": [
+          "好酒！好酒！",
+          "雪鸿啊雪鸿...你何时才能转世归来？",
+          "矮子朱梅，那家伙还是那么啰嗦。",
+          "修行修行...不如喝酒！",
+          "云遁术啊...老夫的看家本领！",
+          "峨眉的弟子们，一个个都太正经了！"
+        ],
+        "goodbye": {
+          "text": "去吧去吧！记得带酒回来！"
+        },
+        "sad_moment": {
+          "text": "凌雪鸿...老妻啊...你何时才能回来...",
+          "condition": "relation >= 60"
+        }
+      }
+    },
+    {
+      "id": "canxia_dashi",
+      "name": "餐霞大师",
+      "role": "峨眉派初代弟子",
+      "title": "黄山首座",
+      "personality": "慈祥严格，教导有方",
+      "dialogues": {
+        "first_meet": {
+          "text": "你是新入门的弟子？吾乃餐霞，居于黄山。周轻云、朱文皆是吾弟子。",
+          "choices": [
+            {"text": "弟子拜见大师", "response": "起来吧。女弟子修行不易，需更加努力。你若有心，可来黄山听讲。", "relation_change": 10},
+            {"text": "大师专修何种功法？", "response": "霞光遁法，乃吾毕生所学。若你有缘，日后或可传授。", "relation_change": 5}
+          ]
+        },
+        "greeting": {
+          "text": "弟子来访，可有什么疑难？"
+        },
+        "greeting_high_relation": {
+          "text": "你的进步吾甚欣慰。继续努力，日后定有所成。"
+        },
+        "quest_available": {
+          "text": "黄山有些妖物出没，你可愿协助清理？",
+          "quest_id": "sq_002"
+        },
+        "quest_accepted": {
+          "text": "好。切记，修行之人当以斩妖除魔为己任。"
+        },
+        "quest_completed": {
+          "text": "做得好！这些妖物扰我清修，当诛！"
+        },
+        "quest_in_progress": {
+          "text": "可有进展？稳扎稳打，不可急躁。"
+        },
+        "battle_start": {
+          "text": "霞光万丈！妖魔退散！",
+          "battle_quotes": [
+            "黄山弟子，当仁不让！",
+            "霞光遁法，来去无踪！",
+            "师门剑术，今日便让你见识！"
+          ]
+        },
+        "battle_victory": {
+          "text": "区区妖物，何足挂齿！"
+        },
+        "battle_defeat": {
+          "text": "此番失利，当回去好好参悟。"
+        },
+        "battle_low_hp": {
+          "text": "有些棘手...需小心应对。"
+        },
+        "idle": [
+          "修行之路漫漫，需日日精进。",
+          "轻云那孩子，修为进步很快。",
+          "朱文...希望她能早日了却心愿。",
+          "神尼优昙师尊的教诲，吾不敢忘。",
+          "女弟子修行不易，需加倍努力。",
+          "霞光遁法，乃吾毕生所学。"
+        ],
+        "goodbye": {
+          "text": "去吧，修行路上勿懈怠。"
+        },
+        "teaching_moment": {
+          "text": "剑道在心，心正剑正。此乃修行之根本。"
+        }
+      }
+    },
+    {
+      "id": "blood_god_dengyin",
+      "name": "血神子邓隐",
+      "role": "魔教巨擘",
+      "title": "四大妖孽之一",
+      "personality": "阴沉狠辣，野心勃勃",
+      "dialogues": {
+        "first_meet": {
+          "text": "（血影飘忽）哦？峨眉的弟子？长眉那个老鬼的徒子徒孙...哈哈哈！今日便送你去见他！",
+          "choices": [
+            {"text": "邪魔外道，人人得而诛之！", "response": "哈哈哈！好一个正义凛然！今日便让你见识血影神光的厉害！", "relation_change": -20},
+            {"text": "你是何人？", "response": "吾乃血神子邓隐！长眉那个老鬼的师弟！今日便是你的忌日！", "relation_change": -10}
+          ]
+        },
+        "greeting": {
+          "text": "（冷笑）又来了一个送死的。"
+        },
+        "taunt": {
+          "text": "峨眉剑术？不过是花拳绣腿！看我血影神光！"
+        },
+        "battle_start": {
+          "text": "血影神光！死！",
+          "battle_quotes": [
+            "哈哈哈！你逃不掉的！",
+            "血海无边，回头无岸！",
+            "吾已舍弃肉身，你如何能杀吾？！",
+            "长眉老鬼！吾今日便要毁你峨眉基业！"
+          ]
+        },
+        "battle_victory": {
+          "text": "哈哈哈！区区峨眉弟子，不过如此！"
+        },
+        "battle_defeat": {
+          "text": "可恶！吾乃不死之身！终有一日要回来复仇！"
+        },
+        "battle_low_hp": {
+          "text": "佛门心灯？！不可能！"
+        },
+        "idle": [
+          "长眉老鬼...吾恨你入骨！",
+          "血影神光，乃吾毕生心血！",
+          "峨眉...终有一日要覆灭！",
+          "舍弃肉身，方得永生！",
+          "四大妖孽...吾为最！",
+          "血海深仇，不共戴天！"
+        ],
+        "final_words": {
+          "text": "佛火心灯...哈哈哈！吾命休矣！但...峨眉...吾还会回来的..."
+        }
+      }
+    },
+    {
+      "id": "green_robe_ancestor",
+      "name": "绿袍老祖",
+      "role": "魔教巨擘",
+      "title": "四大妖孽之一",
+      "personality": "阴险毒辣，极度残忍",
+      "dialogues": {
+        "first_meet": {
+          "text": "（阴森森）哦？有人闯入本座的阴风洞？...哈哈哈！正好，本座的金蚕蛊饿了！",
+          "choices": [
+            {"text": "绿袍老祖！今日便是你的死期！", "response": "哈哈哈！好大的口气！本座修行数百载，会怕你一个小辈？！", "relation_change": -20},
+            {"text": "此处阴森恐怖...", "response": "怕了？哈哈哈！太晚了！既来之，则安之，做本座金蚕蛊的口粮吧！", "relation_change": -10}
+          ]
+        },
+        "greeting": {
+          "text": "（阴笑）又来了送死的...很好很好..."
+        },
+        "taunt": {
+          "text": "玄牝大法！本座不死不灭！"
+        },
+        "battle_start": {
+          "text": "百毒金蚕蛊！吃掉他！",
+          "battle_quotes": [
+            "哈哈哈！感受剧毒的滋味吧！",
+            "玄牝珠！本座的第二元神！",
+            "阴风洞中，本座无敌！",
+            "本座被极乐道人斩做两截，又如何？今日便要你性命！"
+          ]
+        },
+        "battle_victory": {
+          "text": "哈哈哈！又多了具尸体喂养金蚕蛊！"
+        },
+        "battle_defeat": {
+          "text": "两仪微尘阵？！不...不可能！本座不甘心！"
+        },
+        "battle_low_hp": {
+          "text": "本座的元神...可分可合...你杀不死本座！"
+        },
+        "idle": [
+          "玄牝大法，乃吾毕生绝学！",
+          "百毒金蚕蛊...哈哈哈！",
+          "师文恭那个废物，死得好！",
+          "极乐道人...本座要你死！",
+          "阴风洞中，遍地尸骨...都是本座的杰作！",
+          "四大妖孽？本座不屑与之为伍！"
+        ],
+        "final_words": {
+          "text": "两仪微尘阵...炼化本座...不...本座不甘...不甘..."
+        }
+      }
+    },
+    {
+      "id": "demon_corpse_guchen",
+      "name": "妖尸谷辰",
+      "role": "魔教巨擘",
+      "title": "四大妖孽之一",
+      "personality": "狂妄自大，不死不灭",
+      "dialogues": {
+        "first_meet": {
+          "text": "（尸气森森）哈哈哈！又有人来送死？长眉老鬼杀吾一次，但吾秉天地极戾之气复活！今日便要峨眉血债血偿！",
+          "choices": [
+            {"text": "妖尸！今日便要让你彻底灰飞烟灭！", "response": "哈哈哈！口气不小！吾乃不死之身！你如何能杀吾？！", "relation_change": -20},
+            {"text": "你如何复活的？", "response": "天地极戾之气！哈哈哈！吾乃天选！你等凡夫俗子，岂能理解！", "relation_change": -10}
+          ]
+        },
+        "greeting": {
+          "text": "（狂笑）来得好！吾正愁无处发泄！"
+        },
+        "taunt": {
+          "text": "长眉老鬼的弟子？正好！吾要让他后悔封印吾！"
+        },
+        "battle_start": {
+          "text": "玄阴炼魂聚魄大阵！起！",
+          "battle_quotes": [
+            "玄阴聚兽幡！召唤万千妖魂！",
+            "吾乃不死！你如何能杀吾？！",
+            "天地极戾！吾即天意！",
+            "黑煞丝！缚！"
+          ]
+        },
+        "battle_victory": {
+          "text": "哈哈哈！又多了个冤魂！"
+        },
+        "battle_defeat": {
+          "text": "紫青双剑？！吾的肉身...不！吾的元神还在！吴立！救吾！"
+        },
+        "battle_low_hp": {
+          "text": "紫郢青索...不可能！那两把剑...不是封印了吗？！"
+        },
+        "idle": [
+          "长眉老鬼...吾恨你！",
+          "百年禁锢...百年仇恨！",
+          "玄阴聚兽幡...八十一面！",
+          "天地极戾之气...赐吾新生！",
+          "四大妖孽？吾乃最强！",
+          "吴立...那家伙还算有点用..."
+        ],
+        "final_words": {
+          "text": "紫青双剑合璧...吾的肉身...但元神还在！吾还会回来的！哈哈哈！"
+        }
+      }
+    },
+    {
+      "id": "blacksmith_zhang",
+      "name": "铁匠老张",
+      "role": "功能NPC",
+      "title": "蜀山铁匠铺",
+      "personality": "热心粗犷，技艺精湛",
+      "dialogues": {
+        "first_meet": {
+          "text": "哟！新面孔！看你这身板，是来修仙的吧？我是老张，这铁匠铺的掌柜。需要打造什么尽管说！",
+          "choices": [
+            {"text": "我想打造一把剑", "response": "好说好说！不过得先有材料。你去山里猎些妖兽，把材料带回来，我给你打造！"},
+            {"text": "有什么需要帮忙的吗？", "response": "哦？倒是有个事儿...最近狼牙紧缺，你要是能帮我收集些，我给你打造把好剑！", "quest_id": "sq_001"}
+          ]
+        },
+        "greeting": {
+          "text": "来了？今天要打点什么？"
+        },
+        "quest_available": {
+          "text": "师弟/师妹，又来帮忙了？正好，最近狼牙紧缺...",
+          "quest_id": "sq_001"
+        },
+        "quest_accepted": {
+          "text": "好！去山里猎狼，带5个狼牙回来！"
+        },
+        "quest_completed": {
+          "text": "不错不错！这狼牙质量上乘！来，这把钢剑给你！"
+        },
+        "quest_in_progress": {
+          "text": "狼牙还没收集够？慢慢来，不急。"
+        },
+        "forge_menu": {
+          "text": "打造菜单：\n1. 铁剑 (200金)\n2. 钢剑 (500金 + 5狼牙)\n3. 精钢剑 (1000金 + 10狼牙 + 精铁)\n4. 法宝 (特殊材料)\n选哪个？"
+        },
+        "upgrade_weapon": {
+          "text": "这把剑可以升级！不过需要：\n- 精铁 x5\n- 火之精华 x3\n- 1000金\n要升级吗？"
+        },
+        "idle": [
+          "叮当！叮当！（打铁声）",
+          "好剑需要好材料！",
+          "山里的妖兽，皮毛骨头都是宝贝！",
+          "我老张的手艺，蜀山第一！",
+          "修仙也要好武器啊！",
+          "最近生意不错，哈哈！"
+        ],
+        "goodbye": {
+          "text": "慢走！有需要再来！"
+        }
+      }
+    },
+    {
+      "id": "medicine_shop_owner",
+      "name": "药铺掌柜",
+      "role": "功能NPC",
+      "title": "蜀山药铺",
+      "personality": "谨慎细心，医术高明",
+      "dialogues": {
+        "first_meet": {
+          "text": "（抬头看你）哦，新来的修仙者？我是这药铺的掌柜。需要什么药材尽管说。",
+          "choices": [
+            {"text": "我想买些丹药", "response": "好说。疗伤丹、回气丹、解毒丹都有。你要哪种？"},
+            {"text": "有什么需要帮忙的吗？", "response": "倒是有...最近山下瘟疫流行，需要大量灵草制药。你要是能帮我采集些，我给你些丹药作为谢礼。", "quest_id": "sq_002"}
+          ]
+        },
+        "greeting": {
+          "text": "来了？需要什么药材？"
+        },
+        "quest_available": {
+          "text": "师弟/师妹，又来帮忙了？灵草还缺很多...",
+          "quest_id": "sq_002"
+        },
+        "quest_accepted": {
+          "text": "去山上采集10株灵草，越快越好！"
+        },
+        "quest_completed": {
+          "text": "太好了！有了这些灵草，能救不少人！来，这些丹药给你！"
+        },
+        "quest_in_progress": {
+          "text": "灵草还没采够？山上应该不少，仔细找找。"
+        },
+        "shop_menu": {
+          "text": "丹药菜单：\n1. 疗伤丹 (50金) - 恢复HP\n2. 回气丹 (80金) - 恢复MP\n3. 解毒丹 (100金) - 解除中毒\n4. 复活丹 (500金) - 复活队友\n要买哪个？"
+        },
+        "idle": [
+          "医者仁心...",
+          "灵草要趁新鲜用，疗效才好。",
+          "最近山下病人不少，丹药紧缺。",
+          "修行也要注意身体啊。",
+          "这株灵草...品质不错。",
+          "炼丹之道，在于火候。"
+        ],
+        "goodbye": {
+          "text": "慢走，身体要紧。"
+        }
+      }
+    },
+    {
+      "id": "guide_npc",
+      "name": "引路人",
+      "role": "功能NPC",
+      "title": "蜀山引路人",
+      "personality": "和蔼耐心，见多识广",
+      "dialogues": {
+        "first_meet": {
+          "text": "年轻人，你也是来蜀山求道的？我叫老王，在这山脚做了几十年引路人。看你骨骼清奇，是块修仙的好料子！",
+          "choices": [
+            {"text": "我想上山拜师", "response": "好！峨眉派在凝碧崖，我带你去！不过山上有妖狼出没，你需小心。"},
+            {"text": "蜀山有哪些门派？", "response": "这蜀山最出名的便是峨眉派，正道领袖！此外还有青城派、武当派等。你想入哪个门派？"}
+          ]
+        },
+        "greeting": {
+          "text": "又见面了！修行可还顺利？"
+        },
+        "tutorial_combat": {
+          "text": "第一次战斗？别怕！记住：\n1. 先观察敌人弱点\n2. 合理使用技能\n3. 注意自己的血量\n4. 善用丹药\n试试看！"
+        },
+        "tutorial_exploration": {
+          "text": "探索时要留意：\n1. 宝箱可能藏在角落\n2. 有些NPC会给你任务\n3. 地图上标注重要地点\n4. 随时存档！"
+        },
+        "direction_guide": {
+          "text": "你想去哪里？\n1. 凝碧崖 - 峨眉派所在\n2. 莽苍山 - 传说有宝剑\n3. 慈云寺 - 五台派据点\n4. 紫云宫 - 东海水府"
+        },
+        "idle": [
+          "蜀山的美景，百看不厌。",
+          "年轻人，修行要稳扎稳打。",
+          "这山里妖兽不少，小心些。",
+          "我在这做了几十年引路人，什么大风大浪都见过。",
+          "峨眉派是正道领袖，跟着他们准没错。",
+          "山上气候多变，记得带伞。"
+        ],
+        "goodbye": {
+          "text": "去吧，年轻人，修仙路上多保重！"
+        }
+      }
+    }
+  ],
+  "dialogue_types": {
+    "first_meet": "初次见面对话",
+    "greeting": "日常问候",
+    "greeting_high_relation": "好感度高时问候",
+    "quest_available": "有任务可接",
+    "quest_accepted": "接受任务",
+    "quest_completed": "完成任务",
+    "quest_in_progress": "任务进行中",
+    "battle_start": "战斗开始",
+    "battle_victory": "战斗胜利",
+    "battle_defeat": "战斗失败",
+    "battle_low_hp": "血量低时",
+    "idle": "闲聊台词",
+    "goodbye": "告别",
+    "special_event": "特殊事件触发"
+  },
+  "notes": [
+    "对话内容参考《蜀山剑侠传》原著风格",
+    "主要角色15个，覆盖主角、长老、反派、功能NPC",
+    "对话包含选择分支，影响好感度",
+    "特殊对话需要一定好感度触发"
+  ]
+}

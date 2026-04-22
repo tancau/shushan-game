@@ -1,0 +1,359 @@
+{
+  "source": "《蜀山剑侠传》还珠楼主",
+  "last_updated": "2026-04-22",
+  "skills": [
+    {
+      "name": "峨眉剑术",
+      "type": "剑法",
+      "element": "金",
+      "rank": "门派基础",
+      "effects": ["飞剑攻击", "剑气远程", "御剑术"],
+      "requirements": "峨眉派弟子",
+      "description": "峨眉派基础剑术，正道正宗。",
+      "game_role": "基础剑术技能"
+    },
+    {
+      "name": "紫郢剑法",
+      "type": "剑法",
+      "element": "金",
+      "rank": "顶级",
+      "effects": ["紫色剑芒", "双剑合璧", "万邪不侵"],
+      "requirements": "紫郢剑持有者",
+      "description": "配合紫郢剑的专属剑法，威力极大。",
+      "game_role": "主角专属技能"
+    },
+    {
+      "name": "青索剑法",
+      "type": "剑法",
+      "element": "木",
+      "rank": "顶级",
+      "effects": ["青色剑芒", "双剑合璧", "斩妖除魔"],
+      "requirements": "青索剑持有者",
+      "description": "配合青索剑的专属剑法。",
+      "game_role": "主角可选技能"
+    },
+    {
+      "name": "南明离火剑诀",
+      "type": "剑法",
+      "element": "火",
+      "rank": "顶级",
+      "effects": ["离火剑芒", "火系伤害", "破魔"],
+      "requirements": "南明离火剑持有者",
+      "description": "配合南明离火剑的专属剑诀，火系最强。",
+      "game_role": "火系主角技能"
+    },
+    {
+      "name": "鸳鸯霹雳剑法",
+      "type": "剑法",
+      "element": "雷",
+      "rank": "上品",
+      "effects": ["风雷之声", "双剑配合", "雷系伤害"],
+      "requirements": "鸳鸯霹雳剑持有者",
+      "description": "雌雄双剑配合的剑法，发出风雷霹雳之声。",
+      "game_role": "雷系技能"
+    },
+    {
+      "name": "无形仙剑",
+      "type": "剑法",
+      "element": "无形",
+      "rank": "顶级",
+      "effects": ["无声无息", "无影无形", "暗杀"],
+      "requirements": "苦行头陀传承",
+      "description": "采三千六百种灵药、吸日月精英与西方太乙精金炼成，用时无声无息。",
+      "game_role": "高级暗杀技能"
+    },
+    {
+      "name": "太乙分光剑",
+      "type": "剑法",
+      "element": "五行",
+      "rank": "上品",
+      "effects": ["分光化影", "多目标攻击"],
+      "requirements": "武当派弟子",
+      "description": "武当派所传《炼魔剑诀》炼成。",
+      "game_role": "武当派技能"
+    },
+    {
+      "name": "五行仙遁",
+      "type": "法术",
+      "element": "五行",
+      "rank": "顶级",
+      "effects": ["金木水火土遁术", "空间转换", "阵法破解"],
+      "requirements": "幻波池传承",
+      "description": "圣姑伽因所创，五行遁术的最高境界。",
+      "game_role": "高级遁术/破阵"
+    },
+    {
+      "name": "先天乙木遁法",
+      "type": "法术",
+      "element": "木",
+      "rank": "顶级",
+      "effects": ["木遁", "植物控制", "治愈"],
+      "requirements": "圣姑传承",
+      "description": "圣姑伽因擅长的心灵禁制与木系遁法。",
+      "game_role": "木系遁法"
+    },
+    {
+      "name": "血影神光",
+      "type": "法术",
+      "element": "血",
+      "rank": "魔道顶级",
+      "effects": ["血影分身", "元神吸收", "不死"],
+      "requirements": "血神子传承",
+      "description": "剥去人皮将血身炼化成一个血影，扑身而上，透身而过，能将对方元神精气全部收去。",
+      "game_role": "魔道终极技能"
+    },
+    {
+      "name": "玄牝大法",
+      "type": "法术",
+      "element": "阴",
+      "rank": "魔道顶级",
+      "effects": ["第二元神", "元神分裂", "不死"],
+      "requirements": "绿袍老祖传承",
+      "description": "绿袍老祖所炼魔功，可化为第二元神。",
+      "game_role": "魔道元神技能"
+    },
+    {
+      "name": "九子母天魔",
+      "type": "法术",
+      "element": "阴",
+      "rank": "魔道顶级",
+      "effects": ["召唤九子母阴魔", "元神摄夺", "魅惑"],
+      "requirements": "鸠盘婆传承",
+      "description": "鸠盘婆炼就的顶级魔功，可召唤九子母阴魔。",
+      "game_role": "魔道召唤技能"
+    },
+    {
+      "name": "五行真气太乙神雷",
+      "type": "法术",
+      "element": "五行",
+      "rank": "顶级",
+      "effects": ["神雷攻击", "破邪", "大范围伤害"],
+      "requirements": "苦行头陀传承",
+      "description": "五行真气凝炼的神雷，威力极大。",
+      "game_role": "高级雷法"
+    },
+    {
+      "name": "乾天一元神雷霹雳子",
+      "type": "法术",
+      "element": "雷",
+      "rank": "顶级",
+      "effects": ["神雷霹雳", "爆力极大"],
+      "requirements": "圣姑传承",
+      "description": "圣姑伽因以无上法在两天交界中收敛将发未发的雷电之气凝炼而成。",
+      "game_role": "顶级雷法"
+    },
+    {
+      "name": "元磁神雷",
+      "type": "法术",
+      "element": "阴",
+      "rank": "顶级",
+      "effects": ["专收五金制炼之宝", "收法宝"],
+      "requirements": "特殊传承",
+      "description": "太阴元磁之气凝炼，专收五金制炼之宝。",
+      "game_role": "收宝技能"
+    },
+    {
+      "name": "都天烈火阵",
+      "type": "阵法",
+      "element": "火",
+      "rank": "顶级",
+      "effects": ["纯火攻击", "大范围伤害", "困敌"],
+      "requirements": "华山派传承",
+      "description": "华山派镇山阵法，纯以火攻。",
+      "game_role": "火系阵法"
+    },
+    {
+      "name": "两仪微尘阵",
+      "type": "阵法",
+      "element": "阴阳",
+      "rank": "顶级",
+      "effects": ["分生死幻灭晦明六门", "炼化妖魔", "困敌"],
+      "requirements": "峨眉派传承",
+      "description": "最厉害的阵法，曾以此阵炼化绿袍老祖。",
+      "game_role": "终极阵法"
+    },
+    {
+      "name": "大须弥正反九宫仙阵",
+      "type": "阵法",
+      "element": "五行",
+      "rank": "顶级",
+      "effects": ["神妙莫测", "变幻无方"],
+      "requirements": "特殊传承",
+      "description": "仅次于微尘阵的强大阵法。",
+      "game_role": "高级阵法"
+    },
+    {
+      "name": "先天元磁大阵",
+      "type": "阵法",
+      "element": "阴",
+      "rank": "顶级",
+      "effects": ["元磁真气", "困敌", "破法宝"],
+      "requirements": "天痴上人传承",
+      "description": "以元磁真气参合乙木真气，九宫三才方位组成。",
+      "game_role": "高级阵法"
+    },
+    {
+      "name": "佛门心法",
+      "type": "法术",
+      "element": "佛",
+      "rank": "顶级",
+      "effects": ["降魔", "驱邪", "护心神"],
+      "requirements": "佛门传承",
+      "description": "佛门心法，可克制魔道。",
+      "game_role": "佛门技能"
+    },
+    {
+      "name": "无相神光",
+      "type": "法术",
+      "element": "佛",
+      "rank": "顶级",
+      "effects": ["隐身", "护体", "降魔"],
+      "requirements": "忍大师传承",
+      "description": "忍大师所传，隐现随心，奇妙无比。",
+      "game_role": "佛门遁术"
+    },
+    {
+      "name": "心光遁法",
+      "type": "法术",
+      "element": "佛",
+      "rank": "顶级",
+      "effects": ["心到身到", "念到即至", "瞬移"],
+      "requirements": "佛门传承",
+      "description": "佛门最快遁法，心到身到，念到即至。",
+      "game_role": "佛门瞬移"
+    },
+    {
+      "name": "灵光遁法",
+      "type": "法术",
+      "element": "道",
+      "rank": "顶级",
+      "effects": ["瞬移", "逃生"],
+      "requirements": "玄门传承",
+      "description": "玄门最快遁法。",
+      "game_role": "道门瞬移"
+    },
+    {
+      "name": "颠倒乾坤五行移行大法",
+      "type": "法术",
+      "element": "五行",
+      "rank": "顶级",
+      "effects": ["空间转换", "挪移"],
+      "requirements": "特殊传承",
+      "description": "可以将人物空间任易转换挪移的法术。",
+      "game_role": "空间法术"
+    },
+    {
+      "name": "小转轮三相化生妙法",
+      "type": "法术",
+      "element": "佛",
+      "rank": "顶级",
+      "effects": ["历劫三生", "自转轮回", "脱胎换骨"],
+      "requirements": "佛门高深传承",
+      "description": "能移后做前，预修来世，在石火电光弹指之间，历劫三生。",
+      "game_role": "佛门终极技能"
+    },
+    {
+      "name": "大五行绝灭光针",
+      "type": "法术",
+      "element": "五行",
+      "rank": "顶级",
+      "effects": ["无量七色银光针", "射骨骨消", "射形形灭"],
+      "requirements": "玄门最高传承",
+      "description": "玄门最高法术，被射中，射骨骨消，射形形灭。",
+      "game_role": "玄门终极技能"
+    },
+    {
+      "name": "离合神光",
+      "type": "法术",
+      "element": "火",
+      "rank": "顶级",
+      "effects": ["佛火", "阳罡之气", "炼化"],
+      "requirements": "特殊传承",
+      "description": "参先天坎离妙用，阳罡之气炼成的佛火。",
+      "game_role": "火系终极技能"
+    },
+    {
+      "name": "有无相护身神光",
+      "type": "法术",
+      "element": "佛",
+      "rank": "顶级",
+      "effects": ["护身", "隐现随心"],
+      "requirements": "佛门传承",
+      "description": "佛门护身神光，隐现随心，奇妙无比。",
+      "game_role": "佛门防御技能"
+    },
+    {
+      "name": "七煞形音",
+      "type": "法术",
+      "element": "音",
+      "rank": "魔道顶级",
+      "effects": ["摄魂", "音波攻击"],
+      "requirements": "鸠盘婆传承",
+      "description": "发出各种怪异之声，敌人如一应声，魂魄立为所摄。",
+      "game_role": "魔道音波技能"
+    },
+    {
+      "name": "西方天龙禅唱",
+      "type": "法术",
+      "element": "音",
+      "rank": "顶级",
+      "effects": ["勾动心神", "自化成灰", "破法宝"],
+      "requirements": "佛门传承",
+      "description": "梵唱之声，能把人唱得骨软如绵，如痴如醉，勾动心神，自化成灰。",
+      "game_role": "佛门音波技能"
+    },
+    {
+      "name": "丹道基础",
+      "type": "丹道",
+      "element": "五行",
+      "rank": "基础",
+      "effects": ["炼丹", "药理"],
+      "requirements": "门派弟子",
+      "description": "炼丹基础知识，可炼制各种丹药。",
+      "game_role": "生活技能"
+    },
+    {
+      "name": "器道基础",
+      "type": "炼器",
+      "element": "五行",
+      "rank": "基础",
+      "effects": ["炼器", "法宝修复"],
+      "requirements": "门派弟子",
+      "description": "炼器基础知识，可炼制法宝。",
+      "game_role": "生活技能"
+    },
+    {
+      "name": "阵法基础",
+      "type": "阵法",
+      "element": "五行",
+      "rank": "基础",
+      "effects": ["布阵", "破阵"],
+      "requirements": "门派弟子",
+      "description": "阵法基础知识，可布设简单阵法。",
+      "game_role": "生活技能"
+    }
+  ],
+  "skill_categories": {
+    "剑法": "蜀山世界核心战斗技能",
+    "法术": "各种道法、魔功、佛门心法",
+    "阵法": "布阵困敌、破阵",
+    "丹道": "炼制丹药",
+    "炼器": "炼制法宝",
+    "遁术": "移动、逃生技能",
+    "音波": "特殊攻击方式"
+  },
+  "total_count": 33,
+  "rank_levels": {
+    "顶级": "威力最大，多为祖师级传承",
+    "上品": "威力强大，门派核心传承",
+    "中品": "普通门派技能",
+    "门派基础": "门派弟子入门技能",
+    "基础": "生活技能基础"
+  },
+  "notes": [
+    "剑法为蜀山世界核心战斗方式",
+    "五行相克：金克木、木克土、土克水、水克火、火克金",
+    "佛门心法克制魔道",
+    "阵法需要多人配合或高深修为"
+  ]
+}

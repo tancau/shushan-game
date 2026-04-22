@@ -1,0 +1,93 @@
+{
+  "skills": [
+    {
+      "id": "sword_slash",
+      "name": "剑斩",
+      "type": "attack",
+      "damage": 50,
+      "mp_cost": 0,
+      "element": "metal",
+      "description": "基础剑术攻击"
+    },
+    {
+      "id": "fireball",
+      "name": "火球术",
+      "type": "attack",
+      "damage": 80,
+      "mp_cost": 20,
+      "element": "fire",
+      "description": "火属性伤害"
+    },
+    {
+      "id": "ice_shield",
+      "name": "冰冻术",
+      "type": "attack",
+      "damage": 60,
+      "mp_cost": 25,
+      "element": "water",
+      "description": "水属性伤害"
+    },
+    {
+      "id": "heal",
+      "name": "治疗",
+      "type": "heal",
+      "heal": 100,
+      "mp_cost": 30,
+      "description": "恢复100点HP"
+    },
+    {
+      "id": "bite",
+      "name": "撕咬",
+      "type": "attack",
+      "damage": 25,
+      "mp_cost": 0,
+      "element": "wood",
+      "description": "妖狼的撕咬"
+    },
+    {
+      "id": "claw",
+      "name": "利爪",
+      "type": "attack",
+      "damage": 20,
+      "mp_cost": 0,
+      "element": "wood",
+      "description": "妖狼的利爪攻击"
+    },
+    {
+      "id": "slash",
+      "name": "斩击",
+      "type": "attack",
+      "damage": 30,
+      "mp_cost": 0,
+      "element": "metal",
+      "description": "山贼的斩击"
+    },
+    {
+      "id": "throw",
+      "name": "投掷",
+      "type": "attack",
+      "damage": 25,
+      "mp_cost": 0,
+      "element": "metal",
+      "description": "山贼投掷飞刀"
+    },
+    {
+      "id": "charge",
+      "name": "冲撞",
+      "type": "attack",
+      "damage": 35,
+      "mp_cost": 0,
+      "element": "earth",
+      "description": "野猪的冲撞攻击"
+    },
+    {
+      "id": "combo",
+      "name": "连斩",
+      "type": "attack",
+      "damage": 45,
+      "mp_cost": 5,
+      "element": "metal",
+      "description": "剑灵的连续斩击"
+    }
+  ]
+}

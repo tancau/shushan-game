@@ -1,0 +1,367 @@
+{
+  "source": "《蜀山剑侠传》还珠楼主",
+  "last_updated": "2026-04-22",
+  "recipes": [
+    {
+      "id": "recipe_001",
+      "name": "离火剑炼制",
+      "category": "武器",
+      "materials": [
+        {"item_id": "fire_element_essence", "name": "火之精华", "count": 3},
+        {"item_id": "spirit_iron", "name": "精铁", "count": 5},
+        {"item_id": "wolf_fang", "name": "狼牙", "count": 10}
+      ],
+      "result": {"item_id": "fire_sword", "name": "离火剑", "count": 1},
+      "success_rate": 0.6,
+      "required_realm": "筑基期",
+      "required_skill": "basic_forge",
+      "description": "以火之精华与精铁锻铸，可炼制离火剑",
+      "stats": {"attack": 45, "fire_damage": 15}
+    },
+    {
+      "id": "recipe_002",
+      "name": "寒冰剑炼制",
+      "category": "武器",
+      "materials": [
+        {"item_id": "ice_crystal", "name": "冰晶", "count": 5},
+        {"item_id": "spirit_iron", "name": "精铁", "count": 5},
+        {"item_id": "water_element_essence", "name": "水之精华", "count": 2}
+      ],
+      "result": {"item_id": "ice_sword", "name": "寒冰剑", "count": 1},
+      "success_rate": 0.6,
+      "required_realm": "筑基期",
+      "required_skill": "basic_forge",
+      "description": "以冰晶与精铁锻铸，可炼制寒冰剑",
+      "stats": {"attack": 40, "ice_damage": 20, "freeze_chance": 10}
+    },
+    {
+      "id": "recipe_003",
+      "name": "玄龟剑炼制",
+      "category": "武器",
+      "materials": [
+        {"item_id": "earth_element_essence", "name": "土之精华", "count": 3},
+        {"item_id": "turtle_shell", "name": "龟壳", "count": 2},
+        {"item_id": "spirit_iron", "name": "精铁", "count": 8}
+      ],
+      "result": {"item_id": "xuangui_sword", "name": "玄龟剑", "count": 1},
+      "success_rate": 0.7,
+      "required_realm": "筑基期",
+      "required_skill": "basic_forge",
+      "description": "七修剑之一，专破土系法术",
+      "stats": {"attack": 35, "defense": 10, "earth_resist": 30}
+    },
+    {
+      "id": "recipe_004",
+      "name": "天啸剑炼制",
+      "category": "武器",
+      "materials": [
+        {"item_id": "wind_element_essence", "name": "风之精华", "count": 3},
+        {"item_id": "eagle_feather", "name": "鹰羽", "count": 5},
+        {"item_id": "spirit_iron", "name": "精铁", "count": 6}
+      ],
+      "result": {"item_id": "tianxiao_sword", "name": "天啸剑", "count": 1},
+      "success_rate": 0.7,
+      "required_realm": "筑基期",
+      "required_skill": "basic_forge",
+      "description": "七修剑之一，剑啸如雷",
+      "stats": {"attack": 38, "wind_damage": 12, "attack_speed": 15}
+    },
+    {
+      "id": "recipe_005",
+      "name": "阳魄剑炼制",
+      "category": "武器",
+      "materials": [
+        {"item_id": "sun_stone", "name": "阳石", "count": 2},
+        {"item_id": "fire_element_essence", "name": "火之精华", "count": 4},
+        {"item_id": "spirit_iron", "name": "精铁", "count": 7}
+      ],
+      "result": {"item_id": "yangpo_sword", "name": "阳魄剑", "count": 1},
+      "success_rate": 0.65,
+      "required_realm": "筑基期",
+      "required_skill": "basic_forge",
+      "description": "七修剑之一，专破阴邪",
+      "stats": {"attack": 42, "yang_damage": 18, "anti_evil": 25}
+    },
+    {
+      "id": "recipe_006",
+      "name": "护心镜炼制",
+      "category": "防具",
+      "materials": [
+        {"item_id": "spirit_jade", "name": "灵玉", "count": 3},
+        {"item_id": "spirit_iron", "name": "精铁", "count": 5},
+        {"item_id": "heart_protecting_herb", "name": "护心草", "count": 2}
+      ],
+      "result": {"item_id": "heart_mirror", "name": "护心镜", "count": 1},
+      "success_rate": 0.75,
+      "required_realm": "练气期",
+      "required_skill": "basic_forge",
+      "description": "保护心脉的护具，可抵御致命一击",
+      "stats": {"defense": 20, "hp": 100, "survival_chance": 15}
+    },
+    {
+      "id": "recipe_007",
+      "name": "云纹披风炼制",
+      "category": "防具",
+      "materials": [
+        {"item_id": "cloud_silk", "name": "云丝", "count": 10},
+        {"item_id": "spirit_herb", "name": "灵草", "count": 5},
+        {"item_id": "wind_element_essence", "name": "风之精华", "count": 1}
+      ],
+      "result": {"item_id": "cloud_cloak", "name": "云纹披风", "count": 1},
+      "success_rate": 0.8,
+      "required_realm": "练气期",
+      "required_skill": "basic_tailor",
+      "description": "轻盈的披风，可提升移动速度",
+      "stats": {"defense": 15, "movement_speed": 20, "dodge": 10}
+    },
+    {
+      "id": "recipe_008",
+      "name": "避水珠炼制",
+      "category": "法宝",
+      "materials": [
+        {"item_id": "water_element_essence", "name": "水之精华", "count": 5},
+        {"item_id": "sea_dragon_scale", "name": "海龙鳞", "count": 3},
+        {"item_id": "pearl", "name": "珍珠", "count": 10}
+      ],
+      "result": {"item_id": "water_breathing_pearl", "name": "避水珠", "count": 1},
+      "success_rate": 0.5,
+      "required_realm": "筑基期",
+      "required_skill": "intermediate_alchemy",
+      "description": "在水中自由呼吸的法宝",
+      "effect": "水下呼吸时间无限"
+    },
+    {
+      "id": "recipe_009",
+      "name": "五行环炼制",
+      "category": "法宝",
+      "materials": [
+        {"item_id": "gold_element_essence", "name": "金之精华", "count": 1},
+        {"item_id": "wood_element_essence", "name": "木之精华", "count": 1},
+        {"item_id": "water_element_essence", "name": "水之精华", "count": 1},
+        {"item_id": "fire_element_essence", "name": "火之精华", "count": 1},
+        {"item_id": "earth_element_essence", "name": "土之精华", "count": 1}
+      ],
+      "result": {"item_id": "five_element_ring", "name": "五行环", "count": 1},
+      "success_rate": 0.4,
+      "required_realm": "金丹期",
+      "required_skill": "advanced_alchemy",
+      "description": "集五行精华于一环，攻防兼备",
+      "effect": "五行攻击伤害+20%，五行抗性+20%"
+    },
+    {
+      "id": "recipe_010",
+      "name": "疗伤丹炼制",
+      "category": "丹药",
+      "materials": [
+        {"item_id": "spirit_herb", "name": "灵草", "count": 3},
+        {"item_id": "ginseng", "name": "人参", "count": 1},
+        {"item_id": "honey", "name": "蜂蜜", "count": 2}
+      ],
+      "result": {"item_id": "healing_pill", "name": "疗伤丹", "count": 3},
+      "success_rate": 0.85,
+      "required_realm": "练气期",
+      "required_skill": "basic_alchemy",
+      "description": "恢复HP的基础丹药",
+      "effect": "恢复HP 100点"
+    },
+    {
+      "id": "recipe_011",
+      "name": "回气丹炼制",
+      "category": "丹药",
+      "materials": [
+        {"item_id": "spirit_herb", "name": "灵草", "count": 2},
+        {"item_id": "ginseng", "name": "人参", "count": 2},
+        {"item_id": "crystal_sugar", "name": "冰糖", "count": 1}
+      ],
+      "result": {"item_id": "qi_recovery_pill", "name": "回气丹", "count": 3},
+      "success_rate": 0.85,
+      "required_realm": "练气期",
+      "required_skill": "basic_alchemy",
+      "description": "恢复MP的基础丹药",
+      "effect": "恢复MP 50点"
+    },
+    {
+      "id": "recipe_012",
+      "name": "解毒丹炼制",
+      "category": "丹药",
+      "materials": [
+        {"item_id": "antidote_herb", "name": "解毒草", "count": 3},
+        {"item_id": "spirit_herb", "name": "灵草", "count": 1},
+        {"item_id": "pure_water", "name": "净水", "count": 1}
+      ],
+      "result": {"item_id": "antidote_pill", "name": "解毒丹", "count": 3},
+      "success_rate": 0.8,
+      "required_realm": "练气期",
+      "required_skill": "basic_alchemy",
+      "description": "解除中毒状态的丹药",
+      "effect": "解除中毒状态"
+    },
+    {
+      "id": "recipe_013",
+      "name": "金丹炼制",
+      "category": "丹药",
+      "materials": [
+        {"item_id": "gold_element_essence", "name": "金之精华", "count": 3},
+        {"item_id": "spirit_stone_high", "name": "上品灵石", "count": 5},
+        {"item_id": "dragon_blood_grass", "name": "龙血草", "count": 3},
+        {"item_id": "immortal_liquid", "name": "仙液", "count": 1}
+      ],
+      "result": {"item_id": "golden_core", "name": "金丹", "count": 1},
+      "success_rate": 0.3,
+      "required_realm": "筑基期大圆满",
+      "required_skill": "advanced_alchemy",
+      "description": "突破到金丹期的必需品",
+      "effect": "突破到金丹期"
+    },
+    {
+      "id": "recipe_014",
+      "name": "元婴丹炼制",
+      "category": "丹药",
+      "materials": [
+        {"item_id": "immortal_essence", "name": "仙元", "count": 5},
+        {"item_id": "spirit_stone_supreme", "name": "极品灵石", "count": 3},
+        {"item_id": "soul_crystal", "name": "魂晶", "count": 2},
+        {"item_id": "heavenly_dew", "name": "天露", "count": 1}
+      ],
+      "result": {"item_id": "yuanying_pill", "name": "元婴丹", "count": 1},
+      "success_rate": 0.2,
+      "required_realm": "金丹期大圆满",
+      "required_skill": "master_alchemy",
+      "description": "突破到元婴期的必需品",
+      "effect": "突破到元婴期"
+    },
+    {
+      "id": "recipe_015",
+      "name": "蛊毒解药炼制",
+      "category": "丹药",
+      "materials": [
+        {"item_id": "gu_poison_sample", "name": "蛊毒样本", "count": 1},
+        {"item_id": "antidote_herb", "name": "解毒草", "count": 10},
+        {"item_id": "fire_element_essence", "name": "火之精华", "count": 2},
+        {"item_id": "pure_water", "name": "净水", "count": 5}
+      ],
+      "result": {"item_id": "gu_poison_antidote", "name": "蛊毒解药", "count": 1},
+      "success_rate": 0.6,
+      "required_realm": "筑基期",
+      "required_skill": "intermediate_alchemy",
+      "description": "解除绿袍老祖蛊毒的解药",
+      "effect": "解除蛊毒状态"
+    },
+    {
+      "id": "recipe_016",
+      "name": "玄牝珠炼制",
+      "category": "法宝",
+      "materials": [
+        {"item_id": "xuanbi_pearl_fragment", "name": "玄牝珠碎片", "count": 5},
+        {"item_id": "soul_crystal", "name": "魂晶", "count": 3},
+        {"item_id": "yin_element_essence", "name": "阴之精华", "count": 5}
+      ],
+      "result": {"item_id": "xuanbi_pearl", "name": "玄牝珠", "count": 1},
+      "success_rate": 0.35,
+      "required_realm": "金丹期",
+      "required_skill": "advanced_alchemy",
+      "description": "可化为第二元神的法宝",
+      "effect": "创造第二元神，可独立行动"
+    },
+    {
+      "id": "recipe_017",
+      "name": "紫青双剑炼制",
+      "category": "武器",
+      "materials": [
+        {"item_id": "ziying_sword_fragment", "name": "紫郢剑碎片", "count": 10},
+        {"item_id": "qingsuo_sword_fragment", "name": "青索剑碎片", "count": 10},
+        {"item_id": "immortal_essence", "name": "仙元", "count": 10},
+        {"item_id": "heavenly_thunder", "name": "天雷", "count": 1}
+      ],
+      "result": {"item_id": "ziqing_double_sword", "name": "紫青双剑", "count": 1},
+      "success_rate": 0.15,
+      "required_realm": "元婴期",
+      "required_skill": "master_forge",
+      "description": "长眉真人的紫青双剑，双剑合璧威力无穷",
+      "stats": {"attack": 100, "double_sword_damage": 50, "anti_demon": 40}
+    },
+    {
+      "id": "recipe_018",
+      "name": "七宝金幢炼制",
+      "category": "法宝",
+      "materials": [
+        {"item_id": "buddha_relic", "name": "佛骨舍利", "count": 1},
+        {"item_id": "gold_element_essence", "name": "金之精华", "count": 5},
+        {"item_id": "immortal_essence", "name": "仙元", "count": 5},
+        {"item_id": "holy_water", "name": "圣水", "count": 3}
+      ],
+      "result": {"item_id": "seven_treasure_gold_banner", "name": "七宝金幢", "count": 1},
+      "success_rate": 0.25,
+      "required_realm": "金丹期",
+      "required_skill": "advanced_alchemy",
+      "description": "佛门第一宝物，七层降魔",
+      "effect": "驱魔、防御、佛光护体"
+    },
+    {
+      "id": "recipe_019",
+      "name": "仙丹炼制",
+      "category": "丹药",
+      "materials": [
+        {"item_id": "immortal_essence", "name": "仙元", "count": 10},
+        {"item_id": "spirit_stone_supreme", "name": "极品灵石", "count": 10},
+        {"item_id": "dragon_blood_grass", "name": "龙血草", "count": 10},
+        {"item_id": "heavenly_dew", "name": "天露", "count": 5}
+      ],
+      "result": {"item_id": "immortal_pill", "name": "仙丹", "count": 1},
+      "success_rate": 0.1,
+      "required_realm": "元婴期",
+      "required_skill": "master_alchemy",
+      "description": "传说中的仙丹，可大幅提升修为",
+      "effect": "全属性+100，突破成功率+20%"
+    },
+    {
+      "id": "recipe_020",
+      "name": "弥尘幡炼制",
+      "category": "法宝",
+      "materials": [
+        {"item_id": "space_element_essence", "name": "空间精华", "count": 3},
+        {"item_id": "spirit_silk", "name": "灵丝", "count": 20},
+        {"item_id": "heart_of_banner", "name": "幡心", "count": 1}
+      ],
+      "result": {"item_id": "michen_banner", "name": "弥尘幡", "count": 1},
+      "success_rate": 0.4,
+      "required_realm": "金丹期",
+      "required_skill": "advanced_alchemy",
+      "description": "可瞬移和储物的法宝",
+      "effect": "瞬移、储物、纳须弥于芥子"
+    }
+  ],
+  "recipe_categories": {
+    "weapon": "武器炼制",
+    "armor": "防具炼制",
+    "artifact": "法宝炼制",
+    "pill": "丹药炼制",
+    "material": "材料加工"
+  },
+  "skill_requirements": {
+    "basic_forge": "基础锻造术 - 炼制基础武器防具",
+    "intermediate_forge": "中级锻造术 - 炼制中级武器防具",
+    "advanced_forge": "高级锻造术 - 炼制高级武器",
+    "master_forge": "大师级锻造术 - 炼制神器",
+    "basic_alchemy": "基础炼丹术 - 炼制基础丹药",
+    "intermediate_alchemy": "中级炼丹术 - 炼制中级丹药和法宝",
+    "advanced_alchemy": "高级炼丹术 - 炼制高级丹药和法宝",
+    "master_alchemy": "大师级炼丹术 - 炼制仙丹和神器",
+    "basic_tailor": "基础裁缝术 - 制作基础衣物",
+    "intermediate_tailor": "中级裁缝术 - 制作中级衣物"
+  },
+  "success_rate_factors": {
+    "realm": "境界越高，成功率越高",
+    "skill_level": "技能等级越高，成功率越高",
+    "materials_quality": "材料品质越高，成功率越高",
+    "luck": "幸运属性可提升成功率",
+    "assistant": "有炼丹师/锻造师协助可提升成功率"
+  },
+  "notes": [
+    "共设计20个炼化配方",
+    "覆盖武器、防具、法宝、丹药四大类别",
+    "配方难度从基础到大师级不等",
+    "部分配方需要特定境界和技能",
+    "成功率受多种因素影响"
+  ]
+}

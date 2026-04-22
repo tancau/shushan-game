@@ -1,0 +1,340 @@
+{
+  "enemies": [
+    {
+      "id": "wolf",
+      "name": "妖狼",
+      "element": "wood",
+      "type": "normal",
+      "hp": 150,
+      "attack": 25,
+      "defense": 10,
+      "speed": 8,
+      "exp": 30,
+      "gold": 15,
+      "skills": ["bite", "combo_strike"],
+      "drops": [
+        {"item_id": "wolf_fang", "name": "狼牙", "chance": 30},
+        {"item_id": "wolf_pelt", "name": "狼皮", "chance": 20}
+      ],
+      "description": "山间妖化的灰狼，双目赤红，性情凶猛",
+      "ai_type": "aggressive"
+    },
+    {
+      "id": "bandit",
+      "name": "山贼",
+      "element": "metal",
+      "type": "normal",
+      "hp": 180,
+      "attack": 30,
+      "defense": 12,
+      "speed": 7,
+      "exp": 35,
+      "gold": 20,
+      "skills": ["slash", "throw_knife"],
+      "drops": [
+        {"item_id": "iron_sword", "name": "铁剑", "chance": 5},
+        {"item_id": "cloth_armor", "name": "布甲", "chance": 10},
+        {"item_id": "gold_pouch", "name": "钱袋", "chance": 40}
+      ],
+      "description": "盘踞山道的匪徒，虽无修为但人多势众",
+      "ai_type": "balanced"
+    },
+    {
+      "id": "boar",
+      "name": "野猪",
+      "element": "earth",
+      "type": "normal",
+      "hp": 200,
+      "attack": 20,
+      "defense": 20,
+      "speed": 5,
+      "exp": 40,
+      "gold": 25,
+      "skills": ["charge", "tusk_strike"],
+      "drops": [
+        {"item_id": "boar_meat", "name": "野猪肉", "chance": 50},
+        {"item_id": "boar_tusk", "name": "猪牙", "chance": 25}
+      ],
+      "description": "山间巨猪，皮糙肉厚，横冲直撞",
+      "ai_type": "defensive"
+    },
+    {
+      "id": "sword_spirit",
+      "name": "剑灵",
+      "element": "metal",
+      "type": "normal",
+      "hp": 250,
+      "attack": 40,
+      "defense": 15,
+      "speed": 10,
+      "exp": 60,
+      "gold": 35,
+      "skills": ["sword_qi", "combo_strike"],
+      "drops": [
+        {"item_id": "sword_crystal", "name": "剑灵晶", "chance": 15},
+        {"item_id": "spirit_stone", "name": "灵石", "chance": 30}
+      ],
+      "description": "古剑残灵凝聚而成的剑气之体，剑意凛然",
+      "ai_type": "intelligent"
+    },
+    {
+      "id": "guardian",
+      "name": "守护者",
+      "element": "earth",
+      "type": "normal",
+      "hp": 300,
+      "attack": 35,
+      "defense": 25,
+      "speed": 6,
+      "exp": 70,
+      "gold": 40,
+      "skills": ["heavy_strike", "defend"],
+      "drops": [
+        {"item_id": "iron_shield", "name": "铁盾", "chance": 10},
+        {"item_id": "spirit_stone", "name": "灵石", "chance": 35}
+      ],
+      "description": "蜀山阵法凝聚的石甲守卫，坚不可摧",
+      "ai_type": "defensive"
+    },
+    {
+      "id": "crane_spirit",
+      "name": "灵鹤",
+      "element": "wood",
+      "type": "normal",
+      "hp": 200,
+      "attack": 30,
+      "defense": 10,
+      "speed": 12,
+      "exp": 50,
+      "gold": 30,
+      "skills": ["wind_blade", "heal"],
+      "drops": [
+        {"item_id": "crane_feather", "name": "鹤羽", "chance": 25},
+        {"item_id": "spirit_herb", "name": "灵草", "chance": 20}
+      ],
+      "description": "修炼有成的仙鹤，能御风而行，亦能疗伤",
+      "ai_type": "intelligent"
+    },
+    {
+      "id": "emei_disciple",
+      "name": "峨眉弟子",
+      "element": "metal",
+      "type": "normal",
+      "hp": 400,
+      "attack": 50,
+      "defense": 20,
+      "speed": 12,
+      "exp": 100,
+      "gold": 60,
+      "skills": ["emei_sword_art", "combo_strike"],
+      "drops": [
+        {"item_id": "emei_token", "name": "峨眉令", "chance": 10},
+        {"item_id": "spirit_stone", "name": "灵石", "chance": 40}
+      ],
+      "description": "峨眉派弟子，剑法精妙，身法灵动",
+      "ai_type": "intelligent"
+    },
+    {
+      "id": "spirit_snake",
+      "name": "灵蛇",
+      "element": "water",
+      "type": "normal",
+      "hp": 350,
+      "attack": 45,
+      "defense": 15,
+      "speed": 14,
+      "exp": 90,
+      "gold": 55,
+      "skills": ["poison_bite", "bind"],
+      "drops": [
+        {"item_id": "snake_gall", "name": "蛇胆", "chance": 20},
+        {"item_id": "spirit_stone", "name": "灵石", "chance": 30}
+      ],
+      "description": "山间修炼的毒蛇，身形诡谲，毒液致命",
+      "ai_type": "aggressive"
+    },
+    {
+      "id": "vine_demon",
+      "name": "藤妖",
+      "element": "wood",
+      "type": "normal",
+      "hp": 380,
+      "attack": 40,
+      "defense": 25,
+      "speed": 8,
+      "exp": 95,
+      "gold": 58,
+      "skills": ["vine_whip", "bind"],
+      "drops": [
+        {"item_id": "vine_root", "name": "藤根", "chance": 25},
+        {"item_id": "spirit_herb", "name": "灵草", "chance": 30}
+      ],
+      "description": "古藤成精，枝蔓如鞭，善于缠绕束缚",
+      "ai_type": "balanced"
+    },
+    {
+      "id": "wolf_king",
+      "name": "狼王",
+      "element": "wood",
+      "type": "elite",
+      "hp": 500,
+      "attack": 50,
+      "defense": 20,
+      "speed": 10,
+      "exp": 200,
+      "gold": 100,
+      "skills": ["bite", "combo_strike", "summon_wolves", "howl"],
+      "drops": [
+        {"item_id": "wolf_king_fang", "name": "狼王牙", "chance": 50},
+        {"item_id": "starter_sword", "name": "新手剑", "chance": 30},
+        {"item_id": "spirit_stone", "name": "灵石", "chance": 60}
+      ],
+      "description": "妖狼之首，统领狼群，凶焰滔天",
+      "ai_type": "intelligent",
+      "location": "蜀山脚下"
+    },
+    {
+      "id": "bandit_chief",
+      "name": "山贼头目",
+      "element": "metal",
+      "type": "elite",
+      "hp": 600,
+      "attack": 55,
+      "defense": 25,
+      "speed": 9,
+      "exp": 250,
+      "gold": 150,
+      "skills": ["slash", "command", "heavy_strike", "throw_knife"],
+      "drops": [
+        {"item_id": "steel_sword", "name": "钢剑", "chance": 25},
+        {"item_id": "leather_armor", "name": "皮甲", "chance": 30},
+        {"item_id": "gold_chest", "name": "金箱", "chance": 40}
+      ],
+      "description": "山贼首领，虽是凡人却颇有几分功夫",
+      "ai_type": "intelligent",
+      "location": "蜀山脚下"
+    },
+    {
+      "id": "sword_spirit_commander",
+      "name": "剑灵统领",
+      "element": "metal",
+      "type": "elite",
+      "hp": 800,
+      "attack": 70,
+      "defense": 30,
+      "speed": 12,
+      "exp": 400,
+      "gold": 200,
+      "skills": ["sword_qi", "sword_formation", "combo_strike"],
+      "drops": [
+        {"item_id": "sword_crystal", "name": "剑灵晶", "chance": 40},
+        {"item_id": "mid_sword", "name": "中级剑", "chance": 20},
+        {"item_id": "spirit_stone", "name": "灵石", "chance": 50}
+      ],
+      "description": "剑灵中的强者，能布剑阵困敌",
+      "ai_type": "intelligent",
+      "location": "蜀山主峰"
+    },
+    {
+      "id": "emei_senior",
+      "name": "峨眉高徒",
+      "element": "metal",
+      "type": "elite",
+      "hp": 1000,
+      "attack": 80,
+      "defense": 35,
+      "speed": 14,
+      "exp": 500,
+      "gold": 300,
+      "skills": ["emei_sword_art", "emei_secret", "combo_strike", "heal"],
+      "drops": [
+        {"item_id": "emei_manual", "name": "峨眉剑谱", "chance": 15},
+        {"item_id": "emei_sword", "name": "峨眉剑", "chance": 20},
+        {"item_id": "spirit_stone", "name": "灵石", "chance": 60}
+      ],
+      "description": "峨眉派精英弟子，剑法出神入化",
+      "ai_type": "intelligent",
+      "location": "峨眉山"
+    },
+    {
+      "id": "wolf_king_boss",
+      "name": "妖狼王",
+      "element": "wood",
+      "type": "boss",
+      "hp": 2000,
+      "attack": 60,
+      "defense": 25,
+      "speed": 11,
+      "exp": 1000,
+      "gold": 500,
+      "skills": ["bite", "combo_strike", "summon_wolves", "howl", "rage_bite"],
+      "phases": [
+        {"hp_threshold": 1.0, "skills": ["bite", "summon_wolves", "howl"]},
+        {"hp_threshold": 0.5, "skills": ["rage_bite", "combo_strike", "howl"]}
+      ],
+      "weakness": "fire",
+      "drops": [
+        {"item_id": "wolf_king_fang", "name": "狼王牙", "chance": 100},
+        {"item_id": "starter_sword", "name": "新手剑", "chance": 80},
+        {"item_id": "wolf_king_pelt", "name": "狼王皮", "chance": 60}
+      ],
+      "description": "蜀山脚下的妖狼之王，两阶段战斗，狂暴后攻击翻倍",
+      "ai_type": "intelligent",
+      "location": "蜀山脚下"
+    },
+    {
+      "id": "sword_spirit_boss",
+      "name": "剑灵守护",
+      "element": "metal",
+      "type": "boss",
+      "hp": 5000,
+      "attack": 80,
+      "defense": 40,
+      "speed": 13,
+      "exp": 3000,
+      "gold": 1000,
+      "skills": ["sword_qi", "sword_formation", "sword_storm", "shield", "rage_slash"],
+      "phases": [
+        {"hp_threshold": 1.0, "skills": ["sword_qi", "combo_strike"]},
+        {"hp_threshold": 0.7, "skills": ["sword_formation", "shield", "sword_qi"]},
+        {"hp_threshold": 0.3, "skills": ["sword_storm", "rage_slash"]}
+      ],
+      "weakness": "water",
+      "drops": [
+        {"item_id": "sword_crystal", "name": "剑灵晶", "chance": 100},
+        {"item_id": "mid_sword", "name": "中级剑", "chance": 80},
+        {"item_id": "sword_manual", "name": "剑意残卷", "chance": 50}
+      ],
+      "description": "蜀山主峰的剑灵统帅，三阶段战斗，最终阶段狂暴剑气",
+      "ai_type": "intelligent",
+      "location": "蜀山主峰"
+    },
+    {
+      "id": "emei_master_boss",
+      "name": "峨眉掌门",
+      "element": "metal",
+      "type": "boss",
+      "hp": 10000,
+      "attack": 120,
+      "defense": 50,
+      "speed": 15,
+      "exp": 8000,
+      "gold": 3000,
+      "skills": ["emei_sword_art", "emei_secret", "emei_seven_swords", "heal", "qi_shield"],
+      "phases": [
+        {"hp_threshold": 1.0, "skills": ["emei_sword_art", "combo_strike"]},
+        {"hp_threshold": 0.7, "skills": ["emei_secret", "qi_shield", "heal"]},
+        {"hp_threshold": 0.3, "skills": ["emei_seven_swords", "emei_sword_art"]}
+      ],
+      "weakness": "wood",
+      "drops": [
+        {"item_id": "emei_manual", "name": "峨眉剑谱", "chance": 100},
+        {"item_id": "emei_sword", "name": "峨眉剑", "chance": 80},
+        {"item_id": "emei_robe", "name": "峨眉道袍", "chance": 60}
+      ],
+      "description": "峨眉派掌门，剑术通神，三阶段战斗，最终释放七煞剑阵",
+      "ai_type": "intelligent",
+      "location": "峨眉山"
+    }
+  ]
+}

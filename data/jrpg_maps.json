@@ -1,0 +1,64 @@
+{
+  "jrpg_maps": [
+    {
+      "id": "mountain_foot",
+      "name": "蜀山脚下",
+      "description": "蜀山脚下的小镇与山林，初入修真者的历练之地",
+      "level_range": [1, 5],
+      "realm_required": "练气期",
+      "encounter_rate": 0.15,
+      "background": "mountain_path",
+      "enemies": ["wolf", "bandit", "boar"],
+      "elite_enemies": ["wolf_king", "bandit_chief"],
+      "boss": "wolf_king_boss",
+      "transitions": [
+        {"direction": "north", "target_map": "mountain_peak", "required_level": 5},
+        {"direction": "east", "target_map": "emei_mountain", "required_level": 8}
+      ],
+      "npcs": ["老猎户", "药童小青", "镇口更夫"],
+      "shops": ["杂货铺", "铁匠铺"],
+      "safe_zones": ["山脚小镇"],
+      "ambient": "竹林溪涧，鸟鸣山幽"
+    },
+    {
+      "id": "mountain_peak",
+      "name": "蜀山主峰",
+      "description": "蜀山主峰，灵气充沛，剑意纵横",
+      "level_range": [5, 12],
+      "realm_required": "练气期",
+      "encounter_rate": 0.2,
+      "background": "mountain_peak",
+      "enemies": ["sword_spirit", "guardian", "crane_spirit"],
+      "elite_enemies": ["sword_spirit_commander"],
+      "boss": "sword_spirit_boss",
+      "transitions": [
+        {"direction": "south", "target_map": "mountain_foot"},
+        {"direction": "east", "target_map": "emei_mountain", "required_level": 8}
+      ],
+      "npcs": ["守山弟子", "炼器长老", "灵鹤仙"],
+      "shops": ["灵器坊", "丹药房"],
+      "safe_zones": ["蜀山山门", "修炼台"],
+      "ambient": "云海翻涌，剑气凌霄"
+    },
+    {
+      "id": "emei_mountain",
+      "name": "峨眉山",
+      "description": "峨眉派所在，仙山福地，正道领袖",
+      "level_range": [8, 20],
+      "realm_required": "筑基期",
+      "encounter_rate": 0.18,
+      "background": "emei_mountain",
+      "enemies": ["emei_disciple", "spirit_snake", "vine_demon"],
+      "elite_enemies": ["emei_senior"],
+      "boss": "emei_master_boss",
+      "transitions": [
+        {"direction": "west", "target_map": "mountain_peak"},
+        {"direction": "south", "target_map": "mountain_foot"}
+      ],
+      "npcs": ["妙一真人", "李英琼", "齐漱石"],
+      "shops": ["峨眉法器阁", "峨眉丹房"],
+      "safe_zones": ["峨眉大殿", "金顶"],
+      "ambient": "仙雾缭绕，钟声悠远"
+    }
+  ]
+}

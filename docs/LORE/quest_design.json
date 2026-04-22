@@ -1,0 +1,549 @@
+{
+  "source": "《蜀山剑侠传》还珠楼主",
+  "last_updated": "2026-04-22",
+  "main_quests": [
+    {
+      "id": "mq_001",
+      "chapter": "序章",
+      "title": "入蜀避祸",
+      "description": "前朝将军李宁带女英琼入蜀避祸，偶遇修仙之人",
+      "objectives": [
+        {"id": 1, "type": "talk", "target": "li_ning", "description": "与李宁对话，了解入蜀缘由"},
+        {"id": 2, "type": "explore", "target": "shushan_foot", "description": "探索蜀山脚下，寻找隐居之地"},
+        {"id": 3, "type": "battle", "target": "wolf", "count": 3, "description": "击退作祟的妖狼"}
+      ],
+      "rewards": {"exp": 100, "gold": 50, "items": ["iron_sword", "healing_pill"]},
+      "next_quest": "mq_002"
+    },
+    {
+      "id": "mq_002",
+      "chapter": "序章",
+      "title": "偶遇周淳",
+      "description": "在巫峡遇到周淳，相约去峨眉后山隐居",
+      "objectives": [
+        {"id": 1, "type": "talk", "target": "zhou_chun", "description": "与周淳交谈"},
+        {"id": 2, "type": "escort", "target": "zhou_chun", "description": "护送周淳前往峨眉后山"},
+        {"id": 3, "type": "battle", "target": "bandit", "count": 5, "description": "击退山贼伏击"}
+      ],
+      "rewards": {"exp": 150, "gold": 80, "items": ["traveler_robe"]},
+      "next_quest": "mq_003"
+    },
+    {
+      "id": "mq_003",
+      "chapter": "序章",
+      "title": "凝碧崖奇遇",
+      "description": "在凝碧崖偶遇白眉和尚，初识仙道",
+      "objectives": [
+        {"id": 1, "type": "explore", "target": "ningbi_cliff", "description": "探索凝碧崖"},
+        {"id": 2, "type": "talk", "target": "white_brow_monk", "description": "与白眉和尚对话"},
+        {"id": 3, "type": "collect", "target": "spirit_herb", "count": 3, "description": "采集灵草供奉"}
+      ],
+      "rewards": {"exp": 200, "gold": 100, "items": ["basic_qi_formula"]},
+      "next_quest": "mq_004"
+    },
+    {
+      "id": "mq_004",
+      "chapter": "第一卷",
+      "title": "莽苍山寻剑",
+      "description": "前往莽苍山寻找传说中的紫郢剑",
+      "objectives": [
+        {"id": 1, "type": "explore", "target": "mangcang_mountain", "description": "探索莽苍山"},
+        {"id": 2, "type": "battle", "target": "spirit_ape", "count": 5, "description": "击败守护灵猿"},
+        {"id": 3, "type": "boss_battle", "target": "jade_tiger", "description": "击败玉虎剑灵"},
+        {"id": 4, "type": "interact", "target": "ziying_sword_seal", "description": "解开封印取得紫郢剑"}
+      ],
+      "rewards": {"exp": 500, "gold": 300, "items": ["ziying_sword"]},
+      "next_quest": "mq_005"
+    },
+    {
+      "id": "mq_005",
+      "chapter": "第一卷",
+      "title": "收服钢羽",
+      "description": "在莽苍山收服白眉和尚座下金雕佛奴",
+      "objectives": [
+        {"id": 1, "type": "talk", "target": "steel_feather", "description": "与金雕佛奴沟通"},
+        {"id": 2, "type": "battle", "target": "steel_feather", "description": "与金雕切磋"},
+        {"id": 3, "type": "feed", "target": "spirit_fruit", "count": 3, "description": "喂食灵果培养信任"}
+      ],
+      "rewards": {"exp": 400, "gold": 200, "companions": ["steel_feather"]},
+      "next_quest": "mq_006"
+    },
+    {
+      "id": "mq_006",
+      "chapter": "第一卷",
+      "title": "朱果奇缘",
+      "description": "在莽苍山发现并服食朱果，获得紫清神焰",
+      "objectives": [
+        {"id": 1, "type": "explore", "target": "mangcang_cave", "description": "探索莽苍山风穴"},
+        {"id": 2, "type": "battle", "target": "ice_silkworm", "description": "击败千年冰蚕"},
+        {"id": 3, "type": "collect", "target": "vermilion_fruit", "count": 1, "description": "采集朱果"},
+        {"id": 4, "type": "use", "target": "vermilion_fruit", "description": "服食朱果获得神焰"}
+      ],
+      "rewards": {"exp": 600, "gold": 500, "items": ["purple_qing_divine_flame"], "stats": {"hp": 500, "mp": 200}},
+      "next_quest": "mq_007"
+    },
+    {
+      "id": "mq_007",
+      "chapter": "第一卷",
+      "title": "凝碧崖拜师",
+      "description": "拜入峨眉派，正式成为峨眉弟子",
+      "objectives": [
+        {"id": 1, "type": "talk", "target": "miaoyi_zhenren", "description": "与妙一真人对话"},
+        {"id": 2, "type": "trial", "target": "sword_trial", "description": "通过入门剑试"},
+        {"id": 3, "type": "ceremony", "target": "initiation_ceremony", "description": "参加拜师大典"}
+      ],
+      "rewards": {"exp": 300, "gold": 200, "items": ["emei_disciple_robe", "basic_sword_manual"]},
+      "next_quest": "mq_008"
+    },
+    {
+      "id": "mq_008",
+      "chapter": "第一卷",
+      "title": "慈云寺探查",
+      "description": "前往慈云寺探查五台派动向",
+      "objectives": [
+        {"id": 1, "type": "travel", "target": "ciyun_temple", "description": "前往慈云寺"},
+        {"id": 2, "type": "stealth", "target": "temple_patrol", "description": "避开巡逻潜入寺内"},
+        {"id": 3, "type": "investigate", "target": "secret_documents", "description": "窃取密信"},
+        {"id": 4, "type": "escape", "target": "ciyun_temple", "description": "安全撤离慈云寺"}
+      ],
+      "rewards": {"exp": 400, "gold": 300, "items": ["intelligence_report"]},
+      "next_quest": "mq_009"
+    },
+    {
+      "id": "mq_009",
+      "chapter": "第一卷",
+      "title": "慈云寺大战",
+      "description": "参与正道围攻慈云寺，与五台派正面对决",
+      "objectives": [
+        {"id": 1, "type": "talk", "target": "zhu_mei", "description": "与矮叟朱梅会合"},
+        {"id": 2, "type": "battle", "target": "wutai_disciple", "count": 10, "description": "击败五台派弟子"},
+        {"id": 3, "type": "boss_battle", "target": "jile_daoren", "description": "击败极乐道人"},
+        {"id": 4, "type": "cutscene", "target": "green_robe_injured", "description": "见证绿袍老祖被斩"}
+      ],
+      "rewards": {"exp": 800, "gold": 500, "items": ["wutai_sword_fragment", "merit_token"]},
+      "next_quest": "mq_010"
+    },
+    {
+      "id": "mq_010",
+      "chapter": "第一卷",
+      "title": "峨眉开府",
+      "description": "参加峨眉派正式开府大典",
+      "objectives": [
+        {"id": 1, "type": "talk", "target": "miaoyi_zhenren", "description": "向妙一真人报到"},
+        {"id": 2, "type": "ceremony", "target": "opening_ceremony", "description": "参加开府大典"},
+        {"id": 3, "type": "battle", "target": "blood_god_dengyin", "description": "击退血神子邓隐进犯"},
+        {"id": 4, "type": "cutscene", "target": "three_heroes_two_clouds", "description": "见证三英二云定名"}
+      ],
+      "rewards": {"exp": 1000, "gold": 800, "items": ["emei_core_disciple_badge", "advanced_qi_formula"]},
+      "next_quest": "mq_011"
+    },
+    {
+      "id": "mq_011",
+      "chapter": "第二卷",
+      "title": "紫云宫探秘",
+      "description": "前往东海紫云宫探索水府秘境",
+      "objectives": [
+        {"id": 1, "type": "travel", "target": "donghai_coast", "description": "前往东海海岸"},
+        {"id": 2, "type": "dive", "target": "underwater_palace", "description": "潜入水下紫云宫"},
+        {"id": 3, "type": "puzzle", "target": "water_formation", "description": "破解水系阵法"},
+        {"id": 4, "type": "battle", "target": "golden_whisker_servant", "description": "与金须奴交战或交涉"}
+      ],
+      "rewards": {"exp": 700, "gold": 600, "items": ["water_breathing_pill"]},
+      "next_quest": "mq_012"
+    },
+    {
+      "id": "mq_012",
+      "chapter": "第二卷",
+      "title": "紫云宫之战",
+      "description": "与方初凤姐妹冲突，收服紫云宫",
+      "objectives": [
+        {"id": 1, "type": "talk", "target": "fang_chufeng", "description": "与方初凤谈判"},
+        {"id": 2, "type": "boss_battle", "target": "fang_chufeng", "description": "击败方初凤"},
+        {"id": 3, "type": "boss_battle", "target": "fang_sanfeng", "description": "击败方三凤"},
+        {"id": 4, "type": "cutscene", "target": "qin_sisters_join", "description": "秦氏姐妹改邪归正"}
+      ],
+      "rewards": {"exp": 1000, "gold": 800, "items": ["michen_banner"], "base": "ziyun_palace"},
+      "next_quest": "mq_013"
+    },
+    {
+      "id": "mq_013",
+      "chapter": "第二卷",
+      "title": "幻波池初探",
+      "description": "进入幻波池，接触圣姑伽因的传承",
+      "objectives": [
+        {"id": 1, "type": "travel", "target": "huanbo_pool", "description": "前往幻波池"},
+        {"id": 2, "type": "puzzle", "target": "five_element_formation", "description": "破解五行仙遁"},
+        {"id": 3, "type": "talk", "target": "shenggu_shiyin", "description": "与圣姑影像对话"},
+        {"id": 4, "type": "trial", "target": "heart_seal_trial", "description": "通过心灵禁制试炼"}
+      ],
+      "rewards": {"exp": 900, "gold": 700, "items": ["five_element_escape_manual"]},
+      "next_quest": "mq_014"
+    },
+    {
+      "id": "mq_014",
+      "chapter": "第二卷",
+      "title": "幻波池之战",
+      "description": "击败艳尸崔盈，获得圣姑传承",
+      "objectives": [
+        {"id": 1, "type": "explore", "target": "huanbo_depths", "description": "深入幻波池"},
+        {"id": 2, "type": "battle", "target": "corrupted_spirit", "count": 8, "description": "清除被污染的灵体"},
+        {"id": 3, "type": "boss_battle", "target": "cui_ying", "description": "击败艳尸崔盈"},
+        {"id": 4, "type": "interact", "target": "shenggu_inheritance", "description": "接受圣姑传承"}
+      ],
+      "rewards": {"exp": 1200, "gold": 1000, "items": ["seven_treasure_gold_banner"], "base": "huanbo_pool"},
+      "next_quest": "mq_015"
+    },
+    {
+      "id": "mq_015",
+      "chapter": "第三卷",
+      "title": "围剿绿袍老祖",
+      "description": "参与正道围剿绿袍老祖的战斗",
+      "objectives": [
+        {"id": 1, "type": "travel", "target": "baiman_mountain", "description": "前往百蛮山"},
+        {"id": 2, "type": "battle", "target": "golden_silkworm_gu", "count": 20, "description": "清除百毒金蚕蛊"},
+        {"id": 3, "type": "boss_battle", "target": "green_robe_ancestor", "description": "击败绿袍老祖"},
+        {"id": 4, "type": "cutscene", "target": "liangyi_dust_formation", "description": "见证两仪微尘阵炼化"}
+      ],
+      "rewards": {"exp": 1500, "gold": 1200, "items": ["xuanbi_pearl", "gu_poison_antidote"]},
+      "next_quest": "mq_016"
+    },
+    {
+      "id": "mq_016",
+      "chapter": "第三卷",
+      "title": "鸠盘婆之战",
+      "description": "协助易静对付夙敌鸠盘婆",
+      "objectives": [
+        {"id": 1, "type": "talk", "target": "yi_jing", "description": "与易静会合"},
+        {"id": 2, "type": "battle", "target": "nine_child_demon", "count": 9, "description": "击败九子母阴魔"},
+        {"id": 3, "type": "boss_battle", "target": "jiupan_po", "description": "击败鸠盘婆"},
+        {"id": 4, "type": "cutscene", "target": "heavenly_tribulation", "description": "见证天劫诛杀"}
+      ],
+      "rewards": {"exp": 1500, "gold": 1200, "items": ["demon_subduing_seven_treasures"]},
+      "next_quest": "mq_017"
+    },
+    {
+      "id": "mq_017",
+      "chapter": "第三卷",
+      "title": "斩妖尸谷辰",
+      "description": "与周轻云合力斩杀妖尸谷辰",
+      "objectives": [
+        {"id": 1, "type": "talk", "target": "zhou_qingyun", "description": "与周轻云组队"},
+        {"id": 2, "type": "battle", "target": "soul_horde", "count": 15, "description": "清除妖魂群"},
+        {"id": 3, "type": "boss_battle", "target": "demon_corpse_guchen", "description": "击败妖尸谷辰"},
+        {"id": 4, "type": "cutscene", "target": "ziqing_double_sword", "description": "紫青双剑合璧斩肉身"}
+      ],
+      "rewards": {"exp": 1500, "gold": 1200, "items": ["xuanyin_beast_banner"]},
+      "next_quest": "mq_018"
+    },
+    {
+      "id": "mq_018",
+      "chapter": "第四卷",
+      "title": "光明境探险",
+      "description": "探索光明境，接触尸毗老人门下",
+      "objectives": [
+        {"id": 1, "type": "travel", "target": "guangming_realm", "description": "前往光明境"},
+        {"id": 2, "type": "explore", "target": "guangming_palace", "description": "探索光明宫殿"},
+        {"id": 3, "type": "battle", "target": "asura_guard", "count": 10, "description": "击败阿修罗守卫"},
+        {"id": 4, "type": "boss_battle", "target": "mingshu_demoness", "description": "与魔女明殊交战或交涉"}
+      ],
+      "rewards": {"exp": 1200, "gold": 1000, "items": ["asura_essence"]},
+      "next_quest": "mq_019"
+    },
+    {
+      "id": "mq_019",
+      "chapter": "第四卷",
+      "title": "魔宫大战",
+      "description": "参与围攻尸毗老人魔宫的终极之战",
+      "objectives": [
+        {"id": 1, "type": "talk", "target": "three_masters", "description": "与三大禅师会合"},
+        {"id": 2, "type": "battle", "target": "demon_elite", "count": 20, "description": "清除魔宫精英"},
+        {"id": 3, "type": "boss_battle", "target": "shipi_old_man", "description": "与尸毗老人决战"},
+        {"id": 4, "type": "cutscene", "target": "shipi_conversion", "description": "见证尸毗老人皈依佛门"}
+      ],
+      "rewards": {"exp": 2000, "gold": 1500, "items": ["buddha_heart_lamp"]},
+      "next_quest": "mq_020"
+    },
+    {
+      "id": "mq_020",
+      "chapter": "第五卷",
+      "title": "幻波池守卫战",
+      "description": "击退兀南公对幻波池的进攻",
+      "objectives": [
+        {"id": 1, "type": "defend", "target": "huanbo_pool", "description": "部署幻波池防御"},
+        {"id": 2, "type": "battle", "target": "wunan_elite", "count": 15, "description": "击退兀南公精英"},
+        {"id": 3, "type": "boss_battle", "target": "wunan_gong", "description": "击退兀南公"},
+        {"id": 4, "type": "cutscene", "target": "wunan_retreat", "description": "兀南公含愧离去"}
+      ],
+      "rewards": {"exp": 1800, "gold": 1400, "items": ["five_element_essence"]},
+      "next_quest": "mq_021"
+    },
+    {
+      "id": "mq_021",
+      "chapter": "第五卷",
+      "title": "天劫降临",
+      "description": "迎接天劫考验，准备飞升",
+      "objectives": [
+        {"id": 1, "type": "meditate", "target": "cultivation_peak", "description": "在修炼高峰闭关"},
+        {"id": 2, "type": "boss_battle", "target": "heavenly_demon", "count": 3, "description": "抵御心魔入侵"},
+        {"id": 3, "type": "survival", "target": "lightning_tribulation", "description": "熬过雷劫"},
+        {"id": 4, "type": "cutscene", "target": "ascension_preparation", "description": "准备飞升"}
+      ],
+      "rewards": {"exp": 3000, "gold": 2000, "items": ["immortal_essence"], "stats": {"all": 500}},
+      "next_quest": "mq_022"
+    },
+    {
+      "id": "mq_022",
+      "chapter": "第五卷",
+      "title": "第三次峨眉斗剑",
+      "description": "参与正邪终极对决，了结所有恩怨",
+      "objectives": [
+        {"id": 1, "type": "gather", "target": "emei_peak", "description": "在峨眉金顶集结"},
+        {"id": 2, "type": "battle", "target": "demon_army", "count": 50, "description": "击退魔道大军"},
+        {"id": 3, "type": "boss_battle", "target": "blood_god_dengyin_final", "description": "最终决战血神子"},
+        {"id": 4, "type": "cutscene", "target": "final_victory", "description": "正道胜利，天下太平"}
+      ],
+      "rewards": {"exp": 5000, "gold": 5000, "items": ["immortal_sword", "golden_core"], "title": "一代宗师"},
+      "next_quest": null
+    }
+  ],
+  "side_quests": [
+    {
+      "id": "sq_001",
+      "title": "狼牙收集",
+      "chapter": "序章",
+      "giver": "blacksmith_zhang",
+      "location": "shushan_foot",
+      "description": "铁匠老张需要狼牙锻造武器",
+      "objectives": [
+        {"id": 1, "type": "collect", "target": "wolf_fang", "count": 5, "description": "收集5个狼牙"}
+      ],
+      "rewards": {"exp": 50, "gold": 30, "items": ["steel_sword"]},
+      "repeatable": false
+    },
+    {
+      "id": "sq_002",
+      "title": "采药救民",
+      "chapter": "序章",
+      "giver": "medicine_shop_owner",
+      "location": "shushan_foot",
+      "description": "山下瘟疫流行，需要采集灵药救治百姓",
+      "objectives": [
+        {"id": 1, "type": "collect", "target": "spirit_herb", "count": 10, "description": "采集10株灵草"},
+        {"id": 2, "type": "deliver", "target": "medicine_shop_owner", "description": "将灵草交给药铺掌柜"}
+      ],
+      "rewards": {"exp": 80, "gold": 50, "items": ["healing_pill", "antidote_pill"]},
+      "repeatable": true,
+      "cooldown_hours": 24
+    },
+    {
+      "id": "sq_003",
+      "title": "山贼清剿",
+      "chapter": "序章",
+      "giver": "village_chief",
+      "location": "shushan_foot",
+      "description": "山贼骚扰村民，需要清剿",
+      "objectives": [
+        {"id": 1, "type": "battle", "target": "bandit", "count": 10, "description": "击败10名山贼"},
+        {"id": 2, "type": "boss_battle", "target": "bandit_chief", "description": "击败山贼头目"}
+      ],
+      "rewards": {"exp": 150, "gold": 100, "items": ["bandit_treasure_map"]},
+      "repeatable": false
+    },
+    {
+      "id": "sq_004",
+      "title": "袁星归心",
+      "chapter": "第一卷",
+      "giver": "yuan_xing",
+      "location": "mangcang_mountain",
+      "description": "帮助袁星解决困扰，获得他的追随",
+      "objectives": [
+        {"id": 1, "type": "talk", "target": "yuan_xing", "description": "与袁星对话"},
+        {"id": 2, "type": "battle", "target": "rival_ape", "count": 5, "description": "击败敌对猩猿"},
+        {"id": 3, "type": "boss_battle", "target": "ape_king", "description": "击败猿王"}
+      ],
+      "rewards": {"exp": 300, "gold": 200, "companions": ["yuan_xing"]},
+      "repeatable": false
+    },
+    {
+      "id": "sq_005",
+      "title": "七修剑收集",
+      "chapter": "第一卷",
+      "giver": "elder_zhuge",
+      "location": "emei_peak",
+      "description": "收集散落各地的七修剑",
+      "objectives": [
+        {"id": 1, "type": "collect", "target": "gold_tortoise_sword", "count": 1, "description": "获得玄龟剑"},
+        {"id": 2, "type": "collect", "target": "water_mother_sword", "count": 1, "description": "获得水母剑"},
+        {"id": 3, "type": "collect", "target": "heaven_roar_sword", "count": 1, "description": "获得天啸剑"},
+        {"id": 4, "type": "collect", "target": "yang_soul_sword", "count": 1, "description": "获得阳魄剑"},
+        {"id": 5, "type": "collect", "target": "red_ginger_sword", "count": 1, "description": "获得赤苏剑"},
+        {"id": 6, "type": "collect", "target": "black_tortoise_sword", "count": 1, "description": "获得玄龟剑"},
+        {"id": 7, "type": "collect", "target": "green_spirit_sword", "count": 1, "description": "获得青灵剑"}
+      ],
+      "rewards": {"exp": 1000, "gold": 2000, "items": ["seven_repair_sword_set"]},
+      "repeatable": false
+    },
+    {
+      "id": "sq_006",
+      "title": "芝仙救助",
+      "chapter": "第一卷",
+      "giver": "zhi_xian",
+      "location": "ningbi_cliff",
+      "description": "救助被围困的芝仙",
+      "objectives": [
+        {"id": 1, "type": "rescue", "target": "zhi_xian", "description": "救出芝仙"},
+        {"id": 2, "type": "battle", "target": "demon_hunter", "count": 5, "description": "击退妖猎"}
+      ],
+      "rewards": {"exp": 200, "gold": 100, "companions": ["zhi_xian"]},
+      "repeatable": false
+    },
+    {
+      "id": "sq_007",
+      "title": "玄牝珠追查",
+      "chapter": "第三卷",
+      "giver": "miaoyi_zhenren",
+      "location": "emei_peak",
+      "description": "追查绿袍老祖玄牝珠的下落",
+      "objectives": [
+        {"id": 1, "type": "investigate", "target": "green_robe_hideout", "description": "调查绿袍老祖据点"},
+        {"id": 2, "type": "battle", "target": "green_robe_disciple", "count": 8, "description": "击败绿袍老祖弟子"},
+        {"id": 3, "type": "collect", "target": "xuanbi_pearl", "count": 1, "description": "获得玄牝珠"}
+      ],
+      "rewards": {"exp": 500, "gold": 400, "items": ["xuanbi_pearl"]},
+      "repeatable": false
+    },
+    {
+      "id": "sq_008",
+      "title": "散仙试炼",
+      "chapter": "第二卷",
+      "giver": "shentuo_yixiu",
+      "location": "wushan_peak",
+      "description": "接受神驼乙休的试炼",
+      "objectives": [
+        {"id": 1, "type": "talk", "target": "shentuo_yixiu", "description": "与神驼乙休对话"},
+        {"id": 2, "type": "trial", "target": "endurance_trial", "description": "通过耐力试炼"},
+        {"id": 3, "type": "trial", "target": "wisdom_trial", "description": "通过智慧试炼"}
+      ],
+      "rewards": {"exp": 600, "gold": 500, "items": ["nine_heaven_yuanyang_ruler"]},
+      "repeatable": false
+    },
+    {
+      "id": "sq_009",
+      "title": "枯竹老人之托",
+      "chapter": "第三卷",
+      "giver": "kuzhu_old_man",
+      "location": "dahuang_mountain",
+      "description": "帮助枯竹老人完成心愿",
+      "objectives": [
+        {"id": 1, "type": "deliver", "target": "xun_spirit_pearl", "count": 1, "description": "将巽灵珠送至指定地点"},
+        {"id": 2, "type": "battle", "target": "ambush_demon", "count": 6, "description": "击退伏击的妖魔"}
+      ],
+      "rewards": {"exp": 400, "gold": 300, "items": ["xun_spirit_pearl"]},
+      "repeatable": false
+    },
+    {
+      "id": "sq_010",
+      "title": "妖鲧讨伐",
+      "chapter": "第三卷",
+      "giver": "qi_xiaer",
+      "location": "donghai",
+      "description": "协助齐霞儿讨伐上古妖鲧",
+      "objectives": [
+        {"id": 1, "type": "travel", "target": "donghai_deep", "description": "前往东海深处"},
+        {"id": 2, "type": "boss_battle", "target": "yaogun", "description": "击败妖鲧"},
+        {"id": 3, "type": "interact", "target": "yu_cauldron", "description": "取得禹鼎"}
+      ],
+      "rewards": {"exp": 800, "gold": 600, "items": ["yu_cauldron"]},
+      "repeatable": false
+    },
+    {
+      "id": "sq_011",
+      "title": "毒龙斩杀",
+      "chapter": "第三卷",
+      "giver": "laigu",
+      "location": "north_sea",
+      "description": "协助癞姑斩杀北海毒龙",
+      "objectives": [
+        {"id": 1, "type": "travel", "target": "north_sea", "description": "前往北海"},
+        {"id": 2, "type": "boss_battle", "target": "poison_dragon", "description": "击败毒龙"},
+        {"id": 3, "type": "collect", "target": "dragon_scale", "count": 5, "description": "收集龙鳞"}
+      ],
+      "rewards": {"exp": 700, "gold": 500, "items": ["dragon_slaying_knife"]},
+      "repeatable": false
+    },
+    {
+      "id": "sq_012",
+      "title": "千年寒蚿",
+      "chapter": "第四卷",
+      "giver": "ganshen_zhu",
+      "location": "little_south_pole",
+      "description": "协助干神蛛夺取千年寒蚿元婴",
+      "objectives": [
+        {"id": 1, "type": "travel", "target": "little_south_pole", "description": "前往小南极"},
+        {"id": 2, "type": "boss_battle", "target": "thousand_year_hanxian", "description": "击败千年寒蚿"},
+        {"id": 3, "type": "interact", "target": "hanxian_yuanying", "description": "取得寒蚿元婴"}
+      ],
+      "rewards": {"exp": 600, "gold": 400, "items": ["ice_element_essence"]},
+      "repeatable": false
+    },
+    {
+      "id": "sq_013",
+      "title": "火无害收服",
+      "chapter": "第四卷",
+      "giver": "huo_wuhai",
+      "location": "huanbo_pool_area",
+      "description": "与火无害交涉，劝说其归顺",
+      "objectives": [
+        {"id": 1, "type": "talk", "target": "huo_wuhai", "description": "与火无害对话"},
+        {"id": 2, "type": "battle", "target": "huo_wuhai", "description": "与火无害切磋"},
+        {"id": 3, "type": "choice", "target": "recruit_or_defeat", "description": "选择招募或击败"}
+      ],
+      "rewards": {"exp": 500, "gold": 400, "companions": ["huo_wuhai"]},
+      "repeatable": false
+    },
+    {
+      "id": "sq_014",
+      "title": "蚩尤墓穴",
+      "chapter": "第五卷",
+      "giver": "elder_zhuge",
+      "location": "chiyou_tomb",
+      "description": "探索蚩尤墓穴，封印上古妖物",
+      "objectives": [
+        {"id": 1, "type": "explore", "target": "chiyou_tomb", "description": "探索蚩尤墓穴"},
+        {"id": 2, "type": "boss_battle", "target": "wuhuashi", "description": "击败无华氏"},
+        {"id": 3, "type": "boss_battle", "target": "rongdun", "description": "击败戎敦"},
+        {"id": 4, "type": "boss_battle", "target": "qiongqi", "description": "击败穷奇"}
+      ],
+      "rewards": {"exp": 2000, "gold": 1500, "items": ["ancient_demon_core"]},
+      "repeatable": false
+    },
+    {
+      "id": "sq_015",
+      "title": "法宝炼制",
+      "chapter": "全章节",
+      "giver": "blacksmith_zhang",
+      "location": "shushan_foot",
+      "description": "帮助铁匠收集材料炼制法宝",
+      "objectives": [
+        {"id": 1, "type": "collect", "target": "spirit_iron", "count": 10, "description": "收集精铁"},
+        {"id": 2, "type": "collect", "target": "fire_essence", "count": 5, "description": "收集火之精华"},
+        {"id": 3, "type": "wait", "target": "alchemy_time", "description": "等待炼制完成"}
+      ],
+      "rewards": {"exp": 200, "gold": 100, "items": ["custom_artifact"]},
+      "repeatable": true,
+      "cooldown_hours": 72
+    }
+  ],
+  "quest_types": {
+    "main": "主线任务，推进剧情",
+    "side": "支线任务，获得额外奖励",
+    "daily": "每日任务，可重复完成",
+    "weekly": "每周任务，高难度高奖励"
+  },
+  "notes": [
+    "主线任务共22个，按5卷剧情设计",
+    "支线任务共15个，涵盖收集、战斗、探索等类型",
+    "部分支线任务可重复完成",
+    "完成任务可获得经验、金钱、物品、伙伴等奖励"
+  ]
+}
