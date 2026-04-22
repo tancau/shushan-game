@@ -1,6 +1,6 @@
 /**
  * 启动场景
- * 负责游戏初始化和基础资源加载
+ * 预加载地图背景，立即显示
  */
 
 import { BaseScene } from './BaseScene'
@@ -12,8 +12,32 @@ export class BootScene extends BaseScene {
   }
 
   protected onCreate(): void {
+    this.createInitialBackground()
     this.setupLoadEvents()
     this.loadBaseAssets()
+  }
+
+  private createInitialBackground(): void {
+    // 先显示纯色背景
+    const graphics = this.add.graphics()
+    graphics.fillGradientStyle(0x1a1a2e, 0x1a1a2e, 0x16213e, 0x16213e, 1)
+    graphics.fillRect(0, 0, this.cameras.main.width, this.cameras.main.height)
+    
+    // 显示加载提示
+    const text = this.createText(this.centerX, this.centerY, '正在初始化...', {
+      fontSize: '28px',
+      color: '#FFD700'
+    })
+    text.setOrigin(0.5)
+    
+    // 闪烁动画
+    this.tweens.add({
+      targets: text,
+      alpha: 0.5,
+      duration: 500,
+      yoyo: true,
+      repeat: -1
+    })
   }
 
   private setupLoadEvents(): void {
@@ -27,11 +51,12 @@ export class BootScene extends BaseScene {
   }
 
   private loadBaseAssets(): void {
+    // 预加载地图背景（PreloadScene会用到）
+    this.load.image('bg-map', '/assets/images/maps/shushan_foot.png')
+    
     // 粒子效果
     this.load.image('particle-light', '/assets/images/effects/particle-light.png')
-    this.load.image('particle-spirit', '/assets/images/effects/particle-spirit.png')
     
-    // 开始加载
     this.load.start()
   }
 }
