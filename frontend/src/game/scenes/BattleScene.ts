@@ -1,11 +1,11 @@
 /**
  * 战斗场景
- * 回合制战斗系统
+ * 回合制战斗系统 - 使用生成的美术资源
  */
 
 import { BaseScene } from './BaseScene'
 import { SCENE_KEYS } from '../Game'
-import { COLORS, DURATION, EASING } from '../config/gameConfig'
+import { COLORS } from '../config/gameConfig'
 
 interface BattleCharacter {
   sprite: Phaser.GameObjects.Sprite
@@ -40,54 +40,76 @@ export class BattleScene extends BaseScene {
   }
 
   private createBattleField(): void {
-    if (this.textures.exists('bg-battle')) {
-      this.add.image(this.centerX, this.centerY, 'bg-battle')
+    // 使用生成的地图背景
+    if (this.textures.exists('bg-map')) {
+      const bg = this.add.image(this.centerX, this.centerY, 'bg-map')
+      bg.setScale(0.8) // 适配屏幕
     } else {
+      // 备用渐变背景
       const graphics = this.add.graphics()
-      graphics.fillGradientStyle(COLORS.BG_DARK, COLORS.BG_DARK, COLORS.BG_MEDIUM, COLORS.BG_MEDIUM, 1)
+      graphics.fillGradientStyle(0x1a1a2e, 0x1a1a2e, 0x16213e, 0x16213e, 1)
       graphics.fillRect(0, 0, this.cameras.main.width, this.cameras.main.height)
     }
-
-    if (this.textures.exists('battle-ground')) {
-      this.add.image(this.centerX, 500, 'battle-ground')
-    } else {
-      const ground = this.add.rectangle(this.centerX, 500, this.cameras.main.width, 100, COLORS.BG_LIGHT, 0.5)
-      ground.setStrokeStyle(2, COLORS.PRIMARY_GOLD)
-    }
+    
+    // 战斗地面
+    const ground = this.add.rectangle(this.centerX, 500, this.cameras.main.width, 100, 0x16213E, 0.6)
+    ground.setStrokeStyle(2, COLORS.PRIMARY_GOLD)
   }
 
   private createCharacters(): void {
-    // 玩家
+    // 玩家 - 使用生成的动画帧
     const playerX = 200
     const playerY = 400
+    
     let playerSprite: Phaser.GameObjects.Sprite
     
-    if (this.textures.exists('player-sprite')) {
-      playerSprite = this.add.sprite(playerX, playerY, 'player-sprite')
+    if (this.textures.exists('player-idle')) {
+      playerSprite = this.add.sprite(playerX, playerY, 'player-idle')
+      playerSprite.setScale(0.8)
     } else {
+      // 备用占位符
       const graphics = this.add.graphics()
       graphics.fillStyle(COLORS.PRIMARY_GOLD, 0.8)
       graphics.fillCircle(playerX, playerY, 50)
       playerSprite = this.add.sprite(playerX, playerY, '__DEFAULT')
     }
 
-    this.player = { sprite: playerSprite, name: 'tancau', hp: 100, maxHp: 100, attack: 50, x: playerX, y: playerY }
+    this.player = { 
+      sprite: playerSprite, 
+      name: 'tancau', 
+      hp: 100, 
+      maxHp: 100, 
+      attack: 50, 
+      x: playerX, 
+      y: playerY 
+    }
 
-    // 敌人
+    // 敌人 - 使用生成的妖狼动画帧
     const enemyX = 1080
     const enemyY = 400
+    
     let enemySprite: Phaser.GameObjects.Sprite
     
-    if (this.textures.exists('enemy-sprite')) {
-      enemySprite = this.add.sprite(enemyX, enemyY, 'enemy-sprite')
+    if (this.textures.exists('wolf-idle')) {
+      enemySprite = this.add.sprite(enemyX, enemyY, 'wolf-idle')
+      enemySprite.setScale(0.8)
     } else {
+      // 备用占位符
       const graphics = this.add.graphics()
       graphics.fillStyle(COLORS.DANGER, 0.8)
       graphics.fillCircle(enemyX, enemyY, 50)
       enemySprite = this.add.sprite(enemyX, enemyY, '__DEFAULT')
     }
 
-    this.enemy = { sprite: enemySprite, name: '妖兽', hp: 500, maxHp: 500, attack: 30, x: enemyX, y: enemyY }
+    this.enemy = { 
+      sprite: enemySprite, 
+      name: '妖狼', 
+      hp: 500, 
+      maxHp: 500, 
+      attack: 30, 
+      x: enemyX, 
+      y: enemyY 
+    }
 
     this.createHealthBar(this.player)
     this.createHealthBar(this.enemy)
@@ -97,12 +119,15 @@ export class BattleScene extends BaseScene {
     const barWidth = 100
     const barY = character.y - 70
 
+    // 背景
     const bg = this.add.rectangle(character.x, barY, barWidth, 10, 0x333333)
     bg.setStrokeStyle(1, 0xFFFFFF)
 
+    // 填充（绿色HP条）
     const bar = this.add.rectangle(character.x - barWidth / 2 + 1, barY, barWidth - 2, 8, COLORS.DANGER)
     bar.setOrigin(0, 0.5)
 
+    // 名字
     const nameText = this.createText(character.x, barY - 20, character.name, { fontSize: '14px' })
     nameText.setOrigin(0.5)
 
@@ -110,30 +135,51 @@ export class BattleScene extends BaseScene {
   }
 
   private createBattleUI(): void {
-    this.turnText = this.createText(this.centerX, 30, `战斗 - 第 ${this.turnNumber} 回合`, { fontSize: '24px', color: '#FFD700' })
+    this.turnText = this.createText(this.centerX, 30, `战斗 - 第 ${this.turnNumber} 回合`, { 
+      fontSize: '24px', 
+      color: '#FFD700' 
+    })
     this.turnText.setOrigin(0.5)
 
-    const logBg = this.add.rectangle(this.centerX, 550, 600, 80, COLORS.BG_MEDIUM, 0.8)
+    // 战斗日志背景
+    const logBg = this.add.rectangle(this.centerX, 550, 600, 80, 0x16213E, 0.9)
     logBg.setStrokeStyle(2, COLORS.PRIMARY_GOLD)
 
-    const logTitle = this.createText(this.centerX, 520, '【战斗日志】', { fontSize: '16px', color: '#FFD700' })
+    const logTitle = this.createText(this.centerX, 520, '【战斗日志】', { 
+      fontSize: '16px', 
+      color: '#FFD700' 
+    })
     logTitle.setOrigin(0.5)
 
     this.logText = this.createText(this.centerX, 560, '', { fontSize: '14px' })
     this.logText.setOrigin(0.5)
-
-    const fleeButton = this.createButton(this.cameras.main.width - 100, 40, '逃跑', () => this.flee())
-    fleeButton.setScale(0.7)
   }
 
   private createActionButtons(): void {
     const buttonY = 650
     const spacing = 150
-    const startX = this.centerX - spacing
+    const startX = this.centerX - spacing * 1.5
 
-    this.createButton(startX, buttonY, '攻击', () => this.performAttack())
-    this.createButton(startX + spacing, buttonY, '技能', () => this.showSkills())
-    this.createButton(startX + spacing * 2, buttonY, '法宝', () => this.showArtifacts())
+    // 使用生成的按钮图片
+    const buttons = [
+      { key: 'button-attack', label: '攻击', action: () => this.performAttack() },
+      { key: 'button-skill', label: '技能', action: () => this.showSkills() },
+      { key: 'button-item', label: '物品', action: () => this.showItems() },
+      { key: 'button-defend', label: '防御', action: () => this.defend() }
+    ]
+
+    buttons.forEach((btn, i) => {
+      if (this.textures.exists(btn.key)) {
+        const button = this.add.image(startX + spacing * i, buttonY, btn.key)
+        button.setInteractive({ useHandCursor: true })
+        button.on('pointerdown', btn.action)
+        button.on('pointerover', () => button.setScale(1.1))
+        button.on('pointerout', () => button.setScale(1))
+      } else {
+        // 备用文字按钮
+        this.createButton(startX + spacing * i, buttonY, btn.label, btn.action)
+      }
+    })
   }
 
   private startBattle(): void {
@@ -144,14 +190,24 @@ export class BattleScene extends BaseScene {
   private async performAttack(): Promise<void> {
     if (!this.isPlayerTurn) return
     this.isPlayerTurn = false
-    this.sound.play('sfx-sword', { volume: 0.7 })
+    
+    // 播放音效
+    if (this.sound.get('sfx-sword')) {
+      this.sound.play('sfx-sword', { volume: 0.7 })
+    }
 
     const damage = Math.floor(this.player.attack * (0.8 + Math.random() * 0.4))
+    
+    // 攻击动画
     await this.playAttackAnimation(this.player, this.enemy)
-    this.createSwordSlash(this.player.x, this.player.y, this.enemy.x, this.enemy.y)
+    
+    // 显示伤害
     this.showDamageNumber(this.enemy.x, this.enemy.y - 50, damage, false)
+    
+    // 造成伤害
     await this.takeDamage(this.enemy, damage)
-    this.addLog(`[回合${this.turnNumber}] 攻击造成 ${damage} 伤害`)
+    
+    this.addLog(`攻击造成 ${damage} 伤害`)
 
     if (this.enemy.hp <= 0) {
       await this.onBattleWon()
@@ -175,55 +231,63 @@ export class BattleScene extends BaseScene {
     })
   }
 
-  private createSwordSlash(fromX: number, fromY: number, toX: number, toY: number): void {
-    const graphics = this.add.graphics()
-    graphics.lineStyle(4, COLORS.PRIMARY_GOLD, 1)
-    graphics.beginPath()
-    graphics.moveTo(fromX, fromY)
-    graphics.lineTo(toX, toY)
-    graphics.strokePath()
+  private showDamageNumber(x: number, y: number, damage: number, isPlayer: boolean): void {
+    const color = isPlayer ? '#F45C43' : '#38EF7D'
+    const text = this.createText(x, y, `${damage}`, { 
+      fontSize: '32px', 
+      color: color 
+    })
+    text.setOrigin(0.5)
 
     this.tweens.add({
-      targets: graphics,
+      targets: text,
+      y: y - 50,
       alpha: 0,
-      duration: 300,
-      onComplete: () => {
-        graphics.destroy()
-        this.createHitEffect(toX, toY)
-      }
+      duration: 1000,
+      onComplete: () => text.destroy()
     })
-  }
-
-  private createHitEffect(x: number, y: number): void {
-    if (this.textures.exists('particle-light')) {
-      this.add.particles(x, y, 'particle-light', {
-        speed: { min: 100, max: 200 },
-        scale: { start: 0.5, end: 0 },
-        lifespan: 500,
-        quantity: 10,
-        blendMode: 'ADD'
-      }).explode()
-    }
   }
 
   private async takeDamage(character: BattleCharacter, damage: number): Promise<void> {
     character.hp = Math.max(0, character.hp - damage)
+    
     const healthBar = character.healthBar
     if (healthBar) {
       const progress = character.hp / character.maxHp
-      this.tweens.add({ targets: healthBar, width: 98 * progress, duration: 300 })
+      this.tweens.add({ 
+        targets: healthBar, 
+        width: 98 * progress, 
+        duration: 300 
+      })
     }
-    this.tweens.add({ targets: character.sprite, alpha: 0.5, duration: 100, yoyo: true })
+    
+    // 受击动画
+    this.tweens.add({ 
+      targets: character.sprite, 
+      alpha: 0.5, 
+      duration: 100, 
+      yoyo: true 
+    })
   }
 
   private async enemyTurn(): Promise<void> {
     const damage = Math.floor(this.enemy.attack * (0.8 + Math.random() * 0.4))
+    
     await this.playAttackAnimation(this.enemy, this.player)
-    this.shake(0.02, 200)
+    
+    // 播放受击音效
+    if (this.sound.get('sfx-hit')) {
+      this.sound.play('sfx-hit', { volume: 0.7 })
+    }
+    
+    // 屏幕震动
+    this.cameras.main.shake(200, 0.02)
+    
     this.showDamageNumber(this.player.x, this.player.y - 50, damage, true)
-    this.sound.play('sfx-hit', { volume: 0.7 })
+    
     await this.takeDamage(this.player, damage)
-    this.addLog(`[回合${this.turnNumber}] 敌人攻击造成 ${damage} 伤害`)
+    
+    this.addLog(`敌人攻击造成 ${damage} 伤害`)
 
     if (this.player.hp <= 0) {
       await this.onBattleLost()
@@ -236,47 +300,38 @@ export class BattleScene extends BaseScene {
   }
 
   private async onBattleWon(): Promise<void> {
-    this.showVictoryEffect()
-    this.sound.play('sfx-victory', { volume: 0.7 })
+    // 播放胜利音效
+    if (this.sound.get('sfx-victory')) {
+      this.sound.play('sfx-victory', { volume: 0.7 })
+    }
+    
     this.showMessage('战斗胜利！获得 100 经验，50 灵石', 3000, { color: '#FFD700' })
+    
     await this.delay(3000)
     this.transitionTo({ targetScene: SCENE_KEYS.WORLD_MAP })
   }
 
-  private showVictoryEffect(): void {
-    if (this.textures.exists('particle-light')) {
-      this.add.particles(this.centerX, this.centerY, 'particle-light', {
-        speed: { min: 100, max: 200 },
-        angle: { min: 0, max: 360 },
-        scale: { start: 0.8, end: 0 },
-        lifespan: 2000,
-        quantity: 30,
-        blendMode: 'ADD'
-      }).explode()
-    }
-  }
-
   private async onBattleLost(): Promise<void> {
-    this.sound.play('sfx-defeat', { volume: 0.7 })
     this.showMessage('战斗失败...', 3000, { color: '#F45C43' })
     await this.delay(3000)
-    this.transitionTo({ targetScene: SCENE_KEYS.CHARACTER })
-  }
-
-  private flee(): void {
-    this.sound.play('sfx-cancel', { volume: 0.7 })
-    this.showMessage('逃跑成功！', 1500)
-    this.time.delayedCall(1500, () => this.transitionTo({ targetScene: SCENE_KEYS.WORLD_MAP }))
+    this.transitionTo({ targetScene: SCENE_KEYS.MAIN_MENU })
   }
 
   private showSkills(): void {
-    this.sound.play('sfx-click', { volume: 0.7 })
+    this.addLog('技能功能开发中...')
     this.showMessage('技能功能开发中...', 2000)
   }
 
-  private showArtifacts(): void {
-    this.sound.play('sfx-click', { volume: 0.7 })
-    this.showMessage('法宝功能开发中...', 2000)
+  private showItems(): void {
+    this.addLog('物品功能开发中...')
+    this.showMessage('物品功能开发中...', 2000)
+  }
+
+  private defend(): void {
+    if (!this.isPlayerTurn) return
+    this.addLog('进入防御姿态，减少50%伤害')
+    this.isPlayerTurn = false
+    this.time.delayedCall(500, () => this.enemyTurn())
   }
 
   private addLog(message: string): void {
